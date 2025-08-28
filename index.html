@@ -4,190 +4,8 @@
   <meta charset="UTF-8">
   <title>TanzeelFoundation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* Reset */
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: Arial, sans-serif; line-height:1.6; }
-
-    /* Navbar */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #004b1f;
-      color: white;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    nav {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      max-width:100%;
-      margin:auto;
-      padding:10px 20px;
-      color:white;
-      
-    }
-    
-    nav .logo {
-      font-size:1.5em;
-      font-weight:bold;
-      color:white;
-    margin-right: 2px;
-    
-    }
-    nav ul {
-      
-      list-style-type: none;
-      display:flex;
-      gap:7px;
-      color: gray;
-    }
-    nav ul li {
-      position:relative;
-      list-style-type: none;
-      
-    }
-    nav ul li a {
-      padding:10px 20px;
-      color:white;
-      font-weight:500;
-        list-style-type: none;
-        text-decoration: none;
-        
-    }
-    nav ul li:hover > ul {
-      display:block;
-    }
-    /* Dropdown */
-    nav ul ul {
-      display:none;
-      position:absolute;
-      top:100%;
-      left:0;
-      background:#004b1f;
-      border:0px solid gray;
-      min-width:180px;
-    }
-    nav ul ul li {
-      display:block;
-    }
-    nav ul ul li a {
-      display:block;
-      padding:10px;
-    }
-    nav ul ul li a:hover {
-      background:#076e22;
-    }
-
-    /* Hero */
-    .hero {
-      background:url('wakuu.jpg') center/cover no-repeat;
-      color:#fff;
-      text-align:center;
-      padding:100px 20px;
-
-    }
-    .hero h1 {
-      font-size:3em;
-      margin-bottom:20px;
-      text-shadow:0 2px 4px rgba(0,0,0,0.5);
-    }
-    .hero p {
-      font-size:1.2em;
-      margin-bottom:20px;
-    }
-    .btn {
-      background:#ad2a35;
-      color:#fff;
-      padding:20px 30px;
-      border-radius:0px;
-      text-decoration:none;
-      font-weight:bold;
-      margin:0px;
-      display:inline-block;
-    }
-
-     .btn1 {
-      background:#ad2a35;
-      color:#fff;
-      padding:20px 30px;
-      border-radius:0px;
-      text-decoration:none;
-      font-weight:bold;
-      margin:0px;
-      display:inline-block;
-    
-     
-      
-      
-    
-    }
-
-     .btn1:hover { background:#9c121d; }
-    .btn:hover { background:#004b1f; }
-
-    /* Sections */
-    .section {
-      max-width:1200px;
-      margin:auto;
-      padding:60px 20px;
-      text-align:center;
-    }
-    .section h2 { font-size:2em; margin-bottom:30px; }
-
-    .grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-      gap:20px;
-    }
-    .card {
-      border:1px solid #ddd;
-      border-radius:8px;
-      overflow:hidden;
-      text-align:left;
-      background:#fff;
-    }
-    .card img {
-      width:100%;
-      height:180px;
-      object-fit:cover;
-    }
-    .card .content { padding:20px; }
-    .card h3 { margin-bottom:10px; color:#057d8f; }
-    .card p { margin-bottom:15px; font-size:0.95em; }
-
-    /* Policy banner */
-    .policy {
-      background:#f5f5f5;
-      padding:40px 20px;
-      font-size:1.2em;
-      font-weight:bold;
-      text-align:center;
-    }
-
-    /* Footer */
-    footer {
-      background:#004b1f;
-      color:#eee;
-      padding:40px 20px;
-    }
-    footer .footer-grid {
-      max-width:1200px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
-      gap:20px;
-    }
-    footer h4 { margin-bottom:15px; color:#fff; }
-    footer ul { list-style:none; }
-    footer ul li { margin-bottom:8px; }
-    footer ul li a { color:#eee; font-size:0.95em; }
-    footer ul li a:hover { text-decoration:underline; }
-    footer p { text-align:center; margin-top:20px; font-size:0.9em; }
-  </style>
+  <link rel="stylesheet" href="styles.css">   
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -195,7 +13,7 @@
   <header>
     <nav>
       <div class="logo">
-       <img src="logo.png" alt="Tanzeel Logo" style="height:70px; vertical-align:middle; margin-right:8px; display:inline-block;">
+       <img src="picha/logo.png" alt="Tanzeel Logo" style="height:70px; vertical-align:middle; margin-right:8px; display:inline-block;">
         <span style="display:inline-block; vertical-align:middle;">TanzeelFoundation</span>
       
       </div>
@@ -260,7 +78,7 @@
     <h2>Featured Appeals</h2>
     <div class="grid">
       <div class="card">
-        <img src="education.jpg" alt="NISOMESHE">
+        <img src="picha/education.jpg" alt="NISOMESHE">
         <div class="content">
           <h3>NISOMESHE</h3>
           <p>Help deliver urgent food, shelter, and medical aid.</p>
@@ -268,7 +86,7 @@
         </div>
       </div>
       <div class="card">
-        <img src="TSDF.jpg" alt="Tanzeel Social Development Fund">
+        <img src="picha/TSDF.jpg" alt="Tanzeel Social Development Fund">
         <div class="content">
           <h3>Tanzeel Social Development Fund</h3>
           <p>Support community with relief packs.</p>
@@ -276,7 +94,7 @@
         </div>
       </div>
       <div class="card">
-        <img src="mahir.jpg" alt="damu">
+        <img src="picha/mahir.jpg" alt="damu">
         <div class="content">
           <h3>Blood Donation</h3>
           <p>join with us and volunteer to blood donation to provide wide capacity of blood to blood bank to save peoples life.</p>
@@ -289,11 +107,11 @@
   <section class="section">
     <h2>What We Do</h2>
     <div class="grid">
-      <div class="card"><img src="food2.jpg" alt=""><div class="content"><h3>IFTAR CHARITY DINNER</h3>
+      <div class="card"><img src="picha/food2.jpg" alt=""><div class="content"><h3>IFTAR CHARITY DINNER</h3>
 </div></div>
-      <div class="card"><img src="elimu.jpg" alt=""><div class="content"><h3>Education</h3></div></div>
-      <div class="card"><img src="doct.jpg" alt=""><div class="content"><h3>Healthcare</h3></div></div>
-      <div class="card"><img src="begi.jpg" alt=""><div class="content"><h3>Livelihoods</h3></div></div>
+      <div class="card"><img src="picha/elimu.jpg" alt=""><div class="content"><h3>Education</h3></div></div>
+      <div class="card"><img src="picha/doct.jpg" alt=""><div class="content"><h3>Healthcare</h3></div></div>
+      <div class="card"><img src="picha/begi.jpg" alt=""><div class="content"><h3>Livelihoods</h3></div></div>
     </div>
   </section>
 
@@ -306,9 +124,9 @@
   <section class="section">
     <h2>Our Impact</h2>
     <div class="grid">
-      <div class="card"><img src="hospital.jpg" alt=""><div class="content"><h3>Hospital and Clinic</h3></div></div>
-      <div class="card"><img src="begi.jpg" alt=""><div class="content"><h3>Schools for Children</h3></div></div>
-      <div class="card"><img src="edu.jpg" alt=""><div class="content"><h3>Empowering in Education</h3></div></div>
+      <div class="card"><img src="picha/hospital.jpg" alt=""><div class="content"><h3>Hospital and Clinic</h3></div></div>
+      <div class="card"><img src="picha/begi.jpg" alt=""><div class="content"><h3>Schools for Children</h3></div></div>
+      <div class="card"><img src="picha/edu.jpg" alt=""><div class="content"><h3>Empowering in Education</h3></div></div>
     </div>
   </section>
 
