@@ -1,0 +1,414 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+  <main class="main">
+
+    <!-- Blog Hero Section -->
+    <section id="blog-hero" class="blog-hero section">
+
+      <div class="container-fluid p-0" data-aos="fade">
+
+        <div class="blog-hero-slider swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 1000,
+              "effect": "fade",
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": 1,
+              "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              }
+            }
+          </script>
+
+          <div class="swiper-wrapper">
+            {% for content in homepage_content %}
+            <div class="swiper-slide">
+              <div class="blog-hero-item">
+                {% if content.image %}
+                <img src="{{ content.image.url }}" alt="{{ content.large_title }}" class="img-fluid">
+                {% endif %}
+                <div class="blog-hero-content">
+                  <span class="category">{{ content.small_title }}</span>
+                  <h1>{{ content.large_title }}</h1>
+                  <div class="meta">
+                    <span class="author">BY <a href="#">{{ content.link_url }}</a></span>
+                    <span class="date">{{ content.event_date }}</span>
+                    <span class="read-time">{{ content.event_location }}</span>
+                    <span class="views">{{ content.event_time }}</span>
+                  </div>
+                  {% if content.link_url %}
+                  <a href="{{ content.link_url }}" class="read-more">More Details <i class="bi bi-arrow-right"></i></a>
+                  {% endif %}
+                </div>
+              </div>
+            </div><!-- End slide item -->
+            {% endfor %}
+        </div>
+
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Blog Hero Section -->
+
+    <!-- Featured Posts Section -->
+    <section id="featured-posts" class="featured-posts section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Featured Posts</span>
+        <h2>Featured Posts</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="blog-posts-slider swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 4500
+              },
+              "slidesPerView": 1,
+              "spaceBetween": 40,
+              "centeredSlides": true,
+              "breakpoints": {
+                "768": {
+                  "slidesPerView": 1.5,
+                  "spaceBetween": 30
+                },
+                "1200": {
+                  "slidesPerView": 2.2,
+                  "spaceBetween": 40
+                }
+              },
+              "pagination": {
+                "el": ".swiper-pagination",
+                "clickable": true
+              }
+            }
+          </script>
+
+          <div class="swiper-wrapper">
+            {% for Sliding_image in homepage_sliding_images %}
+                <div class="swiper-slide">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        {% if Sliding_image.image1 %}
+                        <img src="{{ Sliding_image.image1.url }}" alt="Blog Image" loading="lazy">
+                        {% endif %}
+                        <div class="category-badge">{{ Sliding_image.category }}</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="author-info">
+                            {% if Sliding_image.image2 %}
+                            <img src="{{ Sliding_image.image2.url }}" alt="Author" class="author-avatar">
+                            {% endif %}
+                            <div class="author-details">
+                                <span class="author-name">{{ Sliding_image.small_title }}</span>
+                                <span class="publish-date">{{ Sliding_image.date }}</span>
+                            </div>
+                        </div>
+                        {% if Sliding_image.link_url1 %}
+                        <h3><a href="{{ Sliding_image.link_url1 }}">{{ Sliding_image.link_url1 }}</a></h3>
+                        {% endif %}
+                        <p>{{ Sliding_image.description }}</p>
+                        <div class="blog-footer">
+                            <div class="reading-time">
+                                <i class="bi bi-clock"></i>
+                                <span>{{ Sliding_image.time }}</span>
+                            </div>
+                            {% if Sliding_image.link_url2 %}
+                                <a href="{{ Sliding_image.link_url2 }}" class="btn-read-more">
+                                <span>Continue Reading</span>
+                                <i class="bi bi-arrow-right"></i>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+                </div><!-- End slide item -->
+            {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </section><!-- /Featured Posts Section -->
+
+    <!-- Category Section Section -->
+    <section id="category-section" class="category-section section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Category Section</span>
+        <h2>Category Section</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <!-- Main Featured Post -->
+        <div class="row gy-4 mb-5">
+            {% if HomePage_Category_Sections %}
+                <div class="col-lg-8">
+                    <article class="hero-post" data-aos="zoom-out" data-aos-delay="200">
+                        {% if HomePage_Category_Sections.image1 %}
+                            <div class="post-img">
+                                <img src="{{ HomePage_Category_Sections.image1.url }}" alt="{{ HomePage_Category_Sections.title }}" class="img-fluid" loading="lazy">
+                            </div>
+                        {% endif %}
+                    <div class="post-content">
+                        {% if HomePage_Category_Sections.image2 %}
+                            <div class="author-info">
+                                <img src="{{ HomePage_Category_Sections.image2.url }}" alt="" class="author-avatar">
+                                <div class="author-details">
+                                    <span class="author-name">{{ HomePage_Category_Sections.title }}</span>
+                                    <span class="post-date">{{ HomePage_Category_Sections.date|date:"d F Y" }}</span>
+                                </div>
+                            </div>
+                        {% endif %} 
+                        <h2 class="post-title">
+                            <a href="blog-details.html">{{ HomePage_Category_Sections.link_url1 }}</a>
+                        </h2>
+                        <p class="post-excerpt">{{ HomePage_Category_Sections.description }}</p>
+                        <div class="post-stats">
+                            <span class="read-time"><i class="bi bi-clock"></i>{{ HomePage_Category_Sections.time }}</span>
+                            <span class="comments"><i class="bi bi-chat-dots"></i>{{ HomePage_Category_Sections.comment }}</span>
+                        </div>
+                    </div>
+                    </article>
+                </div>
+            {% endif %}
+          <div class="col-lg-4">  
+            <div class="sidebar-posts">
+                {% for sidebar_post in HomePage_Category_Side_Sections %}
+                    <article class="sidebar-post" data-aos="fade-left" data-aos-delay="300">
+                        <div class="post-img">
+                            {% if sidebar_post.image %}
+                                <img src="{{ sidebar_post.image.url }}" alt="{{ sidebar_post.title }}" class="img-fluid" loading="lazy">
+                            {% endif %}
+                        </div>
+                        <div class="post-content">
+                            <span class="post-category">{{sidebar_post.title}}</span>
+                            <h4 class="title">
+                                {% if sidebar_post.link_url %}
+                                    <a href="blog-details.html">{{ sidebar_post.link_url }}</a>
+                                {% endif %}
+                            </h4>
+                            <div class="post-meta">
+                                <span class="post-date">{{ sidebar_post.date|date:"d F Y" }}</span>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid Posts -->
+        <div class="posts-grid">
+          <div class="row gy-4">
+            {% for post in HomePage_Category_Bottom_Sections %}
+              {% if forloop.counter <= 4 %}
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                  <article class="grid-post">
+                    <div class="post-img">
+                      {% if post.image1 %}
+                        <img src="{{ post.image1.url }}" alt="{{ post.titl1 }}" class="img-fluid" loading="lazy">
+                      {% endif %}  
+                        <div class="post-overlay">
+                          <span class="category-tag">{{ post.title1 }}</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                      <h3 class="title">
+                        {% if post.link_url %}
+                          <a href="blog-details.html">{{ post.link_url }}</a>
+                        {% endif %}
+                        </h3>
+                      <p class="excerpt">{{ post.description }}</p>
+                      <div class="post-footer">
+                        <div class="author-info">
+                            {% if post.image2 %}
+                              <img src="{{ post.image2.url }}" alt="{{ post.titl2 }}" class="author-img">
+                            {% endif %}
+                            <span class="author-name">{{ post.title2 }}</span>
+                        </div>
+                        <span class="read-time">{{ post.time }}</span>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Category Section Section -->
+
+    <!-- Latest Posts Section -->
+    <section id="latest-posts" class="latest-posts section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Latest Posts</span>
+        <h2>Latest Posts</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 align-items-stretch">
+          {% if HomePage_Posts_Mains %}
+              <div class="col-lg-7" data-aos="zoom-in" data-aos-delay="150">
+                <article class="featured-post position-relative h-100">
+                  <figure class="featured-media m-0">
+                    {% if HomePage_Posts_Mains.image %}
+                      <img src="{{ HomePage_Posts_Mains.image.url }}" alt="Featured post image" class="img-fluid w-100" loading="lazy">
+                    {% endif %}
+                    </figure>
+
+                  <div class="featured-content">
+                    <div class="date-badge">
+                      <span class="day">{{HomePage_Posts_Mains.day}}</span>
+                      <span class="mon">{{HomePage_Posts_Mains.month}}</span>
+                    </div>
+
+                    <span class="cat-badge inverse">{{HomePage_Posts_Mains.small_title}}</span>
+
+                    <h3 class="title">{{HomePage_Posts_Mains.large_title}}</h3>
+                    <p class="excerpt d-none d-md-block">{{HomePage_Posts_Mains.description}}</p>
+
+                    <div class="meta d-flex align-items-center gap-3">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-person"></i><span class="ps-2">{{HomePage_Posts_Mains.hoster_name}}</span>
+                      </div>
+                      <span class="sep">/</span>
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-folder2"></i><span class="ps-2">{{HomePage_Posts_Mains.content}}</span>
+                      </div>
+                    </div>
+                      <a href="{{HomePage_Posts_Mains.link_url}}" class="readmore stretched-link"><span>Continue</span><i class="bi bi-arrow-right"></i></a> 
+                  </div>
+                </article>
+              </div>
+          {% endif %}
+            <!-- End Featured Post -->
+
+
+          <!-- Right Column -->
+          <div class="col-lg-5">
+            <div class="row gy-4">
+              {% for side_post in HomePage_Posts_Sides %}
+                {% if forloop.counter <= 3 %}
+                  <div class="col-12" data-aos="fade-left" data-aos-delay="200">
+                    <article class="compact-post h-100">
+                      <div class="thumb">
+                        {% if side_post.image %}
+                          <img src="{{ side_post.image.url }}" class="img-fluid" alt="{{ side_post.major_title }}" loading="lazy">
+                        {% endif %}
+                      </div>
+                      <div class="content">
+                        <div class="meta">
+                          <span class="date">{{ side_post.date|date:"d F Y" }}</span>
+                          <span class="dot">•</span>
+                          <span class="category">{{ side_post.major_title }}</span>
+                        </div>
+                        <h4 class="title">{{ side_post.descriptive_title }}</h4>
+                        {% if side_post.link_url %}
+                          <a href="{{ side_post.link_url }}" class="readmore"><span>Read Article</span><i class="bi bi-arrow-right"></i></a>
+                        {% endif %}  
+                      </div>
+                    </article>
+                  </div>
+                {% endif %}
+              {% endfor %}
+              <!-- End Compact Post -->
+            </div>
+          </div>
+          <!-- End Right Column -->
+
+          {% for posts in HomePage_Posts_Bottom_Sections %}
+            {% if forloop.counter <= 3 %}
+              <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <article class="card-post h-100">
+                  <div class="post-img position-relative overflow-hidden">
+                    {% if posts.image %}
+                      <img src="{{ posts.image.url }}" class="img-fluid w-100" alt="{{ posts.title }}" loading="lazy">
+                    {% endif %}
+                  </div>
+                  <div class="content">
+                    <div class="meta d-flex align-items-center flex-wrap gap-2">
+                      <span class="cat-badge">{{ posts.title }}</span>
+                      <div class="d-flex align-items-center ms-auto">
+                        <i class="bi bi-person"></i><span class="ps-2">{{ posts.hoster_name }}</span>
+                      </div>
+                    </div>
+                    <h3 class="title">{{ posts.description }}</h3>
+                      {% if posts.link_url %}
+                        <a href="{{ posts.link_url }}" class="readmore"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                      {% endif %}
+                    </div>
+                </article>
+              </div><!-- End Grid Post -->
+            {% endif %}
+          {% endfor %}
+          {% comment %} <div class="col-lg-4" data-aos="fade-up" data-aos-delay="250">
+            <article class="card-post h-100">
+              <div class="post-img position-relative overflow-hidden">
+                <img src="{% static 'assets/img/blog/blog-post-4.webp' %}" class="img-fluid w-100" alt="Post image" loading="lazy">
+              </div>
+              <div class="content">
+                <div class="meta d-flex align-items-center flex-wrap gap-2">
+                  <span class="cat-badge">Travel</span>
+                  <div class="d-flex align-items-center ms-auto">
+                    <i class="bi bi-person"></i><span class="ps-2">Courtney Henry</span>
+                  </div>
+                </div>
+                <h3 class="title">Dicta similique totam, suscipit soluta veritatis perferendis</h3>
+                <a href="blog-details.html" class="readmore"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div><!-- End Grid Post -->
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <article class="card-post h-100">
+              <div class="post-img position-relative overflow-hidden">
+                <img src="{% static 'assets/img/blog/blog-post-6.webp' %}" class="img-fluid w-100" alt="Post image" loading="lazy">
+              </div>
+              <div class="content">
+                <div class="meta d-flex align-items-center flex-wrap gap-2">
+                  <span class="cat-badge">Lifestyle</span>
+                  <div class="d-flex align-items-center ms-auto">
+                    <i class="bi bi-person"></i><span class="ps-2">Wade Warren</span>
+                  </div>
+                </div>
+                <h3 class="title">Natus consequuntur, numquam adipisci cumque facilisis</h3>
+                <a href="blog-details.html" class="readmore"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+              </div>
+            </article>
+          </div><!-- End Grid Post --> {% endcomment %}
+
+        </div>
+
+      </div>
+
+    </section><!-- /Latest Posts Section -->
+
+  </main>
+
+
+{% endblock content %}
