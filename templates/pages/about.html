@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1 class="heading-title">About</h1>
+              <p class="mb-0">{{ about_us_title.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'pages:homepage' %}">Home</a></li>
+            <li class="current">About</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6 position-relative">
+            <div class="about-img" data-aos="fade-right">
+              {% if About_us_top_sections.image %}
+                <img src="{{ About_us_top_sections.image.url }}" class="img-fluid" alt="">
+              {% endif %}
+              </div>
+            <div class="experience-badge" data-aos="fade-up">
+              <h2>{{ About_us_top_sections.years_of_experience }}</h2>
+              <p>Years of<br>Experiense</p>
+            </div>
+            <div class="projects-badge" data-aos="fade-left">
+              <h2>{{ About_us_top_sections.no_of_events }}</h2>
+              <p>Events</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left">
+            <h2 class="display-4 fw-bold mb-4">{{ About_us_top_sections.major_title }}</h2>
+            <p class="lead mb-4">{{ About_us_top_sections.major_description }}</p>
+
+            <div class="features">
+              <div class="feature-item mb-4" data-aos="fade-up">
+                <div class="feature-icon">
+                  <i class="bi bi-rocket-takeoff"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>{{ About_us_top_sections.minor_title1 }}</h4>
+                  <p>{{ About_us_top_sections.minor_description1 }}</p>
+                </div>
+              </div>
+
+              <div class="feature-item mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                  <i class="bi bi-globe2"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>{{ About_us_top_sections.minor_title2 }}</h4>
+                  <p>{{ About_us_top_sections.minor_description2 }}</p>
+                </div>
+              </div>
+
+              <ul class="check-list" data-aos="fade-up" data-aos-delay="200">
+                <li><i class="bi bi-check-circle"></i>{{ About_us_top_sections.comment1 }}</li>
+                <li><i class="bi bi-check-circle"></i>{{ About_us_top_sections.comment2 }}</li>
+              </ul>
+
+              <a href="#" class="btn btn-primary btn-lg mt-4" data-aos="fade-up" data-aos-delay="300">Learn More</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Team</span>
+        <h2>Team</h2>
+        <p>{{ About_us_team_titles.description }}</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-4">
+          {% for team_member in About_us_teams %}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="team-member">
+                <div class="member-image">
+                  {% if team_member.image %}
+                    <img src="{{ team_member.image.url }}" class="img-fluid" alt="" loading="lazy">
+                  {% endif %}
+                    <div class="social-overlay">
+                    <div class="social-icons">
+                      {% if team_member.linkedin_link_url %}
+                        <a href="{{ team_member.linkedin_link_url }}"><i class="bi bi-linkedin"></i></a>
+                      {% endif %}
+                      {% if team_member.twitter_link_url %}
+                        <a href="{{ team_member.twitter_link_url }}"><i class="bi bi-twitter-x"></i></a>
+                      {% endif %}
+                      {% if team_member.instagram_link_url %}
+                        <a href="{{ team_member.instagram_link_url }}"><i class="bi bi-instagram"></i></a>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>{{ team_member.name }}</h4>
+                  <span>{{ team_member.ocupation }}</span>
+                  <p>{{ team_member.description }}</p>
+                </div>
+              </div>
+              <!-- End Team Member -->
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </section><!-- /Team Section -->
+
+  </main>
+
+
+{% endblock content %}

@@ -1,8 +1,17 @@
 from django.shortcuts import render
 from django.http import Http404
 from django.template import TemplateDoesNotExist
+from .models import SiteSettings
 
 # Create your views here.
+def base(request):
+    site_setting = SiteSettings.objects.first()
+
+    context = {
+        'site_settings': site_setting,
+    }
+    return render(request, 'base.html', context)
+
 
 def handler404(request, exception):
     return render(request, 'core/404.html', status=404)

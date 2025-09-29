@@ -103,3 +103,48 @@ class HomePage_Posts_Bottom_Section(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+
+    
+class About_us_title(models.Model):
+    description = models.TextField()
+
+    def __str__(self):
+        return "About Us Content"
+    
+class About_us_top_section(models.Model):
+    image = models.ImageField(upload_to='Top_section/')
+    years_of_experience = models.CharField(max_length=2)
+    no_of_events = models.CharField(max_length=3)
+    major_title = models.CharField(max_length=30)
+    major_description = models.CharField(max_length=255,blank=True)
+    minor_title1 = models.CharField(max_length=30)
+    minor_description1 = models.CharField(max_length=255,blank=True)
+    minor_title2 = models.CharField(max_length=30)
+    minor_description2 = models.CharField(max_length=255,blank=True)
+    comment1 = models.CharField(max_length=100, blank=True)
+    comment2 = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return "Top Section"
+
+    
+class About_us_team_title(models.Model):
+    description = models.TextField()
+
+    def __str__(self):
+        return "About Us Team Title"
+    
+class About_us_team(models.Model):
+    image = models.ImageField(upload_to='About_us_team/')
+    linkedin_link_url = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
+    twitter_link_url = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
+    instagram_link_url = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
+    name = models.CharField(max_length=20)
+    ocupation = models.CharField(max_length=20)
+    description = models.CharField(max_length=255,blank=True)
+    aprove = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.ocupation

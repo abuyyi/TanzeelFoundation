@@ -8,6 +8,10 @@ from .models import (HomePage_Image,
                      HomePage_Posts_Main,
                      HomePage_Posts_Side,
                      HomePage_Posts_Bottom_Section,
+                     About_us_title,
+                     About_us_team,
+                     About_us_team_title,
+                     About_us_top_section,
                     )
 
 # Create your views here.
@@ -35,3 +39,21 @@ def homepage(request):
             'HomePage_Posts_Bottom_Sections': HomePage_Posts_Bottom_Sections,
         }
     return render(request, 'pages/homepage.html', context)
+
+def about(request):
+    # Get all the about us content
+    about_us_title = About_us_title.objects.first()
+    About_us_teams = About_us_team.objects.filter(aprove = True)
+    About_us_team_titles = About_us_team_title.objects.first()
+    About_us_top_sections = About_us_top_section.objects.first()
+    # Pass it to the template in a context dictionary
+    context = {
+            'about_us_title': about_us_title,
+            'About_us_teams': About_us_teams,
+            'About_us_team_titles': About_us_team_titles,
+            'About_us_top_sections': About_us_top_sections,
+        }
+    return render(request, 'pages/about.html', context)
+
+def contact(request):
+    return render(request, 'pages/contact.html')
