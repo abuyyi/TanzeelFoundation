@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
+    path('blog/', views.blog, name='blog'),
 ]
 handler404 = 'core.views.handler404'
 handler500 = 'core.views.handler500'

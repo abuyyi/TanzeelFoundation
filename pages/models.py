@@ -148,3 +148,98 @@ class About_us_team(models.Model):
 
     def __str__(self):
         return self.ocupation
+    
+
+
+class blog_top_image(models.Model):
+    image = models.ImageField(upload_to='blog_top_image')
+    image_description_major = models.CharField(max_length=100)
+    image_description_minor = models.CharField(max_length=255, blank=True)
+    image_profile = models.ImageField(upload_to='blog_top_image_profile')
+    profile_name = models.CharField(max_length=50)
+    profile_occupation = models.CharField(max_length=50)
+    date_posted = models.DateField(null=True, blank=True)
+    time_posted = models.TimeField(null=True, blank=True)
+    aprove = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.image_description_major
+    
+
+
+class Article_tab(models.Model):
+    tab_one = models.CharField(max_length=50)
+    tab_two = models.CharField(max_length=50)
+    tab_three = models.CharField(max_length=50)
+    tab_four = models.CharField(max_length=50) 
+    tab_five = models.CharField(max_length=50)
+    
+
+    def __str__(self):
+        return self.tab_one
+    
+class tab_one(models.Model):
+    major_description = models.CharField(max_length=300)
+    minor_description = models.CharField(max_length=255, blank=True)
+    quote = models.CharField(max_length=255, blank=True)
+    quote_author = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.major_description
+    
+class tab_two(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='tab_two_images/')
+    image_description = models.CharField(max_length=80, blank=True)
+    image_explanation = models.CharField(max_length=300, blank=True)
+
+    def __str__(self):
+        return self.title
+    
+class tab_three(models.Model):
+    title = models.CharField(max_length=40)
+    description = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.title
+    
+class tab_three_post(models.Model):
+    image = models.ImageField(upload_to='tab_three_images/')
+    image_title = models.CharField(max_length=20, blank=True)
+    image_description = models.CharField(max_length=80, blank=True)
+    aprove = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.image_title
+    
+class tab_four(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=300)
+    point_one = models.CharField(max_length=60)
+    point_two = models.CharField(max_length=60)
+    point_three = models.CharField(max_length=60)
+    point_four = models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.title
+    
+class tab_five(models.Model):
+    title = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.title
+
+class tab_five_post(models.Model):
+    title = models.CharField(max_length=40)
+    description = models.CharField(max_length=200)
+    aprove = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title
+
+
+
+
+
+
+
