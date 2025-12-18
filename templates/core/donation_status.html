@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h2 class="mb-4">Donation Status</h2>
+                    <p class="lead">Thank you, {{ donation.first_name }} {{ donation.last_name }}!</p>
+                    <p>Your donation of <strong>{{ donation.amount }}</strong> is <span class="fw-bold text-success">{{ donation.status }}</span>.</p>
+                    <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

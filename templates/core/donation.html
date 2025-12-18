@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card shadow-lg border-0 animate__animated animate__fadeIn">
+                <!-- Full-width image at the top -->
+                <img src="{% static 'assets/img/blog/blog-post-2.webp' %}" class="card-img-top img-fluid w-100" alt="Donation Banner" style="object-fit:cover; max-height:340px; border-top-left-radius:1.2rem; border-top-right-radius:1.2rem;">
+                <div class="card-body p-5">
+                    <!-- Words below the image -->
+                    {% if error %}
+                    <div class="alert alert-danger" role="alert">{{ error }}</div>
+                    {% endif %}
+                    <div class="mb-4 text-center">
+                        <h2 class="fw-bold mb-2 display-6">Support Tanzeel Foundation</h2>
+                        <p class="text-muted mb-0 fs-5">Your donation helps us continue our mission and reach more lives. Every contribution counts!</p>
+                    </div>
+                    <form method="post" autocomplete="off" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="row g-4">
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating mb-2">
+                                    {{ form.amount }}
+                                    <label for="id_amount">{{ form.amount.label }}</label>
+                                </div>
+                                <div class="text-danger small">{{ form.amount.errors }}</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating mb-2">
+                                    {{ form.donation_type }}
+                                    <label for="id_donation_type">{{ form.donation_type.label }}</label>
+                                </div>
+                                <div class="text-danger small">{{ form.donation_type.errors }}</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating mb-2">
+                                    {{ form.first_name }}
+                                    <label for="id_first_name">{{ form.first_name.label }}</label>
+                                </div>
+                                <div class="text-danger small">{{ form.first_name.errors }}</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating mb-2">
+                                    {{ form.last_name }}
+                                    <label for="id_last_name">{{ form.last_name.label }}</label>
+                                </div>
+                                <div class="text-danger small">{{ form.last_name.errors }}</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating mb-2">
+                                    {{ form.email }}
+                                    <label for="id_email">{{ form.email.label }}</label>
+                                </div>
+                                <div class="text-danger small">{{ form.email.errors }}</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating mb-2">
+                                    {{ form.mobile_number }}
+                                    <label for="id_mobile_number">{{ form.mobile_number.label }}</label>
+                                </div>
+                                <div class="text-danger small">{{ form.mobile_number.errors }}</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating mb-2">
+                                    {{ form.giving_frequency }}
+                                    <label for="id_giving_frequency">{{ form.giving_frequency.label }}</label>
+                                </div>
+                                <div class="text-danger small">{{ form.giving_frequency.errors }}</div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating mb-2">
+                                    {{ form.payment_method }}
+                                    <label for="id_payment_method">{{ form.payment_method.label }}</label>
+                                </div>
+                                <div class="text-danger small">{{ form.payment_method.errors }}</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mt-4 py-3 fs-5 shadow-sm">Donate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    body { background: #f8fafc; }
+    .card { border-radius: 1.2rem; box-shadow: 0 4px 32px rgba(30, 60, 90, 0.08); }
+    .btn-primary { background: #1a73e8; border: none; transition: background 0.2s; }
+    .btn-primary:hover, .btn-primary:focus { background: #155ab6; }
+    .form-floating > .form-control, .form-floating > .form-select {
+        border-radius: 0.7rem;
+        box-shadow: none;
+        border: 1px solid #e0e6ed;
+        background: #f9fbfd;
+    }
+    .form-floating > label { color: #6c757d; }
+    .form-control:focus, .form-select:focus {
+        border-color: #1a73e8;
+        box-shadow: 0 0 0 0.15rem rgba(26, 115, 232, 0.15);
+    }
+    .form-floating > .form-control:focus ~ label,
+    .form-floating > .form-select:focus ~ label {
+        color: #1a73e8;
+    }
+</style>
+{% endblock %}

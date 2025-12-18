@@ -20,9 +20,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from core import views as core_views
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("core/", include("core.urls")),
+    path("donate/", core_views.donation_view, name="donate"),
+    path("pesapal-callback/", core_views.pesapal_callback, name="pesapal_callback"),
     path("", include("pages.urls")),
 ]
 

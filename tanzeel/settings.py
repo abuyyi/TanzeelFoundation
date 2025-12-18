@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file if present
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,7 +37,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-     'admin_interface',
+    'admin_interface',
     'colorfield',
     "django.contrib.admin",
     "django.contrib.auth",
@@ -41,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "core",
     "pages",
+    # "donations",  # Remove if not used
 ]
 
 MIDDLEWARE = [
@@ -133,7 +140,22 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+
+# Pesapal API keys (set these in your .env file)
+PESAPAL_CONSUMER_KEY = os.environ.get('PESAPAL_CONSUMER_KEY', '')
+PESAPAL_CONSUMER_SECRET = os.environ.get('PESAPAL_CONSUMER_SECRET', '')
+PESAPAL_TOKEN_URL = os.environ.get('PESAPAL_TOKEN_URL', 'https://cybqa.pesapal.com/pesapalv3/api/Auth/RequestToken')
+PESAPAL_SUBMIT_URL = os.environ.get('PESAPAL_SUBMIT_URL', 'https://cybqa.pesapal.com/pesapalv3/api/Transactions/SubmitOrderRequest')
+PESAPAL_REGISTER_IPN_URL = os.environ.get('PESAPAL_REGISTER_IPN_URL', 'https://cybqa.pesapal.com/pesapalv3/api/URLSetup/RegisterIPN')
+PESAPAL_CURRENCY = os.environ.get('PESAPAL_CURRENCY', 'TZS')
+
+# Example .env file:
+# PESAPAL_CONSUMER_KEY=your_pesapal_key
+# PESAPAL_CONSUMER_SECRET=your_pesapal_secret
+# PESAPAL_PAYMENT_URL=https://pay.pesapal.com/v3/api/Transactions/SubmitOrderRequest
 # Add this at the end of your settings.py file
 # This is required for the theme to be applied correctly
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SILENCED_SYSTEM_CHECKS = ["security.W019"]
+
+

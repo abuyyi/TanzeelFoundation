@@ -22,3 +22,35 @@ class SiteSettings(models.Model):
 
     def __str__(self):
         return self.foundation_name
+
+# Donation model for simple payment integration
+class Donation(models.Model):
+    GIVING_FREQUENCY_CHOICES = [
+        ("monthly", "Monthly"),
+        ("yearly", "Yearly"),
+        ("friday", "Every Friday"),
+    ]
+    STATUS_CHOICES = [
+        ("PENDING", "Pending"),
+        ("SUCCESS", "Success"),
+        ("FAILED", "Failed"),
+    ]
+    PAYMENT_METHOD_CHOICES = [
+        ("card", "Card"),
+        ("mobile", "Mobile Pay"),
+    ]
+
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    donation_type = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    mobile_number = models.CharField(max_length=20)
+    giving_frequency = models.CharField(max_length=20, choices=GIVING_FREQUENCY_CHOICES)
+    payment_method = models.CharField(max_length=20, choices=PAYMENT_METHOD_CHOICES)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="PENDING")
+    pesapal_transaction_id = models.CharField(max_length=100, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.amount} ({self.status})"
