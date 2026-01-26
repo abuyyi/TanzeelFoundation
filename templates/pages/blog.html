@@ -114,7 +114,28 @@
             </section>
 
             <section id="tab2" class="content-block" data-aos="fade-up">
-              <h2><i class="bi bi-search"></i>{{ tab_twos.title }}</h2>
+              {% for Sliding_image in homepage_sliding_images %}
+                <div id="article-{{ Sliding_image.link_url1 }}">
+                  <h2><i class=""></i>{{ Sliding_image.link_url1 }}</h2>
+
+                  <div class="content-with-media">
+                    <div class="media-element">
+                      {% if Sliding_image.image1 %}
+                        <img src="{{ Sliding_image.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                      {% endif %}
+                        <div class="image-caption">{{ Sliding_image.image_description }}</div>
+                    </div>
+
+                    <div class="text-content">
+                      <p>{{ Sliding_image.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </section>
+
+            <section id="tab3" class="content-block" data-aos="fade-up">
+              <h2><i class="bi bi-search"></i>{{ tab_threes.title }}</h2>
 
               <div class="content-with-media">
                 <div class="media-element">

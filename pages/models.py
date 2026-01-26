@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -22,7 +23,7 @@ class HomePage_Sliding_Image(models.Model):
     small_title = models.CharField(max_length=30)
     date = models.DateField(null=True, blank=True)
     link_url1 = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
-    description = models.CharField(max_length=255,blank=True)
+    description = models.TextField(("Optional: A brief description of the image or event."), blank=True)
     time = models.TimeField(null=True, blank=True)
     link_url2 = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
     aprove = models.BooleanField(default=False)
@@ -187,14 +188,6 @@ class tab_one(models.Model):
     def __str__(self):
         return self.major_description
     
-class tab_two(models.Model):
-    title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='tab_two_images/')
-    image_description = models.CharField(max_length=80, blank=True)
-    image_explanation = models.CharField(max_length=300, blank=True)
-
-    def __str__(self):
-        return self.title
     
 class tab_three(models.Model):
     title = models.CharField(max_length=40)

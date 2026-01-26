@@ -1,7 +1,7 @@
 from django.contrib import admin
 from admin_interface.models import Theme
-from .models import (HomePage_Image, 
-                     HomePage_Sliding_Image, 
+from .models import (HomePage_Image,
+                     HomePage_Sliding_Image,
                      HomePage_Category_Section,
                      HomePage_Category_Side_Section,
                      HomePage_Category_Bottom_Section,
@@ -15,7 +15,6 @@ from .models import (HomePage_Image,
                      blog_top_image,
                      Article_tab,
                      tab_one,
-                     tab_two,
                      tab_three,
                      tab_three_post,
                      tab_four,
@@ -168,13 +167,7 @@ class tab_oneAdmin(admin.ModelAdmin):
     verbose_name_plural = "3. Blog - Article Tab 1 Content"
     group = "Blog & Articles"
 
-@admin.register(tab_two)
-class tab_twoAdmin(admin.ModelAdmin):
-    list_display = ('title', 'image_description')
-    list_display_links = ('title',)
-    search_fields = ('title', 'image_description')
-    verbose_name_plural = "4. Blog - Article Tab 2 Content"
-    group = "Blog & Articles"
+
 
 @admin.register(tab_three)
 class tab_threeAdmin(admin.ModelAdmin):

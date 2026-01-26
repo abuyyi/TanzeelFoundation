@@ -123,16 +123,16 @@
                             </div>
                         </div>
                         {% if Sliding_image.link_url1 %}
-                        <h3><a href="{{ Sliding_image.link_url1 }}">{{ Sliding_image.link_url1 }}</a></h3>
+                        <h3><a href="{% url 'pages:blog' %}#article-{{ Sliding_image.link_url1 }}">{{ Sliding_image.link_url1 }}</a></h3>                        
                         {% endif %}
-                        <p>{{ Sliding_image.description }}</p>
+                        <p>{{ Sliding_image.description|truncatewords:17 }}</p>
                         <div class="blog-footer">
                             <div class="reading-time">
                                 <i class="bi bi-clock"></i>
                                 <span>{{ Sliding_image.time }}</span>
                             </div>
                             {% if Sliding_image.link_url2 %}
-                                <a href="{{ Sliding_image.link_url2 }}" class="btn-read-more">
+                                <a href="{% url 'pages:blog' %}#article-{{ Sliding_image.link_url1 }}" class="btn-read-more">
                                 <span>Continue Reading</span>
                                 <i class="bi bi-arrow-right"></i>
                                 </a>
@@ -180,7 +180,7 @@
                             </div>
                         {% endif %} 
                         <h2 class="post-title">
-                            <a href="blog-details.html">{{ HomePage_Category_Sections.link_url1 }}</a>
+                            {{ HomePage_Category_Sections.link_url1 }}
                         </h2>
                         <p class="post-excerpt">{{ HomePage_Category_Sections.description }}</p>
                         <div class="post-stats">
@@ -204,7 +204,7 @@
                             <span class="post-category">{{sidebar_post.title}}</span>
                             <h4 class="title">
                                 {% if sidebar_post.link_url %}
-                                    <a href="blog-details.html">{{ sidebar_post.link_url }}</a>
+                                    {{ sidebar_post.link_url }}
                                 {% endif %}
                             </h4>
                             <div class="post-meta">
@@ -235,7 +235,7 @@
                     <div class="post-content">
                       <h3 class="title">
                         {% if post.link_url %}
-                          <a href="blog-details.html">{{ post.link_url }}</a>
+                          <a href="{% url 'pages:blog' %}#article2-{{ post.link_url }}">{{ post.link_url }}</a>
                         {% endif %}
                         </h3>
                       <p class="excerpt">{{ post.description }}</p>
