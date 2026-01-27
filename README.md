@@ -13,9 +13,7 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 copy .env.example .env
 # edit .env to set SECRET_KEY and other vars
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
+
 ```
 
 Run tests
@@ -23,6 +21,7 @@ Run tests
 ```powershell
 .venv\Scripts\python.exe manage.py test
 ```
+
 
 Notes
 - `requirements.txt` now contains pinned packages used by the project; pin further if needed.
