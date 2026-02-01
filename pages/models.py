@@ -1,11 +1,12 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 
 class HomePage_Image(models.Model):
     image = models.ImageField(upload_to='homepage_images/')
     small_title = models.CharField(max_length=15)
-    large_title = models.CharField(max_length=30)
+    large_title = models.CharField(max_length=60)
     link_url = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
     event_date = models.DateField(null=True, blank=True, help_text="Optional: Date of the event if applicable.")
     event_location = models.CharField(max_length=255, blank=True, help_text="Optional")
@@ -22,7 +23,7 @@ class HomePage_Sliding_Image(models.Model):
     small_title = models.CharField(max_length=30)
     date = models.DateField(null=True, blank=True)
     link_url1 = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
-    description = models.CharField(max_length=255,blank=True)
+    description = models.TextField(("Optional: A brief description of the image or event."), blank=True)
     time = models.TimeField(null=True, blank=True)
     link_url2 = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
     aprove = models.BooleanField(default=False)
@@ -89,6 +90,7 @@ class HomePage_Posts_Side(models.Model):
     descriptive_title = models.CharField(max_length=255,blank=True)
     link_url = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
     aprove = models.BooleanField(default=False)
+    description = models.TextField(blank=True)
 
     def __str__(self):
         return self.major_title
@@ -97,7 +99,8 @@ class HomePage_Posts_Bottom_Section(models.Model):
     image = models.ImageField(upload_to='homepage_Posts_Bottom_Section/')
     title = models.CharField(max_length=200)
     hoster_name = models.CharField(max_length=20)
-    description = models.CharField(max_length=255,blank=True)
+    descriptive_title = models.CharField(max_length=255,blank=True)
+    description = models.TextField(blank=True)
     link_url = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
     aprove = models.BooleanField(default=False)
 
@@ -173,6 +176,10 @@ class Article_tab(models.Model):
     tab_three = models.CharField(max_length=50)
     tab_four = models.CharField(max_length=50) 
     tab_five = models.CharField(max_length=50)
+    tab_six = models.CharField(max_length=50 , default="")
+    tab_seven = models.CharField(max_length=50, default="")
+    tab_eight = models.CharField(max_length=50, default="")
+    tab_nine = models.CharField(max_length=50, default="")
     
 
     def __str__(self):
@@ -187,14 +194,6 @@ class tab_one(models.Model):
     def __str__(self):
         return self.major_description
     
-class tab_two(models.Model):
-    title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='tab_two_images/')
-    image_description = models.CharField(max_length=80, blank=True)
-    image_explanation = models.CharField(max_length=300, blank=True)
-
-    def __str__(self):
-        return self.title
     
 class tab_three(models.Model):
     title = models.CharField(max_length=40)
@@ -236,10 +235,51 @@ class tab_five_post(models.Model):
 
     def __str__(self):
         return self.title
+    
+class tab_six(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.title
+
+class tab_seven(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.title
+
+class tab_eight(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.title
 
 
 
+class tab_nine(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.title
 
 
+class ContactMessage(models.Model):
+    """Model to store contact form submissions"""
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_read = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Contact Message'
+        verbose_name_plural = 'Contact Messages'
 
+    def __str__(self):
+        return f"{self.name} - {self.subject} ({self.created_at.strftime('%Y-%m-%d %H:%M')})"

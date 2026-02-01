@@ -27,13 +27,6 @@
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Story
-  * Template URL: https://bootstrapmade.com/story-bootstrap-blog-template/
-  * Updated: Aug 11 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body class="index-page">
@@ -55,24 +48,22 @@
         <ul>
           <li><a href="{% url 'pages:homepage' %}" class="active">Home</a></li>
           <li><a href="{% url 'pages:about' %}">About</a></li>
-          <li><a href="category.html">Category</a></li>
           <li><a href="{% url 'pages:blog' %}">Blog Details</a></li>
-          <li><a href="{% url 'donate' %}">Donate Now</a></li>
+          <li><a href="{% url 'core:coming_soon' %}">Donate Now</a></li>
           <li class="dropdown"><a href="#"><span>Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="about.html">About</a></li>
-              <li><a href="category.html">Category</a></li>
-              <li><a href="blog-details.html">Blog Details</a></li>
-              <li><a href="author-profile.html">Appeals</a></li>
-              <li><a href="search-results.html">Search Results</a></li>
-              <li><a href="404.html">404 Not Found Page</a></li>
+              <li><a href="{% url 'pages:about' %}">About</a></li>
+              <li><a href="{% url 'pages:blog' %}">Blog Details</a></li>
+              <li><a href="{% url 'core:coming_soon' %}">Appeals</a></li>
+              {% comment %} <li><a href="search-results.html">Search Results</a></li> {% endcomment %}
+              {% comment %} <li><a href="404.html">404 Not Found Page</a></li> {% endcomment %}
 
               <li class="dropdown"><a href="#"><span>Contributions</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
-                  <li><a href="#">TSDF</a></li>
-                  <li><a href="#">Sadakah</a></li>
-                  <li><a href="#">Nisomeshe</a></li>
-                  <li><a href="#">Fund Project</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">TSDF</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">Sadakah</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">Nisomeshe</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">Fund Project</a></li>
                 </ul>
               </li>
             </ul>
@@ -81,7 +72,7 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
+      
       <div class="header-social-links">
         <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>

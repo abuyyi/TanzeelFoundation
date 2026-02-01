@@ -123,16 +123,18 @@
                             </div>
                         </div>
                         {% if Sliding_image.link_url1 %}
-                        <h3><a href="{{ Sliding_image.link_url1 }}">{{ Sliding_image.link_url1 }}</a></h3>
+                        <h3>
+                          <a href="{% url 'pages:blog' %}#article-{{ Sliding_image.link_url1 }}">{{ Sliding_image.link_url1 }}</a>
+                        </h3>                        
                         {% endif %}
-                        <p>{{ Sliding_image.description }}</p>
+                        <p>{{ Sliding_image.description|truncatewords:17 }}</p>
                         <div class="blog-footer">
                             <div class="reading-time">
                                 <i class="bi bi-clock"></i>
                                 <span>{{ Sliding_image.time }}</span>
                             </div>
                             {% if Sliding_image.link_url2 %}
-                                <a href="{{ Sliding_image.link_url2 }}" class="btn-read-more">
+                                <a href="{% url 'pages:blog' %}#article-{{ Sliding_image.link_url1 }}" class="btn-read-more">
                                 <span>Continue Reading</span>
                                 <i class="bi bi-arrow-right"></i>
                                 </a>
@@ -180,9 +182,9 @@
                             </div>
                         {% endif %} 
                         <h2 class="post-title">
-                            <a href="blog-details.html">{{ HomePage_Category_Sections.link_url1 }}</a>
+                            <a href="{% url 'pages:blog' %}#article-{{ HomePage_Category_Sections.link_url1 }}">{{ HomePage_Category_Sections.link_url1 }}</a>
                         </h2>
-                        <p class="post-excerpt">{{ HomePage_Category_Sections.description }}</p>
+                        <p class="post-excerpt">{{ HomePage_Category_Sections.description|truncatewords:25 }}</p>
                         <div class="post-stats">
                             <span class="read-time"><i class="bi bi-clock"></i>{{ HomePage_Category_Sections.time }}</span>
                             <span class="comments"><i class="bi bi-chat-dots"></i>{{ HomePage_Category_Sections.comment }}</span>
@@ -204,7 +206,7 @@
                             <span class="post-category">{{sidebar_post.title}}</span>
                             <h4 class="title">
                                 {% if sidebar_post.link_url %}
-                                    <a href="blog-details.html">{{ sidebar_post.link_url }}</a>
+                                    {{ sidebar_post.link_url }}
                                 {% endif %}
                             </h4>
                             <div class="post-meta">
@@ -226,7 +228,7 @@
                   <article class="grid-post">
                     <div class="post-img">
                       {% if post.image1 %}
-                        <img src="{{ post.image1.url }}" alt="{{ post.titl1 }}" class="img-fluid" loading="lazy">
+                        <img src="{{ post.image1.url }}" alt="{{ post.title1 }}" class="img-fluid" loading="lazy">
                       {% endif %}  
                         <div class="post-overlay">
                           <span class="category-tag">{{ post.title1 }}</span>
@@ -235,7 +237,7 @@
                     <div class="post-content">
                       <h3 class="title">
                         {% if post.link_url %}
-                          <a href="blog-details.html">{{ post.link_url }}</a>
+                          <a href="{% url 'pages:blog' %}#article2-{{ post.link_url }}">{{ post.link_url }}</a>
                         {% endif %}
                         </h3>
                       <p class="excerpt">{{ post.description }}</p>
@@ -301,7 +303,7 @@
                         <i class="bi bi-folder2"></i><span class="ps-2">{{HomePage_Posts_Mains.content}}</span>
                       </div>
                     </div>
-                      <a href="{{HomePage_Posts_Mains.link_url}}" class="readmore stretched-link"><span>Continue</span><i class="bi bi-arrow-right"></i></a> 
+                      <a href="{% url 'pages:blog' %}#article3-{{ HomePage_Posts_Mains.link_url }}" class="readmore stretched-link"><span>Continue</span><i class="bi bi-arrow-right"></i></a> 
                   </div>
                 </article>
               </div>
@@ -329,7 +331,7 @@
                         </div>
                         <h4 class="title">{{ side_post.descriptive_title }}</h4>
                         {% if side_post.link_url %}
-                          <a href="{{ side_post.link_url }}" class="readmore"><span>Read Article</span><i class="bi bi-arrow-right"></i></a>
+                          <a href="{% url 'pages:blog' %}#article4-{{ side_post.link_url }}" class="readmore"><span>Read Article</span><i class="bi bi-arrow-right"></i></a>
                         {% endif %}  
                       </div>
                     </article>
@@ -357,50 +359,16 @@
                         <i class="bi bi-person"></i><span class="ps-2">{{ posts.hoster_name }}</span>
                       </div>
                     </div>
-                    <h3 class="title">{{ posts.description }}</h3>
+                    <h3 class="title">{{ posts.descriptive_title }}</h3>
                       {% if posts.link_url %}
-                        <a href="{{ posts.link_url }}" class="readmore"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                        <a href="{% url 'pages:blog' %}#article5-{{ posts.link_url }}" class="readmore"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                       {% endif %}
                     </div>
                 </article>
               </div><!-- End Grid Post -->
             {% endif %}
           {% endfor %}
-          {% comment %} <div class="col-lg-4" data-aos="fade-up" data-aos-delay="250">
-            <article class="card-post h-100">
-              <div class="post-img position-relative overflow-hidden">
-                <img src="{% static 'assets/img/blog/blog-post-4.webp' %}" class="img-fluid w-100" alt="Post image" loading="lazy">
-              </div>
-              <div class="content">
-                <div class="meta d-flex align-items-center flex-wrap gap-2">
-                  <span class="cat-badge">Travel</span>
-                  <div class="d-flex align-items-center ms-auto">
-                    <i class="bi bi-person"></i><span class="ps-2">Courtney Henry</span>
-                  </div>
-                </div>
-                <h3 class="title">Dicta similique totam, suscipit soluta veritatis perferendis</h3>
-                <a href="blog-details.html" class="readmore"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-              </div>
-            </article>
-          </div><!-- End Grid Post -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <article class="card-post h-100">
-              <div class="post-img position-relative overflow-hidden">
-                <img src="{% static 'assets/img/blog/blog-post-6.webp' %}" class="img-fluid w-100" alt="Post image" loading="lazy">
-              </div>
-              <div class="content">
-                <div class="meta d-flex align-items-center flex-wrap gap-2">
-                  <span class="cat-badge">Lifestyle</span>
-                  <div class="d-flex align-items-center ms-auto">
-                    <i class="bi bi-person"></i><span class="ps-2">Wade Warren</span>
-                  </div>
-                </div>
-                <h3 class="title">Natus consequuntur, numquam adipisci cumque facilisis</h3>
-                <a href="blog-details.html" class="readmore"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-              </div>
-            </article>
-          </div><!-- End Grid Post --> {% endcomment %}
+          
 
         </div>
 

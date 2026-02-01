@@ -82,6 +82,9 @@
                 <li><a href="#tab4">{{ article_tabs.tab_four }}</a></li>
                 <li><a href="#tab5">{{ article_tabs.tab_five }}</a></li>
                 <li><a href="#tab6">{{ article_tabs.tab_six }}</a></li>
+                <li><a href="#tab7">{{ article_tabs.tab_seven }}</a></li>
+                <li><a href="#tab8">{{ article_tabs.tab_eight }}</a></li>
+                <li><a href="#tab9">{{ article_tabs.tab_nine }}</a></li>
 
               <div class="reading-progress">
                 <div class="progress-bar">
@@ -114,38 +117,48 @@
             </section>
 
             <section id="tab2" class="content-block" data-aos="fade-up">
-              <h2><i class="bi bi-search"></i>{{ tab_twos.title }}</h2>
+              {% for Sliding_image in homepage_sliding_images %}
+                <div id="article-{{ Sliding_image.link_url1 }}">
+                  <h2><i class=""></i>{{ Sliding_image.link_url1 }}</h2>
 
-              <div class="content-with-media">
-                <div class="media-element">
-                  {% if tab_twos.image %}
-                    <img src="{{ tab_twos.image.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
-                  {% endif %}
-                    <div class="image-caption">{{ tab_twos.image_description }}</div>
-                </div>
-
-                <div class="text-content">
-                  <p>{{ tab_twos.image_explanation }}</p>
-
-                  <div class="stats-grid">
-                    <div class="stat-item">
-                      <div class="stat-number">94%</div>
-                      <div class="stat-label">Accuracy in Cancer Detection</div>
+                  <div class="content-with-media">
+                    <div class="media-element">
+                      {% if Sliding_image.image1 %}
+                        <img src="{{ Sliding_image.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                      {% endif %}
+                        <div class="image-caption">{{ Sliding_image.image_description }}</div>
                     </div>
-                    <div class="stat-item">
-                      <div class="stat-number">65%</div>
-                      <div class="stat-label">Faster Diagnosis Time</div>
-                    </div>
-                    <div class="stat-item">
-                      <div class="stat-number">40%</div>
-                      <div class="stat-label">Reduction in Errors</div>
+
+                    <div class="text-content">
+                      <p>{{ Sliding_image.description }}</p>
                     </div>
                   </div>
                 </div>
-              </div>
+              {% endfor %}
             </section>
 
             <section id="tab3" class="content-block" data-aos="fade-up">
+              {% if HomePage_Category_Sections %}
+                <div id="article-{{ HomePage_Category_Sections.link_url1 }}">
+                  <h2><i class=""></i>{{ HomePage_Category_Sections.link_url1 }}</h2>
+
+                  <div class="content-with-media">
+                    <div class="media-element">
+                      {% if HomePage_Category_Sections.image1 %}
+                        <img src="{{ HomePage_Category_Sections.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                      {% endif %}
+                        <div class="image-caption">{{ HomePage_Category_Sections.image_description }}</div>
+                    </div>
+
+                    <div class="text-content">
+                      <p>{{ HomePage_Category_Sections.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            </section>
+
+            <section id="tab4" class="content-block" data-aos="fade-up">
               <h2><i class=""></i>{{ tab_threes.title }}</h2>
 
               <p>{{ tab_threes.description }}</p>
@@ -165,7 +178,26 @@
               </div>
             </section>
 
-            <section id="tab4" class="content-block" data-aos="fade-up">
+            <section id="tab5" class="content-block" data-aos="fade-up">
+              {% for post in HomePage_Category_Bottom_Sections %}
+                {% if forloop.counter <= 4 %}
+                    <div id="article2-{{ post.link_url }}" class="image-description-container">
+                      <div class="image-wrapper">
+                        <h3><i class=""></i>{{ post.link_url }}</h3>
+                        {% if post.image1 %}
+                          <img src="{{ post.image1.url }}" alt="{{ post.title1 }}" class="content-image" loading="lazy">
+                        {% endif %}
+                      </div>
+                      <div class="description-wrapper">
+                        <p>{{ post.description }}</p>
+                      </div>
+                    </div>
+                {% endif %}
+              {% endfor %}
+            </section>
+            
+
+            <section id="tab6" class="content-block" data-aos="fade-up">
               <h2><i class="bi bi-activity"></i>{{ tab_fours.title }}</h2>
 
               <div class="split-content">
@@ -221,7 +253,44 @@
               </div>
             </section>
 
-            <section id="tab5" class="content-block" data-aos="fade-up">
+            <section id="tab7" class="content-block" data-aos="fade-up">
+              {% if HomePage_Posts_Mains %}
+                <div id="article3-{{ HomePage_Posts_Mains.link_url }}" class="image-description-container">
+                  <div class="image-wrapper">
+                    <h3><i class=""></i>{{HomePage_Posts_Mains.large_title}}</h3>
+                    {% if HomePage_Posts_Mains.image %}
+                      <img src="{{ HomePage_Posts_Mains.image.url }}" alt="Featured post image" class="img-fluid w-100" loading="lazy">
+                    {% endif %}
+                  </div>
+                  <div class="description-wrapper">
+                    <p>{{HomePage_Posts_Mains.description}}</p>
+                  </div>
+                </div>
+              {% endif %}
+                
+              {% for side_post in HomePage_Posts_Sides %}
+                {% if forloop.counter <= 3 %}
+                  <div id="article4-{{ side_post.link_url }}">
+                    <h2><i class=""></i>{{ side_post.descriptive_title }}</h2>
+
+                    <div class="content-with-media">
+                      <div class="media-element">
+                        {% if side_post.image %}
+                          <img src="{{ side_post.image.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                        {% endif %}
+                          <div class="image-caption">{{ side_post.image_description }}</div>
+                      </div>
+
+                      <div class="text-content">
+                        <p>{{ side_post.description }}</p>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </section>
+
+            <section id="tab8" class="content-block" data-aos="fade-up">
               <h2><i class="bi bi-exclamation-triangle"></i>{{ tab_fives.title }}</h2>
 
               <div class="challenges-grid">
@@ -236,193 +305,37 @@
                 {% endfor %}
               </div>
             </section>
+            
+            <section id="tab9" class="content-block" data-aos="fade-up">
+              {% for posts in HomePage_Posts_Bottom_Sections %}
+                {% if forloop.counter <= 3 %}
+                  <div id="article5-{{ posts.link_url }}">
+                      <h2><i class=""></i>{{ posts.descriptive_title }}</h2>
 
-            <section id="tab6" class="content-block" data-aos="fade-up">
-              <h2><i class="bi bi-lightbulb"></i> The Future of AI in Healthcare</h2>
+                    <div class="content-with-media">
+                      <div class="media-element">
+                        {% if posts.image %}
+                          <img src="{{ posts.image.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                        {% endif %}
+                          <div class="image-caption">{{ posts.image_description }}</div>
+                      </div>
 
-              <p>The convergence of machine learning, big data analytics, and medical expertise is creating unprecedented opportunities to improve patient care and health outcomes. As technology continues to advance, we can expect even more sophisticated AI applications in healthcare.</p>
-
-              <div class="future-outlook">
-                <div class="outlook-item" data-aos="fade-left" data-aos-delay="100">
-                  <div class="outlook-number">2025</div>
-                  <div class="outlook-content">
-                    <h4>Widespread AI Adoption</h4>
-                    <p>Majority of hospitals will integrate AI-powered diagnostic tools</p>
+                      <div class="text-content">
+                        <p>{{ posts.description }}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-
-                <div class="outlook-item" data-aos="fade-left" data-aos-delay="200">
-                  <div class="outlook-number">2027</div>
-                  <div class="outlook-content">
-                    <h4>Predictive Medicine</h4>
-                    <p>AI will predict and prevent diseases before symptoms appear</p>
-                  </div>
-                </div>
-
-                <div class="outlook-item" data-aos="fade-left" data-aos-delay="300">
-                  <div class="outlook-number">2030</div>
-                  <div class="outlook-content">
-                    <h4>Personalized Healthcare</h4>
-                    <p>Fully customized treatment plans for every individual patient</p>
-                  </div>
-                </div>
-              </div>
+                {% endif %}
+              {% endfor %}
             </section>
           </main>
         </div>
-
-        <div class="article-actions" data-aos="fade-up">
-          <div class="engagement-section">
-            <div class="social-sharing">
-              <h3>Share This Article</h3>
-              <div class="share-options">
-                <a href="#" class="share-btn twitter">
-                  <i class="bi bi-twitter-x"></i>
-                  <span>Twitter</span>
-                </a>
-                <a href="#" class="share-btn facebook">
-                  <i class="bi bi-facebook"></i>
-                  <span>Facebook</span>
-                </a>
-                <a href="#" class="share-btn linkedin">
-                  <i class="bi bi-linkedin"></i>
-                  <span>LinkedIn</span>
-                </a>
-                <a href="#" class="share-btn email">
-                  <i class="bi bi-envelope"></i>
-                  <span>Email</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="article-reactions">
-              <h3>Your Thoughts</h3>
-              <div class="reaction-buttons">
-                <button class="reaction-btn" data-reaction="helpful">
-                  <i class="bi bi-hand-thumbs-up"></i>
-                  <span>Helpful</span>
-                  <span class="count">24</span>
-                </button>
-                <button class="reaction-btn" data-reaction="insightful">
-                  <i class="bi bi-lightbulb"></i>
-                  <span>Insightful</span>
-                  <span class="count">15</span>
-                </button>
-                <button class="reaction-btn" data-reaction="bookmark">
-                  <i class="bi bi-bookmark"></i>
-                  <span>Save</span>
-                  <span class="count">8</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="topic-tags">
-            <h3>Related Topics</h3>
-            <div class="tag-cloud">
-              <a href="#" class="topic-tag">Machine Learning</a>
-              <a href="#" class="topic-tag">Healthcare AI</a>
-              <a href="#" class="topic-tag">Medical Technology</a>
-              <a href="#" class="topic-tag">Predictive Analytics</a>
-              <a href="#" class="topic-tag">Digital Health</a>
-              <a href="#" class="topic-tag">Patient Care</a>
-              <a href="#" class="topic-tag">Medical Innovation</a>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section><!-- /Blog Details Section -->
 
-    <!-- Blog Author Section -->
-    <section id="blog-author" class="blog-author section">
-
-      <div class="container" data-aos="fade-up">
-        <div class="author-card">
-          <div class="author-header">
-            <div class="author-image-container">
-              <img src="{% static 'assets/img/person/person-m-6.webp' %}" class="author-image" alt="" loading="lazy">
-              <div class="expertise-tags">
-                <span>AI Research</span>
-                <span>Cloud Architecture</span>
-              </div>
-            </div>
-
-            <div class="author-intro">
-              <div class="name-block">
-                <h3 class="author-name">Michael Chen</h3>
-                <span class="verified-badge">
-                  <i class="bi bi-patch-check-fill"></i>
-                  Featured Author
-                </span>
-              </div>
-
-              <p class="author-tagline">
-                Transforming complex technical concepts into accessible insights
-              </p>
-            </div>
-          </div>
-
-          <div class="author-content" data-aos="fade-up" data-aos-delay="200">
-            <div class="content-row">
-              <div class="bio-section">
-                <p class="bio-text">
-                  Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                </p>
-                <div class="author-metrics">
-                  <div class="metric">
-                    <i class="bi bi-pencil-square"></i>
-                    <span>Weekly Writer</span>
-                  </div>
-                  <div class="metric">
-                    <i class="bi bi-stars"></i>
-                    <span>Top Contributor</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="featured-posts">
-                <h4>Latest Articles</h4>
-                <ul class="post-list">
-                  <li>
-                    <i class="bi bi-arrow-right-circle"></i>
-                    <span>Nulla quis lorem ut libero malesuada feugiat</span>
-                  </li>
-                  <li>
-                    <i class="bi bi-arrow-right-circle"></i>
-                    <span>Vestibulum ac diam sit amet quam vehicula elementum</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="author-footer">
-              <div class="connect-links">
-                <a href="https://github.com/#" class="social-link">
-                  <i class="bi bi-github"></i>
-                  <span>@michaelchen</span>
-                </a>
-                <a href="https://twitter.com/#" class="social-link">
-                  <i class="bi bi-twitter-x"></i>
-                  <span>@mchen_tech</span>
-                </a>
-                <a href="https://dev.to/#" class="social-link">
-                  <i class="bi bi-globe2"></i>
-                  <span>dev.to/mchen</span>
-                </a>
-              </div>
-              <a href="#" class="subscribe-button">
-                Subscribe to Newsletter
-                <i class="bi bi-bell"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </section><!-- /Blog Author Section -->
-
-    <!-- Blog Comments Section -->
+   
+    <!-- Blog Comments Section COMMONG SOON -->
+    {% comment %} 
     <section id="blog-comments" class="blog-comments section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -636,9 +549,12 @@
 
       </div>
 
-    </section><!-- /Blog Comments Section -->
+    </section> 
+    {% endcomment %}
+    <!-- /Blog Comments Section -->
 
-    <!-- Blog Comment Form Section -->
+    <!-- Blog Comment Form Section COMMING SOON -->
+    {% comment %} 
     <section id="blog-comment-form" class="blog-comment-form section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -680,7 +596,9 @@
 
       </div>
 
-    </section><!-- /Blog Comment Form Section -->
+    </section> 
+    {% endcomment %}
+    <!-- /Blog Comment Form Section -->
 
   </main>
 

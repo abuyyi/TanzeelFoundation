@@ -100,44 +100,96 @@
 
           <div class="contact-form-panel">
             <div class="map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.2105200349847!2d39.25146527930488!3d-6.86535727542772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c358329184b73%3A0x87d0943b84f25e0e!2sTandika%20Foma!5e0!3m2!1sen!2sus!4v1769937328705!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <div class="form-container">
               <h3>Send Us a Message</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipiscing elit mauris hendrerit faucibus imperdiet nec eget felis.</p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form">
+              <form method="post" action="{% url 'pages:contact' %}" class="contact-form" id="contactForm">
+                {% csrf_token %}
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="nameInput" name="name" placeholder="Full Name" required="">
-                  <label for="nameInput">Full Name</label>
+                  {{ form.name }}
+                  <label for="{{ form.name.id_for_label }}">Full Name</label>
+                  {% if form.name.errors %}
+                    <div class="error-message">{{ form.name.errors }}</div>
+                  {% endif %}
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="emailInput" name="email" placeholder="Email Address" required="">
-                  <label for="emailInput">Email Address</label>
+                  {{ form.email }}
+                  <label for="{{ form.email.id_for_label }}">Email Address</label>
+                  {% if form.email.errors %}
+                    <div class="error-message">{{ form.email.errors }}</div>
+                  {% endif %}
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="subjectInput" name="subject" placeholder="Subject" required="">
-                  <label for="subjectInput">Subject</label>
+                  {{ form.subject }}
+                  <label for="{{ form.subject.id_for_label }}">Subject</label>
+                  {% if form.subject.errors %}
+                    <div class="error-message">{{ form.subject.errors }}</div>
+                  {% endif %}
                 </div>
 
                 <div class="form-floating mb-3">
-                  <textarea class="form-control" id="messageInput" name="message" rows="5" placeholder="Your Message" style="height: 150px" required=""></textarea>
-                  <label for="messageInput">Your Message</label>
+                  {{ form.message }}
+                  <label for="{{ form.message.id_for_label }}">Your Message</label>
+                  {% if form.message.errors %}
+                    <div class="error-message">{{ form.message.errors }}</div>
+                  {% endif %}
                 </div>
 
                 <div class="my-3">
-                  <div class="loading">Loading</div>
+                  <div class="loading" style="display: none;">Loading</div>
                   <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
                 </div>
 
                 <div class="d-grid">
                   <button type="submit" class="btn-submit">Send Message <i class="bi bi-send-fill ms-2"></i></button>
                 </div>
               </form>
+
+              <script>
+                document.getElementById('contactForm').addEventListener('submit', function(e) {
+                  e.preventDefault();
+                  
+                  const form = this;
+                  const loadingDiv = form.querySelector('.loading');
+                  const errorDiv = form.querySelector('.error-message');
+                  const successDiv = form.querySelector('.sent-message');
+                  
+                  loadingDiv.style.display = 'block';
+                  errorDiv.style.display = 'none';
+                  successDiv.style.display = 'none';
+                  
+                  fetch(form.action || window.location.href, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                      'X-Requested-With': 'XMLHttpRequest',
+                    }
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                    loadingDiv.style.display = 'none';
+                    if (data.success) {
+                      successDiv.style.display = 'block';
+                      form.reset();
+                    } else {
+                      errorDiv.style.display = 'block';
+                      errorDiv.textContent = 'Please fill in all fields correctly.';
+                    }
+                  })
+                  .catch(error => {
+                    loadingDiv.style.display = 'none';
+                    errorDiv.style.display = 'block';
+                    errorDiv.textContent = 'An error occurred. Please try again.';
+                  });
+                });
+              </script>
             </div>
           </div>
         </div>

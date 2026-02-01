@@ -1,7 +1,7 @@
 from django.contrib import admin
 from admin_interface.models import Theme
-from .models import (HomePage_Image, 
-                     HomePage_Sliding_Image, 
+from .models import (HomePage_Image,
+                     HomePage_Sliding_Image,
                      HomePage_Category_Section,
                      HomePage_Category_Side_Section,
                      HomePage_Category_Bottom_Section,
@@ -15,12 +15,16 @@ from .models import (HomePage_Image,
                      blog_top_image,
                      Article_tab,
                      tab_one,
-                     tab_two,
                      tab_three,
                      tab_three_post,
                      tab_four,
                      tab_five,
                      tab_five_post,
+                     tab_six,
+                     tab_seven,
+                     tab_eight,
+                     tab_nine,
+                     ContactMessage,
                     )
 
 
@@ -168,13 +172,7 @@ class tab_oneAdmin(admin.ModelAdmin):
     verbose_name_plural = "3. Blog - Article Tab 1 Content"
     group = "Blog & Articles"
 
-@admin.register(tab_two)
-class tab_twoAdmin(admin.ModelAdmin):
-    list_display = ('title', 'image_description')
-    list_display_links = ('title',)
-    search_fields = ('title', 'image_description')
-    verbose_name_plural = "4. Blog - Article Tab 2 Content"
-    group = "Blog & Articles"
+
 
 @admin.register(tab_three)
 class tab_threeAdmin(admin.ModelAdmin):
@@ -215,4 +213,64 @@ class tab_five_postAdmin(admin.ModelAdmin):
     list_filter = ('aprove',)
     search_fields = ('title',)
     verbose_name_plural = "9. Blog - Article Tab 5 Posts"
+    group = "Blog & Articles"
+
+@admin.register(tab_six)
+class tab_sixAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    list_display_links = ('title',)
+    search_fields = ('title',)
+    verbose_name_plural = "10. Blog - Article Tab 6 Content"
+    group = "Blog & Articles"
+
+@admin.register(tab_seven)
+class tab_sevenAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    list_display_links = ('title',)
+    search_fields = ('title',)
+    verbose_name_plural = "11. Blog - Article Tab 7 Content"
+    group = "Blog & Articles"
+
+@admin.register(tab_eight)
+class tab_eightAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    list_display_links = ('title',)
+    search_fields = ('title',)
+    verbose_name_plural = "11. Blog - Article Tab 8 Content"
+    group = "Blog & Articles"
+
+@admin.register(tab_nine)
+class tab_nineAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    list_display_links = ('title',)
+    search_fields = ('title',)
+    verbose_name_plural = "12. Blog - Article Tab 9 Content"
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'subject', 'created_at', 'is_read')
+    list_filter = ('is_read', 'created_at')
+    search_fields = ('name', 'email', 'subject', 'message')
+    readonly_fields = ('created_at', 'name', 'email', 'subject', 'message')
+    actions = ['mark_as_read', 'mark_as_unread']
+
+    def mark_as_read(self, request, queryset):
+        queryset.update(is_read=True)
+    mark_as_read.short_description = "Mark selected messages as read"
+
+    def mark_as_unread(self, request, queryset):
+        queryset.update(is_read=False)
+    mark_as_unread.short_description = "Mark selected messages as unread"
+
+    fieldsets = (
+        ('Message Information', {
+            'fields': ('name', 'email', 'subject', 'message')
+        }),
+        ('Status', {
+            'fields': ('is_read', 'created_at')
+        }),
+    )
+
+    def has_add_permission(self, request):
+        return False
     group = "Blog & Articles"

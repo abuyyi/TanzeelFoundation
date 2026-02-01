@@ -3,6 +3,14 @@ import logging
 import re
 
 import os
+
+from django.shortcuts import render
+
+def coming_soon(request):
+    """Display the coming soon page"""
+    return render(request, 'core/coming_soon.html')
+
+
 # Helper: Get Pesapal OAuth2 access token
 def get_pesapal_access_token():
     # DEBUG: Print Pesapal env values
@@ -264,3 +272,9 @@ def pesapal_callback(request):
         donation.save()
         return render(request, 'core/donation_status.html', {'donation': donation})
     return HttpResponse('Invalid callback', status=400)
+
+def handler404(request, exception):
+    return render(request, 'core/404.html', status=404)
+
+def handler500(request):
+    return render(request, 'core/500.html', status=500)
