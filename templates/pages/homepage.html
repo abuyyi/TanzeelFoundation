@@ -188,7 +188,7 @@
                             </div>
                         {% endif %} 
                         <h2 class="post-title">
-                            {{ HomePage_Category_Sections.link_url1 }}
+                            <a href="{% url 'pages:blog' %}#article-{{ HomePage_Category_Sections.link_url1 }}">{{ HomePage_Category_Sections.link_url1 }}</a>
                         </h2>
                         <p class="post-excerpt">{{ HomePage_Category_Sections.description|truncatewords:25 }}</p>
                         <div class="post-stats">
@@ -311,8 +311,7 @@
                         <i class="bi bi-folder2"></i><span class="ps-2">{{HomePage_Posts_Mains.content}}</span>
                       </div>
                     </div>
-                      <a href="{{HomePage_Posts_Mains.link_url}}" class="readmore stretched-link">
-                        <span>Continue</span><i class="bi bi-arrow-right"></i></a> 
+                      <a href="{% url 'pages:blog' %}#article3-{{ HomePage_Posts_Mains.link_url }}" class="readmore stretched-link"><span>Continue</span><i class="bi bi-arrow-right"></i></a> 
                   </div>
                 </article>
               </div>

@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.text import slugify
-from django.utils.text import slugify
 
 # Create your models here.
 
@@ -24,7 +23,6 @@ class HomePage_Sliding_Image(models.Model):
     small_title = models.CharField(max_length=30)
     date = models.DateField(null=True, blank=True)
     link_url1 = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
-    description = models.TextField(("Optional: A brief description of the image or event."), blank=True)
     description = models.TextField(("Optional: A brief description of the image or event."), blank=True)
     time = models.TimeField(null=True, blank=True)
     link_url2 = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
@@ -101,7 +99,8 @@ class HomePage_Posts_Bottom_Section(models.Model):
     image = models.ImageField(upload_to='homepage_Posts_Bottom_Section/')
     title = models.CharField(max_length=200)
     hoster_name = models.CharField(max_length=20)
-    description = models.CharField(max_length=500,blank=True)
+    descriptive_title = models.CharField(max_length=500,blank=True)
+    description = models.TextField(blank=True)
     link_url = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
     aprove = models.BooleanField(default=False)
 
@@ -177,10 +176,7 @@ class Article_tab(models.Model):
     tab_three = models.CharField(max_length=50)
     tab_four = models.CharField(max_length=50) 
     tab_five = models.CharField(max_length=50)
-    tab_six = models.CharField(max_length=50 , default="")
-    tab_seven = models.CharField(max_length=50, default="")
-    tab_eight = models.CharField(max_length=50, default="")
-    tab_nine = models.CharField(max_length=50, default="")
+
     
 
     def __str__(self):
@@ -237,35 +233,6 @@ class tab_five_post(models.Model):
     def __str__(self):
         return self.title
     
-class tab_six(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.CharField(max_length=300)
-
-    def __str__(self):
-        return self.title
-
-class tab_seven(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.CharField(max_length=300)
-
-    def __str__(self):
-        return self.title
-
-class tab_eight(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.CharField(max_length=300)
-
-    def __str__(self):
-        return self.title
-
-
-
-class tab_nine(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.CharField(max_length=300)
-
-    def __str__(self):
-        return self.title
 
 
 class ContactMessage(models.Model):

@@ -53,11 +53,10 @@
           <li class="dropdown"><a href="#"><span>Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="{% url 'pages:about' %}">About</a></li>
-              <li><a href="category.html">Category</a></li>
               <li><a href="{% url 'pages:blog' %}">Blog Details</a></li>
-              <li><a href="author-profile.html">Appeals</a></li>
-              <li><a href="{% url 'donate' %}">Donate Now</a></li>
-           
+              <li><a href="{% url 'core:coming_soon' %}">Appeals</a></li>
+              {% comment %} <li><a href="search-results.html">Search Results</a></li> {% endcomment %}
+              {% comment %} <li><a href="404.html">404 Not Found Page</a></li> {% endcomment %}
 
               <li class="dropdown"><a href="#"><span>Contributions</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
@@ -86,7 +85,10 @@
   </header>
     <!-- End Header -->
      {% block content %}
-
+     
+     
+     
+     
      
      
      {% endblock content %}
@@ -169,7 +171,7 @@
                 <!-- You can delete the links only if you've purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Developed and Maintained by <a href="https://bootstrapmade.com/">TanzeelFoundation</a>
+                Developed and Maintained by <a href="">TanzeelFoundation</a>
               </div>
             </div>
           </div>

@@ -10,10 +10,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='homepage_sliding_image',
-            name='slug',
-        ),
         migrations.AlterField(
             model_name='homepage_category_bottom_section',
             name='description',

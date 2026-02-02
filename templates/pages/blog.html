@@ -81,10 +81,7 @@
                 <li><a href="#tab3">{{ article_tabs.tab_three }}</a></li>
                 <li><a href="#tab4">{{ article_tabs.tab_four }}</a></li>
                 <li><a href="#tab5">{{ article_tabs.tab_five }}</a></li>
-                <li><a href="#tab6">{{ article_tabs.tab_six }}</a></li>
-                <li><a href="#tab7">{{ article_tabs.tab_seven }}</a></li>
-                <li><a href="#tab8">{{ article_tabs.tab_eight }}</a></li>
-                <li><a href="#tab9">{{ article_tabs.tab_nine }}</a></li>
+
 
               <div class="reading-progress">
                 <div class="progress-bar">
@@ -135,88 +132,8 @@
                   </div>
                 </div>
               {% endfor %}
-            </section>
 
-            <section id="tab3" class="content-block" data-aos="fade-up">
-              <h2><i class="bi bi-search"></i>{{ tab_threes.title }}</h2>
-
-                  <div class="content-with-media">
-                    <div class="media-element">
-                      {% if Sliding_image.image1 %}
-                        <img src="{{ Sliding_image.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
-                      {% endif %}
-                        <div class="image-caption">{{ Sliding_image.image_description }}</div>
-                    </div>
-
-                    <div class="text-content">
-                      <p>{{ Sliding_image.description }}</p>
-                    </div>
-                  </div>
-                </div>
-              {% endfor %}
-            </section>
-
-            <section id="tab3" class="content-block" data-aos="fade-up">
-              {% if HomePage_Category_Sections %}
-                <div id="article-{{ HomePage_Category_Sections.link_url1 }}">
-                  <h2><i class=""></i>{{ HomePage_Category_Sections.link_url1 }}</h2>
-
-                  <div class="content-with-media">
-                    <div class="media-element">
-                      {% if HomePage_Category_Sections.image1 %}
-                        <img src="{{ HomePage_Category_Sections.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
-                      {% endif %}
-                        <div class="image-caption">{{ HomePage_Category_Sections.image_description }}</div>
-                    </div>
-
-                    <div class="text-content">
-                      <p>{{ HomePage_Category_Sections.description }}</p>
-                    </div>
-                  </div>
-                </div>
-              {% endif %}
-            </section>
-
-            <section id="tab4" class="content-block" data-aos="fade-up">
-              <h2><i class=""></i>{{ tab_threes.title }}</h2>
-
-              <p>{{ tab_threes.description }}</p>
-
-              <div class="feature-cards">
-                {% for tab_three in tab_three_posts %}
-                  <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-icon">
-                      {% if tab_three.image %}
-                        <img class="card-image" src="{{ tab_three.image.url }}" class="author-image" alt="{{ tab_three.image_title }}" loading="lazy">
-                      {% endif %}
-                    </div>
-                    <h3>{{ tab_three.image_title }}</h3>
-                    <p>{{ tab_three.image_description }}</p>
-                  </div>
-                {% endfor %}
-              </div>
-            </section>
-
-            <section id="tab5" class="content-block" data-aos="fade-up">
-              {% for post in HomePage_Category_Bottom_Sections %}
-                {% if forloop.counter <= 4 %}
-                    <div id="article2-{{ post.link_url }}" class="image-description-container">
-                      <div class="image-wrapper">
-                        <h3><i class=""></i>{{ post.link_url }}</h3>
-                        {% if post.image1 %}
-                          <img src="{{ post.image1.url }}" alt="{{ post.title1 }}" class="content-image" loading="lazy">
-                        {% endif %}
-                      </div>
-                      <div class="description-wrapper">
-                        <p>{{ post.description }}</p>
-                      </div>
-                    </div>
-                {% endif %}
-              {% endfor %}
-            </section>
-            
-
-            <section id="tab6" class="content-block" data-aos="fade-up">
+              <section id="" class="content-block" data-aos="fade-up">
               <h2><i class="bi bi-activity"></i>{{ tab_fours.title }}</h2>
 
               <div class="split-content">
@@ -271,8 +188,49 @@
                 </div>
               </div>
             </section>
+            </section>
 
-            <section id="tab7" class="content-block" data-aos="fade-up">
+            <section id="tab3" class="content-block" data-aos="fade-up">
+              {% if HomePage_Category_Sections %}
+                <div id="article-{{ HomePage_Category_Sections.link_url1 }}">
+                  <h2><i class=""></i>{{ HomePage_Category_Sections.link_url1 }}</h2>
+
+                  <div class="content-with-media">
+                    <div class="media-element">
+                      {% if HomePage_Category_Sections.image1 %}
+                        <img src="{{ HomePage_Category_Sections.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                      {% endif %}
+                        <div class="image-caption">{{ HomePage_Category_Sections.image_description }}</div>
+                    </div>
+
+                    <div class="text-content">
+                      <p>{{ HomePage_Category_Sections.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+
+
+              <h2><i class=""></i>{{ tab_threes.title }}</h2>
+
+              <p>{{ tab_threes.description }}</p>
+
+              <div class="feature-cards">
+                {% for tab_three in tab_three_posts %}
+                  <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">
+                      {% if tab_three.image %}
+                        <img class="card-image" src="{{ tab_three.image.url }}" class="author-image" alt="{{ tab_three.image_title }}" loading="lazy">
+                      {% endif %}
+                    </div>
+                    <h3>{{ tab_three.image_title }}</h3>
+                    <p>{{ tab_three.image_description }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </section>
+
+            <section id="tab4" class="content-block" data-aos="fade-up">
               {% if HomePage_Posts_Mains %}
                 <div id="article3-{{ HomePage_Posts_Mains.link_url }}" class="image-description-container">
                   <div class="image-wrapper">
@@ -307,9 +265,8 @@
                   </div>
                 {% endif %}
               {% endfor %}
-            </section>
 
-            <section id="tab8" class="content-block" data-aos="fade-up">
+
               <h2><i class="bi bi-exclamation-triangle"></i>{{ tab_fives.title }}</h2>
 
               <div class="challenges-grid">
@@ -323,9 +280,154 @@
                   </div>
                 {% endfor %}
               </div>
+              {% comment %} <h2><i class=""></i>{{ tab_threes.title }}</h2>
+
+              <p>{{ tab_threes.description }}</p>
+
+              <div class="feature-cards">
+                {% for tab_three in tab_three_posts %}
+                  <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">
+                      {% if tab_three.image %}
+                        <img class="card-image" src="{{ tab_three.image.url }}" class="author-image" alt="{{ tab_three.image_title }}" loading="lazy">
+                      {% endif %}
+                    </div>
+                    <h3>{{ tab_three.image_title }}</h3>
+                    <p>{{ tab_three.image_description }}</p>
+                  </div>
+                {% endfor %}
+              </div> {% endcomment %}
+            </section>
+
+            <section id="tab5" class="content-block" data-aos="fade-up">
+              {% for post in HomePage_Category_Bottom_Sections %}
+                {% if forloop.counter <= 4 %}
+                    <div id="article2-{{ post.link_url }}" class="image-description-container">
+                      <div class="image-wrapper">
+                        <h3><i class=""></i>{{ post.link_url }}</h3>
+                        {% if post.image1 %}
+                          <img src="{{ post.image1.url }}" alt="{{ post.title1 }}" class="content-image" loading="lazy">
+                        {% endif %}
+                      </div>
+                      <div class="description-wrapper">
+                        <p>{{ post.description }}</p>
+                      </div>
+                    </div>
+                {% endif %}
+              {% endfor %}
             </section>
             
-            <section id="tab9" class="content-block" data-aos="fade-up">
+
+            {% comment %} <section id="tab6" class="content-block" data-aos="fade-up">
+              <h2><i class="bi bi-activity"></i>{{ tab_fours.title }}</h2>
+
+              <div class="split-content">
+                <div class="content-left">
+                  <p>{{ tab_fours.description }}</p>
+
+                  <div class="monitoring-benefits">
+                    <div class="benefit-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{{ tab_fours.point_one }}</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{{ tab_fours.point_two }}</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{{ tab_fours.point_three }}</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{{ tab_fours.point_four }}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="content-right">
+                  <div class="monitoring-dashboard">
+                    <div class="dashboard-header">
+                      <h4>Patient Monitoring Dashboard</h4>
+                      <span class="status-indicator online">Live</span>
+                    </div>
+                    <div class="vital-signs">
+                      <div class="vital-item">
+                        <span class="vital-label">Heart Rate</span>
+                        <span class="vital-value">72 BPM</span>
+                      </div>
+                      <div class="vital-item">
+                        <span class="vital-label">Blood Pressure</span>
+                        <span class="vital-value">120/80</span>
+                      </div>
+                      <div class="vital-item">
+                        <span class="vital-label">Temperature</span>
+                        <span class="vital-value">98.6°F</span>
+                      </div>
+                      <div class="vital-item">
+                        <span class="vital-label">Oxygen Sat</span>
+                        <span class="vital-value">98%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section> {% endcomment %}
+
+            {% comment %} <section id="tab7" class="content-block" data-aos="fade-up">
+              {% if HomePage_Posts_Mains %}
+                <div id="article3-{{ HomePage_Posts_Mains.link_url }}" class="image-description-container">
+                  <div class="image-wrapper">
+                    <h3><i class=""></i>{{HomePage_Posts_Mains.large_title}}</h3>
+                    {% if HomePage_Posts_Mains.image %}
+                      <img src="{{ HomePage_Posts_Mains.image.url }}" alt="Featured post image" class="img-fluid w-100" loading="lazy">
+                    {% endif %}
+                  </div>
+                  <div class="description-wrapper">
+                    <p>{{HomePage_Posts_Mains.description}}</p>
+                  </div>
+                </div>
+              {% endif %}
+                
+              {% for side_post in HomePage_Posts_Sides %}
+                {% if forloop.counter <= 3 %}
+                  <div id="article4-{{ side_post.link_url }}">
+                    <h2><i class=""></i>{{ side_post.descriptive_title }}</h2>
+
+                    <div class="content-with-media">
+                      <div class="media-element">
+                        {% if side_post.image %}
+                          <img src="{{ side_post.image.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                        {% endif %}
+                          <div class="image-caption">{{ side_post.image_description }}</div>
+                      </div>
+
+                      <div class="text-content">
+                        <p>{{ side_post.description }}</p>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </section> {% endcomment %}
+
+            {% comment %} <section id="tab8" class="content-block" data-aos="fade-up">
+              <h2><i class="bi bi-exclamation-triangle"></i>{{ tab_fives.title }}</h2>
+
+              <div class="challenges-grid">
+                {% for tab_five_post in tab_five_posts %}
+                  <div class="challenge-card">
+                    <div class="challenge-header">
+                      <i class="bi bi-shield-lock"></i>
+                      <h3>{{ tab_five_post.title }}</h3>
+                    </div>
+                    <p>{{ tab_five_post.description }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </section> {% endcomment %}
+            
+            <section id="" class="content-block" data-aos="fade-up">
               {% for posts in HomePage_Posts_Bottom_Sections %}
                 {% if forloop.counter <= 3 %}
                   <div id="article5-{{ posts.link_url }}">
