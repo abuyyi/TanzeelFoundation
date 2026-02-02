@@ -48,8 +48,8 @@
 
           <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
             <div class="category-badges">
-              <span class="badge">Healthcare</span>
-              <span class="badge">AI &amp; ML</span>
+              <span class="badge">Nisoomeshe</span>
+              <span class="badge">Volunteer &amp; Support</span>
             </div>
             <h1>{{ blog_top_images.image_description_major }}</h1>
             <p class="hero-excerpt">{{ blog_top_image.image_description_minor }}</p>
@@ -90,7 +90,7 @@
                 <div class="progress-bar">
                   <div class="progress-fill"></div>
                 </div>
-                <span class="progress-text">0% Complete</span>
+                <span class="progress-text">30% Complete</span>
               </div>
             </div>
           </div>
@@ -120,6 +120,25 @@
               {% for Sliding_image in homepage_sliding_images %}
                 <div id="article-{{ Sliding_image.link_url1 }}">
                   <h2><i class=""></i>{{ Sliding_image.link_url1 }}</h2>
+
+                  <div class="content-with-media">
+                    <div class="media-element">
+                      {% if Sliding_image.image1 %}
+                        <img src="{{ Sliding_image.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                      {% endif %}
+                        <div class="image-caption">{{ Sliding_image.image_description }}</div>
+                    </div>
+
+                    <div class="text-content">
+                      <p>{{ Sliding_image.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </section>
+
+            <section id="tab3" class="content-block" data-aos="fade-up">
+              <h2><i class="bi bi-search"></i>{{ tab_threes.title }}</h2>
 
                   <div class="content-with-media">
                     <div class="media-element">

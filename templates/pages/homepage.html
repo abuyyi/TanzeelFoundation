@@ -69,7 +69,13 @@
       <div class="container section-title" data-aos="fade-up">
         <span class="description-title">Featured Posts</span>
         <h2>Featured Posts</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>These featured initiatives showcase the Tanzeel Foundation’s most significant programs and achievements,
+          reflecting our unwavering commitment to promoting education, advancing social welfare, providing humanitarian 
+          support, and upholding Islamic values within the communities we serve. Through these initiatives, the Foundation 
+          aims to create meaningful and lasting impact, empowering individuals and families, addressing critical social needs, 
+          and fostering a sense of compassion, solidarity, and ethical responsibility. Each program represents a milestone in 
+          our ongoing efforts to bring positive change, support vulnerable populations, and contribute to the overall development
+          and well-being of society.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -123,9 +129,7 @@
                             </div>
                         </div>
                         {% if Sliding_image.link_url1 %}
-                        <h3>
-                          <a href="{% url 'pages:blog' %}#article-{{ Sliding_image.link_url1 }}">{{ Sliding_image.link_url1 }}</a>
-                        </h3>                        
+                        <h3><a href="{% url 'pages:blog' %}#article-{{ Sliding_image.link_url1 }}">{{ Sliding_image.link_url1 }}</a></h3>                        
                         {% endif %}
                         <p>{{ Sliding_image.description|truncatewords:17 }}</p>
                         <div class="blog-footer">
@@ -157,7 +161,9 @@
       <div class="container section-title" data-aos="fade-up">
         <span class="description-title">Category Section</span>
         <h2>Category Section</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Tanzeel Foundation works to uplift communities through education, social welfare, 
+          healthcare, spiritual development, and humanitarian support. Our programs are guided by
+         Islamic values and designed to address the real needs of individuals and families while promoting sustainable community growth.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -182,7 +188,7 @@
                             </div>
                         {% endif %} 
                         <h2 class="post-title">
-                            <a href="{% url 'pages:blog' %}#article-{{ HomePage_Category_Sections.link_url1 }}">{{ HomePage_Category_Sections.link_url1 }}</a>
+                            {{ HomePage_Category_Sections.link_url1 }}
                         </h2>
                         <p class="post-excerpt">{{ HomePage_Category_Sections.description|truncatewords:25 }}</p>
                         <div class="post-stats">
@@ -268,7 +274,9 @@
       <div class="container section-title" data-aos="fade-up">
         <span class="description-title">Latest Posts</span>
         <h2>Latest Posts</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Explore and Stay updated with our latest,recent initiatives and community  activities aiming 
+          at uplifting the community through as Tanzeel Foundation, and continues to support education, 
+          humanitarian aid, and Islamic values through meaningful action. </p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -303,7 +311,8 @@
                         <i class="bi bi-folder2"></i><span class="ps-2">{{HomePage_Posts_Mains.content}}</span>
                       </div>
                     </div>
-                      <a href="{% url 'pages:blog' %}#article3-{{ HomePage_Posts_Mains.link_url }}" class="readmore stretched-link"><span>Continue</span><i class="bi bi-arrow-right"></i></a> 
+                      <a href="{{HomePage_Posts_Mains.link_url}}" class="readmore stretched-link">
+                        <span>Continue</span><i class="bi bi-arrow-right"></i></a> 
                   </div>
                 </article>
               </div>

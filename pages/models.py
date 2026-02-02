@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -24,6 +25,7 @@ class HomePage_Sliding_Image(models.Model):
     date = models.DateField(null=True, blank=True)
     link_url1 = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
     description = models.TextField(("Optional: A brief description of the image or event."), blank=True)
+    description = models.TextField(("Optional: A brief description of the image or event."), blank=True)
     time = models.TimeField(null=True, blank=True)
     link_url2 = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
     aprove = models.BooleanField(default=False)
@@ -37,7 +39,7 @@ class HomePage_Category_Section(models.Model):
     title = models.CharField(max_length=100)
     date = models.DateField(null=True, blank=True)
     link_url1 = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
-    description = models.CharField(max_length=255,blank=True)
+    description = models.CharField(max_length=500,blank=True)
     time = models.TimeField(null=True, blank=True)
     comment = models.CharField(max_length=20, blank=True)
     aprove = models.BooleanField(default=False)
@@ -59,7 +61,7 @@ class HomePage_Category_Bottom_Section(models.Model):
     image1 = models.ImageField(upload_to='homepage_Posts/')
     title1 = models.CharField(max_length=200)
     link_url = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
-    description = models.CharField(max_length=255,blank=True)
+    description = models.CharField(max_length=500,blank=True)
     image2 = models.ImageField(upload_to='homepage_Posts/')
     title2 = models.CharField(max_length=200)
     time = models.TimeField(null=True, blank=True)
@@ -99,8 +101,7 @@ class HomePage_Posts_Bottom_Section(models.Model):
     image = models.ImageField(upload_to='homepage_Posts_Bottom_Section/')
     title = models.CharField(max_length=200)
     hoster_name = models.CharField(max_length=20)
-    descriptive_title = models.CharField(max_length=255,blank=True)
-    description = models.TextField(blank=True)
+    description = models.CharField(max_length=500,blank=True)
     link_url = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")
     aprove = models.BooleanField(default=False)
 

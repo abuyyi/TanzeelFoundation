@@ -5,6 +5,8 @@ from django.contrib import messages
 from .models import (HomePage_Image,
                      HomePage_Sliding_Image,
                      HomePage_Category_Section,
+                     HomePage_Sliding_Image,
+                     HomePage_Category_Section,
                      HomePage_Category_Side_Section,
                      HomePage_Category_Bottom_Section,
                      HomePage_Posts_Main,
@@ -99,17 +101,7 @@ def blog(request):
     tab_fours = tab_four.objects.first()
     tab_fives = tab_five.objects.first()
     tab_five_posts = tab_five_post.objects.filter(aprove=True)
-    tab_sixs = tab_six.objects.first()
-    tab_sevens = tab_seven.objects.first()
-    tab_eights = tab_eight.objects.first()
-    tab_nines = tab_nine.objects.first()
     homepage_sliding_images = HomePage_Sliding_Image.objects.filter(aprove=True)
-    HomePage_Category_Sections = HomePage_Category_Section.objects.filter(aprove=True).first()
-    HomePage_Category_Bottom_Sections = HomePage_Category_Bottom_Section.objects.filter(aprove=True)
-    HomePage_Posts_Mains = HomePage_Posts_Main.objects.filter(aprove=True).first()
-    HomePage_Posts_Sides = HomePage_Posts_Side.objects.filter(aprove=True)
-    HomePage_Posts_Bottom_Sections = HomePage_Posts_Bottom_Section.objects.filter(aprove=True)
-
 
     # Pass it to the template in a context dictionary
     context = {
@@ -121,16 +113,7 @@ def blog(request):
             'tab_fours': tab_fours,
             'tab_fives': tab_fives,
             'tab_five_posts': tab_five_posts,
-            'tab_sixs': tab_sixs,
-            'tab_sevens': tab_sevens,
-            'tab_eights': tab_eights,
-            'tab_nines': tab_nines,
             'homepage_sliding_images': homepage_sliding_images,
-            'HomePage_Category_Sections': HomePage_Category_Sections,
-            'HomePage_Category_Bottom_Sections': HomePage_Category_Bottom_Sections,
-            'HomePage_Posts_Mains': HomePage_Posts_Mains,
-            'HomePage_Posts_Sides': HomePage_Posts_Sides,
-            'HomePage_Posts_Bottom_Sections': HomePage_Posts_Bottom_Sections,
         }
     return render(request, 'pages/blog.html', context)
 
