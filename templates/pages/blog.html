@@ -85,7 +85,7 @@
                 <li><a href="#tab3">{{ article_tabs.tab_three }}</a></li>
                 <li><a href="#tab4">{{ article_tabs.tab_four }}</a></li>
                 <li><a href="#tab5">{{ article_tabs.tab_five }}</a></li>
-                <li><a href="#tab6">{{ article_tabs.tab_six }}</a></li>
+
 
               <div class="reading-progress">
                 <div class="progress-bar">
@@ -136,61 +136,8 @@
                   </div>
                 </div>
               {% endfor %}
-            </section>
 
-            <section id="tab3" class="content-block" data-aos="fade-up">
-              <h2><i class="bi bi-search"></i>{{ tab_threes.title }}</h2>
-
-              <div class="content-with-media">
-                <div class="media-element">
-                  {% if tab_twos.image %}
-                    <img src="{{ tab_twos.image.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
-                  {% endif %}
-                    <div class="image-caption">{{ tab_twos.image_description }}</div>
-                </div>
-
-                <div class="text-content">
-                  <p>{{ tab_twos.image_explanation }}</p>
-
-                  <div class="stats-grid">
-                    <div class="stat-item">
-                      <div class="stat-number">94%</div>
-                      <div class="stat-label">Accuracy in Cancer Detection</div>
-                    </div>
-                    <div class="stat-item">
-                      <div class="stat-number">65%</div>
-                      <div class="stat-label">Faster Diagnosis Time</div>
-                    </div>
-                    <div class="stat-item">
-                      <div class="stat-number">40%</div>
-                      <div class="stat-label">Reduction in Errors</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section id="tab3" class="content-block" data-aos="fade-up">
-              <h2><i class=""></i>{{ tab_threes.title }}</h2>
-
-              <p>{{ tab_threes.description }}</p>
-
-              <div class="feature-cards">
-                {% for tab_three in tab_three_posts %}
-                  <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-icon">
-                      {% if tab_three.image %}
-                        <img class="card-image" src="{{ tab_three.image.url }}" class="author-image" alt="{{ tab_three.image_title }}" loading="lazy">
-                      {% endif %}
-                    </div>
-                    <h3>{{ tab_three.image_title }}</h3>
-                    <p>{{ tab_three.image_description }}</p>
-                  </div>
-                {% endfor %}
-              </div>
-            </section>
-
-            <section id="tab4" class="content-block" data-aos="fade-up">
+              <section id="" class="content-block" data-aos="fade-up">
               <h2><i class="bi bi-activity"></i>{{ tab_fours.title }}</h2>
 
               <div class="split-content">
@@ -245,8 +192,85 @@
                 </div>
               </div>
             </section>
+            </section>
 
-            <section id="tab5" class="content-block" data-aos="fade-up">
+            <section id="tab3" class="content-block" data-aos="fade-up">
+              {% if HomePage_Category_Sections %}
+                <div id="article-{{ HomePage_Category_Sections.link_url1 }}">
+                  <h2><i class=""></i>{{ HomePage_Category_Sections.link_url1 }}</h2>
+
+                  <div class="content-with-media">
+                    <div class="media-element">
+                      {% if HomePage_Category_Sections.image1 %}
+                        <img src="{{ HomePage_Category_Sections.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                      {% endif %}
+                        <div class="image-caption">{{ HomePage_Category_Sections.image_description }}</div>
+                    </div>
+
+                    <div class="text-content">
+                      <p>{{ HomePage_Category_Sections.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+
+
+              <h2><i class=""></i>{{ tab_threes.title }}</h2>
+
+              <p>{{ tab_threes.description }}</p>
+
+              <div class="feature-cards">
+                {% for tab_three in tab_three_posts %}
+                  <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">
+                      {% if tab_three.image %}
+                        <img class="card-image" src="{{ tab_three.image.url }}" class="author-image" alt="{{ tab_three.image_title }}" loading="lazy">
+                      {% endif %}
+                    </div>
+                    <h3>{{ tab_three.image_title }}</h3>
+                    <p>{{ tab_three.image_description }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </section>
+
+            <section id="tab4" class="content-block" data-aos="fade-up">
+              {% if HomePage_Posts_Mains %}
+                <div id="article3-{{ HomePage_Posts_Mains.link_url }}" class="image-description-container">
+                  <div class="image-wrapper">
+                    <h3><i class=""></i>{{HomePage_Posts_Mains.large_title}}</h3>
+                    {% if HomePage_Posts_Mains.image %}
+                      <img src="{{ HomePage_Posts_Mains.image.url }}" alt="Featured post image" class="img-fluid w-100" loading="lazy">
+                    {% endif %}
+                  </div>
+                  <div class="description-wrapper">
+                    <p>{{HomePage_Posts_Mains.description}}</p>
+                  </div>
+                </div>
+              {% endif %}
+                
+              {% for side_post in HomePage_Posts_Sides %}
+                {% if forloop.counter <= 3 %}
+                  <div id="article4-{{ side_post.link_url }}">
+                    <h2><i class=""></i>{{ side_post.descriptive_title }}</h2>
+
+                    <div class="content-with-media">
+                      <div class="media-element">
+                        {% if side_post.image %}
+                          <img src="{{ side_post.image.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                        {% endif %}
+                          <div class="image-caption">{{ side_post.image_description }}</div>
+                      </div>
+
+                      <div class="text-content">
+                        <p>{{ side_post.description }}</p>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+
+
               <h2><i class="bi bi-exclamation-triangle"></i>{{ tab_fives.title }}</h2>
 
               <div class="challenges-grid">
@@ -260,45 +284,402 @@
                   </div>
                 {% endfor %}
               </div>
+              {% comment %} <h2><i class=""></i>{{ tab_threes.title }}</h2>
+
+              <p>{{ tab_threes.description }}</p>
+
+              <div class="feature-cards">
+                {% for tab_three in tab_three_posts %}
+                  <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">
+                      {% if tab_three.image %}
+                        <img class="card-image" src="{{ tab_three.image.url }}" class="author-image" alt="{{ tab_three.image_title }}" loading="lazy">
+                      {% endif %}
+                    </div>
+                    <h3>{{ tab_three.image_title }}</h3>
+                    <p>{{ tab_three.image_description }}</p>
+                  </div>
+                {% endfor %}
+              </div> {% endcomment %}
             </section>
 
-            <section id="tab6" class="content-block" data-aos="fade-up">
-              <h2><i class="bi bi-lightbulb"></i> The Future of AI in Healthcare</h2>
+            <section id="tab5" class="content-block" data-aos="fade-up">
+              {% for post in HomePage_Category_Bottom_Sections %}
+                {% if forloop.counter <= 4 %}
+                    <div id="article2-{{ post.link_url }}" class="image-description-container">
+                      <div class="image-wrapper">
+                        <h3><i class=""></i>{{ post.link_url }}</h3>
+                        {% if post.image1 %}
+                          <img src="{{ post.image1.url }}" alt="{{ post.title1 }}" class="content-image" loading="lazy">
+                        {% endif %}
+                      </div>
+                      <div class="description-wrapper">
+                        <p>{{ post.description }}</p>
+                      </div>
+                    </div>
+                {% endif %}
+              {% endfor %}
+            </section>
+            
 
-              <p>The convergence of machine learning, big data analytics, and medical expertise is creating unprecedented opportunities to improve patient care and health outcomes. As technology continues to advance, we can expect even more sophisticated AI applications in healthcare.</p>
+            {% comment %} <section id="tab6" class="content-block" data-aos="fade-up">
+              <h2><i class="bi bi-activity"></i>{{ tab_fours.title }}</h2>
 
-              <div class="future-outlook">
-                <div class="outlook-item" data-aos="fade-left" data-aos-delay="100">
-                  <div class="outlook-number">2025</div>
-                  <div class="outlook-content">
-                    <h4>Widespread AI Adoption</h4>
-                    <p>Majority of hospitals will integrate AI-powered diagnostic tools</p>
+              <div class="split-content">
+                <div class="content-left">
+                  <p>{{ tab_fours.description }}</p>
+
+                  <div class="monitoring-benefits">
+                    <div class="benefit-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{{ tab_fours.point_one }}</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{{ tab_fours.point_two }}</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{{ tab_fours.point_three }}</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="bi bi-check-circle-fill"></i>
+                      <span>{{ tab_fours.point_four }}</span>
+                    </div>
                   </div>
                 </div>
 
-                <div class="outlook-item" data-aos="fade-left" data-aos-delay="200">
-                  <div class="outlook-number">2027</div>
-                  <div class="outlook-content">
-                    <h4>Predictive Medicine</h4>
-                    <p>AI will predict and prevent diseases before symptoms appear</p>
-                  </div>
-                </div>
-
-                <div class="outlook-item" data-aos="fade-left" data-aos-delay="300">
-                  <div class="outlook-number">2030</div>
-                  <div class="outlook-content">
-                    <h4>Personalized Healthcare</h4>
-                    <p>Fully customized treatment plans for every individual patient</p>
+                <div class="content-right">
+                  <div class="monitoring-dashboard">
+                    <div class="dashboard-header">
+                      <h4>Patient Monitoring Dashboard</h4>
+                      <span class="status-indicator online">Live</span>
+                    </div>
+                    <div class="vital-signs">
+                      <div class="vital-item">
+                        <span class="vital-label">Heart Rate</span>
+                        <span class="vital-value">72 BPM</span>
+                      </div>
+                      <div class="vital-item">
+                        <span class="vital-label">Blood Pressure</span>
+                        <span class="vital-value">120/80</span>
+                      </div>
+                      <div class="vital-item">
+                        <span class="vital-label">Temperature</span>
+                        <span class="vital-value">98.6°F</span>
+                      </div>
+                      <div class="vital-item">
+                        <span class="vital-label">Oxygen Sat</span>
+                        <span class="vital-value">98%</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+            </section> {% endcomment %}
+
+            {% comment %} <section id="tab7" class="content-block" data-aos="fade-up">
+              {% if HomePage_Posts_Mains %}
+                <div id="article3-{{ HomePage_Posts_Mains.link_url }}" class="image-description-container">
+                  <div class="image-wrapper">
+                    <h3><i class=""></i>{{HomePage_Posts_Mains.large_title}}</h3>
+                    {% if HomePage_Posts_Mains.image %}
+                      <img src="{{ HomePage_Posts_Mains.image.url }}" alt="Featured post image" class="img-fluid w-100" loading="lazy">
+                    {% endif %}
+                  </div>
+                  <div class="description-wrapper">
+                    <p>{{HomePage_Posts_Mains.description}}</p>
+                  </div>
+                </div>
+              {% endif %}
+                
+              {% for side_post in HomePage_Posts_Sides %}
+                {% if forloop.counter <= 3 %}
+                  <div id="article4-{{ side_post.link_url }}">
+                    <h2><i class=""></i>{{ side_post.descriptive_title }}</h2>
+
+                    <div class="content-with-media">
+                      <div class="media-element">
+                        {% if side_post.image %}
+                          <img src="{{ side_post.image.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                        {% endif %}
+                          <div class="image-caption">{{ side_post.image_description }}</div>
+                      </div>
+
+                      <div class="text-content">
+                        <p>{{ side_post.description }}</p>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </section> {% endcomment %}
+
+            {% comment %} <section id="tab8" class="content-block" data-aos="fade-up">
+              <h2><i class="bi bi-exclamation-triangle"></i>{{ tab_fives.title }}</h2>
+
+              <div class="challenges-grid">
+                {% for tab_five_post in tab_five_posts %}
+                  <div class="challenge-card">
+                    <div class="challenge-header">
+                      <i class="bi bi-shield-lock"></i>
+                      <h3>{{ tab_five_post.title }}</h3>
+                    </div>
+                    <p>{{ tab_five_post.description }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </section> {% endcomment %}
+            
+            <section id="" class="content-block" data-aos="fade-up">
+              {% for posts in HomePage_Posts_Bottom_Sections %}
+                {% if forloop.counter <= 3 %}
+                  <div id="article5-{{ posts.link_url }}">
+                      <h2><i class=""></i>{{ posts.descriptive_title }}</h2>
+
+                    <div class="content-with-media">
+                      <div class="media-element">
+                        {% if posts.image %}
+                          <img src="{{ posts.image.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
+                        {% endif %}
+                          <div class="image-caption">{{ posts.image_description }}</div>
+                      </div>
+
+                      <div class="text-content">
+                        <p>{{ posts.description }}</p>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
             </section>
           </main>
         </div>
       </div>
     </section><!-- /Blog Details Section -->
 
-    <!-- Blog Comment Form Section -->
+   
+    <!-- Blog Comments Section COMMONG SOON -->
+    {% comment %} 
+    <section id="blog-comments" class="blog-comments section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="blog-comments-4">
+          <div class="comments-header">
+            <h3 class="title">Community Feedback</h3>
+            <div class="comments-stats">
+              <span class="count">12</span>
+              <span class="label">Comments</span>
+            </div>
+          </div>
+
+          <div class="comments-container">
+            <!-- Comment #1 -->
+            <div class="comment-thread">
+              <div class="comment-box">
+                <div class="comment-wrapper">
+                  <div class="avatar-wrapper">
+                    <img src="{% static 'assets/img/person/person-f-9.webp' %}" alt="Avatar" loading="lazy">
+                    <span class="status-indicator"></span>
+                  </div>
+
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <div class="user-info">
+                        <h4>Thomas Anderson</h4>
+                        <span class="time-badge">
+                          <i class="bi bi-clock"></i>
+                          2 hours ago
+                        </span>
+                      </div>
+                      <div class="engagement">
+                        <span class="likes">
+                          <i class="bi bi-heart"></i>
+                          24
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="comment-body">
+                      <p>Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc.</p>
+                    </div>
+
+                    <div class="comment-actions">
+                      <button class="action-btn like-btn" aria-label="Like comment">
+                        <i class="bi bi-heart"></i>
+                        <span>Like</span>
+                      </button>
+                      <button class="action-btn reply-btn" aria-label="Reply to comment">
+                        <i class="bi bi-chat"></i>
+                        <span>Reply</span>
+                      </button>
+                      <button class="action-btn share-btn" aria-label="Share comment">
+                        <i class="bi bi-share"></i>
+                        <span>Share</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Replies Container -->
+              <div class="replies-container">
+                <!-- Reply #1 -->
+                <div class="comment-box reply">
+                  <div class="comment-wrapper">
+                    <div class="avatar-wrapper">
+                      <img src="{% static 'assets/img/person/person-m-9.webp' %}" alt="Avatar" loading="lazy">
+                      <span class="status-indicator"></span>
+                    </div>
+
+                    <div class="comment-content">
+                      <div class="comment-header">
+                        <div class="user-info">
+                          <h4>Maria Rodriguez</h4>
+                          <span class="time-badge">
+                            <i class="bi bi-clock"></i>
+                            1 hour ago
+                          </span>
+                        </div>
+                        <div class="engagement">
+                          <span class="likes">
+                            <i class="bi bi-heart"></i>
+                            8
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="comment-body">
+                        <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae.</p>
+                      </div>
+
+                      <div class="comment-actions">
+                        <button class="action-btn like-btn" aria-label="Like comment">
+                          <i class="bi bi-heart"></i>
+                          <span>Like</span>
+                        </button>
+                        <button class="action-btn reply-btn" aria-label="Reply to comment">
+                          <i class="bi bi-chat"></i>
+                          <span>Reply</span>
+                        </button>
+                        <button class="action-btn share-btn" aria-label="Share comment">
+                          <i class="bi bi-share"></i>
+                          <span>Share</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Reply #2 -->
+                <div class="comment-box reply">
+                  <div class="comment-wrapper">
+                    <div class="avatar-wrapper">
+                      <img src="{% static 'assets/img/person/person-f-9.webp' %}" alt="Avatar" loading="lazy">
+                      <span class="status-indicator"></span>
+                    </div>
+
+                    <div class="comment-content">
+                      <div class="comment-header">
+                        <div class="user-info">
+                          <h4>Alex Chen</h4>
+                          <span class="time-badge">
+                            <i class="bi bi-clock"></i>
+                            30 minutes ago
+                          </span>
+                        </div>
+                        <div class="engagement">
+                          <span class="likes">
+                            <i class="bi bi-heart"></i>
+                            5
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="comment-body">
+                        <p>Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+                      </div>
+
+                      <div class="comment-actions">
+                        <button class="action-btn like-btn" aria-label="Like comment">
+                          <i class="bi bi-heart"></i>
+                          <span>Like</span>
+                        </button>
+                        <button class="action-btn reply-btn" aria-label="Reply to comment">
+                          <i class="bi bi-chat"></i>
+                          <span>Reply</span>
+                        </button>
+                        <button class="action-btn share-btn" aria-label="Share comment">
+                          <i class="bi bi-share"></i>
+                          <span>Share</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Comment #2 -->
+            <div class="comment-thread">
+              <div class="comment-box">
+                <div class="comment-wrapper">
+                  <div class="avatar-wrapper">
+                    <img src="{% static 'assets/img/person/person-f-7.webp' %}" alt="Avatar" loading="lazy">
+                    <span class="status-indicator"></span>
+                  </div>
+
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <div class="user-info">
+                        <h4>Emily Watson</h4>
+                        <span class="time-badge">
+                          <i class="bi bi-clock"></i>
+                          3 hours ago
+                        </span>
+                      </div>
+                      <div class="engagement">
+                        <span class="likes">
+                          <i class="bi bi-heart"></i>
+                          15
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="comment-body">
+                      <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+                    </div>
+
+                    <div class="comment-actions">
+                      <button class="action-btn like-btn" aria-label="Like comment">
+                        <i class="bi bi-heart"></i>
+                        <span>Like</span>
+                      </button>
+                      <button class="action-btn reply-btn" aria-label="Reply to comment">
+                        <i class="bi bi-chat"></i>
+                        <span>Reply</span>
+                      </button>
+                      <button class="action-btn share-btn" aria-label="Share comment">
+                        <i class="bi bi-share"></i>
+                        <span>Share</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section> 
+    {% endcomment %}
+    <!-- /Blog Comments Section -->
+
+    <!-- Blog Comment Form Section COMMING SOON -->
+    {% comment %} 
     <section id="blog-comment-form" class="blog-comment-form section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -340,7 +721,9 @@
 
       </div>
 
-    </section><!-- /Blog Comment Form Section -->
+    </section> 
+    {% endcomment %}
+    <!-- /Blog Comment Form Section -->
 
   </main>
 

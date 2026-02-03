@@ -1,0 +1,250 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+  <!-- Coming Soon Section -->
+  <section id="coming-soon" class="coming-soon section light-background">
+    <div class="container d-flex align-items-center justify-content-center min-vh-100">
+      <div class="row w-100 align-items-center justify-content-center">
+        <div class="col-lg-8 text-center">
+          <!-- Coming Soon Content -->
+          <div class="coming-soon-content" data-aos="fade-up">
+            
+            <!-- Animated Icon -->
+            <div class="coming-soon-icon mb-4">
+              <i class="bi bi-hourglass-split" style="font-size: 5rem; color: #0ea5e9;"></i>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="coming-soon-title mb-3">
+              Coming Soon
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="coming-soon-subtitle mb-4" style="font-size: 1.25rem; color: #666; max-width: 600px; margin: 0 auto;">
+              We're working hard to bring you something amazing. Stay tuned!
+            </p>
+
+            <!-- Description -->
+            <p class="coming-soon-description mb-5" style="color: #888; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+              Our team is putting the finishing touches on a brand new feature that will revolutionize your experience.
+            </p>
+
+            <!-- Countdown Timer (Optional) -->
+            <div class="coming-soon-countdown mb-5" id="countdown" data-aos="fade-up" data-aos-delay="100">
+              <div class="row justify-content-center">
+                <div class="col-6 col-sm-3 col-md-2 mb-3">
+                  <div class="countdown-box" style="background: #f0f4f8; padding: 20px; border-radius: 10px; border-left: 4px solid #0ea5e9;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #0ea5e9;" id="days">00</div>
+                    <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">Days</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-2 mb-3">
+                  <div class="countdown-box" style="background: #f0f4f8; padding: 20px; border-radius: 10px; border-left: 4px solid #0ea5e9;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #0ea5e9;" id="hours">00</div>
+                    <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">Hours</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-2 mb-3">
+                  <div class="countdown-box" style="background: #f0f4f8; padding: 20px; border-radius: 10px; border-left: 4px solid #0ea5e9;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #0ea5e9;" id="minutes">00</div>
+                    <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">Minutes</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-2 mb-3">
+                  <div class="countdown-box" style="background: #f0f4f8; padding: 20px; border-radius: 10px; border-left: 4px solid #0ea5e9;">
+                    <div style="font-size: 2rem; font-weight: bold; color: #0ea5e9;" id="seconds">00</div>
+                    <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">Seconds</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Call to Action Buttons -->
+            <div class="coming-soon-cta" data-aos="fade-up" data-aos-delay="200">
+              <a href="{% url 'pages:homepage' %}" class="btn btn-primary me-3 mb-2">
+                <i class="bi bi-house-door me-2"></i>Back to Home
+              </a>
+              <a href="{% url 'pages:contact' %}" class="btn btn-outline mb-2">
+                <i class="bi bi-envelope me-2"></i>Contact Us
+              </a>
+            </div>
+
+            <!-- Newsletter Signup (Optional) -->
+            <div class="coming-soon-newsletter mt-5" data-aos="fade-up" data-aos-delay="300">
+              <h5 class="mb-3" style="color: #333;">Get Notified When We Launch</h5>
+              <form class="newsletter-form d-flex justify-content-center" style="gap: 10px;">
+                <input 
+                  type="email" 
+                  class="form-control" 
+                  placeholder="Enter your email" 
+                  style="max-width: 300px; border-radius: 5px; border: 1px solid #ddd;"
+                  required
+                >
+                <button 
+                  type="submit" 
+                  class="btn btn-primary" 
+                  style="border-radius: 5px; padding: 10px 25px;"
+                >
+                  Notify Me
+                </button>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Coming Soon Section -->
+
+</main>
+
+<style>
+  .coming-soon {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+  }
+
+  .coming-soon-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    font-family: "Raleway", sans-serif;
+  }
+
+  .coming-soon-subtitle {
+    font-family: "Roboto", sans-serif;
+    color: #555;
+  }
+
+  .coming-soon-description {
+    font-family: "Roboto", sans-serif;
+  }
+
+  .btn-primary {
+    background-color: #0ea5e9;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .btn-primary:hover {
+    background-color: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+  }
+
+  .btn-outline {
+    color: #0ea5e9;
+    border: 2px solid #0ea5e9;
+    padding: 10px 28px;
+    font-weight: 600;
+    border-radius: 5px;
+    background: transparent;
+    transition: all 0.3s ease;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .btn-outline:hover {
+    background-color: #0ea5e9;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .countdown-box {
+    transition: all 0.3s ease;
+  }
+
+  .countdown-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    .coming-soon-title {
+      font-size: 2.5rem;
+    }
+
+    .coming-soon-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .countdown-box {
+      padding: 15px !important;
+    }
+
+    .countdown-box div:first-child {
+      font-size: 1.5rem !important;
+    }
+  }
+
+  .newsletter-form input {
+    padding: 12px 15px;
+  }
+
+  .newsletter-form input::placeholder {
+    color: #999;
+  }
+
+  .min-vh-100 {
+    min-height: 100vh;
+  }
+</style>
+
+<script>
+  // Countdown Timer with localStorage persistence
+  function startCountdown() {
+    const STORAGE_KEY = 'countdown_end_date';
+    let endDate = localStorage.getItem(STORAGE_KEY);
+
+    // If no stored end date, create one (30 days from now)
+    if (!endDate) {
+      endDate = new Date().getTime() + (30 * 24 * 60 * 60 * 1000);
+      localStorage.setItem(STORAGE_KEY, endDate);
+    } else {
+      endDate = parseInt(endDate, 10);
+    }
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = endDate - now;
+
+      if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(days).padStart(2, '0');
+        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+      } else {
+        // Countdown finished
+        document.getElementById('days').innerText = '00';
+        document.getElementById('hours').innerText = '00';
+        document.getElementById('minutes').innerText = '00';
+        document.getElementById('seconds').innerText = '00';
+      }
+    };
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  // Start countdown on page load
+  startCountdown();
+</script>
+
+{% endblock content %}

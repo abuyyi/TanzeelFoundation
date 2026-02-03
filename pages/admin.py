@@ -20,6 +20,7 @@ from .models import (HomePage_Image,
                      tab_four,
                      tab_five,
                      tab_five_post,
+                     ContactMessage,
                     )
 
 
@@ -208,4 +209,33 @@ class tab_five_postAdmin(admin.ModelAdmin):
     list_filter = ('aprove',)
     search_fields = ('title',)
     verbose_name_plural = "9. Blog - Article Tab 5 Posts"
+    group = "Blog & Articles"
+
+@admin.register(ContactMessage)
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'subject', 'created_at', 'is_read')
+    list_filter = ('is_read', 'created_at')
+    search_fields = ('name', 'email', 'subject', 'message')
+    readonly_fields = ('created_at', 'name', 'email', 'subject', 'message')
+    actions = ['mark_as_read', 'mark_as_unread']
+
+    def mark_as_read(self, request, queryset):
+        queryset.update(is_read=True)
+    mark_as_read.short_description = "Mark selected messages as read"
+
+    def mark_as_unread(self, request, queryset):
+        queryset.update(is_read=False)
+    mark_as_unread.short_description = "Mark selected messages as unread"
+
+    fieldsets = (
+        ('Message Information', {
+            'fields': ('name', 'email', 'subject', 'message')
+        }),
+        ('Status', {
+            'fields': ('is_read', 'created_at')
+        }),
+    )
+
+    def has_add_permission(self, request):
+        return False
     group = "Blog & Articles"

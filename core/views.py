@@ -3,6 +3,14 @@ import logging
 import re
 
 import os
+
+from django.shortcuts import render
+
+def coming_soon(request):
+    """Display the coming soon page"""
+    return render(request, 'core/coming_soon.html')
+
+
 # Helper: Get Pesapal OAuth2 access token
 def get_pesapal_access_token():
     # DEBUG: Print Pesapal env values
