@@ -18,7 +18,7 @@
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+  <!-- Vendor CSS Files --> 
   <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
@@ -55,6 +55,7 @@
               <li><a href="{% url 'pages:about' %}">About</a></li>
               <li><a href="{% url 'pages:blog' %}">Blog Details</a></li>
               <li><a href="{% url 'core:coming_soon' %}">Appeals</a></li>
+              <li><a href="{% url 'core:coming_soon' %}">Donate Now</a></li>
               {% comment %} <li><a href="search-results.html">Search Results</a></li> {% endcomment %}
               {% comment %} <li><a href="404.html">404 Not Found Page</a></li> {% endcomment %}
 
@@ -123,27 +124,27 @@
                 <ul class="list-unstyled">
                   <li><a href="{% url 'pages:about' %}">About Us</a></li>
                   <li><a href="{% url 'pages:about' %}#team">Our Team</a></li>
-                  <li><a href="#">Our Vision</a></li>
-                  <li><a href="#">Our Mission</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">Our Vision</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">Our Mission</a></li>
                 </ul>
               </div>
               <div class="col-6 col-md-4">
                 <h5>Our Divisions</h5>
                 <ul class="list-unstyled">
-                  <li><a href="#">TSDF</a></li>
-                  <li><a href="#">Tanzeel Waqfu</a></li>
-                  <li><a href="#">Tanzeel Social Service</a></li>
-                  <li><a href="#">Tanzeel Education Center</a></li>
+                  <li><a href="{% url 'pages:blog' %}#pozi">TSDF</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">Tanzeel Waqfu</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">Tanzeel Social Service</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">Tanzeel Education Center</a></li>
                   
                 </ul>
               </div>
               <div class="col-6 col-md-4">
-                <h5>Support</h5>
+                <h5>Quick LInks</h5>
                 <ul class="list-unstyled">
-                  <li><a href="#">Help Center</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">Appeals</a></li>
                   <li><a href="{% url 'pages:contact' %}">Contact Us</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Terms of Service</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">Donation</a></li>
+                  <li><a href="{% url 'core:coming_soon' %}">Fund Project</a></li>
                 </ul>
               </div>
             </div>

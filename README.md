@@ -26,3 +26,9 @@ Run tests
 Notes
 - `requirements.txt` now contains pinned packages used by the project; pin further if needed.
 - If you rely on a different DB (Postgres/MySQL), set `DATABASE_URL` in `.env` and update `tanzeel/settings.py` accordingly.
+
+git status
+git add .
+git commit -m "message"
+git pull
+git push

@@ -68,7 +68,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <span class="description-title">Featured Posts</span>
-        <h2>Featured Posts</h2>
+       <h1 class="heading-title">FEATURED POSTS</h1>
         <p>These featured initiatives showcase the Tanzeel Foundation’s most significant programs and achievements,
           reflecting our unwavering commitment to promoting education, advancing social welfare, providing humanitarian 
           support, and upholding Islamic values within the communities we serve. Through these initiatives, the Foundation 
@@ -160,10 +160,10 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <span class="description-title">Category Section</span>
-        <h2>Category Section</h2>
+       <h1 class="heading-title">CATEGORY SECTION</h1>
         <p>Tanzeel Foundation works to uplift communities through education, social welfare, 
           healthcare, spiritual development, and humanitarian support. Our programs are guided by
-         Islamic values and designed to address the real needs of individuals and families while promoting sustainable community growth.</p>
+          Islamic values and designed to address the real needs of individuals and families while promoting sustainable community growth.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -273,15 +273,15 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <span class="description-title">Latest Posts</span>
-        <h2>Latest Posts</h2>
+        <h1 class="heading-title">LATEST POSTS</h1>
         <p>Explore and Stay updated with our latest,recent initiatives and community  activities aiming 
           at uplifting the community through as Tanzeel Foundation, and continues to support education, 
           humanitarian aid, and Islamic values through meaningful action. </p>
       </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container" data-aos="fade-up" data-aos-delay="100" >
 
-        <div class="row gy-4 align-items-stretch">
+        <div class="row gy-4 align-items-stretch"id= "pozi">
           {% if HomePage_Posts_Mains %}
               <div class="col-lg-7" data-aos="zoom-in" data-aos-delay="150">
                 <article class="featured-post position-relative h-100">
@@ -337,7 +337,7 @@
                           <span class="dot">•</span>
                           <span class="category">{{ side_post.major_title }}</span>
                         </div>
-                        <h4 class="title">{{ side_post.descriptive_title }}</h4>
+                        <h6 class="title">{{ side_post.descriptive_title }}</h6>
                         {% if side_post.link_url %}
                           <a href="{% url 'pages:blog' %}#article4-{{ side_post.link_url }}" class="readmore"><span>Read Article</span><i class="bi bi-arrow-right"></i></a>
                         {% endif %}  

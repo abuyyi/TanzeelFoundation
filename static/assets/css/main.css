@@ -775,6 +775,25 @@ h6 {
   font-weight: 700;
 }
 
+.page-title p {
+  font-size: 20px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 25px;                                                    #hapo patamu
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+.page-title  .mb-0 p {
+  font-family: var(--default-font);
+  line-height: 1.4;
+  color: #4b5563;
+  text-align: justify;
+  text-align-last: left;
+
+}
+
 .page-title nav {
   background-color: color-mix(in srgb, var(--default-color), transparent 96%);
   padding: 20px 0;
@@ -829,7 +848,9 @@ section,
   padding: 30px 0;
   margin-bottom: 30px;
   position: relative;
+  font-family: var(--default-font);
 }
+
 
 .section-title h2 {
   font-size: 32px;
@@ -1026,12 +1047,172 @@ section,
   height: auto !important;
 }
 
+
+
+
+
+#poa p {
+  font-size: 18px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 25px;                                                    #hapo patamu
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+
+#poa .image-caption p {
+  font-family: var(--default-font);
+  line-height: 1.4;
+  color: #4b5563;
+  text-align: justify;
+  text-align-last: left;
+}
+
+#tab2 p {
+  font-size: 20px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 25px;                                                    #hapo patamu
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+#tab2 .image-captio p {
+  font-family: var(--default-font);
+  line-height: 1.4;
+  color: #4b5563;
+  text-align: justify;
+  text-align-last: left;
+}
+
+
+#tab3 p {
+  font-size: 18px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 25px;                                                    #hapo patamu
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+#tab3 .image-caption p {
+  font-family: var(--default-font);
+  line-height: 1.4;
+  color: #4b5563;
+  text-align: justify;
+  text-align-last: left;
+}
+
+#tab3 h2 {
+  font-size: 25px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 0%);
+  margin-bottom: 25px;                                                    
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+
+#tab2 h2 {
+  font-size: 25px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 0%);
+  margin-bottom: 25px;                                                    
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+#tab4 p {
+  font-size: 19px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 25px;                                                    #hapo patamu
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+#tab3 .description-wrapper p {
+  font-family: var(--default-font);
+  line-height: 1.4;
+  color: #4b5563;
+  text-align: justify;
+  text-align-last: left;
+}
+
+.image-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; 
+}
+
+.image-wrapper img {
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+
+#tab4 h3 {
+  font-size: 25px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 0%);
+  margin-bottom: 25px;                                                    
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+#article4-{{ side_post.link_url }} h2 {
+  font-size: 10px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 25px;                                                    #hapo patamu
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+
+
+#tab5 .image-wrapper h3 {
+  font-family: var(--default-font);
+  line-height: 1.4;
+  color: #4b5563;
+  text-align: justify;
+  text-align-last: left;
+}
+
+#tab5 p{
+  font-size: 25px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 0%);
+  margin-bottom: 25px;                                                    
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+
+#tab5 .description-wrapper p {
+  font-family: var(--default-font);
+  line-height: 1.4;
+  color: #4b5563;
+  text-align: justify;
+  text-align-last: left;
+}
 /*--------------------------------------------------------------
 # Featured Posts Section
 --------------------------------------------------------------*/
 .featured-posts {
   padding: 80px 0;
   background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
+  
 }
 
 .featured-posts .blog-posts-slider .swiper-wrapper {
@@ -1173,12 +1354,21 @@ section,
 }
 
 .featured-posts p {
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 20px;
+  line-height: 1.4;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 25px;
   flex: 1;
 }
+
+.featured-posts .section-title p {
+  font-family: var(--default-font);
+  line-height: 1.4;
+  color: #4b5563;
+  text-align: justify;
+  text-align-last: left;
+}
+
 
 .featured-posts .blog-footer {
   display: flex;
@@ -1574,6 +1764,24 @@ section,
   }
 }
 
+.category-section p {
+  font-size: 20px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 25px;                                                    #hapo patamu
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+.category-section .section-title p {
+  font-family: var(--default-font);
+  line-height: 1.4;
+  color: #4b5563;
+  text-align: justify;
+  text-align-last: left;
+}
+
 /*--------------------------------------------------------------
 # Latest Posts Section
 --------------------------------------------------------------*/
@@ -1905,6 +2113,23 @@ section,
   color: var(--contrast-color);
 }
 
+.latest-posts p {
+  font-size: 20px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 25px;
+  flex: 1;
+}
+
+.latest-posts .section-title p {
+  font-family: var(--default-font);
+  line-height: 1.4;
+  color: #4b5563;
+  text-align: justify;
+  text-align-last: left;
+}
+
+
 /*--------------------------------------------------------------
 # Category Postst Section
 --------------------------------------------------------------*/
@@ -1959,6 +2184,14 @@ section,
   display: inline-block;
   line-height: 1;
 }
+
+
+.section-title p {
+  font-family: var(--default-font);
+  line-height: 1.8;
+  color: #4b5563;
+}
+
 
 /*--------------------------------------------------------------
 # Pagination 2 Section
@@ -4068,12 +4301,31 @@ section,
   letter-spacing: 1px;
 }
 
-.team .member-info p {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+#team .section-title h2 {
+  text-align: center;
 }
+
+.section-title p {
+  font-size: 20px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 25px;                                                    #hapo patamu
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
+
+.team .member-info p {
+  font-size: 17px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  margin-bottom: 25px;                                                    #hapo patamu
+  flex: 1;
+  text-align: justify;
+  text-align-last: left;
+}
+
 
 @media (max-width: 768px) {
   .team .team-member {

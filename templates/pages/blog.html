@@ -103,7 +103,7 @@
                     {{ tab_ones.major_description }}
                 </p>
 
-                <p>{{ tab_ones.minor_description }}</p>
+                <p class="lead-paragraph">{{ tab_ones.minor_description }}</p>
               </div>
 
               <div class="featured-quote" data-aos="zoom-in">
@@ -120,14 +120,14 @@
             <section id="tab2" class="content-block" data-aos="fade-up">
               {% for Sliding_image in homepage_sliding_images %}
                 <div id="article-{{ Sliding_image.link_url1 }}">
-                  <h2><i class=""></i>{{ Sliding_image.link_url1 }}</h2>
+                  <h2><i class="pema"></i>{{ Sliding_image.link_url1 }}</h2>
 
                   <div class="content-with-media">
                     <div class="media-element">
                       {% if Sliding_image.image1 %}
                         <img src="{{ Sliding_image.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
                       {% endif %}
-                        <div class="image-caption">{{ Sliding_image.image_description }}</div>
+                        <p><div class="image-caption">{{ Sliding_image.image_description }}</div></p>
                     </div>
 
                     <div class="text-content">
@@ -167,25 +167,33 @@
                 <div class="content-right">
                   <div class="monitoring-dashboard">
                     <div class="dashboard-header">
-                      <h4>Patient Monitoring Dashboard</h4>
+                      <h4>Beneficiaries </h4>
                       <span class="status-indicator online">Live</span>
                     </div>
                     <div class="vital-signs">
                       <div class="vital-item">
-                        <span class="vital-label">Heart Rate</span>
-                        <span class="vital-value">72 BPM</span>
+                        <span class="vital-label">Nisomeshe</span>
+                        <span class="vital-value">345</span>
                       </div>
                       <div class="vital-item">
-                        <span class="vital-label">Blood Pressure</span>
-                        <span class="vital-value">120/80</span>
+                        <span class="vital-label">Ramadhan Packages</span>
+                        <span class="vital-value">263 Families</span>
                       </div>
                       <div class="vital-item">
-                        <span class="vital-label">Temperature</span>
-                        <span class="vital-value">98.6°F</span>
+                        <span class="vital-label">Qurban</span>
+                        <span class="vital-value">504 Families</span>
                       </div>
                       <div class="vital-item">
-                        <span class="vital-label">Oxygen Sat</span>
-                        <span class="vital-value">98%</span>
+                        <span class="vital-label">Wavalishe</span>
+                        <span class="vital-value">97 Families</span>
+                      </div>
+                      <div class="vital-item">
+                        <span class="vital-label">Back to Community </span>
+                        <span class="vital-value">25 Families</span>
+                      </div>
+                      <div class="vital-item">
+                        <span class="vital-label">Eid Gala</span>
+                        <span class="vital-value">500 People</span>
                       </div>
                     </div>
                   </div>
@@ -204,7 +212,7 @@
                       {% if HomePage_Category_Sections.image1 %}
                         <img src="{{ HomePage_Category_Sections.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
                       {% endif %}
-                        <div class="image-caption">{{ HomePage_Category_Sections.image_description }}</div>
+                        <p><div class="image-caption">{{ HomePage_Category_Sections.image_description }}</div></p>
                     </div>
 
                     <div class="text-content">
@@ -252,7 +260,7 @@
               {% for side_post in HomePage_Posts_Sides %}
                 {% if forloop.counter <= 3 %}
                   <div id="article4-{{ side_post.link_url }}">
-                    <h2><i class=""></i>{{ side_post.descriptive_title }}</h2>
+                    <h2><i class="article41"></i>{{ side_post.descriptive_title }}</h2>
 
                     <div class="content-with-media">
                       <div class="media-element">
@@ -431,7 +439,7 @@
               </div>
             </section> {% endcomment %}
             
-            <section id="" class="content-block" data-aos="fade-up">
+            <section id="poa" class="content-block" data-aos="fade-up">
               {% for posts in HomePage_Posts_Bottom_Sections %}
                 {% if forloop.counter <= 3 %}
                   <div id="article5-{{ posts.link_url }}">
