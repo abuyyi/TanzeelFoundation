@@ -251,3 +251,11 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.subject} ({self.created_at.strftime('%Y-%m-%d %H:%M')})"
+    
+class About_us_division(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    aprove = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title

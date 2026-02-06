@@ -1,12 +1,10 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
 {% load static %}
 
+
 {% block content %}
-
-
-  <main class="main">
-
-    <!-- Page Title -->
+   <main class="main">
     <div class="page-title">
       <div class="heading">
         <div class="container">
@@ -28,7 +26,8 @@
       </nav>
     </div><!-- End Page Title -->
 
-    <!-- About Section -->
+
+     <!-- About Section -->
     <section id="about" class="about section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -80,7 +79,7 @@
                 <li><i class="bi bi-check-circle"></i>{{ About_us_top_sections.comment2 }}</li>
               </ul>
 
-              <a href="{% url 'pages:about_detail' %}" class="btn btn-primary btn-lg mt-4" data-aos="fade-up" data-aos-delay="300">Learn More</a>
+              
             </div>
           </div>
         </div>
@@ -89,7 +88,103 @@
 
     </section><!-- /About Section -->
 
-    <!-- Team Section -->
+<section class="mission section py-4">
+    <div class="container text-center">
+        <header>
+            <h3 class="h1 fw-bold">Our Mission</h3>
+        </header>
+        <p class="mt-3">
+            To empower communities through education, provide support to the underprivileged, and uphold the principles of compassion and integrity.
+        </p>
+    </div>
+</section>
+
+<section class="vision section py-4">
+    <div class="container text-center">
+        <header>
+            <h3 class="h1 fw-bold">Our Vision</h3>
+        </header>
+        <p class="mt-3">
+            A world where every individual has access to education, healthcare, and opportunities to thrive, fostering a harmonious and inclusive society.
+        </p>
+    </div>
+</section>
+
+<section class="core-values section py-4">
+    <div class="container">
+        <header class="text-center">
+            <h3 class="h1 fw-bold">Our Core Values</h3>
+        </header>
+        <div class="row mt-4">
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card shadow-sm p-4">
+                    <h3 class="h5">Integrity</h3>
+                    <p>We uphold the highest standards of honesty and ethics in all our actions.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card shadow-sm p-4">
+                    <h3 class="h5">Compassion</h3>
+                    <p>We are committed to serving with empathy and kindness.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card shadow-sm p-4">
+                    <h3 class="h5">Transparency</h3>
+                    <p>We ensure openness and accountability in all our operations.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card shadow-sm p-4">
+                    <h3 class="h5">Community</h3>
+                    <p>We believe in the power of collective effort to bring about change.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card shadow-sm p-4">
+                    <h3 class="h5">Accountability</h3>
+                    <p>We take responsibility for our actions and their impact.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="divisions section py-4">
+    <div class="container">
+        <header class="text-center">
+            <h3 class="h1 fw-bold">Our Divisions</h3>
+        </header>
+        <div class="row mt-4">
+            <div class="col-md-6 col-lg-6 mb-3">
+                <div class="card shadow-sm p-4">
+                    <h3 class="h5">Education & Scholarships</h3>
+                    <p>Providing access to quality education and financial support for students.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 mb-3">
+                <div class="card shadow-sm p-4">
+                    <h3 class="h5">Social Welfare & Orphans Support</h3>
+                    <p>Ensuring the well-being of orphans and vulnerable individuals.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 mb-3">
+                <div class="card shadow-sm p-4">
+                    <h3 class="h5">Health & Humanitarian Aid</h3>
+                    <p>Delivering essential healthcare services and emergency relief.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 mb-3">
+                <div class="card shadow-sm p-4">
+                    <h3 class="h5">Community Outreach & Development</h3>
+                    <p>Fostering community growth through various development programs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <!-- Team Section -->
     <section id="team" class="team section">
 
       <!-- Section Title -->

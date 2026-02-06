@@ -338,9 +338,9 @@
                           <span class="category">{{ side_post.major_title }}</span>
                         </div>
                         <h6 class="title">{{ side_post.descriptive_title }}</h6>
-                        {% if side_post.link_url %}
+                        {% comment %} {% if side_post.link_url %}
                           <a href="{% url 'pages:blog' %}#article4-{{ side_post.link_url }}" class="readmore"><span>Read Article</span><i class="bi bi-arrow-right"></i></a>
-                        {% endif %}  
+                        {% endif %}  {% endcomment %} 
                       </div>
                     </article>
                   </div>

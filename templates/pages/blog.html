@@ -257,7 +257,7 @@
                 </div>
               {% endif %}
                 
-              {% for side_post in HomePage_Posts_Sides %}
+              {% comment %} {% for side_post in HomePage_Posts_Sides %}
                 {% if forloop.counter <= 3 %}
                   <div id="article4-{{ side_post.link_url }}">
                     <h2><i class="article41"></i>{{ side_post.descriptive_title }}</h2>
@@ -275,8 +275,10 @@
                       </div>
                     </div>
                   </div>
-                {% endif %}
-              {% endfor %}
+                {% endif %} 
+                {% endfor %}
+                {% endcomment %}
+              
 
 
               <h2><i class="bi bi-exclamation-triangle"></i>{{ tab_fives.title }}</h2>

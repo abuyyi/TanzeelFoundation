@@ -779,13 +779,13 @@ h6 {
   font-size: 20px;
   line-height: 1.4;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 25px;                                                    #hapo patamu
+  margin-bottom: 25px;                                                    /* #hapo patamu */
   flex: 1;
   text-align: justify;
   text-align-last: left;
 }
 
-.page-title  .mb-0 p {
+.page-title  .mb-0 {
   font-family: var(--default-font);
   line-height: 1.4;
   color: #4b5563;
@@ -879,6 +879,7 @@ section,
   margin-bottom: 0;
   position: relative;
   z-index: 2;
+  padding : 20px;
 }
 
 @media (max-width: 575px) {
@@ -1055,7 +1056,7 @@ section,
   font-size: 18px;
   line-height: 1.4;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 25px;                                                    #hapo patamu
+  margin-bottom: 25px;                                                   /*  #hapo patamu */
   flex: 1;
   text-align: justify;
   text-align-last: left;
@@ -1074,7 +1075,7 @@ section,
   font-size: 20px;
   line-height: 1.4;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 25px;                                                    #hapo patamu
+  margin-bottom: 25px;                                                 /*    #hapo patamu */
   flex: 1;
   text-align: justify;
   text-align-last: left;
@@ -1093,7 +1094,7 @@ section,
   font-size: 18px;
   line-height: 1.4;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 25px;                                                    #hapo patamu
+  margin-bottom: 25px;                                                    /* #hapo patamu */
   flex: 1;
   text-align: justify;
   text-align-last: left;
@@ -1132,7 +1133,7 @@ section,
   font-size: 19px;
   line-height: 1.4;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 25px;                                                    #hapo patamu
+  margin-bottom: 25px;                                                    /*  #hapo patamu */
   flex: 1;
   text-align: justify;
   text-align-last: left;
@@ -1172,7 +1173,7 @@ section,
   font-size: 10px;
   line-height: 1.4;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 25px;                                                    #hapo patamu
+  margin-bottom: 25px;                                                   /*  #hapo patamu */
   flex: 1;
   text-align: justify;
   text-align-last: left;
@@ -1768,7 +1769,7 @@ section,
   font-size: 20px;
   line-height: 1.4;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 25px;                                                    #hapo patamu
+  margin-bottom: 25px;                                                    /* #hapo patamu */
   flex: 1;
   text-align: justify;
   text-align-last: left;
@@ -4309,7 +4310,7 @@ section,
   font-size: 20px;
   line-height: 1.4;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 25px;                                                    #hapo patamu
+  margin-bottom: 25px;                                                    /* #hapo patamu */
   flex: 1;
   text-align: justify;
   text-align-last: left;
@@ -4320,7 +4321,7 @@ section,
   font-size: 17px;
   line-height: 1.4;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 25px;                                                    #hapo patamu
+  margin-bottom: 25px;                                                   /*  #hapo patamu */
   flex: 1;
   text-align: justify;
   text-align-last: left;
