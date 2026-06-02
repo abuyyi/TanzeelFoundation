@@ -1,0 +1,274 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'styles.css' %}">{% endblock %}
+   
+{% block extra_js %} <script>
+        function bindDonationAmountInput(input) {
+            input.addEventListener('input', updateTotal);
+        }
+
+        function getSelectedCurrencySymbol() {
+            const currencySelect = document.querySelector('#donation-section select[name="currency"]');
+            if (!currencySelect) {
+                return '';
+            }
+            return currencySelect.value;
+        }
+
+        function updateTotal() {
+            let total = 0;
+            document.querySelectorAll('#donation-section .donation-amount').forEach(input => {
+                total += parseFloat(input.value) || 0;
+            });
+
+            const currencySymbol = getSelectedCurrencySymbol();
+            const total AmountElement = document.getElementById('total-amount');
+            totalAmountElement.innerText = currencySymbol ? `${currencySymbol} ${total}` : `${total}`;
+        }
+
+        function addDonation() {
+            const donationEntries = document.getElementById('donation-entries');
+            const baseDonation = donationEntries.querySelector('.donation-entry');
+            const newDonation = baseDonation.cloneNode(true);
+
+            // Clear input values in the cloned donation entry
+            newDonation.querySelectorAll('input, select').forEach(field => {
+                if (field.tagName === 'INPUT') {
+                    field.value = '';
+                }
+
+                if (field.classList.contains('donation-amount')) {
+                    bindDonationAmountInput(field);
+                }
+            });
+
+            donationEntries.appendChild(newDonation);
+            updateTotal();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.donation-amount').forEach(input => {
+                bindDonationAmountInput(input);
+            });
+            const providerGroup = document.getElementById('mobile-provider-group');
+            const paymentMethodInputs = document.querySelectorAll('input[name="payment_method"]');
+            const currencySelect = document.querySelector('#donation-section select[name="currency"]');
+            const updateProviderVisibility = () => {
+                const selectedMethod = document.querySelector('input[name="payment_method"]:checked');
+                providerGroup.hidden = !selectedMethod || selectedMethod.value !== 'mobile_money';
+            };
+            paymentMethodInputs.forEach(input => {
+                input.addEventListener('change', updateProviderVisibility);
+            });
+            if (currencySelect) {
+                currencySelect.addEventListener('change', updateTotal);
+            }
+            updateProviderVisibility();
+            updateTotal();
+        });
+    </script>
+{% endblock %}
+    {% if page_heading %}
+        <div class="page-title">
+            <div class="heading">
+                <div class="container">
+                    <div class="row d-flex justify-content-center text-center">
+                        <div class="col-lg-8">
+                            <h1 class="heading-title">{{ page_heading }}</h1>
+                            {% if page_subheading %}
+                                <p class="mb-0">{{ page_subheading }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="breadcrumbs">
+                <div class="container">
+                    <ol>
+                        <li><a href="{% url 'pages:homepage' %}">Home</a></li>
+                        <li class="current">{{ page_breadcrumb }}</li>
+                    </ol>
+                </div>
+            </nav>
+        </div>
+    {% endif %}
+
+    <div class="donation-wrapper">
+        <div class="donation-container">
+            <div class="banner">
+                <img src="{% static 'dote.png' %}" alt="Banner" class="banner-image">
+                <h1 class="red-heading">{{ banner_heading }}</h1>
+                <p class="description">{{ banner_description }}</p>
+            </div>
+
+        {% if messages %}
+            <div class="message-stack">
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if form.non_field_errors %}
+            <div class="message error">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        {% if latest_transaction %}
+            <div class="payment-status-card">
+                <h2 class="section-title">Payment Status</h2>
+                <p>Reference: {{ latest_transaction.external_id }}</p>
+                <p>Status: {{ latest_transaction.status|title }}</p>
+                <p>{{ latest_transaction.gateway_message }}</p>
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-section donation-frequency-section">
+                <h2 class="section-title donation-frequency-title">I Wish To Give</h2>
+                <div class="form-check-group">
+                    <div class="form-check">
+                        <input type="radio" name="giving_frequency" id="one-off" value="one-off" {% if form.giving_frequency.value == 'one-off' or not form.giving_frequency.value %}checked{% endif %}>
+                        <label for="one-off">One-off</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="giving_frequency" id="every-day" value="every-day" {% if form.giving_frequency.value == 'every-day' %}checked{% endif %}>
+                        <label for="every-day">Every Day</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="giving_frequency" id="every-friday" value="every-friday" {% if form.giving_frequency.value == 'every-friday' %}checked{% endif %}>
+                        <label for="every-friday">Every Friday</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="giving_frequency" id="every-month" value="every-month" {% if form.giving_frequency.value == 'every-month' %}checked{% endif %}>
+                        <label for="every-month">Every Month</label>
+                    </div>
+                </div>
+                {{ form.giving_frequency.errors }}
+            </div>
+
+            <div class="form-section">
+                <h2 class="section-title payment-method-title">Payment Method</h2>
+                <div class="payment-method-list">
+                    <div class="payment-method-card payment-method-card-stacked">
+                        <label class="payment-method-radio" for="mobile-money">
+                            <input type="radio" name="payment_method" id="mobile-money" value="mobile_money" {% if form.payment_method.value == 'mobile_money' %}checked{% endif %}>
+                            <span class="payment-method-label">Mobile Money</span>
+                        </label>
+                        <div class="mobile-provider-field" id="mobile-provider-group">
+                            <label for="{{ form.payment_provider.id_for_label }}">Provider <span class="required">*</span></label>
+                            {{ form.payment_provider }}
+                            {{ form.payment_provider.errors }}
+                        </div>
+                    </div>
+                    <label class="payment-method-card" for="azampesa">
+                        <input type="radio" name="payment_method" id="azampesa" value="azampesa" {% if form.payment_method.value == 'azampesa' or not form.payment_method.value %}checked{% endif %}>
+                        <span class="payment-method-label">AzamPesa</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-section" id="donation-section">
+                <h2 class="section-title donation-details-title">Donation Details</h2>
+                <p class="minimum-amount-note">Minimum Tsh.2000</p>
+
+                <div id="donation-entries">
+                    <div class="donation-grid donation-entry">
+                        <div class="left-column">
+                                    <div class="form-group">
+                                <select name="currency" class="form-input">
+                                    <option value="TSH" selected>TSH</option>
+                                    <option value="$">$</option>
+                                    <option value="€">€</option>
+                                </select>
+                                {{ form.amount }}
+                                {{ form.amount.errors }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.in_country }}
+                                {{ form.in_country.errors }}
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="on_behalf" class="form-input" placeholder="Donation on behalf of" required>
+                            </div>
+                        </div>
+                        <div class="right-column">
+                            <div class="form-group">
+                                {{ form.donation_type }}
+                                {{ form.donation_type.errors }}
+                            </div>
+                            <div class="form-group">
+                                {% if show_to_provide_field %}
+                                    {{ form.to_provide }}
+                                    {{ form.to_provide.errors }}
+                                {% else %}
+                                    {{ form.to_provide }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="donation-footer">
+                    <button type="button" class="btn btn-secondary add-donation-btn" onclick="addDonation()">Add one more donation</button>
+                    <p class="total-amount">Total Amount: <span id="total-amount">0.00</span></p>
+                </div>
+            </div>
+
+            <div class="form-section1">
+                <h2 class="form-header">Your Details</h2>
+                <div class="form-grid">
+                    <div class="left-column">
+                        <div class="form-group1">
+                            <label for="title">Title <span class="required"></span></label>
+                            {{ form.title }}
+                            {{ form.title.errors }}
+                        </div>
+                        <div class="form-group1">
+                            <label for="last_name">Last Name <span class="required">*</span></label>
+                            {{ form.last_name }}
+                            {{ form.last_name.errors }}
+                        </div>
+                        <div class="form-group1">
+                            <label for="email">Email <span class="required">*</span></label>
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                        </div>
+                    </div>
+                    <div class="right-column">
+                        <div class="form-group1">
+                            <label for="first_name">First Name <span class="required">*</span></label>
+                            {{ form.first_name }}
+                            {{ form.first_name.errors }}
+                        </div>
+                        <div class="form-group1">
+                            <label for="mobile_number">Mobile Number <span class="required">*</span></label>
+                            {{ form.mobile_number }}
+                            {{ form.mobile_number.errors }}
+                        </div>
+                    </div>
+                </div>
+                <h2 class="section-title">Your Choice Can Make a Difference</h2>
+                <p class="descriptionk">100% of your Zakat helps provide the poor with food, clean water, healthcare, education, and livelihoods.</p>
+                <div class="form-check1">
+                    {{ form.age_confirmation }}<label for="id_agree_to_terms" >I agree am 18+ and above .<span class="required"></span></label>
+                </div>
+                {{ form.age_confirmation.errors }}
+                
+        <button type="submit" class="btn btn-danger">Donate Now</button>
+    </div>
+           
+           
+
+       
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

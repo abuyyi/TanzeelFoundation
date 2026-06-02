@@ -67,21 +67,6 @@ def about(request):
         }
     return render(request, 'pages/about.html', context)
 
-def about_detail(request):
-    # Get all the about us content
-    about_us_title = About_us_title.objects.first()
-    About_us_teams = About_us_team.objects.filter(aprove=True)
-    About_us_team_titles = About_us_team_title.objects.first()
-    About_us_top_sections = About_us_top_section.objects.first()
-
-    # Pass it to the template in a context dictionary
-    context = {
-        'about_us_title': about_us_title,
-        'About_us_teams': About_us_teams,
-        'About_us_team_titles': About_us_team_titles,
-        'About_us_top_sections': About_us_top_sections,
-    }
-    return render(request, 'pages/about_detail.html', context)
 
 def contact(request):
     if request.method == 'POST':
@@ -138,3 +123,10 @@ def blog(request):
         }
     return render(request, 'pages/blog.html', context)
 
+# Terms of Service view
+def terms_of_service(request):
+    return render(request, 'terms.html')
+
+# Privacy Policy view
+def privacy_policy(request):
+    return render(request, 'privacy.html')

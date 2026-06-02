@@ -45,7 +45,7 @@
                     <span class="views">{{ content.event_time }}</span>
                   </div>
                   {% if content.link_url %}
-                  <a href="{{ content.link_url }}" class="read-more">More Details <i class="bi bi-arrow-right"></i></a>
+                  <a href="{% url 'core:coming_soon' %}" class="read-more">More Details <i class="bi bi-arrow-right"></i></a>
                   {% endif %}
                 </div>
               </div>
@@ -68,14 +68,15 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <span class="description-title">Featured Posts</span>
-       <h1 class="heading-title">FEATURED POSTS</h1>
-        <p>These featured initiatives showcase the Tanzeel Foundation’s most significant programs and achievements,
-          reflecting our unwavering commitment to promoting education, advancing social welfare, providing humanitarian 
-          support, and upholding Islamic values within the communities we serve. Through these initiatives, the Foundation 
-          aims to create meaningful and lasting impact, empowering individuals and families, addressing critical social needs, 
-          and fostering a sense of compassion, solidarity, and ethical responsibility. Each program represents a milestone in 
-          our ongoing efforts to bring positive change, support vulnerable populations, and contribute to the overall development
-          and well-being of society.</p>
+        <h1 class="heading-title">OUR DIVISIONS</h1>
+      <p>The Tanzeel Foundation operates through four key divisions that work together to drive positive and sustainable
+        community impact through education, social welfare, humanitarian support, and charitable development rooted in 
+        Islamic values. The Tanzeel Social Development Fund empowers individuals and families through development programs,
+        financial assistance, and livelihood improvement initiatives. The Tanzeel Education Center promotes quality education,
+        skills development, and moral growth to nurture academic excellence and lifelong learning. The Tanzeel Social Service
+        division provides humanitarian aid and community support to vulnerable groups, responding to urgent social needs with
+        compassion and care. The Tanzeel Waqfu division focuses on establishing and managing sustainable endowments that support
+        long-term educational, religious, and social development initiatives for future generations.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -300,7 +301,7 @@
                     <span class="cat-badge inverse">{{HomePage_Posts_Mains.small_title}}</span>
 
                     <h3 class="title">{{HomePage_Posts_Mains.large_title}}</h3>
-                    <p class="excerpt d-none d-md-block">{{HomePage_Posts_Mains.description}}</p>
+                    <p class="excerpt d-none d-md-block">{{HomePage_Posts_Mains.description |truncatewords:21}}</p>
 
                     <div class="meta d-flex align-items-center gap-3">
                       <div class="d-flex align-items-center">

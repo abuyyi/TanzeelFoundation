@@ -27,6 +27,10 @@
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
 
+  <!-- Page-specific CSS -->
+  <link href="{% static 'css/privacy.css' %}" rel="stylesheet">
+  <link href="{% static 'css/terms.css' %}" rel="stylesheet">
+
 </head>
 
 <body class="index-page">
@@ -39,7 +43,7 @@
         {% if site_settings.logo %}
           <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.foundation_name }} logo">
         {% else %}
-          <img src="{% static 'assets/img/logo.webp' %}" alt="">
+          <img src="{% static 'media/logos/TANZEEL_LOGO-1.webp' %}" alt="">
         {% endif %}
         <h1 class="sitename">{{ site_settings.foundation_name }}</h1>
       </a>
@@ -49,22 +53,22 @@
           <li><a href="{% url 'pages:homepage' %}" class="active">Home</a></li>
           <li><a href="{% url 'pages:about' %}">About</a></li>
           <li><a href="{% url 'pages:blog' %}">Blog Details</a></li>
-          <li><a href="{% url 'core:coming_soon' %}">Donate Now</a></li>
+          <li><a href="{% url 'donations:donation_page' %}">Donate Now</a></li>
           <li class="dropdown"><a href="#"><span>Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="{% url 'pages:about' %}">About</a></li>
               <li><a href="{% url 'pages:blog' %}">Blog Details</a></li>
               <li><a href="{% url 'core:coming_soon' %}">Appeals</a></li>
-              <li><a href="{% url 'core:coming_soon' %}">Donate Now</a></li>
+              <li><a href="{% url 'donations:donation_page' %}">Donate Now</a></li>
               {% comment %} <li><a href="search-results.html">Search Results</a></li> {% endcomment %}
               {% comment %} <li><a href="404.html">404 Not Found Page</a></li> {% endcomment %}
 
               <li class="dropdown"><a href="#"><span>Contributions</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
-                  <li><a href="{% url 'core:coming_soon' %}">TSDF</a></li>
-                  <li><a href="{% url 'core:coming_soon' %}">Sadakah</a></li>
-                  <li><a href="{% url 'core:coming_soon' %}">Nisomeshe</a></li>
-                  <li><a href="{% url 'core:coming_soon' %}">Fund Project</a></li>
+                  <li><a href="{% url 'donations:qurban' %}">Qurban</a></li>
+                  <li><a href="{% url 'donations:sadaka' %}">Sadakah</a></li>
+                  {%comment%}<li><a href="{% url 'core:coming_soon' %}">Nisomeshe</a></li>{%endcomment%}
+                  <li><a href="{% url 'donations:fund_project' %}">Fund Project</a></li>
                 </ul>
               </li>
             </ul>
@@ -124,18 +128,25 @@
                 <ul class="list-unstyled">
                   <li><a href="{% url 'pages:about' %}">About Us</a></li>
                   <li><a href="{% url 'pages:about' %}#team">Our Team</a></li>
-                  <li><a href="{% url 'core:coming_soon' %}">Our Vision</a></li>
+                  <li><a href="{% url 'donations:donation_page' %}">Donate</a></li>
                   <li><a href="{% url 'core:coming_soon' %}">Our Mission</a></li>
                 </ul>
               </div>
               <div class="col-6 col-md-4">
                 <h5>Our Divisions</h5>
                 <ul class="list-unstyled">
-                  <li><a href="{% url 'pages:blog' %}#pozi">TSDF</a></li>
-                  <li><a href="{% url 'core:coming_soon' %}">Tanzeel Waqfu</a></li>
-                  <li><a href="{% url 'core:coming_soon' %}">Tanzeel Social Service</a></li>
-                  <li><a href="{% url 'core:coming_soon' %}">Tanzeel Education Center</a></li>
-                  
+                  <li>
+                    <a href="{% url 'pages:blog' %}{% if division_footer_tsdf %}#{{ division_footer_tsdf|urlencode }}{% endif %}">TSDF</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'pages:blog' %}{% if division_footer_tanzeel_waqfu %}#{{ division_footer_tanzeel_waqfu|urlencode }}{% endif %}">Tanzeel Waqfu</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'pages:blog' %}{% if division_footer_social_service %}#{{ division_footer_social_service|urlencode }}{% endif %}">Social Service</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'pages:blog' %}{% if division_footer_education_center %}#{{ division_footer_education_center|urlencode }}{% endif %}">Education Center</a>
+                  </li>
                 </ul>
               </div>
               <div class="col-6 col-md-4">
@@ -143,8 +154,8 @@
                 <ul class="list-unstyled">
                   <li><a href="{% url 'core:coming_soon' %}">Appeals</a></li>
                   <li><a href="{% url 'pages:contact' %}">Contact Us</a></li>
-                  <li><a href="{% url 'core:coming_soon' %}">Donation</a></li>
-                  <li><a href="{% url 'core:coming_soon' %}">Fund Project</a></li>
+                  <li><a href="{% url 'pages:privacy_policy' %}">Privacy Policy</a></li>
+                  <li><a href="{% url 'pages:terms_of_service' %}">Terms of Service</a></li>
                 </ul>
               </div>
             </div>
@@ -200,4 +211,4 @@
 
 </body>
 
-</html>    
+</html>

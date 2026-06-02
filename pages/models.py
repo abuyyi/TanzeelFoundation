@@ -74,7 +74,7 @@ class HomePage_Posts_Main(models.Model):
     month = models.CharField(max_length=10, help_text="e.g., Dec")
     small_title = models.CharField(max_length=20)
     large_title = models.CharField(max_length=200)
-    description = models.CharField(max_length=255,blank=True)
+    description = models.CharField(max_length=700,blank=True)
     hoster_name = models.CharField(max_length=100)
     content = models.CharField(max_length=10)
     link_url = models.CharField(max_length=200, blank=True, help_text="Optional: For an external link, enter the full URL (e.g., https://example.com). For an internal link, enter the path (e.g., /about/).")

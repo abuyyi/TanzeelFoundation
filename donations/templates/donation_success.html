@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'styles.css' %}">{% endblock %}
+   
+{% block extra_js %}<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusUrl = "{{ status_api_url }}";
+            const recoverUrl = "{{ recover_api_url }}";
+            const statusText = document.getElementById('payment-status-text');
+            const messageText = document.getElementById('payment-message-text');
+            const updatedAtText = document.getElementById('payment-updated-at');
+            const refreshNote = document.getElementById('payment-refresh-note');
+            const retryState = document.getElementById('payment-retry-state');
+            let recoveryInFlight = false;
+
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) {
+                    return parts.pop().split(';').shift();
+                }
+                return '';
+            }
+
+            async function attemptRecovery() {
+                if (recoveryInFlight) {
+                    return;
+                }
+                recoveryInFlight = true;
+                retryState.textContent = 'Retrying payment request safely...';
+                try {
+                    const response = await fetch(recoverUrl, {
+                        method: 'POST',
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRFToken': getCookie('csrftoken'),
+                        },
+                    });
+                    if (response.ok) {
+                        const data = await response.json();
+                        statusText.textContent = data.status;
+                        messageText.textContent = data.message || 'Payment status updated.';
+                        updatedAtText.textContent = new Date(data.updated_at).toLocaleString();
+                    }
+                } catch (error) {
+                    retryState.textContent = 'Retry attempt failed. We will keep checking.';
+                } finally {
+                    recoveryInFlight = false;
+                }
+            }
+
+            async function refreshStatus() {
+                try {
+                    const response = await fetch(statusUrl, {
+                        method: 'GET',
+                        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                    });
+                    if (!response.ok) {
+                        throw new Error('Status refresh failed');
+                    }
+
+                    const data = await response.json();
+                    statusText.textContent = data.status;
+                    messageText.textContent = data.message || 'Waiting for payment confirmation.';
+                    updatedAtText.textContent = new Date(data.updated_at).toLocaleString();
+
+                    if (data.is_final) {
+                        refreshNote.textContent = 'Payment status is final.';
+                        retryState.textContent = '';
+                        return;
+                    }
+
+                    if (data.status === 'retrying') {
+                        refreshNote.textContent = 'We are preparing a safe retry.';
+                    } else if (data.status === 'pending') {
+                        refreshNote.textContent = 'Payment is pending confirmation.';
+                    } else {
+                        refreshNote.textContent = 'Checking for payment confirmation...';
+                    }
+
+                    if (data.is_recoverable) {
+                        await attemptRecovery();
+                    } else if (data.next_retry_at) {
+                        retryState.textContent = `Next retry after ${new Date(data.next_retry_at).toLocaleTimeString()}.`;
+                    } else {
+                        retryState.textContent = '';
+                    }
+
+                    window.setTimeout(refreshStatus, 5000);
+                } catch (error) {
+                    refreshNote.textContent = 'Unable to refresh automatically. Please reload this page.';
+                }
+            }
+
+            window.setTimeout(refreshStatus, 3000);
+        });
+    </script>{% endblock %}
+    <div class="container">
+        <div class="payment-status-card">
+            <h1 class="section-title">Donation Payment Status</h1>
+            <p>Reference: {{ transaction.external_id }}</p>
+            <p>Status: <strong id="payment-status-text">{{ transaction.status|title }}</strong></p>
+            <p>Amount: {{ transaction.amount }} {{ transaction.currency }}</p>
+            <p id="payment-message-text">{{ transaction.gateway_message|default:"Waiting for payment confirmation." }}</p>
+            <p class="status-meta">Last updated: <span id="payment-updated-at">{{ transaction.updated_at|date:"Y-m-d H:i:s" }}</span></p>
+            <p class="status-meta" id="payment-refresh-note">
+                {% if transaction.status == 'success' or transaction.status == 'failed' or transaction.status == 'error' or transaction.status == 'cancelled' or transaction.status == 'expired' %}
+                    Payment status is final.
+                {% elif transaction.status == 'retrying' %}
+                    We are preparing a safe retry.
+                {% else %}
+                    Checking for payment confirmation...
+                {% endif %}
+            </p>
+            <p class="status-meta" id="payment-retry-state"></p>
+        </div>
+        <a href="{% url 'donations:donation_page' %}" class="btn btn-secondary">Back to donation form</a>
+    </div>
+{% endblock content %}

@@ -10,7 +10,7 @@ cd 'c:\Users\PC\tanzeel\TanzeelFoundation'
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+
 copy .env.example .env
 # edit .env to set SECRET_KEY and other vars
 

@@ -12,26 +12,55 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+import pymysql
+pymysql.install_as_MySQLdb()
+
+
 import os
 from dotenv import load_dotenv
 
 # Load environment variables from .env file if present
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+
+def _load_dotenv():
+    env_path = BASE_DIR / '.env'
+    if not env_path.exists():
+        return
+    for line in env_path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, value = line.split('=', 1)
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
+def _env_bool(name, default=False):
+    return os.getenv(name, str(default)).lower() in {'1', 'true', 'yes', 'on'}
+
+
+def _env_int(name, default):
+    try:
+        return int(os.getenv(name, default))
+    except (TypeError, ValueError):
+        return default
+
+load_dotenv()
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-)ai9*ue$3c6=(tnicrhe5ckzterv+)sf9#w9ufoj!f*!9c!z4q"
+SECRET_KEY = "django-insecure-)ai9*ue$3c6=(tnicrhe5ckzterv+)sf9#w9ufoj!f*!9c!z4q"#django-insecure-7vv)ff_7*=@a@)=)ag^#-$6i=tx*26ebzq21obw!2(d8ap$9=h
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -45,9 +74,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "core",
-    "pages",
-    # "donations",  # Remove if not used
+    "core.apps.CoreConfig",
+    "pages.apps.PagesConfig",
+    "donations.apps.DonationsConfig",
 ]
 
 MIDDLEWARE = [
@@ -70,6 +99,7 @@ TEMPLATES = [
         "OPTIONS": {
             "context_processors": [
                 "core.context_processors.site_settings",
+                "core.context_processors.division_footer_links",
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
@@ -81,16 +111,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "tanzeel.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+#DATABASES = {#}
+
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': BASE_DIR / "db.sqlite3",
     }
 }
+
+
 
 
 # Password validation
@@ -135,27 +169,139 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+# WebP image optimization settings
+WEBP_QUALITY = _env_int('WEBP_QUALITY', 85)
+WEBP_METHOD = _env_int('WEBP_METHOD', 6)
+MAX_IMAGE_WIDTH = _env_int('MAX_IMAGE_WIDTH', 4000)
+MAX_IMAGE_HEIGHT = _env_int('MAX_IMAGE_HEIGHT', 4000)
+
+# Logging
+LOG_DIR = BASE_DIR / 'logs'
+LOG_DIR.mkdir(exist_ok=True)
+LOG_LEVEL = os.getenv('DJANGO_LOG_LEVEL', 'DEBUG' if DEBUG else 'INFO')
+LOG_FILE_LEVEL = os.getenv('DJANGO_LOG_FILE_LEVEL', LOG_LEVEL)
+LOG_REQUEST_LEVEL = os.getenv('DJANGO_REQUEST_LOG_LEVEL', 'WARNING')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-# Pesapal API keys (set these in your .env file)
-PESAPAL_CONSUMER_KEY = os.environ.get('PESAPAL_CONSUMER_KEY', '')
-PESAPAL_CONSUMER_SECRET = os.environ.get('PESAPAL_CONSUMER_SECRET', '')
-PESAPAL_TOKEN_URL = os.environ.get('PESAPAL_TOKEN_URL', 'https://cybqa.pesapal.com/pesapalv3/api/Auth/RequestToken')
-PESAPAL_SUBMIT_URL = os.environ.get('PESAPAL_SUBMIT_URL', 'https://cybqa.pesapal.com/pesapalv3/api/Transactions/SubmitOrderRequest')
-PESAPAL_REGISTER_IPN_URL = os.environ.get('PESAPAL_REGISTER_IPN_URL', 'https://cybqa.pesapal.com/pesapalv3/api/URLSetup/RegisterIPN')
-PESAPAL_CURRENCY = os.environ.get('PESAPAL_CURRENCY', 'TZS')
 
-# Example .env file:
-# PESAPAL_CONSUMER_KEY=your_pesapal_key
-# PESAPAL_CONSUMER_SECRET=your_pesapal_secret
-# PESAPAL_PAYMENT_URL=https://pay.pesapal.com/v3/api/Transactions/SubmitOrderRequest
-# Add this at the end of your settings.py file
-# This is required for the theme to be applied correctly
+AZAMPAY = {
+    'AUTH_BASE_URL': os.getenv('AZAMPAY_AUTH_BASE_URL', 'https://authenticator-sandbox.azampay.co.tz'),
+    'CHECKOUT_BASE_URL': os.getenv('AZAMPAY_CHECKOUT_BASE_URL', 'https://sandbox.azampay.co.tz'),
+    'APP_NAME': os.getenv('AZAMPAY_APP_NAME', ''),
+    'CLIENT_ID': os.getenv('AZAMPAY_CLIENT_ID', ''),
+    'CLIENT_SECRET': os.getenv('AZAMPAY_CLIENT_SECRET', ''),
+    'API_KEY': os.getenv('AZAMPAY_API_KEY', ''),
+    'DEFAULT_PROVIDER': os.getenv('AZAMPAY_DEFAULT_PROVIDER', 'Mpesa'),
+    'CURRENCY': os.getenv('AZAMPAY_CURRENCY', 'TZS'),
+    'TIMEOUT': _env_int('AZAMPAY_TIMEOUT', 15),
+    'AUTH_TIMEOUT': _env_int('AZAMPAY_AUTH_TIMEOUT', 10),
+    'CHECKOUT_TIMEOUT': _env_int('AZAMPAY_CHECKOUT_TIMEOUT', 15),
+    'TOKEN_CACHE_KEY': os.getenv('AZAMPAY_TOKEN_CACHE_KEY', 'azampay:access-token'),
+    'TOKEN_CACHE_TTL': _env_int('AZAMPAY_TOKEN_CACHE_TTL', 3300),
+    'CHECKSUM_SECRET': os.getenv('AZAMPAY_CHECKSUM_SECRET', ''),
+    'CHECKSUM_HEADER': os.getenv('AZAMPAY_CHECKSUM_HEADER', 'X-Checksum'),
+    'WEBHOOK_PUBLIC_KEY': os.getenv('AZAMPAY_WEBHOOK_PUBLIC_KEY', ''),
+    'WEBHOOK_TOKEN': os.getenv('AZAMPAY_WEBHOOK_TOKEN', ''),
+    'WEBHOOK_SIGNATURE_HEADER': os.getenv('AZAMPAY_WEBHOOK_SIGNATURE_HEADER', 'X-AzamPay-Signature'),
+    'WEBHOOK_TIMESTAMP_HEADER': os.getenv('AZAMPAY_WEBHOOK_TIMESTAMP_HEADER', 'X-AzamPay-Timestamp'),
+    'WEBHOOK_TOKEN_HEADER': os.getenv('AZAMPAY_WEBHOOK_TOKEN_HEADER', 'X-AzamPay-Webhook-Token'),
+    'WEBHOOK_MAX_AGE_SECONDS': _env_int('AZAMPAY_WEBHOOK_MAX_AGE_SECONDS', 300),
+    'PUBLIC_BASE_URL': os.getenv('AZAMPAY_PUBLIC_BASE_URL', ''),
+    'PAYMENT_RATE_LIMIT_COUNT': _env_int('AZAMPAY_PAYMENT_RATE_LIMIT_COUNT', 5),
+    'PAYMENT_RATE_LIMIT_WINDOW': _env_int('AZAMPAY_PAYMENT_RATE_LIMIT_WINDOW', 300),
+    'WEBHOOK_RATE_LIMIT_COUNT': _env_int('AZAMPAY_WEBHOOK_RATE_LIMIT_COUNT', 60),
+    'WEBHOOK_RATE_LIMIT_WINDOW': _env_int('AZAMPAY_WEBHOOK_RATE_LIMIT_WINDOW', 60),
+    'MAX_INITIATION_RETRIES': _env_int('AZAMPAY_MAX_INITIATION_RETRIES', 3),
+    'INITIAL_RETRY_DELAY_SECONDS': _env_int('AZAMPAY_INITIAL_RETRY_DELAY_SECONDS', 10),
+    'PENDING_STALE_AFTER_SECONDS': _env_int('AZAMPAY_PENDING_STALE_AFTER_SECONDS', 120),
+    'DUPLICATE_ATTEMPT_WINDOW_SECONDS': _env_int('AZAMPAY_DUPLICATE_ATTEMPT_WINDOW_SECONDS', 180),
+    'MOCK_MODE': os.getenv('AZAMPAY_MOCK_MODE', 'False').lower() in ('true', '1', 'yes'),
+}
+
+
+if not DEBUG:
+    if SECRET_KEY == 'django-insecure-)ai9*ue$3c6=(tnicrhe5ckzterv+)sf9#w9ufoj!f*!9c!z4q':
+        raise RuntimeError('DJANGO_SECRET_KEY must be set in production.')
+    SECURE_SSL_REDIRECT = _env_bool('DJANGO_SECURE_SSL_REDIRECT', True)
+    SESSION_COOKIE_SECURE = _env_bool('DJANGO_SESSION_COOKIE_SECURE', True)
+    CSRF_COOKIE_SECURE = _env_bool('DJANGO_CSRF_COOKIE_SECURE', True)
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_HSTS_SECONDS = _env_int('DJANGO_SECURE_HSTS_SECONDS', 31536000)
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = _env_bool('DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS', True)
+    SECURE_HSTS_PRELOAD = _env_bool('DJANGO_SECURE_HSTS_PRELOAD', True)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[{asctime}] {levelname} {name}:{lineno} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {name}: {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+            'level': LOG_LEVEL,
+        },
+        'file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': LOG_DIR / 'django.log',
+            'maxBytes': 1024 * 1024 * 5,
+            'backupCount': 5,
+            'formatter': 'verbose',
+            'level': LOG_FILE_LEVEL,
+            'encoding': 'utf-8',
+        },
+        'request_file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': LOG_DIR / 'requests.log',
+            'maxBytes': 1024 * 1024 * 5,
+            'backupCount': 5,
+            'formatter': 'verbose',
+            'level': LOG_REQUEST_LEVEL,
+            'encoding': 'utf-8',
+        },
+    },
+    'root': {
+        'handlers': ['console', 'file'],
+        'level': LOG_LEVEL,
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': os.getenv('DJANGO_DJANGO_LOG_LEVEL', 'INFO'),
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['console', 'request_file'],
+            'level': LOG_REQUEST_LEVEL,
+            'propagate': False,
+        },
+        'donations': {
+            'handlers': ['console', 'file'],
+            'level': LOG_LEVEL,
+            'propagate': False,
+        },
+    },
+}
+
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SILENCED_SYSTEM_CHECKS = ["security.W019"]
 
 
+#Pcx@mzota0205&
+
+#token  92b5cfc5-821e-470b-b0eb-aa954fe01833
+# client id 3759f49c-868d-4468-972d-71f47221c053
+#client secret EwEx5q8z+Gtf75lB32Ke58wOBaG/WPE89pDqeJnikr9/5o+TK8GF+mLr2G66sxfauZatVrhp9pHADXPb6OQcF0WcRpY7Ol4beLTjwOfGu8IBzCdcCi1e4hlvlBhzOMaAH2+98/ShIKaAtHTvAJo8+kEyGloTxyFveLqYnrmtowVuWGszhjHSiOiJtoQXZl90lHjHhAZ4dWBV53ZphAMkr/7/3noovM+FjvdVrfnLw0LHd/2xs+kBpKJmQmn2OZIxTRCjKiK7o9ksVnjFZkaP13upfxzTlYnN6OE4MnccKqS6YhMJ+1ncX/z1YQchcGZAvxK9kKXN0VxPfV3EUu2I9qhNNRIFDunvgAK5gEBPKs/kpnGgAg5lwjEKK8BrMN6EmiTb5fs/sQ5ommcOKMDAbzsnDSpQMwJlXMS6j6nYob0M0Oq1Ku+PJEshqhxgUTghedEA0t+ykxpcu8B6O1rI/vQlPWAglJo29VGnNRrb/2qixA8+IZKaVX0gkRhmirvjM3FRGhrHVLITv4GXHhkpCCfUmC4380oH9JN0dgCds4eMcNdE4RQt+CqnW9NEXR4k5KUkGuRL1AqHkzDSLhl9RZT3ULUivUW61+B1OAJIfK1WEIF3CWoqOD6r35zRHt+ye8zLTRP442U/fq4SC4giOsrPFX6RNyQ5aQKy+4qTx8U=

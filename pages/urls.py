@@ -8,7 +8,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('blog/', views.blog, name='blog'),
-    path('about-detail/', views.about_detail, name='about_detail'),
+    path("terms/", views.terms_of_service, name="terms_of_service"),
+    path("policy/", views.privacy_policy, name="privacy_policy"),
 ]
 handler404 = 'core.views.handler404'
 handler500 = 'core.views.handler500'

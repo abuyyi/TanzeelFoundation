@@ -1,0 +1,661 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffffc;
+    margin: 0;
+    padding: 0;
+}
+
+.donation-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #f1f1f1;
+    border-radius: 0;
+    box-shadow: 0 18px 36px rgba(60, 50, 41, 0.12);
+}
+
+.donation-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 28px 20px;
+}
+
+.banner {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+}
+
+.red-heading {
+    color: #2986cc;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.description {
+    font-size: 16px;
+    color: #555;
+}
+
+.message-stack {
+    margin-bottom: 20px;
+}
+
+.message,
+.payment-status-card {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    background-color: #eef5ef;
+    border: 1px solid #bfd8c3;
+    color: #215732;
+}
+
+.message.error {
+    background-color: #fdeaea;
+    border-color: #e8bbbb;
+    color: #9c2f2f;
+}
+
+.message.info {
+    background-color: #eef5ef;
+}
+
+.processing-message {
+    text-align: center;
+}
+
+.message.success {
+    background-color: #eaf7ec;
+}
+
+.errorlist {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    color: #9c2f2f;
+    font-size: 14px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-section .form-check {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  
+}
+
+.form-section .form-check label {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.form-section .form-check-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.payment-method-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: start;
+}
+
+.payment-method-title {
+    text-align: left;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.donation-frequency-title {
+    text-align: left;
+    align-self: flex-start;
+    width: 100%;
+    margin-bottom: 6px;
+}
+
+.donation-details-title {
+    text-align: left;
+    align-self: flex-start;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.minimum-amount-note {
+    align-self: flex-start;
+    margin: -2px 0 12px;
+    color: #666;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: left;
+}
+
+.donation-frequency-section .form-check-group {
+    margin-top: 0;
+}
+
+.payment-method-card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(30, 127, 79, 0.18);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.payment-method-card:hover,
+.payment-method-card:focus-within {
+    border-color: rgba(30, 127, 79, 0.36);
+    box-shadow: none;
+}
+
+.payment-method-card:has(input[type="radio"]:checked) {
+    background-color: rgba(255, 255, 255, 0.68);
+    border-color: rgba(30, 127, 79, 0.42);
+}
+
+.payment-method-card input[type="radio"],
+.payment-method-radio input[type="radio"] {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin: 0 12px 0 0;
+    accent-color: #2986cc;
+}
+
+
+.payment-method-label {
+    color: #666;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.payment-method-card-stacked {
+    display: block;
+    cursor: default;
+}
+
+.payment-method-radio {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mobile-provider-field {
+    display: grid;
+    grid-template-columns: auto minmax(140px, 180px);
+    align-items: center;
+    column-gap: 12px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #e3e7e4;
+}
+
+.mobile-provider-field[hidden] {
+    display: none;
+}
+
+.mobile-provider-field label {
+    display: block;
+    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.mobile-provider-field select.form-input {
+    width: 100%;
+    max-width: 180px;
+    margin-bottom: 0;
+    background-color: #fdf6e3;
+    border: none;
+    border-bottom: 1px solid #333;
+    border-radius: 0;
+}
+
+.mobile-provider-field select.form-input:focus {
+    border-bottom-color: #1e7f4f;
+    box-shadow: none;
+}
+
+@media (max-width: 600px) {
+    .payment-method-list {
+        grid-template-columns: 1fr;
+    }
+
+    .mobile-provider-field {
+        grid-template-columns: auto minmax(130px, 1fr);
+    }
+
+    .payment-method-card {
+        padding: 12px 14px;
+    }
+
+    .payment-method-label {
+        font-size: 15px;
+    }
+}
+
+.form-check {
+    margin-bottom: 10px;
+    
+}
+
+
+/* Align the form-check to the left */
+.form-check1 {
+    text-align: left;
+    margin-left: 0; /* Align to the left start */
+    margin-bottom: 10px;
+}
+
+.form-control, .form-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: #1e7f4f;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #145a37;
+}
+
+.btn-danger {
+    background-color: #2986cc;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background-color: #145a37;
+}
+
+.gift-aid {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#total-amount {
+    font-weight: bold;
+    color: #1e7f4f;
+}
+
+/* Donation Details Section */
+#donation-section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 18px;
+    color: #2986cc;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.section-title .minimum-amount {
+    color: #000;
+    font-weight: normal;
+}
+
+.donation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.form-input {
+    background-color: #fdf6e3;
+    border: none;
+    border-bottom: 1px solid #333;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    width: auto;
+    flex: 1;
+    box-sizing: border-box;
+    min-height: 48px;
+}
+
+.form-input:focus {
+    border-bottom: 1px solid #1e7f4f;
+}
+
+select.form-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fdf6e3;
+    border: none;
+    border-bottom: 1px solid #333;
+    padding-right: 30px;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23000' d='M2 0L0 2h4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    box-sizing: border-box;
+    min-height: 48px;
+}
+
+.donation-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.add-donation-btn {
+    background-color: #2986cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-donation-btn:hover {
+    background-color: #145a37;
+}
+
+.total-amount {
+    font-size: 16px;
+    color: #333;
+}
+
+.total-amount span {
+    font-weight: bold;
+    color: #1e7f4f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .donation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* SECTION BACKGROUND */
+.form-section1 {
+    background-color:#f5f5f5;
+    padding: 30px 40px;
+}
+
+/* HEADER */
+.form-header {
+    color: #2986cc;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+/* GRID LAYOUT */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px; /* space between columns */
+}
+
+/* FORM GROUP SPACING */
+.form-group1 {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* LABEL STYLE */
+.form-group1 label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #444;
+    font-weight: 500;
+}
+
+/* REQUIRED STAR */
+.required {
+    color: red;
+}
+
+/* INPUT & SELECT STYLE (Underline only) */
+.form-group1 input,
+.form-group1 select {
+    border: none;
+    border-bottom: 2px solid #222;
+    background: transparent;
+    padding: 8px 0;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* FOCUS EFFECT */
+.form-group1 input:focus,
+.form-group1 select:focus {
+    border-bottom: 2px solid #1e8e3e;
+}
+
+/* REMOVE DEFAULT INPUT STYLES */
+.form-group input::placeholder {
+    color: #999;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .form-section1 {
+        padding: 40px 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .form-header {
+        font-size: 26px;
+    }
+}
+
+.form-section {
+    border: none;
+    border-radius: none;
+    padding: 20px;
+    background-color: #f5f5f5;
+  
+}
+
+.section-title {
+    color: #2986cc;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.form-section input[type="text"],
+.form-section input[type="number"],
+.form-section input[type="password"],
+.form-section select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.card-details {
+    border: none;
+    border-radius: none;
+    padding: 20px;
+    background-color: #f5f5f5;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.card-details .section-title {
+    color: #1e7f4f;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card-details .form-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.card-details .form-check label {
+    margin-left: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.card-details .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.card-details .form-input {
+    width: 33%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.card-details .form-input:focus {
+    border-bottom: 2px solid #1e7f4f;
+}
+
+.card-details .btn-danger {
+  background-color: #1e7f4f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Center the button and reduce its size */
+.btn.btn-danger {
+    display: block;
+    margin: 0 auto; /* Centers the button horizontally */
+    width: 45%; /* Adjust the width to reduce size */
+    padding: 13px; /* Adjust padding for smaller size */
+    font-size: 18px; /* Adjust font size */
+    margin-top: 20px;
+}
+
+
+.card-details .btn-danger:hover {
+    background-color: #cc0044;
+}
+
+.card-details-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.card-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card-column label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.card-column input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 0px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    background: transparent;
+}
+
+.card-column input:focus {
+    border-bottom: 2px solid #1e7f4f;
+}
+
+.status-meta {
+    color: #666;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .card-details .form-group {
+        width: 100%;
+    }
+}
+
+
+
+/* Responsive Design <div class="form-section gift-aid">
+                <h2 class="section-title">Gift Aid</h2>Tanzanian, Tanzeel Foundation can claim Gift Aid on all my donations.</p>
+                {{ form.gift_aid }}
+            </div>  */
