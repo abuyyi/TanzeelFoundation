@@ -259,3 +259,76 @@ class About_us_division(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Appeal(models.Model):
+    CATEGORY_CHOICES = [
+        ('Food', 'Food'),
+        ('Water', 'Water'),
+        ('Healthcare', 'Healthcare'),
+        ('Education', 'Education'),
+        ('Emergency', 'Emergency'),
+        ('General', 'General'),
+    ]
+    REGION_CHOICES = [
+        ('Most in Need', 'Most in Need'),
+        ('Gaza', 'Gaza'),
+        ('Syria', 'Syria'),
+        ('Tanzania', 'Tanzania'),
+        ('Sudan', 'Sudan'),
+        ('Afghanistan', 'Afghanistan'),
+    ]
+
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, blank=True)
+    short_description = models.CharField(max_length=300)
+    full_description = models.TextField()
+    image = models.ImageField(upload_to='appeals/')
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default='General')
+    region = models.CharField(max_length=50, choices=REGION_CHOICES, default='Most in Need')
+    goal_amount = models.DecimalField(max_digits=12, decimal_places=2)
+    raised_amount = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    is_urgent = models.BooleanField(default=False)
+    order = models.PositiveIntegerField(default=0)
+    aprove = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['order', '-created_at']
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.title)
+            slug = base_slug
+            n = 1
+            while Appeal.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+                slug = f"{base_slug}-{n}"
+                n += 1
+            self.slug = slug
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+
+    @property
+    def progress_percent(self):
+        if self.goal_amount:
+            return min(int((self.raised_amount / self.goal_amount) * 100), 100)
+        return 0
+
+
+class AppealImpact(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='appeal_impacts/')
+    stat_number = models.CharField(max_length=50, blank=True, help_text="e.g. 500, 1,200+")
+    stat_label = models.CharField(max_length=100, blank=True, help_text="e.g. Families Fed, Students Supported")
+    order = models.PositiveIntegerField(default=0)
+    aprove = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title

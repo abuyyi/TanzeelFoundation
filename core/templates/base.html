@@ -27,6 +27,8 @@
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
 
+  {% block extra_css %}{% endblock extra_css %}
+
   <!-- Page-specific CSS -->
   <link href="{% static 'css/privacy.css' %}" rel="stylesheet">
   <link href="{% static 'css/terms.css' %}" rel="stylesheet">
@@ -58,7 +60,7 @@
             <ul>
               <li><a href="{% url 'pages:about' %}">About</a></li>
               <li><a href="{% url 'pages:blog' %}">Blog Details</a></li>
-              <li><a href="{% url 'core:coming_soon' %}">Appeals</a></li>
+              <li><a href="{% url 'pages:appeals' %}">Appeals</a></li>
               <li><a href="{% url 'donations:donation_page' %}">Donate Now</a></li>
               {% comment %} <li><a href="search-results.html">Search Results</a></li> {% endcomment %}
               {% comment %} <li><a href="404.html">404 Not Found Page</a></li> {% endcomment %}
@@ -152,7 +154,7 @@
               <div class="col-6 col-md-4">
                 <h5>Quick LInks</h5>
                 <ul class="list-unstyled">
-                  <li><a href="{% url 'core:coming_soon' %}">Appeals</a></li>
+                  <li><a href="{% url 'pages:appeals' %}">Appeals</a></li>
                   <li><a href="{% url 'pages:contact' %}">Contact Us</a></li>
                   <li><a href="{% url 'pages:privacy_policy' %}">Privacy Policy</a></li>
                   <li><a href="{% url 'pages:terms_of_service' %}">Terms of Service</a></li>

@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<style>
+  .appeal-hero {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+  .appeal-detail-progress {
+    height: 12px;
+    border-radius: 6px;
+    background: #e9ecef;
+    margin-bottom: 0.6rem;
+  }
+  .appeal-detail-progress .progress-bar {
+    border-radius: 6px;
+    background: linear-gradient(90deg, #198754, #28c76f);
+  }
+  .appeal-stat-box {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    text-align: center;
+  }
+  .appeal-stat-box .value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #198754;
+  }
+  .appeal-stat-box .label {
+    font-size: 0.82rem;
+    color: #6c757d;
+    margin-top: 0.2rem;
+  }
+  .badge-category {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.35em 0.85em;
+    border-radius: 20px;
+  }
+  .badge-urgent {
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.35em 0.85em;
+    border-radius: 20px;
+  }
+  .appeal-full-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+  }
+  .btn-donate-lg {
+    background: linear-gradient(135deg, #198754, #28c76f);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.75rem 2rem;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .btn-donate-lg:hover {
+    opacity: 0.88;
+    color: #fff;
+    transform: translateY(-1px);
+  }
+</style>
+{% endblock extra_css %}
+
+{% block content %}
+
+<main class="main">
+
+  <!-- Page Title -->
+  <div class="page-title">
+    <div class="heading">
+      <div class="container">
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-lg-8">
+            <h1 class="heading-title">{{ appeal.title }}</h1>
+            <p class="mb-0">{{ appeal.short_description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="{% url 'pages:homepage' %}">Home</a></li>
+          <li><a href="{% url 'pages:appeals' %}">Appeals</a></li>
+          <li class="current">{{ appeal.title }}</li>
+        </ol>
+      </div>
+    </nav>
+  </div><!-- End Page Title -->
+
+  <!-- Appeal Detail Section -->
+  <section class="section">
+    <div class="container">
+
+      <div class="row gy-5">
+
+        <!-- Left: Image + Stats -->
+        <div class="col-lg-5" data-aos="fade-right">
+          {% if appeal.image %}
+            <img src="{{ appeal.image.url }}" alt="{{ appeal.title }}" class="appeal-hero img-fluid w-100">
+          {% endif %}
+
+          <!-- Badges -->
+          <div class="d-flex align-items-center gap-2 flex-wrap mb-3">
+            <span class="badge-category badge bg-success bg-opacity-10 text-success">{{ appeal.category }}</span>
+            <span class="badge-category badge bg-secondary bg-opacity-10 text-secondary">{{ appeal.region }}</span>
+            {% if appeal.is_urgent %}
+              <span class="badge-urgent">Urgent</span>
+            {% endif %}
+          </div>
+
+          <!-- Progress -->
+          <div class="appeal-detail-progress">
+            <div class="progress-bar" role="progressbar"
+                 style="width: {{ appeal.progress_percent }}%"
+                 aria-valuenow="{{ appeal.progress_percent }}"
+                 aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="d-flex justify-content-between mb-3" style="font-size:0.85rem; color:#495057;">
+            <span>{{ appeal.progress_percent }}% funded</span>
+            <span>Goal: TZS {{ appeal.goal_amount|floatformat:0 }}</span>
+          </div>
+
+          <!-- Stats -->
+          <div class="row g-3 mb-4">
+            <div class="col-6">
+              <div class="appeal-stat-box">
+                <div class="value">TZS {{ appeal.raised_amount|floatformat:0 }}</div>
+                <div class="label">Raised</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="appeal-stat-box">
+                <div class="value">TZS {{ appeal.goal_amount|floatformat:0 }}</div>
+                <div class="label">Goal</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Donate Button -->
+          <a href="{% url 'donations:donation_page' %}?appeal={{ appeal.slug }}"
+             class="btn btn-donate-lg w-100 mb-3">
+            <i class="bi bi-heart-fill me-2"></i>Donate to This Appeal
+          </a>
+
+          <div class="text-center">
+            <a href="{% url 'pages:appeals' %}" class="text-muted" style="font-size:0.9rem;">
+              <i class="bi bi-arrow-left me-1"></i>Back to All Appeals
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Full Description -->
+        <div class="col-lg-7" data-aos="fade-left">
+          <h2 class="fw-bold mb-4">{{ appeal.title }}</h2>
+          <div class="appeal-full-description">
+            {{ appeal.full_description|linebreaks }}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section><!-- End Appeal Detail Section -->
+
+</main>
+
+{% endblock content %}
