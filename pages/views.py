@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, JsonResponse
 from django.views.decorators.http import require_http_methods
 from django.contrib import messages
@@ -23,6 +23,8 @@ from .models import (HomePage_Image,
                      tab_five,
                      tab_five_post,
                      ContactMessage,
+                     Appeal,
+                     AppealImpact,
                     )
 from .forms import ContactMessageForm
 
@@ -130,3 +132,14 @@ def terms_of_service(request):
 # Privacy Policy view
 def privacy_policy(request):
     return render(request, 'privacy.html')
+
+
+def appeals(request):
+    appeals_qs = Appeal.objects.filter(aprove=True)
+    impacts_qs = AppealImpact.objects.filter(aprove=True)
+    return render(request, 'pages/appeals.html', {'appeals': appeals_qs, 'impacts': impacts_qs})
+
+
+def appeal_detail(request, slug):
+    appeal = get_object_or_404(Appeal, slug=slug, aprove=True)
+    return render(request, 'pages/appeal_detail.html', {'appeal': appeal})

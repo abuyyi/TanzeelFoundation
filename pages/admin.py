@@ -21,6 +21,8 @@ from .models import (HomePage_Image,
                      tab_five,
                      tab_five_post,
                      ContactMessage,
+                     Appeal,
+                     AppealImpact,
                     )
 
 
@@ -236,3 +238,24 @@ class ContactMessageAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return False
     group = "Blog & Articles"
+
+
+# --- Appeals ---
+
+@admin.register(AppealImpact)
+class AppealImpactAdmin(admin.ModelAdmin):
+    list_display = ('title', 'stat_number', 'stat_label', 'order', 'aprove')
+    list_editable = ('aprove', 'order')
+    search_fields = ('title', 'description')
+    list_filter = ('aprove',)
+    verbose_name_plural = "Appeal Impacts"
+
+
+@admin.register(Appeal)
+class AppealAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug', 'category', 'region', 'goal_amount', 'raised_amount', 'is_urgent', 'aprove', 'order')
+    list_editable = ('aprove', 'order', 'is_urgent')
+    readonly_fields = ('slug',)
+    list_filter = ('category', 'region', 'aprove', 'is_urgent')
+    search_fields = ('title', 'short_description')
+    verbose_name_plural = "Appeals"
