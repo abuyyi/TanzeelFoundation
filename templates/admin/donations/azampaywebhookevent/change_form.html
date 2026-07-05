@@ -1,0 +1,145 @@
+{% extends "admin/change_form.html" %}
+{% load i18n static admin_modify %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'admin/css/custom.css' %}">
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src="{% static 'admin/js/webhook-admin.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="webhook-toast-container" aria-live="polite"></div>
+<div class="webhook-admin-page webhook-detail-page">
+    <div class="webhook-admin-hero">
+        <div>
+            <div class="breadcrumb-pill">Payments / Webhooks / Event</div>
+            <h2>Webhook Event Inspector</h2>
+            <p>Review the full lifecycle of this payment event with premium monitoring details.</p>
+        </div>
+        <div class="webhook-admin-hero-actions">
+            <button type="button" class="btn btn-secondary webhooks-refresh-btn" data-toast="Event refreshed">
+                <i data-lucide="refresh-cw"></i>
+                <span>Refresh</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="webhook-detail-grid">
+        <section class="webhook-detail-card">
+            <div class="card-title">
+                <span>Event Information</span>
+                <i data-lucide="webhook"></i>
+            </div>
+            <div class="detail-list">
+                <div class="detail-item"><span>Hash</span><strong>{{ original.event_hash }}</strong></div>
+                <div class="detail-item"><span>External ID</span><strong>{{ original.external_id|default:"—" }}</strong></div>
+                <div class="detail-item"><span>Gateway Reference</span><strong>{{ original.gateway_reference|default:"—" }}</strong></div>
+                <div class="detail-item"><span>Received</span><strong>{{ original.received_at|date:"M d, Y H:i" }}</strong></div>
+            </div>
+        </section>
+
+        <section class="webhook-detail-card">
+            <div class="card-title">
+                <span>Transaction Details</span>
+                <i data-lucide="credit-card"></i>
+            </div>
+            <div class="detail-list">
+                <div class="detail-item"><span>Transaction</span><strong>{{ original.transaction.external_id|default:"—" }}</strong></div>
+                <div class="detail-item"><span>Status</span><strong>{{ original.transaction.status|default:"—" }}</strong></div>
+                <div class="detail-item"><span>Amount</span><strong>{% if original.transaction %}{{ original.transaction.amount }} {{ original.transaction.currency }}{% else %}—{% endif %}</strong></div>
+                <div class="detail-item"><span>Provider</span><strong>{{ original.transaction.provider|default:"—" }}</strong></div>
+            </div>
+        </section>
+
+        <section class="webhook-detail-card">
+            <div class="card-title">
+                <span>Customer Details</span>
+                <i data-lucide="users"></i>
+            </div>
+            <div class="detail-list">
+                <div class="detail-item"><span>Donor</span><strong>{% if original.transaction and original.transaction.donation %}{{ original.transaction.donation.first_name }} {{ original.transaction.donation.last_name }}{% else %}—{% endif %}</strong></div>
+                <div class="detail-item"><span>Email</span><strong>{% if original.transaction and original.transaction.donation %}{{ original.transaction.donation.email }}{% else %}—{% endif %}</strong></div>
+                <div class="detail-item"><span>Phone</span><strong>{% if original.transaction and original.transaction.donation %}{{ original.transaction.donation.mobile_number }}{% else %}—{% endif %}</strong></div>
+                <div class="detail-item"><span>Payment Method</span><strong>{% if original.transaction and original.transaction.donation %}{{ original.transaction.donation.payment_method }}{% else %}—{% endif %}</strong></div>
+            </div>
+        </section>
+
+        <section class="webhook-detail-card">
+            <div class="card-title">
+                <span>Processing Status</span>
+                <i data-lucide="activity"></i>
+            </div>
+            <div class="detail-list">
+                <div class="detail-item"><span>Verified</span><strong>{{ original.verification_passed|yesno:"Yes,No" }}</strong></div>
+                <div class="detail-item"><span>Processed</span><strong>{{ original.processed|yesno:"Yes,No" }}</strong></div>
+                <div class="detail-item"><span>Duplicate</span><strong>{{ original.duplicate|yesno:"Yes,No" }}</strong></div>
+                <div class="detail-item"><span>Note</span><strong>{{ original.processing_note|default:"No note" }}</strong></div>
+            </div>
+        </section>
+    </div>
+
+    <div class="webhook-detail-grid webhook-detail-grid-2">
+        <section class="webhook-detail-card webhook-code-card">
+            <div class="card-title">
+                <span>Webhook Payload</span>
+                <div class="card-actions">
+                    <input id="webhook-json-search" type="search" class="webhook-json-search" placeholder="Search payload" aria-label="Search payload">
+                    <button type="button" class="btn btn-outline copy-json-btn">Copy</button>
+                    <button type="button" class="btn btn-secondary expand-json-btn">Expand</button>
+                </div>
+            </div>
+            {% if original.payload %}
+                {{ original.payload|json_script:"webhook-payload-data" }}
+                <pre id="webhook-json-viewer" class="json-viewer"></pre>
+            {% else %}
+                <div class="empty-state">No payload attached to this webhook.</div>
+            {% endif %}
+        </section>
+
+        <section class="webhook-detail-card">
+            <div class="card-title">
+                <span>Processing Timeline</span>
+                <i data-lucide="clock-3"></i>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item is-complete">
+                    <div class="timeline-icon"><i data-lucide="receive"></i></div>
+                    <div>
+                        <strong>Received</strong>
+                        <p>{{ original.received_at|date:"M d, Y H:i" }}</p>
+                    </div>
+                </div>
+                <div class="timeline-item {% if original.verification_passed %}is-complete{% else %}is-pending{% endif %}">
+                    <div class="timeline-icon"><i data-lucide="shield-check"></i></div>
+                    <div>
+                        <strong>Verified</strong>
+                        <p>{{ original.verification_passed|yesno:"Signature confirmed,Awaiting verification" }}</p>
+                    </div>
+                </div>
+                <div class="timeline-item {% if original.processed %}is-complete{% elif original.duplicate %}is-warning{% else %}is-pending{% endif %}">
+                    <div class="timeline-icon"><i data-lucide="zap"></i></div>
+                    <div>
+                        <strong>Processing</strong>
+                        <p>{{ original.processed|yesno:"Completed,Queued for processing" }}</p>
+                    </div>
+                </div>
+                <div class="timeline-item {% if original.processed and original.verification_passed %}is-complete{% else %}is-pending{% endif %}">
+                    <div class="timeline-icon"><i data-lucide="check-circle-2"></i></div>
+                    <div>
+                        <strong>Completed</strong>
+                        <p>{% if original.processed %}Webhook closed successfully{% else %}Waiting for final confirmation{% endif %}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="webhook-detail-card webhook-form-card">
+        {{ block.super }}
+    </div>
+</div>
+{% endblock %}

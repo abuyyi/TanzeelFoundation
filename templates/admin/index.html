@@ -1,0 +1,544 @@
+{% extends "admin/base.html" %}
+{% load i18n static admin_stats %}
+
+{% block content %}
+<!-- =============================================
+     WELCOME HEADER
+     ============================================= -->
+<div style="margin-bottom: 32px; display: flex; align-items: center; justify-content: space-between;">
+    <div>
+        <h1 style="font-size: 28px; font-weight: 800; letter-spacing: -0.5px; color: var(--text-primary); margin-bottom: 4px;">System Overview</h1>
+        <p style="font-size: 14px; color: var(--text-secondary);">Real-time monitoring of Tanzeel Foundation donations and payment gateways.</p>
+    </div>
+</div>
+
+<!-- =============================================
+     STATS CARDS
+     ============================================= -->
+<div class="stats-grid">
+    <div class="stat-card" style="position: relative; overflow: hidden; border-left: 4px solid var(--primary);">
+        <div class="stat-header">
+            <span class="stat-title">Total Users</span>
+            <div class="stat-icon" style="background-color: var(--primary-light); color: var(--primary);">
+                <i data-lucide="users" style="width: 18px; height: 18px;"></i>
+            </div>
+        </div>
+        <div class="stat-value" data-target="{% get_total_users %}">0</div>
+        <div class="stat-trend up" style="margin-top: 8px;">
+            <i data-lucide="check" style="width: 12px; height: 12px; color: var(--success);"></i>
+            <span>Active system accounts</span>
+        </div>
+    </div>
+
+    <div class="stat-card" style="position: relative; overflow: hidden; border-left: 4px solid var(--success);">
+        <div class="stat-header">
+            <span class="stat-title">Total Donations</span>
+            <div class="stat-icon" style="background-color: var(--success-light); color: var(--success);">
+                <i data-lucide="dollar-sign" style="width: 18px; height: 18px;"></i>
+            </div>
+        </div>
+        <div class="stat-value" data-target="{% get_total_revenue %}" data-prefix="£">£0</div>
+        <div class="stat-trend up" style="margin-top: 8px;">
+            <i data-lucide="trending-up" style="width: 12px; height: 12px; color: var(--success);"></i>
+            <span>Completed donations</span>
+        </div>
+    </div>
+
+    <div class="stat-card" style="position: relative; overflow: hidden; border-left: 4px solid var(--info);">
+        <div class="stat-header">
+            <span class="stat-title">Success Rate</span>
+            <div class="stat-icon" style="background-color: var(--info-light); color: var(--info);">
+                <i data-lucide="activity" style="width: 18px; height: 18px;"></i>
+            </div>
+        </div>
+        <div class="stat-value" data-target="{% get_success_rate %}">0</div>
+        <div class="stat-trend up" style="margin-top: 8px;">
+            <i data-lucide="zap" style="width: 12px; height: 12px; color: var(--info);"></i>
+            <span>Transaction efficiency</span>
+        </div>
+    </div>
+
+    <div class="stat-card" style="position: relative; overflow: hidden; border-left: 4px solid var(--warning);">
+        <div class="stat-header">
+            <span class="stat-title">Open Orders</span>
+            <div class="stat-icon" style="background-color: var(--warning-light); color: var(--warning);">
+                <i data-lucide="clock" style="width: 18px; height: 18px;"></i>
+            </div>
+        </div>
+        <div class="stat-value" data-target="{% get_open_transactions %}">0</div>
+        <div class="stat-trend down" style="margin-top: 8px;">
+            <i data-lucide="refresh-cw" style="width: 12px; height: 12px; color: var(--warning);"></i>
+            <span>Pending USSD checks</span>
+        </div>
+    </div>
+</div>
+
+<!-- =============================================
+     CHARTS + QUICK ACTIONS
+     ============================================= -->
+<div class="dashboard-grid">
+    <div class="card" style="flex: 2;">
+        <div class="card-header">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+                <h2 class="card-title">Transaction &amp; Provider Metrics</h2>
+                <p style="font-size: 12px; color: var(--text-muted);">Historical donations volume compared against payment gateways.</p>
+            </div>
+            <i data-lucide="bar-chart-2" style="width: 18px; height: 18px; color: var(--text-muted);"></i>
+        </div>
+        <div class="card-body" style="display: flex; flex-wrap: wrap; gap: 24px;">
+            <div style="flex: 2; min-width: 300px; height: 260px;">
+                <canvas id="donationsLineChart"></canvas>
+            </div>
+            <div style="flex: 1; min-width: 200px; height: 260px;">
+                <canvas id="providerPieChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="flex: 1;">
+        <div class="card-header">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+                <h2 class="card-title">Shortcuts</h2>
+                <p style="font-size: 12px; color: var(--text-muted);">Quick action commands.</p>
+            </div>
+            <i data-lucide="zap" style="width: 18px; height: 18px; color: var(--text-muted);"></i>
+        </div>
+        <div class="card-body" style="display: flex; flex-direction: column; gap: 12px;">
+            <a href="/admin/donations/donation/add/" class="btn btn-primary" style="justify-content: flex-start; text-decoration: none; border-radius: var(--radius-md);">
+                <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i>
+                Create New Donation
+            </a>
+            <a href="/admin/donations/paymenttransaction/" class="btn btn-outline" style="justify-content: flex-start; border-radius: var(--radius-md);">
+                <i data-lucide="list" style="width: 16px; height: 16px;"></i>
+                View Live Transactions
+            </a>
+            <a href="/admin/donations/azampaywebhookevent/" class="btn btn-outline" style="justify-content: flex-start; border-radius: var(--radius-md);">
+                <i data-lucide="terminal" style="width: 16px; height: 16px;"></i>
+                Monitor Webhook Events
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- =============================================
+     RECENT TRANSACTIONS TABLE
+     ============================================= -->
+<div class="card" style="margin-bottom: 28px;">
+    <div class="card-header" style="border-bottom: 1px solid var(--border-color);">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: linear-gradient(135deg, var(--primary-light), rgba(37,99,235,0.15)); display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="history" style="width: 16px; height: 16px; color: var(--primary);"></i>
+            </div>
+            <div>
+                <h2 class="card-title" style="margin: 0; font-size: 15px;">Recent Transactions</h2>
+                <p style="font-size: 12px; color: var(--text-muted); margin: 0;">Latest payment activity across all gateways</p>
+            </div>
+        </div>
+        <a href="/admin/donations/paymenttransaction/" style="font-size: 12px; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 4px;">
+            View all <i data-lucide="arrow-right" style="width: 13px; height: 13px;"></i>
+        </a>
+    </div>
+    <div style="overflow-x: auto;">
+        <table class="dashboard-table">
+            <thead>
+                <tr>
+                    <th style="width: 18%;">Reference</th>
+                    <th style="width: 22%;">Donor</th>
+                    <th style="width: 15%;">Amount</th>
+                    <th style="width: 15%;">Provider</th>
+                    <th style="width: 15%;">Status</th>
+                    <th style="width: 15%; text-align: center;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% get_recent_transactions as recent_txs %}
+                {% for tx in recent_txs %}
+                <tr>
+                    <td>
+                        <span style="font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; font-weight: 600; color: var(--text-primary); background: var(--bg-primary); padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border-color);">
+                            {{ tx.external_id|slice:":8" }}…
+                        </span>
+                    </td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 30px; height: 30px; border-radius: 50%; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; flex-shrink: 0;">
+                                {{ tx.donation.first_name|slice:":1"|upper }}
+                            </div>
+                            <span style="font-weight: 500; font-size: 14px;">{{ tx.donation.first_name }} {{ tx.donation.last_name }}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span style="font-weight: 700; font-size: 14px; color: var(--text-primary);">{{ tx.currency }} {{ tx.amount }}</span>
+                    </td>
+                    <td>
+                        <span style="font-size: 12px; font-weight: 600; color: var(--text-secondary); background: var(--bg-primary); padding: 3px 10px; border-radius: 50px; border: 1px solid var(--border-color);">{{ tx.provider }}</span>
+                    </td>
+                    <td>
+                        {% if tx.status == 'success' %}
+                            <span class="badge-status badge-success">
+                                <span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block;margin-right:5px;"></span>
+                                {{ tx.status }}
+                            </span>
+                        {% elif tx.status == 'failed' or tx.status == 'error' %}
+                            <span class="badge-status badge-failed">
+                                <span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block;margin-right:5px;"></span>
+                                {{ tx.status }}
+                            </span>
+                        {% else %}
+                            <span class="badge-status badge-pending">
+                                <span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block;margin-right:5px;animation:pulse 1.5s ease infinite;"></span>
+                                {{ tx.status }}
+                            </span>
+                        {% endif %}
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="/admin/donations/paymenttransaction/{{ tx.id }}/change/" style="display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--primary); padding: 5px 12px; border: 1px solid var(--border-color); border-radius: 8px; transition: var(--transition-smooth);" onmouseover="this.style.background='var(--primary-light)'" onmouseout="this.style.background='transparent'">
+                            <i data-lucide="eye" style="width: 12px; height: 12px;"></i> View
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" style="text-align: center; padding: 56px 24px;">
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+                            <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--bg-primary); display: flex; align-items: center; justify-content: center;">
+                                <i data-lucide="inbox" style="width: 22px; height: 22px; color: var(--text-muted);"></i>
+                            </div>
+                            <span style="font-size: 14px; color: var(--text-muted);">No recent transactions found.</span>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- =============================================
+     RECENT USERS TABLE
+     ============================================= -->
+<div class="card" style="margin-bottom: 28px;">
+    <div class="card-header" style="border-bottom: 1px solid var(--border-color);">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: linear-gradient(135deg, var(--success-light), rgba(34,197,94,0.15)); display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="user-plus" style="width: 16px; height: 16px; color: var(--success);"></i>
+            </div>
+            <div>
+                <h2 class="card-title" style="margin: 0; font-size: 15px;">Recent Users</h2>
+                <p style="font-size: 12px; color: var(--text-muted); margin: 0;">Newly registered accounts</p>
+            </div>
+        </div>
+        <a href="/admin/auth/user/" style="font-size: 12px; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 4px;">
+            View all <i data-lucide="arrow-right" style="width: 13px; height: 13px;"></i>
+        </a>
+    </div>
+    <div style="overflow-x: auto;">
+        <table class="dashboard-table">
+            <thead>
+                <tr>
+                    <th style="width: 60%;">User</th>
+                    <th style="width: 25%;">Joined</th>
+                    <th style="width: 15%; text-align: center;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% get_latest_users as latest_users %}
+                {% for u in latest_users %}
+                <tr>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-light), var(--info-light)); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0;">
+                                {{ u.username|slice:":1"|upper }}
+                            </div>
+                            <div>
+                                <div style="font-weight: 600; font-size: 14px; color: var(--text-primary);">{{ u.username }}</div>
+                                {% if u.email %}<div style="font-size: 12px; color: var(--text-muted);">{{ u.email }}</div>{% endif %}
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary);">
+                            <i data-lucide="calendar" style="width: 13px; height: 13px; color: var(--text-muted);"></i>
+                            {{ u.date_joined|date:"M d, Y" }}
+                        </div>
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="/admin/auth/user/{{ u.id }}/change/" style="display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--primary); padding: 5px 12px; border: 1px solid var(--border-color); border-radius: 8px; transition: var(--transition-smooth);" onmouseover="this.style.background='var(--primary-light)'" onmouseout="this.style.background='transparent'">
+                            <i data-lucide="edit-2" style="width: 12px; height: 12px;"></i> Edit
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3" style="text-align: center; padding: 56px 24px;">
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+                            <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--bg-primary); display: flex; align-items: center; justify-content: center;">
+                                <i data-lucide="users" style="width: 22px; height: 22px; color: var(--text-muted);"></i>
+                            </div>
+                            <span style="font-size: 14px; color: var(--text-muted);">No users registered.</span>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- =============================================
+     SYSTEM APPLICATIONS & MODELS — CARD GRID
+     ============================================= -->
+<div style="margin-top: 8px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; padding: 0 4px;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(139,92,246,0.2)); display: flex; align-items: center; justify-content: center;">
+            <i data-lucide="folder-tree" style="width: 16px; height: 16px; color: #8b5cf6;"></i>
+        </div>
+        <div>
+            <h2 style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 0;">System Applications &amp; Models</h2>
+            <p style="font-size: 12px; color: var(--text-muted); margin: 0;">All registered Django apps and their data models</p>
+        </div>
+    </div>
+</div>
+
+{% if app_list %}
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; margin-bottom: 40px;">
+    {% for app in app_list %}
+    <div class="app-module-card">
+        <!-- App Header -->
+        <div class="app-module-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="app-icon-wrap">
+                    <i data-lucide="box" style="width: 15px; height: 15px;"></i>
+                </div>
+                <div>
+                    <span class="app-module-title">{{ app.name }}</span>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 1px;">
+                        {{ app.models|length }} model{{ app.models|length|pluralize }}
+                    </div>
+                </div>
+            </div>
+            {% if app.app_url %}
+            <a href="{{ app.app_url }}" style="width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: var(--transition-smooth);" title="Browse {{ app.name }}" onmouseover="this.style.background='var(--primary-light)';this.style.color='var(--primary)'" onmouseout="this.style.background='transparent';this.style.color='var(--text-muted)'">
+                <i data-lucide="external-link" style="width: 12px; height: 12px;"></i>
+            </a>
+            {% endif %}
+        </div>
+
+        <!-- Model Rows -->
+        <div class="app-module-body">
+            {% for model in app.models %}
+            <div class="model-row">
+                <div style="display: flex; align-items: center; gap: 9px; flex: 1; min-width: 0;">
+                    <div style="width: 8px; height: 8px; border-radius: 50%; background: var(--primary-light); border: 2px solid var(--primary); flex-shrink: 0;"></div>
+                    {% if model.admin_url %}
+                        <a href="{{ model.admin_url }}" class="model-name-link">{{ model.name }}</a>
+                    {% else %}
+                        <span class="model-name-link" style="color: var(--text-muted); cursor: default;">{{ model.name }}</span>
+                    {% endif %}
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center; flex-shrink: 0;">
+                    {% if model.add_url %}
+                    <a href="{{ model.add_url }}" class="model-action-btn model-action-add" title="Add new {{ model.name }}">
+                        <i data-lucide="plus" style="width: 11px; height: 11px;"></i>
+                        Add
+                    </a>
+                    {% endif %}
+                    {% if model.admin_url %}
+                    <a href="{{ model.admin_url }}" class="model-action-btn model-action-manage" title="Manage {{ model.name }}">
+                        <i data-lucide="sliders" style="width: 11px; height: 11px;"></i>
+                        Manage
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            {% empty %}
+            <div style="padding: 20px 0; text-align: center; color: var(--text-muted); font-size: 13px;">
+                No models available.
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div style="padding: 64px; text-align: center; background: var(--bg-card-solid); border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-bottom: 40px;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--bg-primary); display: flex; align-items: center; justify-content: center;">
+            <i data-lucide="lock" style="width: 24px; height: 24px; color: var(--text-muted);"></i>
+        </div>
+        <p style="font-size: 14px; color: var(--text-muted);">{% translate "You don't have permission to view or edit anything." %}</p>
+    </div>
+</div>
+{% endif %}
+
+<!-- =============================================
+     EXTRA STYLES (scoped to dashboard)
+     ============================================= -->
+<style>
+/* ---- Dashboard table ---- */
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.dashboard-table thead tr {
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+.dashboard-table thead th {
+    padding: 13px 22px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+.dashboard-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition-smooth);
+}
+.dashboard-table tbody tr:last-child {
+    border-bottom: none;
+}
+.dashboard-table tbody tr:hover {
+    background: var(--primary-light);
+}
+.dashboard-table tbody td {
+    padding: 16px 22px;
+    font-size: 14px;
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+/* ---- App module card ---- */
+.app-module-card {
+    background: var(--bg-card-solid);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+.app-module-card:hover {
+    border-color: var(--border-glow);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+.app-module-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, rgba(139,92,246,0.04), transparent);
+}
+.app-icon-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(139,92,246,0.2));
+    color: #8b5cf6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.app-module-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.2px;
+}
+.app-module-body {
+    padding: 8px 0;
+}
+.model-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 20px;
+    border-bottom: 1px solid rgba(226,232,240,0.4);
+    transition: background 0.2s ease;
+    gap: 12px;
+}
+[data-theme="dark"] .model-row {
+    border-bottom-color: rgba(51,65,85,0.4);
+}
+.model-row:last-child {
+    border-bottom: none;
+}
+.model-row:hover {
+    background: var(--primary-light);
+}
+.model-name-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.2s ease;
+}
+.model-name-link:hover {
+    color: var(--primary);
+}
+.model-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+    text-decoration: none;
+}
+.model-action-add {
+    color: var(--success);
+    background: var(--success-light);
+    border: 1px solid rgba(34,197,94,0.2);
+}
+.model-action-add:hover {
+    background: rgba(34,197,94,0.2);
+    color: var(--success);
+    transform: translateY(-1px);
+}
+.model-action-manage {
+    color: var(--primary);
+    background: var(--primary-light);
+    border: 1px solid rgba(37,99,235,0.15);
+}
+.model-action-manage:hover {
+    background: rgba(37,99,235,0.15);
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+/* ---- Stat trend ---- */
+.stat-trend {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ---- Pulse animation for pending badge ---- */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* ---- Dashboard grid ---- */
+.dashboard-grid {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+.dashboard-grid > .card {
+    min-width: 0;
+}
+</style>
+{% endblock %}

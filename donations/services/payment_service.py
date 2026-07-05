@@ -274,71 +274,108 @@ class AzamPayService:
         if HTTPX_AVAILABLE:
             return self._post_json_httpx(url, payload, headers, timeout)
 
+        import time
+        max_retries = 3
+
+        headers_copy = dict(headers) if headers else {}
+        if 'User-Agent' not in headers_copy:
+            headers_copy['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+
         body = json.dumps(payload).encode('utf-8')
-        req = request.Request(url, data=body, headers=headers, method='POST')
-        try:
-            with request.urlopen(req, timeout=timeout) as response:
-                raw_response = response.read().decode('utf-8') or '{}'
-                return json.loads(raw_response)
-        except error.HTTPError as exc:
-            raw_error = exc.read().decode('utf-8') if exc.fp else '{}'
-            logger.exception(
-                "AzamPay HTTP error",
-                extra={
-                    'url': url,
-                    'status_code': exc.code,
-                    'response': self._sanitize_payload(raw_error),
-                },
-            )
+        req = request.Request(url, data=body, headers=headers_copy, method='POST')
+        
+        for attempt in range(max_retries):
             try:
-                payload = json.loads(raw_error)
-            except json.JSONDecodeError:
-                payload = {'message': raw_error or 'Unknown AzamPay error.'}
-            message = payload.get('message') or f"AzamPay responded with HTTP {exc.code}."
-            if exc.code >= 500:
-                raise RetryablePaymentServiceError(message) from exc
-            raise PaymentServiceError(message) from exc
-        except (error.URLError, TimeoutError, socket.timeout) as exc:
-            logger.exception("AzamPay network failure", extra={'url': url})
-            raise RetryablePaymentServiceError("AzamPay is currently unreachable. Please try again shortly.") from exc
-        except json.JSONDecodeError as exc:
-            logger.exception("AzamPay invalid JSON response", extra={'url': url})
-            raise RetryablePaymentServiceError("AzamPay returned an invalid response.") from exc
+                with request.urlopen(req, timeout=timeout) as response:
+                    raw_response = response.read().decode('utf-8') or '{}'
+                    return json.loads(raw_response)
+            except error.HTTPError as exc:
+                raw_error = exc.read().decode('utf-8') if exc.fp else '{}'
+                logger.exception(
+                    "AzamPay HTTP error",
+                    extra={
+                        'url': url,
+                        'status_code': exc.code,
+                        'response': self._sanitize_payload(raw_error),
+                    },
+                )
+                try:
+                    error_payload = json.loads(raw_error)
+                except json.JSONDecodeError:
+                    error_payload = {'message': raw_error or 'Unknown AzamPay error.'}
+                message = error_payload.get('message') or f"AzamPay responded with HTTP {exc.code}."
+                if exc.code >= 500:
+                    if attempt < max_retries - 1:
+                        time.sleep(2 ** attempt)
+                        continue
+                    raise RetryablePaymentServiceError(message) from exc
+                raise PaymentServiceError(message) from exc
+            except (error.URLError, TimeoutError, socket.timeout) as exc:
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+                logger.exception("AzamPay network failure", extra={'url': url})
+                raise RetryablePaymentServiceError("AzamPay is currently unreachable. Please try again shortly.") from exc
+            except json.JSONDecodeError as exc:
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+                logger.exception("AzamPay invalid JSON response", extra={'url': url})
+                raise RetryablePaymentServiceError("AzamPay returned an invalid response.") from exc
 
     def _post_json_httpx(self, url, payload, headers, timeout):
         import httpx
+        import time
+        max_retries = 3
 
-        try:
-            with httpx.Client(timeout=timeout) as client:
-                response = client.post(url, json=payload, headers=headers)
-                response.raise_for_status()
-                return response.json()
-        except httpx.HTTPStatusError as exc:
-            logger.exception(
-                "AzamPay HTTP error",
-                extra={
-                    'url': url,
-                    'status_code': exc.response.status_code,
-                    'response': self._sanitize_payload(exc.response.text),
-                },
-            )
+        headers_copy = dict(headers) if headers else {}
+        if 'User-Agent' not in headers_copy:
+            headers_copy['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+
+        for attempt in range(max_retries):
             try:
-                payload = exc.response.json()
-            except ValueError:
-                payload = {'message': exc.response.text or 'Unknown AzamPay error.'}
-            message = payload.get('message') or f"AzamPay responded with HTTP {exc.response.status_code}."
-            if exc.response.status_code >= 500:
-                raise RetryablePaymentServiceError(message) from exc
-            raise PaymentServiceError(message) from exc
-        except httpx.TimeoutException as exc:
-            logger.exception("AzamPay timeout", extra={'url': url})
-            raise RetryablePaymentServiceError("AzamPay took too long to respond. Please try again shortly.") from exc
-        except httpx.RequestError as exc:
-            logger.exception("AzamPay network failure", extra={'url': url})
-            raise RetryablePaymentServiceError("AzamPay is currently unreachable. Please try again shortly.") from exc
-        except ValueError as exc:
-            logger.exception("AzamPay invalid JSON response", extra={'url': url})
-            raise RetryablePaymentServiceError("AzamPay returned an invalid response.") from exc
+                with httpx.Client(timeout=timeout) as client:
+                    response = client.post(url, json=payload, headers=headers_copy)
+                    response.raise_for_status()
+                    return response.json()
+            except httpx.HTTPStatusError as exc:
+                logger.exception(
+                    "AzamPay HTTP error",
+                    extra={
+                        'url': url,
+                        'status_code': exc.response.status_code,
+                        'response': self._sanitize_payload(exc.response.text),
+                    },
+                )
+                try:
+                    error_payload = exc.response.json()
+                except ValueError:
+                    error_payload = {'message': exc.response.text or 'Unknown AzamPay error.'}
+                message = error_payload.get('message') or f"AzamPay responded with HTTP {exc.response.status_code}."
+                if exc.response.status_code >= 500:
+                    if attempt < max_retries - 1:
+                        time.sleep(2 ** attempt)
+                        continue
+                    raise RetryablePaymentServiceError(message) from exc
+                raise PaymentServiceError(message) from exc
+            except httpx.TimeoutException as exc:
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+                logger.exception("AzamPay timeout", extra={'url': url})
+                raise RetryablePaymentServiceError("AzamPay took too long to respond. Please try again shortly.") from exc
+            except httpx.RequestError as exc:
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+                logger.exception("AzamPay network failure", extra={'url': url})
+                raise RetryablePaymentServiceError("AzamPay is currently unreachable. Please try again shortly.") from exc
+            except ValueError as exc:
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+                logger.exception("AzamPay invalid JSON response", extra={'url': url})
+                raise RetryablePaymentServiceError("AzamPay returned an invalid response.") from exc
 
     def _extract_status(self, payload):
         data = payload.get('data') or {}

@@ -1,0 +1,184 @@
+{% load i18n static %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" dir="{{ LANGUAGE_BIDI|yesno:"rtl,ltr" }}">
+<head>
+<title>{% block title %}{% endblock %}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'admin/css/custom.css' %}">
+{% block extrastyle %}{% endblock %}
+{% block extrahead %}{% endblock %}
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
+</head>
+<body class="{% block bodyclass %}{% endblock %}" data-admin-utc-offset="{% now "Z" %}">
+
+<!-- Toast Notification Container -->
+<div class="toast-container" id="toast-container">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="toast {{ message.tags }}">
+                <i data-lucide="info" style="width: 20px; height: 20px;"></i>
+                <span>{{ message }}</span>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div id="container">
+    <!-- Collapsible Sidebar -->
+    <aside id="sidebar" class="glass">
+        <div class="sidebar-logo">
+            <i data-lucide="layers" style="width: 24px; height: 24px; color: var(--primary);"></i>
+            <span style="font-family: var(--font-sans); font-weight: 800; color: var(--text-primary);">Tanzeel Console</span>
+        </div>
+        
+        <div class="sidebar-nav">
+            <div class="sidebar-group-title">Navigation</div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="{% url 'admin:index' %}" class="sidebar-link {% if request.path == '/admin/' %}active{% endif %}">
+                        <i data-lucide="layout-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-group-title">Applications</div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="/admin/donations/donation/" class="sidebar-link {% if 'donations/donation' in request.path %}active{% endif %}">
+                        <i data-lucide="heart"></i>
+                        <span>Donations</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/donations/paymenttransaction/" class="sidebar-link {% if 'paymenttransaction' in request.path %}active{% endif %}">
+                        <i data-lucide="credit-card"></i>
+                        <span>Transactions</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/donations/azampaywebhookevent/" class="sidebar-link {% if 'azampaywebhookevent' in request.path %}active{% endif %}">
+                        <i data-lucide="webhook"></i>
+                        <span>Webhooks</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-group-title">Administration</div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="/admin/auth/user/" class="sidebar-link {% if 'auth/user' in request.path %}active{% endif %}">
+                        <i data-lucide="users"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- User Profile Area -->
+        {% if user.is_authenticated %}
+        <div class="sidebar-profile">
+            <div class="sidebar-avatar">
+                {{ user.username|slice:":1"|upper }}
+            </div>
+            <div class="sidebar-user-info">
+                <span class="sidebar-user-name">{{ user.username }}</span>
+                <span class="sidebar-user-role">{% if user.is_superuser %}Superuser{% else %}Staff{% endif %}</span>
+            </div>
+            <form action="{% url 'admin:logout' %}" method="post" style="margin-left: auto; margin-bottom: 0;">
+                {% csrf_token %}
+                <button type="submit" class="logout-btn" style="background: none; border: none; padding: 0; color: var(--danger); cursor: pointer; display: flex; align-items: center;" title="Logout">
+                    <i data-lucide="log-out" style="width: 18px; height: 18px;"></i>
+                </button>
+            </form>
+        </div>
+        {% endif %}
+    </aside>
+
+    <!-- Main View Section -->
+    <main id="main-content">
+        <!-- Sticky Header -->
+        <header id="header" class="glass">
+            <div class="header-left">
+                <button id="toggle-sidebar" class="toggle-sidebar-btn" aria-label="Toggle Sidebar">
+                    <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+                </button>
+                
+                <form class="global-search" role="search" method="get" action="{% url 'admin:index' %}">
+                    <i data-lucide="search" style="width: 16px; height: 16px;"></i>
+                    <input type="search" name="q" placeholder="Quick search admin" aria-label="Quick search admin">
+                    <span class="search-hint">⌘K</span>
+                </form>
+            </div>
+            
+            <div class="header-right">
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="header-action-btn" aria-label="Toggle Theme">
+                    <span id="theme-toggle-icon"></span>
+                </button>
+                
+                <!-- Notification Bell -->
+                <button class="header-action-btn" aria-label="View Notifications">
+                    <i data-lucide="bell" style="width: 20px; height: 20px;"></i>
+                    <span class="badge"></span>
+                </button>
+                
+                <!-- User Menu Dropdown -->
+                {% if user.is_authenticated %}
+                <div class="user-dropdown">
+                    <div class="user-profile-trigger" id="user-dropdown-trigger">
+                        <div class="sidebar-avatar" style="width: 32px; height: 32px; font-size: 13px;">
+                            {{ user.username|slice:":1"|upper }}
+                        </div>
+                    </div>
+                    <div class="dropdown-menu" id="user-dropdown-menu" style="position: absolute; right: 0; top: 40px; background-color: var(--bg-card-solid); border: 1px solid var(--border-color); border-radius: var(--radius-sm); width: 160px; display: none; box-shadow: var(--shadow-md); z-index: 100;">
+                        <a href="{% url 'admin:password_change' %}" style="display: block; padding: 10px 16px; font-size: 13px; color: var(--text-primary);">Change Password</a>
+                        <hr style="border: 0; border-top: 1px solid var(--border-color);">
+                        <form action="{% url 'admin:logout' %}" method="post" style="margin: 0; padding: 0;">
+                            {% csrf_token %}
+                            <button type="submit" style="display: block; width: 100%; text-align: left; background: none; border: none; padding: 10px 16px; font-size: 13px; color: var(--danger); cursor: pointer; font-family: inherit;">Logout</button>
+                        </form>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </header>
+
+        <!-- Breadcrumbs Navigation -->
+        {% block breadcrumbs %}
+        <div class="breadcrumbs-bar">
+            <a href="{% url 'admin:index' %}">Home</a>
+            {% if title %}
+                <span>/</span> {{ title }}
+            {% endif %}
+        </div>
+        {% endblock %}
+
+        <!-- Content Area -->
+        <section id="content">
+            {% block messages %}
+                {% if messages %}
+                    <ul class="messagelist">
+                        {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message|capfirst }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endblock %}
+
+            {% block content_title %}{% if title %}<h1 style="font-size: 26px; font-weight: 800; margin-bottom: 24px; letter-spacing: -0.5px;">{{ title }}</h1>{% endif %}{% endblock %}
+
+            {% block content %}
+            {% endblock %}
+
+            {% block sidebar %}{% endblock %}
+        </section>
+    </main>
+</div>
+
+<!-- Lucide Icons CDN & Custom Scripting -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="{% static 'admin/js/custom.js' %}"></script>
+</body>
+</html>

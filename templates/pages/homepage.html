@@ -81,38 +81,12 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="blog-posts-slider swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 4500
-              },
-              "slidesPerView": 1,
-              "spaceBetween": 40,
-              "centeredSlides": true,
-              "breakpoints": {
-                "768": {
-                  "slidesPerView": 1.5,
-                  "spaceBetween": 30
-                },
-                "1200": {
-                  "slidesPerView": 2.2,
-                  "spaceBetween": 40
-                }
-              },
-              "pagination": {
-                "el": ".swiper-pagination",
-                "clickable": true
-              }
-            }
-          </script>
-
-          <div class="swiper-wrapper">
+        <div class="blog-posts-slider custom-marquee">
+          <!-- We preserve the original structure to keep the layout exact -->
+          <div class="marquee-wrapper">
             {% for Sliding_image in homepage_sliding_images %}
-                <div class="swiper-slide">
-                <article class="blog-card">
+                <div class="marquee-item">
+                <article class="blog-card h-100">
                     <div class="blog-image">
                         {% if Sliding_image.image1 %}
                         <img src="{{ Sliding_image.image1.url }}" alt="Blog Image" loading="lazy">
@@ -149,9 +123,8 @@
                 </article>
                 </div><!-- End slide item -->
             {% endfor %}
+          </div>
         </div>
-        <div class="swiper-pagination"></div>
-      </div>
 
     </section><!-- /Featured Posts Section -->
 

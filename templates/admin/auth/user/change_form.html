@@ -1,0 +1,1030 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_modify %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <style>
+    /* SaaS Premium Variables */
+    :root {
+      --primary: #2563EB;
+      --primary-hover: #1D4ED8;
+      --primary-light: rgba(37, 99, 235, 0.1);
+      
+      --success: #22C55E;
+      --success-light: rgba(34, 197, 94, 0.1);
+      
+      --warning: #F59E0B;
+      --warning-light: rgba(245, 158, 11, 0.1);
+      
+      --danger: #EF4444;
+      --danger-hover: #DC2626;
+      --danger-light: rgba(239, 68, 68, 0.1);
+      
+      --bg-main: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-input: #F1F5F9;
+      
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      
+      --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+      --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    [data-theme="dark"] {
+      --bg-main: #0F172A;
+      --bg-card: #1E293B;
+      --bg-input: #334155;
+      
+      --text-dark: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border-color: #334155;
+      --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+      --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Base Setup */
+    #content {
+      padding: 0 !important;
+      background: var(--bg-main) !important;
+      font-family: var(--font-main);
+      color: var(--text-dark);
+    }
+    
+    .saas-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px;
+    }
+
+    /* Page Header */
+    .saas-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+    
+    .saas-header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -0.5px;
+      color: var(--text-dark);
+    }
+    
+    .saas-header p {
+      color: var(--text-muted);
+      margin: 4px 0 0 0;
+      font-size: 15px;
+    }
+
+    /* Layout */
+    .saas-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (max-width: 1024px) {
+      .saas-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Profile Sidebar */
+    .saas-profile-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-color);
+      text-align: center;
+      position: sticky;
+      top: 100px;
+    }
+
+    .saas-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #8B5CF6);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
+    }
+
+    .saas-profile-name {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      color: var(--text-dark);
+    }
+
+    .saas-profile-username {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0 0 20px 0;
+    }
+
+    .saas-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .saas-badge {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-active { background: var(--success-light); color: var(--success); }
+    .badge-inactive { background: var(--danger-light); color: var(--danger); }
+    .badge-staff { background: var(--primary-light); color: var(--primary); }
+    .badge-super { background: rgba(139, 92, 246, 0.1); color: #8B5CF6; }
+
+    .saas-profile-stats {
+      text-align: left;
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 13px;
+    }
+    
+    .stat-label { color: var(--text-muted); }
+    .stat-val { font-weight: 600; color: var(--text-dark); }
+
+    /* Content Cards */
+    .saas-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-color);
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .saas-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Gradient Border Top Effect */
+    .saas-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), #8B5CF6);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .saas-card:hover::before {
+      opacity: 1;
+    }
+
+    .saas-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 16px;
+    }
+
+    .saas-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .saas-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0;
+    }
+    
+    .saas-card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 4px 0 0 0;
+    }
+
+    /* Form Inputs Modernization */
+    .saas-form-row {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .saas-form-row label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    /* Hide standard Django help texts initially if we style them */
+    .saas-form-row .help {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      display: block;
+    }
+
+    .saas-form-row input[type="text"],
+    .saas-form-row input[type="email"],
+    .saas-form-row input[type="password"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-input);
+      color: var(--text-dark);
+      font-family: inherit;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .saas-form-row input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-light);
+      background: var(--bg-card);
+    }
+
+    /* Custom Toggle Switch */
+    .saas-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .saas-toggle:hover {
+      background: var(--bg-input);
+    }
+
+    .saas-toggle-text strong {
+      display: block;
+      font-size: 14px;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .saas-toggle-text span {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* The actual switch */
+    .switch-ui {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      background: var(--border-color);
+      border-radius: 12px;
+      transition: background 0.3s;
+      flex-shrink: 0;
+    }
+    
+    .switch-ui::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Native Checkbox visually hidden */
+    .saas-toggle input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .saas-toggle input[type="checkbox"]:checked + .switch-ui {
+      background: var(--success);
+    }
+
+    .saas-toggle input[type="checkbox"]:checked + .switch-ui::after {
+      transform: translateX(20px);
+    }
+
+    .saas-toggle input[type="checkbox"]:focus-visible + .switch-ui {
+      box-shadow: 0 0 0 4px var(--success-light);
+    }
+
+    /* Buttons */
+    .saas-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-card);
+      padding: 24px 32px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 16px;
+    }
+
+    .saas-btn {
+      padding: 12px 24px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .saas-btn-primary {
+      background: linear-gradient(135deg, var(--primary), #1E40AF);
+      color: white;
+      box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    }
+    
+    .saas-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .saas-btn-secondary {
+      background: var(--bg-input);
+      color: var(--text-dark);
+      border: 1px solid var(--border-color);
+    }
+
+    .saas-btn-secondary:hover {
+      background: var(--border-color);
+      transform: translateY(-2px);
+    }
+
+    .saas-btn-danger {
+      background: var(--danger-light);
+      color: var(--danger);
+    }
+    
+    .saas-btn-danger:hover {
+      background: var(--danger);
+      color: white;
+    }
+
+    /* Password Reset Link */
+    .password-reset-box {
+      background: var(--bg-input);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--border-color);
+    }
+
+    .password-reset-box a {
+      color: white;
+      background: var(--primary);
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .password-reset-box a:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Custom Multi-select for Groups and Permissions */
+    /* We'll hide the standard django select multiple, and build a chip UI via JS */
+    .django-select-hidden {
+      display: none !important;
+    }
+
+    .saas-multiselect-container {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-input);
+      padding: 8px;
+      min-height: 48px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      cursor: text;
+    }
+    
+    .saas-multiselect-container:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-light);
+      background: var(--bg-card);
+    }
+
+    .saas-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-dark);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      animation: popIn 0.2s ease;
+    }
+
+    .saas-chip-remove {
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .saas-chip-remove:hover {
+      color: var(--danger);
+    }
+
+    .saas-multiselect-input {
+      border: none;
+      background: transparent;
+      outline: none;
+      flex-grow: 1;
+      min-width: 150px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text-dark);
+      padding: 4px;
+    }
+
+    .saas-dropdown {
+      position: absolute;
+      width: 100%;
+      max-height: 200px;
+      overflow-y: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-top: 4px;
+      box-shadow: var(--shadow-hover);
+      z-index: 50;
+      display: none;
+    }
+
+    .saas-dropdown.active {
+      display: block;
+      animation: slideDown 0.2s ease;
+    }
+
+    .saas-dropdown-item {
+      padding: 10px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.1s;
+      color: var(--text-dark);
+    }
+    .saas-dropdown-item:hover, .saas-dropdown-item.focused {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-10px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Readonly fields (Last login, etc) */
+    .readonly-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-dark);
+      padding: 12px 16px;
+      background: var(--bg-input);
+      border-radius: var(--radius-md);
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid transparent;
+    }
+  </style>
+  <script src="https://unpkg.com/lucide@latest"></script>
+{% endblock %}
+
+{% block content %}
+<div class="saas-container">
+  
+  <div class="saas-header">
+    <div>
+      <h1>{% if add %}Add User{% else %}Edit {{ original.username }}{% endif %}</h1>
+      <p>Manage user profile, roles, and permissions.</p>
+    </div>
+    <a href="{% url 'admin:auth_user_changelist' %}" class="saas-btn saas-btn-secondary">
+      <i data-lucide="arrow-left" style="width:16px; height:16px;"></i> Back to Users
+    </a>
+  </div>
+
+  <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.model_name }}_form" novalidate>
+    {% csrf_token %}
+    {% block form_top %}{% endblock %}
+
+    <!-- Django admin handles form errors here -->
+    {% if errors %}
+      <div style="background: var(--danger-light); color: var(--danger); padding: 16px; border-radius: var(--radius-md); margin-bottom: 24px; border: 1px solid var(--danger);">
+        <strong>Please correct the {{ errors }} error{{ errors|pluralize }} below.</strong>
+        {% if adminform.form.non_field_errors %}
+          <ul style="margin:8px 0 0 16px;">
+            {% for error in adminform.form.non_field_errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        <ul style="margin:8px 0 0 16px;">
+          {% for field in adminform.form %}
+            {% for error in field.errors %}
+              <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <div class="saas-layout">
+      
+      <!-- LEFT SIDEBAR: PROFILE CARD -->
+      <div class="saas-profile-card">
+        {% if original %}
+          <div class="saas-avatar">
+            {{ original.username|slice:":1"|upper }}
+          </div>
+          <h2 class="saas-profile-name">{{ original.first_name }} {{ original.last_name }}</h2>
+          <p class="saas-profile-username">@{{ original.username }}</p>
+          
+          <div class="saas-badges">
+            {% if original.is_active %}
+              <span class="saas-badge badge-active"><i data-lucide="check-circle" style="width:14px; height:14px;"></i> Active</span>
+            {% else %}
+              <span class="saas-badge badge-inactive"><i data-lucide="x-circle" style="width:14px; height:14px;"></i> Inactive</span>
+            {% endif %}
+            
+            {% if original.is_staff %}
+              <span class="saas-badge badge-staff"><i data-lucide="shield" style="width:14px; height:14px;"></i> Staff</span>
+            {% endif %}
+            
+            {% if original.is_superuser %}
+              <span class="saas-badge badge-super"><i data-lucide="zap" style="width:14px; height:14px;"></i> Superuser</span>
+            {% endif %}
+          </div>
+          
+          <div class="saas-profile-stats">
+            <div class="stat-row">
+              <span class="stat-label">Joined</span>
+              <span class="stat-val">{{ original.date_joined|date:"M d, Y" }}</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Last Login</span>
+              <span class="stat-val">{% if original.last_login %}{{ original.last_login|date:"M d, Y" }}{% else %}Never{% endif %}</span>
+            </div>
+          </div>
+        {% else %}
+          <div class="saas-avatar">?</div>
+          <h2 class="saas-profile-name">New User</h2>
+          <p class="saas-profile-username">Fill details to create</p>
+        {% endif %}
+      </div>
+
+      <!-- RIGHT CONTENT: CARDS -->
+      <div class="saas-content">
+        
+        <!-- Card 1: Basic Info -->
+        <div class="saas-card">
+          <div class="saas-card-header">
+            <div class="saas-card-icon"><i data-lucide="user"></i></div>
+            <div>
+              <h3 class="saas-card-title">Basic Information</h3>
+              <p class="saas-card-desc">Core profile details and identity.</p>
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px;">
+            <div class="saas-form-row" style="grid-column: span 2;">
+              <label for="{{ adminform.form.username.id_for_label }}">Username *</label>
+              {{ adminform.form.username }}
+              {{ adminform.form.username.errors }}
+              <div class="help">{{ adminform.form.username.help_text }}</div>
+            </div>
+            
+            <div class="saas-form-row">
+              <label for="{{ adminform.form.first_name.id_for_label }}">First Name</label>
+              {{ adminform.form.first_name }}
+              {{ adminform.form.first_name.errors }}
+            </div>
+            
+            <div class="saas-form-row">
+              <label for="{{ adminform.form.last_name.id_for_label }}">Last Name</label>
+              {{ adminform.form.last_name }}
+              {{ adminform.form.last_name.errors }}
+            </div>
+            
+            <div class="saas-form-row" style="grid-column: span 2;">
+              <label for="{{ adminform.form.email.id_for_label }}">Email Address</label>
+              {{ adminform.form.email }}
+              {{ adminform.form.email.errors }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Authentication -->
+        <div class="saas-card">
+          <div class="saas-card-header">
+            <div class="saas-card-icon"><i data-lucide="lock"></i></div>
+            <div>
+              <h3 class="saas-card-title">Authentication</h3>
+              <p class="saas-card-desc">Manage credentials and access.</p>
+            </div>
+          </div>
+          
+          <div class="password-reset-box">
+            <div>
+              <strong style="display:block; margin-bottom:4px; font-size:14px;">Password</strong>
+              <span style="font-size:13px; color:var(--text-muted);">
+                {% if add %}
+                  Set a password for this user after creation.
+                {% else %}
+                  Passwords are encrypted. You cannot see the raw password.
+                {% endif %}
+              </span>
+            </div>
+            {% if not add %}
+              <!-- Django standard password change link format -->
+              <a href="../password/"><i data-lucide="key" style="width:14px; height:14px; display:inline-block; vertical-align:middle; margin-right:4px;"></i> Change Password</a>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Card 6: Status & Danger Zone (moved up for flow, or keep as Access Control) -->
+        <div class="saas-card">
+          <div class="saas-card-header">
+            <div class="saas-card-icon"><i data-lucide="shield-alert"></i></div>
+            <div>
+              <h3 class="saas-card-title">Access Control</h3>
+              <p class="saas-card-desc">Toggle system-level access and roles.</p>
+            </div>
+          </div>
+          
+          <!-- Toggles: native Django checkboxes rendered directly inside labels -->
+          <!-- CSS hides the checkbox visually; clicking the label toggles it -->
+          <!-- No JS sync needed — the native input IS the form field -->
+
+          <label class="saas-toggle" for="id_is_active">
+            <div class="saas-toggle-text">
+              <strong>Active Account</strong>
+              <span>Designates whether this user should be treated as active. Unselect this instead of deleting accounts.</span>
+            </div>
+            {{ adminform.form.is_active }}
+            <div class="switch-ui"></div>
+          </label>
+
+          <label class="saas-toggle" for="id_is_staff">
+            <div class="saas-toggle-text">
+              <strong>Staff Status</strong>
+              <span>Designates whether the user can log into this admin site.</span>
+            </div>
+            {{ adminform.form.is_staff }}
+            <div class="switch-ui"></div>
+          </label>
+
+          <label class="saas-toggle" style="border-color: rgba(139, 92, 246, 0.3); background: rgba(139, 92, 246, 0.05);" for="id_is_superuser">
+            <div class="saas-toggle-text">
+              <strong style="color: #8B5CF6;">Superuser Status</strong>
+              <span>Designates that this user has all permissions without explicitly assigning them.</span>
+            </div>
+            {{ adminform.form.is_superuser }}
+            <div class="switch-ui"></div>
+          </label>
+        </div>
+
+        <!-- Card 4: Groups -->
+        <div class="saas-card">
+          <div class="saas-card-header">
+            <div class="saas-card-icon"><i data-lucide="users"></i></div>
+            <div>
+              <h3 class="saas-card-title">Groups</h3>
+              <p class="saas-card-desc">Assign user to specific roles.</p>
+            </div>
+          </div>
+          
+          <div class="saas-form-row">
+            <div class="help" style="margin-bottom:12px;">{{ adminform.form.groups.help_text }}</div>
+            
+            <!-- Hide the real select -->
+            <div class="django-select-hidden" id="real-groups-wrapper">
+              {{ adminform.form.groups }}
+            </div>
+            
+            <!-- Custom UI -->
+            <div style="position:relative;">
+              <div class="saas-multiselect-container" id="groups-ui" tabindex="0">
+                <!-- Chips go here -->
+                <input type="text" class="saas-multiselect-input" id="groups-search" placeholder="Search and add groups...">
+              </div>
+              <div class="saas-dropdown" id="groups-dropdown">
+                <!-- Options go here -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Permissions -->
+        <div class="saas-card">
+          <div class="saas-card-header">
+            <div class="saas-card-icon"><i data-lucide="key-round"></i></div>
+            <div>
+              <h3 class="saas-card-title">Specific Permissions</h3>
+              <p class="saas-card-desc">Granular access rights.</p>
+            </div>
+          </div>
+          
+          <div class="saas-form-row">
+            <div class="help" style="margin-bottom:12px;">{{ adminform.form.user_permissions.help_text }}</div>
+            
+            <!-- Hide the real select -->
+            <div class="django-select-hidden" id="real-permissions-wrapper">
+              {{ adminform.form.user_permissions }}
+            </div>
+            
+            <!-- Custom UI -->
+            <div style="position:relative;">
+              <div class="saas-multiselect-container" id="permissions-ui" tabindex="0">
+                <!-- Chips go here -->
+                <input type="text" class="saas-multiselect-input" id="permissions-search" placeholder="Search and add permissions...">
+              </div>
+              <div class="saas-dropdown" id="permissions-dropdown">
+                <!-- Options go here -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Important Dates -->
+        <div class="saas-card">
+          <div class="saas-card-header">
+            <div class="saas-card-icon"><i data-lucide="calendar"></i></div>
+            <div>
+              <h3 class="saas-card-title">Important Dates</h3>
+              <p class="saas-card-desc">System tracked timestamps.</p>
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <div class="saas-form-row">
+              <label>Last Login</label>
+              <div class="readonly-value">
+                {% if original.last_login %}{{ original.last_login|date:"N j, Y, P" }}{% else %}-{% endif %}
+              </div>
+            </div>
+            <div class="saas-form-row">
+              <label>Date Joined</label>
+              <div class="readonly-value">
+                {% if original.date_joined %}{{ original.date_joined|date:"N j, Y, P" }}{% else %}-{% endif %}
+              </div>
+            </div>
+          </div>
+
+          <!-- Hidden actual form inputs so Django receives date_joined on POST.
+               SplitDateTimeWidget needs _0 (date) and _1 (time) in Y-m-d / H:i:s format. -->
+          {% if original.date_joined %}
+            <input type="hidden" name="date_joined_0" value="{{ original.date_joined|date:'Y-m-d' }}">
+            <input type="hidden" name="date_joined_1" value="{{ original.date_joined|date:'H:i:s' }}">
+          {% endif %}
+
+          <!-- last_login is in readonly_fields in Django's UserAdmin so not validated,
+               but we pass it anyway for safety if it appears in the form. -->
+          {% if original.last_login %}
+            <input type="hidden" name="last_login_0" value="{{ original.last_login|date:'Y-m-d' }}">
+            <input type="hidden" name="last_login_1" value="{{ original.last_login|date:'H:i:s' }}">
+          {% endif %}
+        </div>
+        
+      </div>
+    </div> <!-- End Layout -->
+
+    <!-- Render all remaining form fields (e.g. password readonly hash) as hidden so Django validation passes -->
+    <div style="display:none;">
+      {% for field in adminform.form %}
+        {% if field.html_name != 'username' and field.html_name != 'first_name' and field.html_name != 'last_name' and field.html_name != 'email' and field.html_name != 'is_active' and field.html_name != 'is_staff' and field.html_name != 'is_superuser' and field.html_name != 'groups' and field.html_name != 'user_permissions' and field.html_name != 'date_joined' and field.html_name != 'last_login' %}
+          {{ field }}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Standard Django Buttons Mapped to Premium Styling -->
+    <div class="saas-actions">
+      <div>
+        {% if original and has_delete_permission %}
+          <a href="{% url opts|admin_urlname:'delete' original.pk %}" class="saas-btn saas-btn-danger">
+            <i data-lucide="trash-2" style="width:16px; height:16px;"></i> Delete User
+          </a>
+        {% endif %}
+      </div>
+      <div class="btn-group">
+        {% if not add %}
+          <button type="submit" name="_addanother" class="saas-btn saas-btn-secondary">Save and add another</button>
+          <button type="submit" name="_continue" class="saas-btn saas-btn-secondary">Save and continue</button>
+        {% endif %}
+        <button type="submit" name="_save" class="saas-btn saas-btn-primary">
+          <i data-lucide="save" style="width:16px; height:16px;"></i> Save Profile
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Initialize Icons
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+
+    // 2. No toggle sync needed — native Django checkbox inputs are used directly inside labels.
+    //    Clicking the label triggers the native checkbox. CSS shows the visual state.
+
+    // 3. Multi-Select SaaS UI logic
+    const setupMultiSelectUI = (realWrapperId, uiContainerId, searchInputId, dropdownId) => {
+      const realWrapper = document.getElementById(realWrapperId);
+      if (!realWrapper) return;
+      
+      const realSelect = realWrapper.querySelector('select');
+      if (!realSelect) return;
+
+      const uiContainer = document.getElementById(uiContainerId);
+      const searchInput = document.getElementById(searchInputId);
+      const dropdown = document.getElementById(dropdownId);
+      
+      const renderChips = () => {
+        // Remove existing chips
+        uiContainer.querySelectorAll('.saas-chip').forEach(el => el.remove());
+        
+        // Add chips for selected options
+        Array.from(realSelect.options).forEach(opt => {
+          if (opt.selected) {
+            const chip = document.createElement('div');
+            chip.className = 'saas-chip';
+            chip.innerHTML = `
+              ${opt.text}
+              <div class="saas-chip-remove" data-value="${opt.value}">
+                <i data-lucide="x" style="width:12px; height:12px;"></i>
+              </div>
+            `;
+            uiContainer.insertBefore(chip, searchInput);
+          }
+        });
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      };
+
+      const renderDropdown = (filterText = '') => {
+        dropdown.innerHTML = '';
+        let hasItems = false;
+        const lowerFilter = filterText.toLowerCase();
+
+        Array.from(realSelect.options).forEach(opt => {
+          if (!opt.selected && opt.text.toLowerCase().includes(lowerFilter)) {
+            hasItems = true;
+            const div = document.createElement('div');
+            div.className = 'saas-dropdown-item';
+            div.textContent = opt.text;
+            div.dataset.value = opt.value;
+            dropdown.appendChild(div);
+          }
+        });
+
+        if (hasItems) {
+          dropdown.classList.add('active');
+        } else {
+          dropdown.classList.remove('active');
+        }
+      };
+
+      // Initial Render
+      renderChips();
+
+      // Interactions
+      searchInput.addEventListener('focus', () => renderDropdown(searchInput.value));
+      searchInput.addEventListener('input', (e) => renderDropdown(e.target.value));
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!uiContainer.contains(e.target) && !dropdown.contains(e.target)) {
+          dropdown.classList.remove('active');
+        }
+      });
+
+      // Handle item selection from dropdown
+      dropdown.addEventListener('click', (e) => {
+        const item = e.target.closest('.saas-dropdown-item');
+        if (item) {
+          const val = item.dataset.value;
+          const opt = realSelect.querySelector(`option[value="${val}"]`);
+          if (opt) opt.selected = true;
+          searchInput.value = '';
+          dropdown.classList.remove('active');
+          renderChips();
+          searchInput.focus();
+        }
+      });
+
+      // Handle chip removal
+      uiContainer.addEventListener('click', (e) => {
+        const removeBtn = e.target.closest('.saas-chip-remove');
+        if (removeBtn) {
+          const val = removeBtn.dataset.value;
+          const opt = realSelect.querySelector(`option[value="${val}"]`);
+          if (opt) opt.selected = false;
+          renderChips();
+        }
+      });
+    };
+
+    setupMultiSelectUI('real-groups-wrapper', 'groups-ui', 'groups-search', 'groups-dropdown');
+    setupMultiSelectUI('real-permissions-wrapper', 'permissions-ui', 'permissions-search', 'permissions-dropdown');
+
+    // 4. Form Submission Button Animation
+    const form = document.getElementById('user_form');
+    if (form) {
+      form.addEventListener('submit', () => {
+        const saveBtn = document.querySelector('button[name="_save"]');
+        if (saveBtn) {
+          saveBtn.innerHTML = '<i data-lucide="loader" class="saas-spin" style="width:16px; height:16px;"></i> Saving...';
+          lucide.createIcons();
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  @keyframes spinSaaS { 100% { transform: rotate(360deg); } }
+  .saas-spin { animation: spinSaaS 1s linear infinite; }
+</style>
+{% endblock %}

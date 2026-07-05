@@ -29,6 +29,23 @@ from .services.payment_service import (
 logger = logging.getLogger(__name__)
 
 
+def _get_selected_currency_from_request(request):
+    selected_values = request.POST.getlist('currency')
+    for value in selected_values:
+        if value:
+            return value
+    return request.POST.get('currency') or settings.AZAMPAY.get('CURRENCY', 'TZS')
+
+
+def _normalize_currency_code(currency_value):
+    currency_map = {
+        'TSH': 'TZS',
+        '$': 'USD',
+        '€': 'EUR',
+    }
+    return currency_map.get(currency_value, settings.AZAMPAY.get('CURRENCY', 'TZS'))
+
+
 def donation_page(
     request,
     fixed_donation_type=None,
@@ -81,6 +98,8 @@ def donation_page(
             payment_transaction = None
             try:
                 callback_url = _build_callback_url(request)
+                selected_currency = _get_selected_currency_from_request(request)
+                payment_currency = _normalize_currency_code(selected_currency)
                 with transaction.atomic():
                     existing_transaction = _find_duplicate_open_transaction(form.cleaned_data, service)
                     if existing_transaction:
@@ -97,7 +116,7 @@ def donation_page(
                     request_payload = {
                         'accountNumber': form.cleaned_data['mobile_number'],
                         'amount': str(form.cleaned_data['amount']),
-                        'currency': service.config['CURRENCY'],
+                        'currency': payment_currency,
                         'externalId': external_id,
                         'provider': payment_provider,
                         'additionalProperties': {
@@ -113,7 +132,7 @@ def donation_page(
                         provider=payment_provider,
                         phone_number=form.cleaned_data['mobile_number'],
                         amount=form.cleaned_data['amount'],
-                        currency=service.config['CURRENCY'],
+                        currency=payment_currency,
                         status=PaymentTransaction.STATUS_INITIATED,
                         initiation_attempts=1,
                         last_initiation_at=timezone.now(),

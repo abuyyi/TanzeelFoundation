@@ -55,12 +55,12 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-)ai9*ue$3c6=(tnicrhe5ckzterv+)sf9#w9ufoj!f*!9c!z4q"#django-insecure-7vv)ff_7*=@a@)=)ag^#-$6i=tx*26ebzq21obw!2(d8ap$9=h
+SECRET_KEY = "django-insecure-)ai9*ue$3c6=(tnicrhe5ckzterv+)sf9#w9ufoj!f*!9c!z4q"  #django-insecure-7vv)ff_7*=@a@)=)ag^#-$6i=tx*26ebzq21obw!2(d8ap$9=h
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [ "localhost", "127.0.0.1"] # www.tanzeelfoundation.co.tz #tanzeelfoundation.co.tz
 
 
 # Application definition
@@ -91,6 +91,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "tanzeel.urls"
 
+AUTHENTICATION_BACKENDS = ["django.contrib.auth.backends.ModelBackend"]
+LOGIN_URL = "admin:login"
+LOGIN_REDIRECT_URL = "admin:index"
+LOGOUT_REDIRECT_URL = "admin:login"
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -117,13 +122,25 @@ WSGI_APPLICATION = "tanzeel.wsgi.application"
 #DATABASES = {#}
 
 
+
+
+
+
+
 DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': BASE_DIR / "db.sqlite3",
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.getenv("MYSQL_DATABASE", "tanzeel_db"),
+        "USER": os.getenv("MYSQL_USER", "tanzeel001"),
+        "PASSWORD": os.getenv("MYSQL_PASSWORD", "tanzeel@2021"),
+        "HOST": os.getenv("MYSQL_HOST", "localhost"),
+        "PORT": os.getenv("MYSQL_PORT", "3306"),
+        "OPTIONS": {
+            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
+            "charset": "utf8mb4",
+        },
     }
 }
-
 
 
 
@@ -305,3 +322,6 @@ SILENCED_SYSTEM_CHECKS = ["security.W019"]
 #token  92b5cfc5-821e-470b-b0eb-aa954fe01833
 # client id 3759f49c-868d-4468-972d-71f47221c053
 #client secret EwEx5q8z+Gtf75lB32Ke58wOBaG/WPE89pDqeJnikr9/5o+TK8GF+mLr2G66sxfauZatVrhp9pHADXPb6OQcF0WcRpY7Ol4beLTjwOfGu8IBzCdcCi1e4hlvlBhzOMaAH2+98/ShIKaAtHTvAJo8+kEyGloTxyFveLqYnrmtowVuWGszhjHSiOiJtoQXZl90lHjHhAZ4dWBV53ZphAMkr/7/3noovM+FjvdVrfnLw0LHd/2xs+kBpKJmQmn2OZIxTRCjKiK7o9ksVnjFZkaP13upfxzTlYnN6OE4MnccKqS6YhMJ+1ncX/z1YQchcGZAvxK9kKXN0VxPfV3EUu2I9qhNNRIFDunvgAK5gEBPKs/kpnGgAg5lwjEKK8BrMN6EmiTb5fs/sQ5ommcOKMDAbzsnDSpQMwJlXMS6j6nYob0M0Oq1Ku+PJEshqhxgUTghedEA0t+ykxpcu8B6O1rI/vQlPWAglJo29VGnNRrb/2qixA8+IZKaVX0gkRhmirvjM3FRGhrHVLITv4GXHhkpCCfUmC4380oH9JN0dgCds4eMcNdE4RQt+CqnW9NEXR4k5KUkGuRL1AqHkzDSLhl9RZT3ULUivUW61+B1OAJIfK1WEIF3CWoqOD6r35zRHt+ye8zLTRP442U/fq4SC4giOsrPFX6RNyQ5aQKy+4qTx8U=
+# saumuissa27@gmail.com-si@031102
+LOGOUT_REDIRECT_URL = '/admin/login/'
+

@@ -31,6 +31,12 @@ GIVING_FREQUENCY_CHOICES = [
 
 
 class DonationForm(forms.ModelForm):
+    CURRENCY_CHOICES = [
+        ('TSH', 'TSH'),
+        ('$', '$'),
+        ('€', '€'),
+    ]
+
     giving_frequency = forms.ChoiceField(
         choices=GIVING_FREQUENCY_CHOICES,
         widget=forms.RadioSelect,
@@ -125,6 +131,18 @@ class DonationForm(forms.ModelForm):
             raise forms.ValidationError('Choose a valid project or provider.')
         return provider
 
+    def _get_selected_currency(self):
+        if hasattr(self.data, 'getlist'):
+            currencies = self.data.getlist('currency')
+            for currency in currencies:
+                if currency:
+                    return currency
+        else:
+            currency = self.data.get('currency')
+            if currency:
+                return currency
+        return 'TSH'
+
     def clean_amount(self):
         amount = self.cleaned_data.get('amount')
         if amount is None:
@@ -134,8 +152,12 @@ class DonationForm(forms.ModelForm):
         except (TypeError, InvalidOperation):
             raise forms.ValidationError("Enter a valid amount.")
 
-        if amount < 2000:
-            raise forms.ValidationError("Amount must be at least Tsh.2000.")
+        currency = self._get_selected_currency()
+        minimum_amount = Decimal('2000') if currency == 'TSH' else Decimal('1')
+        if amount < minimum_amount:
+            if currency == 'TSH':
+                raise forms.ValidationError("Amount must be at least Tsh.2000.")
+            raise forms.ValidationError(f"Amount must be at least {currency}1.")
         return amount
 
     def clean_mobile_number(self):

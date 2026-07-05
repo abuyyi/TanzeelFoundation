@@ -1,0 +1,6278 @@
+[
+{
+  "model": "admin_interface.theme",
+  "pk": 1,
+  "fields": {
+    "name": "Django",
+    "active": true,
+    "title": "Django administration",
+    "title_color": "#F5DD5D",
+    "title_visible": true,
+    "logo": "",
+    "logo_color": "#FFFFFF",
+    "logo_max_width": 400,
+    "logo_max_height": 100,
+    "logo_visible": true,
+    "favicon": "",
+    "env_name": "",
+    "env_color": "#E74C3C",
+    "env_visible_in_header": true,
+    "env_visible_in_favicon": true,
+    "language_chooser_active": true,
+    "language_chooser_control": "default-select",
+    "language_chooser_display": "code",
+    "css_header_background_color": "#0C4B33",
+    "css_header_text_color": "#44B78B",
+    "css_header_link_color": "#FFFFFF",
+    "css_header_link_hover_color": "#C9F0DD",
+    "css_module_background_color": "#44B78B",
+    "css_module_background_selected_color": "#FFFFCC",
+    "css_module_text_color": "#FFFFFF",
+    "css_module_link_color": "#FFFFFF",
+    "css_module_link_selected_color": "#FFFFFF",
+    "css_module_link_hover_color": "#C9F0DD",
+    "css_module_rounded_corners": true,
+    "css_generic_link_color": "#0C3C26",
+    "css_generic_link_hover_color": "#156641",
+    "css_generic_link_active_color": "#29B864",
+    "css_save_button_background_color": "#0C4B33",
+    "css_save_button_background_hover_color": "#0C3C26",
+    "css_save_button_text_color": "#FFFFFF",
+    "css_delete_button_background_color": "#BA2121",
+    "css_delete_button_background_hover_color": "#A41515",
+    "css_delete_button_text_color": "#FFFFFF",
+    "related_modal_active": true,
+    "related_modal_background_color": "#000000",
+    "related_modal_background_opacity": "0.3",
+    "related_modal_rounded_corners": true,
+    "related_modal_close_button_visible": true,
+    "list_filter_highlight": true,
+    "list_filter_dropdown": true,
+    "list_filter_sticky": true,
+    "list_filter_removal_links": true,
+    "foldable_apps": true,
+    "show_fieldsets_as_tabs": false,
+    "show_inlines_as_tabs": false,
+    "collapsible_stacked_inlines": false,
+    "collapsible_stacked_inlines_collapsed": true,
+    "collapsible_tabular_inlines": false,
+    "collapsible_tabular_inlines_collapsed": true,
+    "recent_actions_visible": true,
+    "form_actions_sticky": true,
+    "form_submit_sticky": true,
+    "form_pagination_sticky": true
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-09-10T07:18:51.231Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-09-10T09:15:49.372Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "5 Efficient Rules How to Organ",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-09-10T09:15:59.074Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "5 Efficient Rules How to Organ",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-09-10T09:20:55.833Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "The Future of Remote Work and",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-09-10T10:40:58.251Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Rebecca Martinez",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-09-10T10:42:13.999Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Rebecca Martinez",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-09-10T11:00:46.823Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Alexander Thompson",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-09-10T11:01:26.461Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Rebecca Martinez",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-09-10T11:04:37.371Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Rebecca Martinez",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-09-10T11:16:23.148Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Sophia Williams",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-09-10T11:19:57.355Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "Michael Chen",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-09-10T11:20:03.638Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Sophia Williams",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Aprove\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-09-10T11:30:50.250Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "Elena Rodriguez",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-09-10T13:03:33.423Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "Michael R.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-09-10T13:14:51.000Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "Michael R.",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-09-10T13:37:14.431Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "Michael R.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-09-10T14:02:55.644Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "CHILDREN",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-09-10T14:04:23.534Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "NISOMESHE",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-09-10T14:06:18.566Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "TANZEEL",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-09-10T14:07:51.212Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "4",
+    "object_repr": "BLOOD",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-09-10T14:08:44.391Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "5",
+    "object_repr": "SAVE LIVES",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-09-11T07:46:43.855Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "Health",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-09-11T07:48:36.384Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "Finance",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-09-11T07:50:02.304Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "3",
+    "object_repr": "Education",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-09-11T07:50:10.292Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "Finance",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-09-11T07:52:14.822Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "4",
+    "object_repr": "Nisomeshe",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-09-11T08:56:17.125Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "Qui non porro alias",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-09-11T08:56:23.111Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "Qui non porro alias",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-09-11T08:57:12.778Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "Qui non porro alias",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Month\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2025-09-11T08:58:27.077Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "5",
+    "object_repr": "Qui labore similique ipsa et ipsam aspernatur vel et",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2025-09-11T09:01:20.306Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "2",
+    "object_repr": "Exercitation volupta",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2025-09-11T09:01:56.119Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "2",
+    "object_repr": "Exercitation volupta",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2025-09-11T09:23:14.335Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "TOGETHER",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2025-09-11T09:28:52.022Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "2",
+    "object_repr": "FAMILY",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2025-09-11T09:29:44.429Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "3",
+    "object_repr": "KINDNESS",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2025-09-11T10:07:34.664Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "CONSERT",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2025-09-11T10:08:17.625Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "2",
+    "object_repr": "GOOD VIBE",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2025-09-11T10:08:22.466Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "CONSERT",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2025-09-11T10:09:09.709Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "3",
+    "object_repr": "WORKING",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2025-09-11T10:09:29.881Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "3",
+    "object_repr": "WORKING",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2025-09-11T10:09:33.850Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "CONSERT",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2025-09-11T10:11:42.814Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2025-09-17T16:11:11.598Z",
+    "user": 1,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "About Us Content",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2025-09-19T07:51:59.178Z",
+    "user": 1,
+    "content_type": 19,
+    "object_id": "1",
+    "object_repr": "About Us Team Title",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2025-09-19T08:05:26.454Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "1",
+    "object_repr": "CEO and Founder",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2025-09-19T08:07:14.591Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "1",
+    "object_repr": "CEO and Founder",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2025-09-19T08:10:26.983Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "2",
+    "object_repr": "Managing Director",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2025-09-19T08:13:26.001Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "3",
+    "object_repr": "Human Resources (HR)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2025-09-19T08:17:09.510Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "4",
+    "object_repr": "Operations Manager",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2025-09-19T08:19:43.019Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "5",
+    "object_repr": "Project Manager",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2025-09-19T08:22:25.425Z",
+    "user": 1,
+    "content_type": 18,
+    "object_id": "6",
+    "object_repr": "Accountant",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2025-09-19T18:42:56.683Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "1",
+    "object_repr": "Top Section",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2025-12-14T21:08:49.000Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "1",
+    "object_repr": "Revolutionizing Patient Care Through Machine Learning and Predictive Analytics",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2025-12-14T21:09:20.191Z",
+    "user": 1,
+    "content_type": 21,
+    "object_id": "1",
+    "object_repr": "Revolutionizing Patient Care Through Machine Learning and Predictive Analytics",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2025-12-14T21:48:27.682Z",
+    "user": 1,
+    "content_type": 22,
+    "object_id": "1",
+    "object_repr": "Overview",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2025-12-15T17:29:57.725Z",
+    "user": 1,
+    "content_type": 23,
+    "object_id": "1",
+    "object_repr": "tab_one object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2025-12-15T17:43:25.772Z",
+    "user": 1,
+    "content_type": 24,
+    "object_id": "1",
+    "object_repr": "AI-Powered Diagnostic Revolution",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2025-12-15T18:42:19.354Z",
+    "user": 1,
+    "content_type": 24,
+    "object_id": "1",
+    "object_repr": "AI-Powered Diagnostic Revolution",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2025-12-15T18:43:30.868Z",
+    "user": 1,
+    "content_type": 25,
+    "object_id": "1",
+    "object_repr": "Personalized Treatment Planning",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2025-12-15T18:56:13.928Z",
+    "user": 1,
+    "content_type": 25,
+    "object_id": "1",
+    "object_repr": "Personalized Treatment Planning",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2025-12-15T18:57:10.352Z",
+    "user": 1,
+    "content_type": 26,
+    "object_id": "1",
+    "object_repr": "Genetic Analysis",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2025-12-15T19:03:27.898Z",
+    "user": 1,
+    "content_type": 26,
+    "object_id": "1",
+    "object_repr": "Genetic Analysis",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2025-12-15T19:05:30.712Z",
+    "user": 1,
+    "content_type": 26,
+    "object_id": "2",
+    "object_repr": "Outcome Prediction",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2025-12-15T19:06:02.683Z",
+    "user": 1,
+    "content_type": 26,
+    "object_id": "3",
+    "object_repr": "Drug Safety",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2025-12-15T21:20:13.894Z",
+    "user": 1,
+    "content_type": 27,
+    "object_id": "1",
+    "object_repr": "Continuous Patient Monitoring",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2025-12-15T21:28:03.723Z",
+    "user": 1,
+    "content_type": 28,
+    "object_id": "1",
+    "object_repr": "Addressing Implementation Challenges",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2025-12-15T21:30:42.382Z",
+    "user": 1,
+    "content_type": 29,
+    "object_id": "1",
+    "object_repr": "Data Privacy & Security",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2025-12-15T21:31:38.205Z",
+    "user": 1,
+    "content_type": 29,
+    "object_id": "2",
+    "object_repr": "Healthcare Professional Training",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2025-12-15T21:32:03.442Z",
+    "user": 1,
+    "content_type": 29,
+    "object_id": "3",
+    "object_repr": "Implementation Costs",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2025-12-15T21:32:32.819Z",
+    "user": 1,
+    "content_type": 29,
+    "object_id": "4",
+    "object_repr": "System Integration",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2026-01-01T08:52:51.912Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "Elena Rodriguez",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Optional: A brief description of the image or event.\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2026-01-01T08:57:35.249Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "Elena Rodriguez",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2026-01-01T08:57:41.003Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "Michael Chen",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Optional: A brief description of the image or event.\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2026-01-01T08:57:49.228Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Sophia Williams",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Optional: A brief description of the image or event.\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2026-01-01T08:57:55.957Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Alexander Thompson",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Optional: A brief description of the image or event.\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2026-01-01T08:58:03.781Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "Rebecca Martinez",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Optional: A brief description of the image or event.\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2026-01-27T04:25:15.771Z",
+    "user": 2,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "Shukri .",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Date\", \"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2026-01-27T04:26:14.814Z",
+    "user": 2,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "Shukri K.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Link url1\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2026-01-27T04:32:04.025Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "3",
+    "object_repr": "Education",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Link url\", \"Description\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2026-01-27T04:34:15.772Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "Health",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Link url\", \"Description\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2026-01-27T04:36:27.033Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "Events And Outreach",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title1\", \"Link url\", \"Description\", \"Title2\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2026-01-27T04:36:54.366Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "Events And Outreach",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2026-01-27T04:38:28.844Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "4",
+    "object_repr": "Youth Empowerment",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title1\", \"Link url\", \"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2026-01-27T04:40:48.719Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "5",
+    "object_repr": "Qui labore similique ipsa et ipsam aspernatur vel et",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2026-01-27T04:45:09.243Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "Women & Family Support.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Link url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2026-01-27T04:45:17.640Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "Women & Family Support.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2026-01-27T04:46:19.818Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "Charity & Humanitarian Aid.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Link url\", \"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2026-01-27T04:47:23.782Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "Islamic & Spiritual Development.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Link url\", \"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2026-01-27T04:48:52.138Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "4",
+    "object_repr": "Waqf & Sustainable Development.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Link url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2026-01-27T04:49:41.514Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "5",
+    "object_repr": "Social Welfare & Community Support",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Link url\", \"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2026-01-27T05:16:49.710Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Small title\", \"Date\", \"Link url1\", \"Optional: A brief description of the image or event.\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2026-01-27T05:20:11.743Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Optional: A brief description of the image or event.\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2026-01-27T05:25:03.596Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\", \"Small title\", \"Date\", \"Optional: A brief description of the image or event.\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2026-01-27T05:26:34.474Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Link url1\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2026-01-27T05:29:45.357Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\", \"Small title\", \"Date\", \"Link url1\", \"Optional: A brief description of the image or event.\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2026-01-27T05:35:04.737Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\", \"Small title\", \"Date\", \"Link url1\", \"Optional: A brief description of the image or event.\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2026-01-27T05:37:45.040Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\", \"Small title\", \"Date\", \"Link url1\", \"Optional: A brief description of the image or event.\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2026-01-27T05:57:30.161Z",
+    "user": 2,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "Education & Welfare",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Day\", \"Month\", \"Small title\", \"Large title\", \"Description\", \"Hoster name\", \"Content\", \"Link url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2026-01-27T06:04:13.226Z",
+    "user": 2,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "Education & Welfare",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Large title\", \"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2026-01-27T06:05:07.744Z",
+    "user": 2,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "TSDF",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Small title\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2026-01-27T06:35:35.129Z",
+    "user": 2,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "TSDF",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Link url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2026-01-27T06:54:23.681Z",
+    "user": 2,
+    "content_type": 15,
+    "object_id": "3",
+    "object_repr": "Ramadhan Packge",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\", \"Major title\", \"Descriptive title\", \"Link url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2026-01-27T06:55:49.623Z",
+    "user": 2,
+    "content_type": 15,
+    "object_id": "2",
+    "object_repr": "Nisomeshe Charity Program",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\", \"Major title\", \"Descriptive title\", \"Link url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2026-01-27T06:57:19.358Z",
+    "user": 2,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "Iftar Charity Dinner",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\", \"Major title\", \"Descriptive title\", \"Link url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 105,
+  "fields": {
+    "action_time": "2026-01-27T07:03:33.040Z",
+    "user": 2,
+    "content_type": 16,
+    "object_id": "3",
+    "object_repr": "Blood Donation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Hoster name\", \"Description\", \"Link url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 106,
+  "fields": {
+    "action_time": "2026-01-27T07:05:04.266Z",
+    "user": 2,
+    "content_type": 16,
+    "object_id": "2",
+    "object_repr": "Mosque Construction",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Hoster name\", \"Description\", \"Link url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 107,
+  "fields": {
+    "action_time": "2026-01-27T07:07:30.834Z",
+    "user": 2,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "Qurban Project -Eid-al-Adha",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\", \"Hoster name\", \"Description\", \"Link url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 168,
+  "fields": {
+    "action_time": "2026-02-06T17:02:31.902Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "TanzeelFoundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image1\", \"Date\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 169,
+  "fields": {
+    "action_time": "2026-02-06T17:13:40.573Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "TanzeelFoundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 170,
+  "fields": {
+    "action_time": "2026-02-06T18:36:24.320Z",
+    "user": 4,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "TSDF",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 171,
+  "fields": {
+    "action_time": "2026-02-06T18:41:17.941Z",
+    "user": 4,
+    "content_type": 16,
+    "object_id": "3",
+    "object_repr": "Blood Donation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 172,
+  "fields": {
+    "action_time": "2026-02-06T18:42:44.253Z",
+    "user": 4,
+    "content_type": 16,
+    "object_id": "2",
+    "object_repr": "Mosque Construction",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 173,
+  "fields": {
+    "action_time": "2026-02-06T18:44:49.329Z",
+    "user": 4,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "Qurban Project -Eid-al-Adha",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 174,
+  "fields": {
+    "action_time": "2026-02-06T18:45:07.001Z",
+    "user": 4,
+    "content_type": 16,
+    "object_id": "2",
+    "object_repr": "Mosque Construction",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Description\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 175,
+  "fields": {
+    "action_time": "2026-03-26T11:36:36.124Z",
+    "user": 4,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\", \"Link url1\", \"Optional: A brief description of the image or event.\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 176,
+  "fields": {
+    "action_time": "2026-03-26T11:39:45.348Z",
+    "user": 4,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 177,
+  "fields": {
+    "action_time": "2026-03-26T11:47:29.811Z",
+    "user": 4,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\", \"Date\", \"Link url1\", \"Optional: A brief description of the image or event.\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 178,
+  "fields": {
+    "action_time": "2026-03-26T11:52:36.878Z",
+    "user": 4,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\", \"Date\", \"Link url1\", \"Optional: A brief description of the image or event.\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 179,
+  "fields": {
+    "action_time": "2026-03-26T11:55:55.957Z",
+    "user": 4,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\", \"Date\", \"Link url1\", \"Optional: A brief description of the image or event.\", \"Time\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 180,
+  "fields": {
+    "action_time": "2026-05-16T07:06:06.064Z",
+    "user": 4,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 181,
+  "fields": {
+    "action_time": "2026-05-16T07:06:28.068Z",
+    "user": 4,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Contact email\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 182,
+  "fields": {
+    "action_time": "2026-05-21T08:33:36.259Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "TanzeelFoundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image1\", \"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 183,
+  "fields": {
+    "action_time": "2026-05-21T08:34:55.871Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "TanzeelFoundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 184,
+  "fields": {
+    "action_time": "2026-05-22T12:16:31.111Z",
+    "user": 4,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 185,
+  "fields": {
+    "action_time": "2026-05-22T12:17:02.500Z",
+    "user": 4,
+    "content_type": 18,
+    "object_id": "6",
+    "object_repr": "Project Manager",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 186,
+  "fields": {
+    "action_time": "2026-05-22T12:17:14.626Z",
+    "user": 4,
+    "content_type": 17,
+    "object_id": "1",
+    "object_repr": "About Us Content",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 187,
+  "fields": {
+    "action_time": "2026-05-22T12:20:25.379Z",
+    "user": 4,
+    "content_type": 21,
+    "object_id": "1",
+    "object_repr": "“The most beloved people to Allah are those who are most beneficial to people.” (Hadith)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image profile\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 188,
+  "fields": {
+    "action_time": "2026-05-22T12:21:30.420Z",
+    "user": 4,
+    "content_type": 13,
+    "object_id": "4",
+    "object_repr": "Youth Empowerment",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 189,
+  "fields": {
+    "action_time": "2026-05-22T12:21:50.689Z",
+    "user": 4,
+    "content_type": 13,
+    "object_id": "3",
+    "object_repr": "Education",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 190,
+  "fields": {
+    "action_time": "2026-05-22T12:22:13.689Z",
+    "user": 4,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "Events And Outreach",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 191,
+  "fields": {
+    "action_time": "2026-05-22T12:22:26.093Z",
+    "user": 4,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "Health",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 192,
+  "fields": {
+    "action_time": "2026-05-22T12:23:23.269Z",
+    "user": 4,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "TanzeelFoundation",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 193,
+  "fields": {
+    "action_time": "2026-05-22T12:26:44.419Z",
+    "user": 4,
+    "content_type": 12,
+    "object_id": "5",
+    "object_repr": "Social Welfare & Community Support",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 194,
+  "fields": {
+    "action_time": "2026-05-22T12:27:01.575Z",
+    "user": 4,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Nisomeshe Season 5",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 195,
+  "fields": {
+    "action_time": "2026-05-22T12:28:20.579Z",
+    "user": 4,
+    "content_type": 16,
+    "object_id": "3",
+    "object_repr": "Blood Donation",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 196,
+  "fields": {
+    "action_time": "2026-05-22T12:28:53.714Z",
+    "user": 4,
+    "content_type": 15,
+    "object_id": "3",
+    "object_repr": "Ramadhan Packge",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 197,
+  "fields": {
+    "action_time": "2026-05-22T12:29:22.386Z",
+    "user": 4,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 198,
+  "fields": {
+    "action_time": "2026-05-22T12:29:31.671Z",
+    "user": 4,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 199,
+  "fields": {
+    "action_time": "2026-05-22T12:29:42.180Z",
+    "user": 4,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 200,
+  "fields": {
+    "action_time": "2026-05-22T12:29:52.099Z",
+    "user": 4,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 201,
+  "fields": {
+    "action_time": "2026-05-22T12:30:06.044Z",
+    "user": 4,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 202,
+  "fields": {
+    "action_time": "2026-05-22T12:30:17.563Z",
+    "user": 4,
+    "content_type": 29,
+    "object_id": "4",
+    "object_repr": "Limited Financial Resources",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 203,
+  "fields": {
+    "action_time": "2026-05-22T12:30:25.360Z",
+    "user": 4,
+    "content_type": 28,
+    "object_id": "1",
+    "object_repr": "Challenges Ahead",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 204,
+  "fields": {
+    "action_time": "2026-05-22T12:30:41.910Z",
+    "user": 4,
+    "content_type": 23,
+    "object_id": "1",
+    "object_repr": "Stories of hope highlight real-life experiences of individuals and families whose lives have been positively impacted by Tanzeel Foundation’s programs. These stories reflect transformation, resilience",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 205,
+  "fields": {
+    "action_time": "2026-05-22T12:30:52.684Z",
+    "user": 4,
+    "content_type": 26,
+    "object_id": "6",
+    "object_repr": "Educational Growth",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 206,
+  "fields": {
+    "action_time": "2026-05-22T12:30:59.611Z",
+    "user": 4,
+    "content_type": 25,
+    "object_id": "1",
+    "object_repr": "Outreach Programs",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 207,
+  "fields": {
+    "action_time": "2026-05-29T11:48:49.141Z",
+    "user": 4,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 208,
+  "fields": {
+    "action_time": "2026-05-29T11:49:37.599Z",
+    "user": 4,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 209,
+  "fields": {
+    "action_time": "2026-05-29T11:52:09.152Z",
+    "user": 4,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "sanduku",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 210,
+  "fields": {
+    "action_time": "2026-05-29T12:03:57.451Z",
+    "user": 4,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "sanduku",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 211,
+  "fields": {
+    "action_time": "2026-05-29T12:05:01.959Z",
+    "user": 4,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "shukri",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 212,
+  "fields": {
+    "action_time": "2026-05-29T12:06:18.747Z",
+    "user": 4,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "admins",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 213,
+  "fields": {
+    "action_time": "2026-05-29T12:08:03.981Z",
+    "user": 4,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "shukri",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"User permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 214,
+  "fields": {
+    "action_time": "2026-05-29T12:10:33.057Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "ali",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 215,
+  "fields": {
+    "action_time": "2026-05-29T12:11:29.098Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "ali",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 216,
+  "fields": {
+    "action_time": "2026-05-29T12:12:00.781Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "ali",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\", \"User permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 217,
+  "fields": {
+    "action_time": "2026-05-29T12:14:34.357Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 218,
+  "fields": {
+    "action_time": "2026-05-29T12:16:25.359Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 219,
+  "fields": {
+    "action_time": "2026-05-29T12:29:14.266Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 220,
+  "fields": {
+    "action_time": "2026-05-29T12:30:51.134Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 221,
+  "fields": {
+    "action_time": "2026-05-29T12:31:35.365Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 222,
+  "fields": {
+    "action_time": "2026-05-29T12:35:34.473Z",
+    "user": 2,
+    "content_type": 11,
+    "object_id": "1",
+    "object_repr": "TanzeelFoundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image1\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 223,
+  "fields": {
+    "action_time": "2026-06-02T21:35:42.579Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "ali",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 224,
+  "fields": {
+    "action_time": "2026-06-02T21:36:11.978Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "cpanel",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Username\", \"User permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 225,
+  "fields": {
+    "action_time": "2026-06-03T06:28:20.787Z",
+    "user": 2,
+    "content_type": 37,
+    "object_id": "1",
+    "object_repr": "TSDF",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 226,
+  "fields": {
+    "action_time": "2026-06-03T06:31:21.989Z",
+    "user": 2,
+    "content_type": 38,
+    "object_id": "1",
+    "object_repr": "TSdf",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 227,
+  "fields": {
+    "action_time": "2026-06-03T09:22:40.280Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Support Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 228,
+  "fields": {
+    "action_time": "2026-06-03T09:26:30.032Z",
+    "user": 2,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Nisomeshe Season 5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 229,
+  "fields": {
+    "action_time": "2026-06-03T09:28:53.093Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 230,
+  "fields": {
+    "action_time": "2026-06-03T09:30:42.618Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 231,
+  "fields": {
+    "action_time": "2026-06-03T09:33:22.107Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 232,
+  "fields": {
+    "action_time": "2026-06-03T09:34:23.838Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Logo\", \"Favicon\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 233,
+  "fields": {
+    "action_time": "2026-06-03T09:35:29.352Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 234,
+  "fields": {
+    "action_time": "2026-06-03T09:36:38.993Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "5",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 235,
+  "fields": {
+    "action_time": "2026-06-03T09:37:27.335Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 236,
+  "fields": {
+    "action_time": "2026-06-03T09:37:51.420Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 237,
+  "fields": {
+    "action_time": "2026-06-03T09:38:08.592Z",
+    "user": 2,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "TANZEEL FOUNDATION",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 238,
+  "fields": {
+    "action_time": "2026-06-03T09:39:38.264Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "Health",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 239,
+  "fields": {
+    "action_time": "2026-06-03T09:39:52.438Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "4",
+    "object_repr": "Youth Empowerment",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 240,
+  "fields": {
+    "action_time": "2026-06-03T09:40:13.800Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "4",
+    "object_repr": "Youth Empowerment",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 241,
+  "fields": {
+    "action_time": "2026-06-03T09:40:31.743Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "3",
+    "object_repr": "Education",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 242,
+  "fields": {
+    "action_time": "2026-06-03T09:41:01.009Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "Events And Outreach",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image2\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 243,
+  "fields": {
+    "action_time": "2026-06-03T09:46:01.082Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "5",
+    "object_repr": "Social Welfare & Community Support",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 244,
+  "fields": {
+    "action_time": "2026-06-03T09:46:34.779Z",
+    "user": 2,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "Islamic & Spiritual Development.",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 245,
+  "fields": {
+    "action_time": "2026-06-03T10:02:35.115Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Mission statement\", \"Vision statement\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 246,
+  "fields": {
+    "action_time": "2026-06-03T10:57:42.059Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Facebook url\", \"Twitter url\", \"Instagram url\", \"Linkedin url\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 247,
+  "fields": {
+    "action_time": "2026-06-03T14:22:20.967Z",
+    "user": 2,
+    "content_type": 37,
+    "object_id": "2",
+    "object_repr": "NISOMESHE",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 248,
+  "fields": {
+    "action_time": "2026-06-03T14:23:50.721Z",
+    "user": 2,
+    "content_type": 37,
+    "object_id": "2",
+    "object_repr": "NISOMESHE",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Raised amount\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 249,
+  "fields": {
+    "action_time": "2026-06-03T14:25:42.924Z",
+    "user": 2,
+    "content_type": 38,
+    "object_id": "2",
+    "object_repr": "Nisomeshe impacts",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 250,
+  "fields": {
+    "action_time": "2026-07-04T09:21:43.262Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "cpanel",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Last login\", \"Date joined\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 251,
+  "fields": {
+    "action_time": "2026-07-04T09:22:12.419Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "cpanel",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date joined\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 252,
+  "fields": {
+    "action_time": "2026-07-04T09:24:50.453Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "5",
+    "object_repr": "sadiki",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 253,
+  "fields": {
+    "action_time": "2026-07-04T09:25:40.878Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "5",
+    "object_repr": "sadiki",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date joined\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 254,
+  "fields": {
+    "action_time": "2026-07-04T09:31:58.602Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "5",
+    "object_repr": "sadiki",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 255,
+  "fields": {
+    "action_time": "2026-07-04T09:38:39.818Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "18",
+    "object_repr": "578a89573cd04d4b8a2b793194f48fdb - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 256,
+  "fields": {
+    "action_time": "2026-07-04T09:39:04.826Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "17",
+    "object_repr": "875b8a4e32ff4a3f9b7b8dde3d3d582c - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 257,
+  "fields": {
+    "action_time": "2026-07-04T09:39:20.723Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "15",
+    "object_repr": "f18bab184f7d4ecfa3a27eeb588abf4d - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 258,
+  "fields": {
+    "action_time": "2026-07-04T09:39:30.446Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "16",
+    "object_repr": "e87e4bbcb09a4be1b51213b91667f92c - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 259,
+  "fields": {
+    "action_time": "2026-07-04T09:39:36.028Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "14",
+    "object_repr": "881d1a404fd6421994b519e2c112359d - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 260,
+  "fields": {
+    "action_time": "2026-07-04T09:39:45.099Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "13",
+    "object_repr": "74dd147c2baa4fa6a893fa0a6d6725b7 - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 261,
+  "fields": {
+    "action_time": "2026-07-04T09:39:50.427Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "12",
+    "object_repr": "17d61eb0290043b4b54f23536ef92202 - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 262,
+  "fields": {
+    "action_time": "2026-07-04T09:39:56.614Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "1",
+    "object_repr": "9081a556cbbb4ff6b810f9fa111ba8e7 - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 263,
+  "fields": {
+    "action_time": "2026-07-04T09:40:02.757Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "11",
+    "object_repr": "5d4a2b18b4744f0fb1fbb42618e5d46d - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 264,
+  "fields": {
+    "action_time": "2026-07-04T09:40:08.316Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "10",
+    "object_repr": "c6cdf8c631644f158041fa82959dd31a - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 265,
+  "fields": {
+    "action_time": "2026-07-04T09:40:13.939Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "9",
+    "object_repr": "d639efbb259847efb0f8eb177ef0976d - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 266,
+  "fields": {
+    "action_time": "2026-07-04T09:40:21.719Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "8",
+    "object_repr": "42d380bf6c9d49049ed23495b34ab184 - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 267,
+  "fields": {
+    "action_time": "2026-07-04T09:40:26.122Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "7",
+    "object_repr": "76ac82869b7942ce9442e824ae3ce651 - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 268,
+  "fields": {
+    "action_time": "2026-07-04T09:40:32.144Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "6",
+    "object_repr": "f20b9c5fd11f4c4a9f77943bd9a10311 - initiated",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 269,
+  "fields": {
+    "action_time": "2026-07-04T09:40:37.065Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "5",
+    "object_repr": "82082d4ccd404e169557d32dcbc9719c - initiated",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 270,
+  "fields": {
+    "action_time": "2026-07-04T09:40:42.432Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "4",
+    "object_repr": "e2314d1abe094a93bc10972ec32cdba9 - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 271,
+  "fields": {
+    "action_time": "2026-07-04T09:40:47.097Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "3",
+    "object_repr": "31bb51213aff4effa299af6589e1e77d - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 272,
+  "fields": {
+    "action_time": "2026-07-04T09:40:55.864Z",
+    "user": 2,
+    "content_type": 36,
+    "object_id": "2",
+    "object_repr": "5197738aac45457d871f117157358423 - failed",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 273,
+  "fields": {
+    "action_time": "2026-07-04T09:42:59.066Z",
+    "user": 2,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "admins",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 274,
+  "fields": {
+    "action_time": "2026-07-04T09:43:58.103Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Tanzeel Foundation",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 275,
+  "fields": {
+    "action_time": "2026-07-04T09:49:31.350Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "19",
+    "object_repr": "Donation by abdulhamid KHAMIS - GBP 9000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 276,
+  "fields": {
+    "action_time": "2026-07-04T09:50:01.918Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "18",
+    "object_repr": "Donation by abdulhamid KHAMIS - GBP 9000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 277,
+  "fields": {
+    "action_time": "2026-07-04T09:50:07.866Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "17",
+    "object_repr": "Donation by abdulhamid KHAMIS - GBP 9000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 278,
+  "fields": {
+    "action_time": "2026-07-04T09:50:16.174Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "16",
+    "object_repr": "Donation by abdulhamid haji - GBP 6000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 279,
+  "fields": {
+    "action_time": "2026-07-04T09:50:23.016Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "15",
+    "object_repr": "Donation by wert eryu - GBP 9000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 280,
+  "fields": {
+    "action_time": "2026-07-04T09:50:28.099Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "14",
+    "object_repr": "Donation by abdulhamid haji - GBP 9000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 281,
+  "fields": {
+    "action_time": "2026-07-04T09:50:33.074Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "13",
+    "object_repr": "Donation by haji zaid - GBP 7889.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 282,
+  "fields": {
+    "action_time": "2026-07-04T09:50:43.770Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "12",
+    "object_repr": "Donation by juma makame - GBP 7000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 283,
+  "fields": {
+    "action_time": "2026-07-04T09:50:49.278Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "11",
+    "object_repr": "Donation by makame simai - GBP 7000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 284,
+  "fields": {
+    "action_time": "2026-07-04T09:50:54.743Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "10",
+    "object_repr": "Donation by ali hussein - GBP 2000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 285,
+  "fields": {
+    "action_time": "2026-07-04T09:51:00.471Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "9",
+    "object_repr": "Donation by ali juma - GBP 20000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 286,
+  "fields": {
+    "action_time": "2026-07-04T09:51:09.932Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "8",
+    "object_repr": "Donation by jamal javid - GBP 6000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 287,
+  "fields": {
+    "action_time": "2026-07-04T09:51:15.083Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "7",
+    "object_repr": "Donation by bayuu haji - GBP 5000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 288,
+  "fields": {
+    "action_time": "2026-07-04T09:51:20.981Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "6",
+    "object_repr": "Donation by bayuu haji - GBP 5000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 289,
+  "fields": {
+    "action_time": "2026-07-04T09:51:26.203Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "5",
+    "object_repr": "Donation by abdulhamid haji - GBP 2300.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 290,
+  "fields": {
+    "action_time": "2026-07-04T09:51:31.136Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "4",
+    "object_repr": "Donation by ali juma - GBP 2000.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 291,
+  "fields": {
+    "action_time": "2026-07-04T09:51:36.547Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "3",
+    "object_repr": "Donation by ali juma - GBP 5609.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 292,
+  "fields": {
+    "action_time": "2026-07-04T09:51:42.008Z",
+    "user": 2,
+    "content_type": 31,
+    "object_id": "2",
+    "object_repr": "Donation by ali juma - GBP 45678.00",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 293,
+  "fields": {
+    "action_time": "2026-07-04T13:20:42.367Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "9",
+    "object_repr": "deltest2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 294,
+  "fields": {
+    "action_time": "2026-07-04T13:48:26.739Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "8",
+    "object_repr": "deltest",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 295,
+  "fields": {
+    "action_time": "2026-07-04T13:48:40.393Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "6",
+    "object_repr": "debuguser",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 296,
+  "fields": {
+    "action_time": "2026-07-04T13:48:51.073Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "5",
+    "object_repr": "sadiki",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 297,
+  "fields": {
+    "action_time": "2026-07-04T13:49:01.040Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "7",
+    "object_repr": "debuguser2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 298,
+  "fields": {
+    "action_time": "2026-07-04T13:51:08.375Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "cpanel",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 299,
+  "fields": {
+    "action_time": "2026-07-04T13:51:20.910Z",
+    "user": 2,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "cpanel",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date joined\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add Site Settings",
+    "content_type": 7,
+    "codename": "add_sitesettings"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change Site Settings",
+    "content_type": 7,
+    "codename": "change_sitesettings"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete Site Settings",
+    "content_type": 7,
+    "codename": "delete_sitesettings"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view Site Settings",
+    "content_type": 7,
+    "codename": "view_sitesettings"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add Site Config",
+    "content_type": 8,
+    "codename": "add_siteconfig"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change Site Config",
+    "content_type": 8,
+    "codename": "change_siteconfig"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete Site Config",
+    "content_type": 8,
+    "codename": "delete_siteconfig"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view Site Config",
+    "content_type": 8,
+    "codename": "view_siteconfig"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add home page",
+    "content_type": 9,
+    "codename": "add_homepage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change home page",
+    "content_type": 9,
+    "codename": "change_homepage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete home page",
+    "content_type": 9,
+    "codename": "delete_homepage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view home page",
+    "content_type": 9,
+    "codename": "view_homepage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add home page_ sliding_ image",
+    "content_type": 10,
+    "codename": "add_homepage_sliding_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change home page_ sliding_ image",
+    "content_type": 10,
+    "codename": "change_homepage_sliding_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete home page_ sliding_ image",
+    "content_type": 10,
+    "codename": "delete_homepage_sliding_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view home page_ sliding_ image",
+    "content_type": 10,
+    "codename": "view_homepage_sliding_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add home page_ image",
+    "content_type": 9,
+    "codename": "add_homepage_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change home page_ image",
+    "content_type": 9,
+    "codename": "change_homepage_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete home page_ image",
+    "content_type": 9,
+    "codename": "delete_homepage_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view home page_ image",
+    "content_type": 9,
+    "codename": "view_homepage_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add home page_ category_ section",
+    "content_type": 11,
+    "codename": "add_homepage_category_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change home page_ category_ section",
+    "content_type": 11,
+    "codename": "change_homepage_category_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete home page_ category_ section",
+    "content_type": 11,
+    "codename": "delete_homepage_category_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view home page_ category_ section",
+    "content_type": 11,
+    "codename": "view_homepage_category_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add home page_ category_ side_ section",
+    "content_type": 12,
+    "codename": "add_homepage_category_side_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change home page_ category_ side_ section",
+    "content_type": 12,
+    "codename": "change_homepage_category_side_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete home page_ category_ side_ section",
+    "content_type": 12,
+    "codename": "delete_homepage_category_side_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view home page_ category_ side_ section",
+    "content_type": 12,
+    "codename": "view_homepage_category_side_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add home page_ posts",
+    "content_type": 13,
+    "codename": "add_homepage_posts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change home page_ posts",
+    "content_type": 13,
+    "codename": "change_homepage_posts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete home page_ posts",
+    "content_type": 13,
+    "codename": "delete_homepage_posts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view home page_ posts",
+    "content_type": 13,
+    "codename": "view_homepage_posts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add home page_ category_ bottom_ section",
+    "content_type": 13,
+    "codename": "add_homepage_category_bottom_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change home page_ category_ bottom_ section",
+    "content_type": 13,
+    "codename": "change_homepage_category_bottom_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete home page_ category_ bottom_ section",
+    "content_type": 13,
+    "codename": "delete_homepage_category_bottom_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view home page_ category_ bottom_ section",
+    "content_type": 13,
+    "codename": "view_homepage_category_bottom_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add home page_ posts_ main",
+    "content_type": 14,
+    "codename": "add_homepage_posts_main"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change home page_ posts_ main",
+    "content_type": 14,
+    "codename": "change_homepage_posts_main"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete home page_ posts_ main",
+    "content_type": 14,
+    "codename": "delete_homepage_posts_main"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view home page_ posts_ main",
+    "content_type": 14,
+    "codename": "view_homepage_posts_main"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add home page_ posts_ side",
+    "content_type": 15,
+    "codename": "add_homepage_posts_side"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change home page_ posts_ side",
+    "content_type": 15,
+    "codename": "change_homepage_posts_side"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete home page_ posts_ side",
+    "content_type": 15,
+    "codename": "delete_homepage_posts_side"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view home page_ posts_ side",
+    "content_type": 15,
+    "codename": "view_homepage_posts_side"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 69,
+  "fields": {
+    "name": "Can add home page_ posts_ bottom_ section",
+    "content_type": 16,
+    "codename": "add_homepage_posts_bottom_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 70,
+  "fields": {
+    "name": "Can change home page_ posts_ bottom_ section",
+    "content_type": 16,
+    "codename": "change_homepage_posts_bottom_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 71,
+  "fields": {
+    "name": "Can delete home page_ posts_ bottom_ section",
+    "content_type": 16,
+    "codename": "delete_homepage_posts_bottom_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 72,
+  "fields": {
+    "name": "Can view home page_ posts_ bottom_ section",
+    "content_type": 16,
+    "codename": "view_homepage_posts_bottom_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 73,
+  "fields": {
+    "name": "Can add about_us_title",
+    "content_type": 17,
+    "codename": "add_about_us_title"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 74,
+  "fields": {
+    "name": "Can change about_us_title",
+    "content_type": 17,
+    "codename": "change_about_us_title"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 75,
+  "fields": {
+    "name": "Can delete about_us_title",
+    "content_type": 17,
+    "codename": "delete_about_us_title"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 76,
+  "fields": {
+    "name": "Can view about_us_title",
+    "content_type": 17,
+    "codename": "view_about_us_title"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 77,
+  "fields": {
+    "name": "Can add about_us_team",
+    "content_type": 18,
+    "codename": "add_about_us_team"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 78,
+  "fields": {
+    "name": "Can change about_us_team",
+    "content_type": 18,
+    "codename": "change_about_us_team"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 79,
+  "fields": {
+    "name": "Can delete about_us_team",
+    "content_type": 18,
+    "codename": "delete_about_us_team"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 80,
+  "fields": {
+    "name": "Can view about_us_team",
+    "content_type": 18,
+    "codename": "view_about_us_team"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 81,
+  "fields": {
+    "name": "Can add about_us_team_title",
+    "content_type": 19,
+    "codename": "add_about_us_team_title"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 82,
+  "fields": {
+    "name": "Can change about_us_team_title",
+    "content_type": 19,
+    "codename": "change_about_us_team_title"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 83,
+  "fields": {
+    "name": "Can delete about_us_team_title",
+    "content_type": 19,
+    "codename": "delete_about_us_team_title"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 84,
+  "fields": {
+    "name": "Can view about_us_team_title",
+    "content_type": 19,
+    "codename": "view_about_us_team_title"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 85,
+  "fields": {
+    "name": "Can add top_section",
+    "content_type": 20,
+    "codename": "add_top_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 86,
+  "fields": {
+    "name": "Can change top_section",
+    "content_type": 20,
+    "codename": "change_top_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 87,
+  "fields": {
+    "name": "Can delete top_section",
+    "content_type": 20,
+    "codename": "delete_top_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 88,
+  "fields": {
+    "name": "Can view top_section",
+    "content_type": 20,
+    "codename": "view_top_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 89,
+  "fields": {
+    "name": "Can add about_us_top_section",
+    "content_type": 20,
+    "codename": "add_about_us_top_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 90,
+  "fields": {
+    "name": "Can change about_us_top_section",
+    "content_type": 20,
+    "codename": "change_about_us_top_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 91,
+  "fields": {
+    "name": "Can delete about_us_top_section",
+    "content_type": 20,
+    "codename": "delete_about_us_top_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 92,
+  "fields": {
+    "name": "Can view about_us_top_section",
+    "content_type": 20,
+    "codename": "view_about_us_top_section"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 93,
+  "fields": {
+    "name": "Can add blog_top_image",
+    "content_type": 21,
+    "codename": "add_blog_top_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 94,
+  "fields": {
+    "name": "Can change blog_top_image",
+    "content_type": 21,
+    "codename": "change_blog_top_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 95,
+  "fields": {
+    "name": "Can delete blog_top_image",
+    "content_type": 21,
+    "codename": "delete_blog_top_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 96,
+  "fields": {
+    "name": "Can view blog_top_image",
+    "content_type": 21,
+    "codename": "view_blog_top_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 97,
+  "fields": {
+    "name": "Can add article_tab",
+    "content_type": 22,
+    "codename": "add_article_tab"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 98,
+  "fields": {
+    "name": "Can change article_tab",
+    "content_type": 22,
+    "codename": "change_article_tab"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 99,
+  "fields": {
+    "name": "Can delete article_tab",
+    "content_type": 22,
+    "codename": "delete_article_tab"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 100,
+  "fields": {
+    "name": "Can view article_tab",
+    "content_type": 22,
+    "codename": "view_article_tab"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 101,
+  "fields": {
+    "name": "Can add tab_one",
+    "content_type": 23,
+    "codename": "add_tab_one"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 102,
+  "fields": {
+    "name": "Can change tab_one",
+    "content_type": 23,
+    "codename": "change_tab_one"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 103,
+  "fields": {
+    "name": "Can delete tab_one",
+    "content_type": 23,
+    "codename": "delete_tab_one"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 104,
+  "fields": {
+    "name": "Can view tab_one",
+    "content_type": 23,
+    "codename": "view_tab_one"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 105,
+  "fields": {
+    "name": "Can add tab_two",
+    "content_type": 24,
+    "codename": "add_tab_two"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 106,
+  "fields": {
+    "name": "Can change tab_two",
+    "content_type": 24,
+    "codename": "change_tab_two"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 107,
+  "fields": {
+    "name": "Can delete tab_two",
+    "content_type": 24,
+    "codename": "delete_tab_two"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 108,
+  "fields": {
+    "name": "Can view tab_two",
+    "content_type": 24,
+    "codename": "view_tab_two"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 109,
+  "fields": {
+    "name": "Can add tab_three",
+    "content_type": 25,
+    "codename": "add_tab_three"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 110,
+  "fields": {
+    "name": "Can change tab_three",
+    "content_type": 25,
+    "codename": "change_tab_three"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 111,
+  "fields": {
+    "name": "Can delete tab_three",
+    "content_type": 25,
+    "codename": "delete_tab_three"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 112,
+  "fields": {
+    "name": "Can view tab_three",
+    "content_type": 25,
+    "codename": "view_tab_three"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 113,
+  "fields": {
+    "name": "Can add tab_three_post",
+    "content_type": 26,
+    "codename": "add_tab_three_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 114,
+  "fields": {
+    "name": "Can change tab_three_post",
+    "content_type": 26,
+    "codename": "change_tab_three_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 115,
+  "fields": {
+    "name": "Can delete tab_three_post",
+    "content_type": 26,
+    "codename": "delete_tab_three_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 116,
+  "fields": {
+    "name": "Can view tab_three_post",
+    "content_type": 26,
+    "codename": "view_tab_three_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 117,
+  "fields": {
+    "name": "Can add tab_four",
+    "content_type": 27,
+    "codename": "add_tab_four"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 118,
+  "fields": {
+    "name": "Can change tab_four",
+    "content_type": 27,
+    "codename": "change_tab_four"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 119,
+  "fields": {
+    "name": "Can delete tab_four",
+    "content_type": 27,
+    "codename": "delete_tab_four"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 120,
+  "fields": {
+    "name": "Can view tab_four",
+    "content_type": 27,
+    "codename": "view_tab_four"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 121,
+  "fields": {
+    "name": "Can add tab_five",
+    "content_type": 28,
+    "codename": "add_tab_five"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 122,
+  "fields": {
+    "name": "Can change tab_five",
+    "content_type": 28,
+    "codename": "change_tab_five"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 123,
+  "fields": {
+    "name": "Can delete tab_five",
+    "content_type": 28,
+    "codename": "delete_tab_five"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 124,
+  "fields": {
+    "name": "Can view tab_five",
+    "content_type": 28,
+    "codename": "view_tab_five"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 125,
+  "fields": {
+    "name": "Can add tab_five_post",
+    "content_type": 29,
+    "codename": "add_tab_five_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 126,
+  "fields": {
+    "name": "Can change tab_five_post",
+    "content_type": 29,
+    "codename": "change_tab_five_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 127,
+  "fields": {
+    "name": "Can delete tab_five_post",
+    "content_type": 29,
+    "codename": "delete_tab_five_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 128,
+  "fields": {
+    "name": "Can view tab_five_post",
+    "content_type": 29,
+    "codename": "view_tab_five_post"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 129,
+  "fields": {
+    "name": "Can add Theme",
+    "content_type": 30,
+    "codename": "add_theme"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 130,
+  "fields": {
+    "name": "Can change Theme",
+    "content_type": 30,
+    "codename": "change_theme"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 131,
+  "fields": {
+    "name": "Can delete Theme",
+    "content_type": 30,
+    "codename": "delete_theme"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 132,
+  "fields": {
+    "name": "Can view Theme",
+    "content_type": 30,
+    "codename": "view_theme"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 133,
+  "fields": {
+    "name": "Can add donation",
+    "content_type": 31,
+    "codename": "add_donation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 134,
+  "fields": {
+    "name": "Can change donation",
+    "content_type": 31,
+    "codename": "change_donation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 135,
+  "fields": {
+    "name": "Can delete donation",
+    "content_type": 31,
+    "codename": "delete_donation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 136,
+  "fields": {
+    "name": "Can view donation",
+    "content_type": 31,
+    "codename": "view_donation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 137,
+  "fields": {
+    "name": "Can add donation",
+    "content_type": 32,
+    "codename": "add_donation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 138,
+  "fields": {
+    "name": "Can change donation",
+    "content_type": 32,
+    "codename": "change_donation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 139,
+  "fields": {
+    "name": "Can delete donation",
+    "content_type": 32,
+    "codename": "delete_donation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 140,
+  "fields": {
+    "name": "Can view donation",
+    "content_type": 32,
+    "codename": "view_donation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 141,
+  "fields": {
+    "name": "Can add Contact Message",
+    "content_type": 33,
+    "codename": "add_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 142,
+  "fields": {
+    "name": "Can change Contact Message",
+    "content_type": 33,
+    "codename": "change_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 143,
+  "fields": {
+    "name": "Can delete Contact Message",
+    "content_type": 33,
+    "codename": "delete_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 144,
+  "fields": {
+    "name": "Can view Contact Message",
+    "content_type": 33,
+    "codename": "view_contactmessage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 145,
+  "fields": {
+    "name": "Can add about_us_division",
+    "content_type": 34,
+    "codename": "add_about_us_division"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 146,
+  "fields": {
+    "name": "Can change about_us_division",
+    "content_type": 34,
+    "codename": "change_about_us_division"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 147,
+  "fields": {
+    "name": "Can delete about_us_division",
+    "content_type": 34,
+    "codename": "delete_about_us_division"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 148,
+  "fields": {
+    "name": "Can view about_us_division",
+    "content_type": 34,
+    "codename": "view_about_us_division"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 149,
+  "fields": {
+    "name": "Can add payment transaction",
+    "content_type": 36,
+    "codename": "add_paymenttransaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 150,
+  "fields": {
+    "name": "Can change payment transaction",
+    "content_type": 36,
+    "codename": "change_paymenttransaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 151,
+  "fields": {
+    "name": "Can delete payment transaction",
+    "content_type": 36,
+    "codename": "delete_paymenttransaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 152,
+  "fields": {
+    "name": "Can view payment transaction",
+    "content_type": 36,
+    "codename": "view_paymenttransaction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 153,
+  "fields": {
+    "name": "Can add azam pay webhook event",
+    "content_type": 35,
+    "codename": "add_azampaywebhookevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 154,
+  "fields": {
+    "name": "Can change azam pay webhook event",
+    "content_type": 35,
+    "codename": "change_azampaywebhookevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 155,
+  "fields": {
+    "name": "Can delete azam pay webhook event",
+    "content_type": 35,
+    "codename": "delete_azampaywebhookevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 156,
+  "fields": {
+    "name": "Can view azam pay webhook event",
+    "content_type": 35,
+    "codename": "view_azampaywebhookevent"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 157,
+  "fields": {
+    "name": "Can add appeal",
+    "content_type": 37,
+    "codename": "add_appeal"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 158,
+  "fields": {
+    "name": "Can change appeal",
+    "content_type": 37,
+    "codename": "change_appeal"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 159,
+  "fields": {
+    "name": "Can delete appeal",
+    "content_type": 37,
+    "codename": "delete_appeal"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 160,
+  "fields": {
+    "name": "Can view appeal",
+    "content_type": 37,
+    "codename": "view_appeal"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 161,
+  "fields": {
+    "name": "Can add appeal impact",
+    "content_type": 38,
+    "codename": "add_appealimpact"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 162,
+  "fields": {
+    "name": "Can change appeal impact",
+    "content_type": 38,
+    "codename": "change_appealimpact"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 163,
+  "fields": {
+    "name": "Can delete appeal impact",
+    "content_type": 38,
+    "codename": "delete_appealimpact"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 164,
+  "fields": {
+    "name": "Can view appeal impact",
+    "content_type": 38,
+    "codename": "view_appealimpact"
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "admins",
+    "permissions": [
+      1,
+      2,
+      3,
+      4,
+      129,
+      130,
+      131,
+      132,
+      9,
+      10,
+      11,
+      12,
+      5,
+      6,
+      7,
+      8,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      137,
+      138,
+      139,
+      140,
+      29,
+      30,
+      31,
+      32,
+      25,
+      26,
+      27,
+      28,
+      153,
+      154,
+      155,
+      156,
+      133,
+      134,
+      135,
+      136,
+      149,
+      150,
+      151,
+      152,
+      145,
+      146,
+      147,
+      148,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      73,
+      74,
+      75,
+      76,
+      89,
+      85,
+      90,
+      86,
+      91,
+      87,
+      92,
+      88,
+      97,
+      98,
+      99,
+      100,
+      93,
+      94,
+      95,
+      96,
+      141,
+      142,
+      143,
+      144,
+      57,
+      53,
+      58,
+      54,
+      59,
+      55,
+      60,
+      56,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      33,
+      41,
+      34,
+      42,
+      35,
+      43,
+      36,
+      44,
+      69,
+      70,
+      71,
+      72,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      37,
+      38,
+      39,
+      40,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      117,
+      118,
+      119,
+      120,
+      101,
+      102,
+      103,
+      104,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      105,
+      106,
+      107,
+      108,
+      21,
+      22,
+      23,
+      24
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$vg6kRxFeeaRoYxsvQj1n8I$IoK8mfbhCuoGaBueBwwzYSTNFdaNrfS8wtAU0svVzwc=",
+    "last_login": "2026-07-04T13:20:40.970Z",
+    "is_superuser": true,
+    "username": "wangstar",
+    "first_name": "",
+    "last_name": "",
+    "email": "mahadwangstar@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-09-10T07:14:09.285Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$0lZ4knBuFSh8QbiExKy5Dn$u/wGebea2h6JO0p6A1ZqxZuNCq9fsw2XnKlNSxJPrq4=",
+    "last_login": "2026-07-04T13:31:27.591Z",
+    "is_superuser": true,
+    "username": "shukri",
+    "first_name": "",
+    "last_name": "",
+    "email": "shukri@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-01-26T17:54:30Z",
+    "groups": [],
+    "user_permissions": [
+      1,
+      2,
+      3,
+      4,
+      129,
+      130,
+      131,
+      132,
+      9,
+      10,
+      11,
+      12,
+      5,
+      6,
+      7,
+      8,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      137,
+      138,
+      139,
+      140,
+      29,
+      30,
+      31,
+      32,
+      25,
+      26,
+      27,
+      28,
+      153,
+      154,
+      155,
+      156,
+      133,
+      134,
+      135,
+      136,
+      149,
+      150,
+      151,
+      152,
+      145,
+      146,
+      147,
+      148,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      73,
+      74,
+      75,
+      76,
+      89,
+      85,
+      90,
+      86,
+      91,
+      87,
+      92,
+      88,
+      97,
+      98,
+      99,
+      100,
+      93,
+      94,
+      95,
+      96,
+      141,
+      142,
+      143,
+      144,
+      57,
+      53,
+      58,
+      54,
+      59,
+      55,
+      60,
+      56,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      33,
+      41,
+      34,
+      42,
+      35,
+      43,
+      36,
+      44,
+      69,
+      70,
+      71,
+      72,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      37,
+      38,
+      39,
+      40,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      117,
+      118,
+      119,
+      120,
+      101,
+      102,
+      103,
+      104,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      105,
+      106,
+      107,
+      108,
+      21,
+      22,
+      23,
+      24
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$szZdp01JOxKLBcAbDYtVs9$PdZ/7g7b8ZUfIiNlZUtBr2/A1Yz3QiRKWLVhHakrkzo=",
+    "last_login": "2026-07-04T13:51:53.892Z",
+    "is_superuser": true,
+    "username": "cpanel",
+    "first_name": "",
+    "last_name": "",
+    "email": "abdulhamidhaji2023@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-02-06T16:58:57Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": [
+      1,
+      2,
+      3,
+      4,
+      129,
+      130,
+      131,
+      132,
+      9,
+      10,
+      11,
+      12,
+      5,
+      6,
+      7,
+      8,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      137,
+      138,
+      139,
+      140,
+      29,
+      30,
+      31,
+      32,
+      25,
+      26,
+      27,
+      28,
+      153,
+      154,
+      155,
+      156,
+      133,
+      134,
+      135,
+      136,
+      149,
+      150,
+      151,
+      152,
+      145,
+      146,
+      147,
+      148,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      73,
+      74,
+      75,
+      76,
+      89,
+      85,
+      90,
+      86,
+      91,
+      87,
+      92,
+      88,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      97,
+      98,
+      99,
+      100,
+      93,
+      94,
+      95,
+      96,
+      141,
+      142,
+      143,
+      144,
+      57,
+      53,
+      58,
+      54,
+      59,
+      55,
+      60,
+      56,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      33,
+      41,
+      34,
+      42,
+      35,
+      43,
+      36,
+      44,
+      69,
+      70,
+      71,
+      72,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      37,
+      38,
+      39,
+      40,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      117,
+      118,
+      119,
+      120,
+      101,
+      102,
+      103,
+      104,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      105,
+      106,
+      107,
+      108,
+      21,
+      22,
+      23,
+      24
+    ]
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "core",
+    "model": "sitesettings"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "core",
+    "model": "siteconfig"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "pages",
+    "model": "homepage_image"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "pages",
+    "model": "homepage_sliding_image"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "pages",
+    "model": "homepage_category_section"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "pages",
+    "model": "homepage_category_side_section"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "pages",
+    "model": "homepage_category_bottom_section"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "pages",
+    "model": "homepage_posts_main"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "pages",
+    "model": "homepage_posts_side"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "pages",
+    "model": "homepage_posts_bottom_section"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "pages",
+    "model": "about_us_title"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 18,
+  "fields": {
+    "app_label": "pages",
+    "model": "about_us_team"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 19,
+  "fields": {
+    "app_label": "pages",
+    "model": "about_us_team_title"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 20,
+  "fields": {
+    "app_label": "pages",
+    "model": "about_us_top_section"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 21,
+  "fields": {
+    "app_label": "pages",
+    "model": "blog_top_image"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 22,
+  "fields": {
+    "app_label": "pages",
+    "model": "article_tab"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 23,
+  "fields": {
+    "app_label": "pages",
+    "model": "tab_one"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 24,
+  "fields": {
+    "app_label": "pages",
+    "model": "tab_two"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 25,
+  "fields": {
+    "app_label": "pages",
+    "model": "tab_three"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 26,
+  "fields": {
+    "app_label": "pages",
+    "model": "tab_three_post"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 27,
+  "fields": {
+    "app_label": "pages",
+    "model": "tab_four"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 28,
+  "fields": {
+    "app_label": "pages",
+    "model": "tab_five"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 29,
+  "fields": {
+    "app_label": "pages",
+    "model": "tab_five_post"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 30,
+  "fields": {
+    "app_label": "admin_interface",
+    "model": "theme"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 31,
+  "fields": {
+    "app_label": "donations",
+    "model": "donation"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 32,
+  "fields": {
+    "app_label": "core",
+    "model": "donation"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 33,
+  "fields": {
+    "app_label": "pages",
+    "model": "contactmessage"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 34,
+  "fields": {
+    "app_label": "pages",
+    "model": "about_us_division"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 35,
+  "fields": {
+    "app_label": "donations",
+    "model": "azampaywebhookevent"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 36,
+  "fields": {
+    "app_label": "donations",
+    "model": "paymenttransaction"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 37,
+  "fields": {
+    "app_label": "pages",
+    "model": "appeal"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 38,
+  "fields": {
+    "app_label": "pages",
+    "model": "appealimpact"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5ao7oa28hv08t4tshrz8c9cih2k7kwsn",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAUBf-la9NwaQvFpXu_obkvBDVtQmFl_HclYaHbMzPnZRJu65S2qkuaxZyNN6ffjZAfmncgd8y3YrnkdZnJ7oo9aLXXIvq8HO7fwYR1-tZhDIN3XSciBDJEBiQeEUhbJeg5iICii76J4IdeewHPY2hcbMExqXl_AAawOIs:1voPBT:EXCVwWs4XkvX9V9ZAakx5eXe6EXc8VYcFFJU6pjrm2E",
+    "expire_date": "2026-02-20T16:59:55.530Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5g2ts7ov2v8mbn3u2m9ki7z01t0y6jt9",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hDaMjPUpXvPQGYApWogKe3KeHfbpAvd_vfefyvP65L92tLsp6jOitTpdxMOz1R2EB9c7lWHWpZ5Er0r-qBNX2tMr8vh_h1kbnmrB2JLJGxsIiTH1iGgAxMAoyTb0dgHCwNIJKLOuN6MeAPCzRJ0ZNTnC7SmNhw:1wg0Fx:jLyxufoY3ZyLiguCOxVagktizIz8GSqBRLzRlPyI9Sc",
+    "expire_date": "2026-07-18T13:18:05.843Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5gnxstyet3dxo6pi6ul3osbym49idhgu",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hDaKVBcuvcMZKYzSNVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uz6tTpdyOcHlJ2wHcst6qnWtZlJr0r-qBNXyvL83K4fwcZW_7WxiJ7EwCs-IFGIAvecDeIc95YQN8ziKGQ-gBEBhM46zmI7cc0sEvq_QG93TdJ:1wg0IS:uEav6yDe3v_JM3glKnyI5Cdh_0MJg4M_Wd0W6iyRyDQ",
+    "expire_date": "2026-07-18T13:20:40.978Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7amr0ajjlpopmdjelzjzp35v21wiltyd",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWlaWpjBpXvPQGY6g6CmTSisjHdXEha6_e-9_zIDbes0bFWXYRZzNsGcfjem9NC8A7lTvhWbSl6Xme2u2INWey2iz8vh_h1MVKdv7RwBOBTyozhW7dlTDF1yMXgElMaxDxRkxB4ZW-hiJ6jge4UWmpjM-wPZzjdK:1vmjXY:HzzoZN89m3RJq_zzlabD0j6LvU9t23HFyg3mNc9Ryy8",
+    "expire_date": "2026-02-16T02:19:48.595Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8ktiaj3dl5705urtj2g5xiwqbet9ymh1",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hDaKVBcuvcMZKYzSNVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uz6tTpdyOcHlJ2wHcst6qnWtZlJr0r-qBNXyvL83K4fwcZW_7WxiJ7EwCs-IFGIAvecDeIc95YQN8ziKGQ-gBEBhM46zmI7cc0sEvq_QG93TdJ:1vUpy9:lx37deB1RbCLiPEmk2jxKo-SOS2QnAd1ighNZiOrr6E",
+    "expire_date": "2025-12-28T17:33:17.734Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9os4c77nzj1vhexp5cznjjqqlw8eoaza",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hDaKVBcuvcMZKYzSNVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uz6tTpdyOcHlJ2wHcst6qnWtZlJr0r-qBNXyvL83K4fwcZW_7WxiJ7EwCs-IFGIAvecDeIc95YQN8ziKGQ-gBEBhM46zmI7cc0sEvq_QG93TdJ:1vUpxS:ueLx7bUpi3kQ36BZc6DdS7Z8Y870QQyUENrpJuZvrk8",
+    "expire_date": "2025-12-28T17:32:34.032Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "asrtzrv2cl81e3lwqh6vq55ewod7r6tj",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyFLWVvx6L3fQHYXkKqhSWlPxn-XJj3obTLvzbyVp23Nfqtx8VNQV9Wp02_HJM9YdhAeVO6zlrmsy8R6V_RBqx7nEF-3w_07yFRzWxtBdtAh2kEIDUp0xpoUgKVFSNRHiAEuqbdJ7Dk45xgJGDk1fzDq8wXrujh_:1wUWly:UUomCOeKpWPsPYUN2RLmMa7zLuV6l0wU3W9JVC_QpCg",
+    "expire_date": "2026-06-16T21:35:42.635Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "cgyf6x65fonnlpomhte0674df5sb2dpx",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyFLWVvx6L3fQHYXkKqhSWlPxn-XJj3obTLvzbyVp23Nfqtx8VNQV9Wp02_HJM9YdhAeVO6zlrmsy8R6V_RBqx7nEF-3w_07yFRzWxtBdtAh2kEIDUp0xpoUgKVFSNRHiAEuqbdJ7Dk45xgJGDk1fzDq8wXrujh_:1wSw3l:Be7iKIsVNi8X-yJxDzcmkH4ZwnpyUms3fWXarxLPfNk",
+    "expire_date": "2026-06-12T12:11:29.130Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "fsqr5e1qipthdxu6ex4vxzgwdci1mjd0",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGgoBL9z0DGZhBqoYmpV0Z765NutDtf-_9l4i4rTVunZc4kbgIL06_W8L84LYDumO7zTLPbV2mJHdFHrTLcSZ-Xg_376Bir98aFLhsPSnLRJoIlR3KEEAnUJhKUmdHDMaA4wKscxiKN2wSBmMN5SLeH-pzOFM:1wg0Gc:BlLHT3UFWkTCh3NFrR6vR8SAbGjb5jQb3ShP-V31Kb0",
+    "expire_date": "2026-07-18T13:18:46.161Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "h1l8nurh33c2v28qgk25xnqhkgrat187",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAUBf-la9NwaQvFpXu_obkvBDVtQmFl_HclYaHbMzPnZRJu65S2qkuaxZyNN6ffjZAfmncgd8y3YrnkdZnJ7oo9aLXXIvq8HO7fwYR1-tZhDIN3XSciBDJEBiQeEUhbJeg5iICii76J4IdeewHPY2hcbMExqXl_AAawOIs:1w5iud:cEpsgwdbw8QL-jN6DhEMdHdvCJkSyZtbXrxGJZBK8WY",
+    "expire_date": "2026-04-09T11:30:07.137Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jcmsib7i6o8fpaie5ud8wrrihpm92wex",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hDaKVBcuvcMZKYzSNVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uz6tTpdyOcHlJ2wHcst6qnWtZlJr0r-qBNXyvL83K4fwcZW_7WxiJ7EwCs-IFGIAvecDeIc95YQN8ziKGQ-gBEBhM46zmI7cc0sEvq_QG93TdJ:1vaquG:N16ty6r0nEjTD_35-AJeCjk7JZWerCpjvrC2tBirLHk",
+    "expire_date": "2026-01-14T07:46:08.007Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "pdnjjh4ls15b73lf8aniih2wouneqcwf",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnejT8bSvqcwVp_wAFkS3FSIe4OkVJA-2bmvYTnbS1-63nxcxJngeL0uwWOj1x3kO5cb03GVtdlDnJX5EG7nFrKz8vh_h0U7uVbOzcSkaYxW4SAeGWFbJiGqE1gwoTgIGblhpiMhUBWMTlESGy0siDeH7opNqg:1vkQoG:0JCJar1d4VWd2mWwgVa5pktrripHWrslLWbgjv7SCuQ",
+    "expire_date": "2026-02-09T17:55:32.358Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qsh2cmigrlocr3dy3bh9vmq9m0ehr3ss",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSGURwCX7v0GMsMwUjWQlHZl_Hdt0oVu7znnvkSCba1pG2VJM4mzsOL0uyHkR2k7oDu0W5e5t3WZUe6KPOiQ107leTncv4MKo35rVmgpY4yBlc9gAlg_sdVaMypim8EpZCrOGWIFIaAPUWnHeYpkEMX7AwVnOL8:1wg0mf:Bu9NbfA5-exnyfg_A9J_j1faFBkoP6o9G-HvodgJ9Mc",
+    "expire_date": "2026-07-18T13:51:53.902Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qyrz5gefshtegytaoo2k2260h80ygf3f",
+  "fields": {
+    "session_data": ".eJxVjEsOAiEQRO_C2hAa5efSvWcgTdPIqIFkPivj3ZVkFrqseq_qJSJua43bwnOcsjgLEIffLiE9uA2Q79huXVJv6zwlORS500Vee-bnZXf_DioudawNcCZS2iUsOSl233jM2gMUxYxWMQCSsTbYRMUoddI2eG1scj5oLd4fFHE4Iw:1uwF5w:w_qSPOJjftwNRzhO5MUEiayju5Az-m6dzP1Lns2WqK4",
+    "expire_date": "2025-09-24T07:18:20.324Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "rrgnuxz742nkbzcrbj2vvgavkjcnriwf",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hDaKVBcuvcMZKYzSNVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uz6tTpdyOcHlJ2wHcst6qnWtZlJr0r-qBNXyvL83K4fwcZW_7WxiJ7EwCs-IFGIAvecDeIc95YQN8ziKGQ-gBEBhM46zmI7cc0sEvq_QG93TdJ:1vUqU3:ezCXt15fX4pk7iOloO2sxLo3UQ5FiuFJZmouJcgEOa4",
+    "expire_date": "2025-12-28T18:06:15.091Z"
+  }
+},
+{
+  "model": "core.sitesettings",
+  "pk": 1,
+  "fields": {
+    "foundation_name": "Tanzeel Foundation",
+    "contact_email": "info@tanzeelfoundation.co.tz",
+    "contact_phone": "0672330843",
+    "address": "dar es salaam,tanzania\r\ndar es salaam,tanzania",
+    "facebook_url": "https://www.facebook.com/tanzeelfoundation",
+    "twitter_url": "https://twitter.com/tanzeelfoundation",
+    "instagram_url": "https://www.instagram.com/tanzeelfoundation",
+    "linkedin_url": "https://www.linkedin.com/in/tanzeelfoundation",
+    "youtube_url": "",
+    "mission_statement": "A3564E57M6I7KNUJHn JM",
+    "vision_statement": "Q3VW4e5dyunfmk, mx",
+    "about_us": "",
+    "logo": "logos/TANZEEL_LOGO-1_w5x7gbE.webp",
+    "favicon": "favicons/TANZEEL_LOGO-1_swGkVan.webp"
+  }
+},
+{
+  "model": "core.sitesettings",
+  "pk": 3,
+  "fields": {
+    "foundation_name": "Tanzeel Foundation",
+    "contact_email": "info@tanzeelfoundation.co.tz",
+    "contact_phone": "",
+    "address": "",
+    "facebook_url": "",
+    "twitter_url": "",
+    "instagram_url": "",
+    "linkedin_url": "",
+    "youtube_url": "",
+    "mission_statement": "",
+    "vision_statement": "",
+    "about_us": "",
+    "logo": "",
+    "favicon": ""
+  }
+},
+{
+  "model": "pages.homepage_image",
+  "pk": 1,
+  "fields": {
+    "image": "homepage_images/0R2A0743.webp",
+    "small_title": "TSDF",
+    "large_title": "Support Tanzeel Foundation",
+    "link_url": "President of Tanzeel Foundation",
+    "event_date": "2026-02-02",
+    "event_location": "Dar es salaam",
+    "event_time": "02:23:03",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_image",
+  "pk": 2,
+  "fields": {
+    "image": "homepage_images/6J3A1393_CQi8Sr6.webp",
+    "small_title": "NISOMESHE",
+    "large_title": "Nisomeshe Season 5",
+    "link_url": "CEO",
+    "event_date": "2026-02-02",
+    "event_location": "Dar es salaam",
+    "event_time": "02:21:31",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_sliding_image",
+  "pk": 1,
+  "fields": {
+    "image1": "homepage_sliding_images/homepage_sliding_images/Screenshot_2026-01-31_020622.webp",
+    "category": "Waqfu",
+    "image2": "homepage_sliding_images/TANZEEL_LOGO-1_83ytnuw.webp",
+    "small_title": "TANZEEL FOUNDATION",
+    "date": "2026-03-26",
+    "link_url1": "Tanzeel Waqfu",
+    "description": "a special branch of tanzeel foundation dedicated to receiving, managing, and developing endowments for benefit of the islamic community.\r\nThe Mosque Construction at Chamanzi Magengeni is a landmark initiative by the Tanzeel Foundation, reflecting our dedication to supporting spiritual growth, education, and community cohesion. This project successfully established a modern and welcoming mosque that serves not only as a place of worship but also as a hub for Islamic education, religious guidance, and social gatherings for the local community.",
+    "time": "11:36:31",
+    "link_url2": "hello",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_sliding_image",
+  "pk": 2,
+  "fields": {
+    "image1": "homepage_sliding_images/homepage_sliding_images/Screenshot_2026-01-31_020557.webp",
+    "category": "TSDF",
+    "image2": "homepage_sliding_images/TANZEEL_LOGO-1_PyPLkwm.webp",
+    "small_title": "TANZEEL FOUNDATION",
+    "date": "2026-03-26",
+    "link_url1": "Tanzeel Social Development Fund(TSDF)",
+    "description": "a dedicated fund managed by Tanzeel Foundation  to support community  development programs. the fund is sustained by various philanthropic individuals and organisations dedicated to community welfare.",
+    "time": "11:47:24",
+    "link_url2": "hello",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_sliding_image",
+  "pk": 4,
+  "fields": {
+    "image1": "homepage_sliding_images/homepage_sliding_images/Screenshot_2026-02-03_082447.webp",
+    "category": "Social Service",
+    "image2": "homepage_sliding_images/TANZEEL_LOGO-1_9YR5qir.webp",
+    "small_title": "TANZEEL FOUNDATION",
+    "date": "2026-03-26",
+    "link_url1": "Tanzeel Social Service",
+    "description": "A special branch of Tanzeel Foundation focuses on providing social services, including healthcare, with plans to establish a modern hospital adhering to islamic principles.",
+    "time": "11:55:50",
+    "link_url2": "hello",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_sliding_image",
+  "pk": 5,
+  "fields": {
+    "image1": "homepage_sliding_images/homepage_sliding_images/6J3A1438.webp",
+    "category": "Education",
+    "image2": "homepage_sliding_images/TANZEEL_LOGO-1.webp",
+    "small_title": "TANZEEL FOUNDATION",
+    "date": "2026-03-26",
+    "link_url1": "Tanzeel Education Center",
+    "description": "The core branch of Tanzeel Foundation , aiming to establish educational institutions spanning from daycare and nursery schools to universities, ensuring high-quality education. \r\nas we take into action the  Nisomeshe Program which stands as a cornerstone initiative of the Tanzeel Foundation, dedicated to supporting orphans and students from less privileged backgrounds. Through this program, we provide essential school materials such as books, stationery, uniforms, and other learning resources, ensuring that every child has the tools they need to succeed academically. By reducing the barriers to education, the program empowers these students to pursue their studies with confidence, dignity, and hope for a brighter future.",
+    "time": "11:52:31",
+    "link_url2": "hello",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_category_section",
+  "pk": 1,
+  "fields": {
+    "image1": "homepage_category_sections/Screenshot_2026-02-06_195322.webp",
+    "image2": "homepage_category_sections/TANZEEL_LOGO-1_V7pFGzq.webp",
+    "title": "TanzeelFoundation",
+    "date": "2026-02-06",
+    "link_url1": "Community Development & Humanitarian Services.",
+    "description": "Tanzeel Foundation is dedicated to uplifting communities through education, social welfare, healthcare, spiritual development, and humanitarian support. Guided by strong Islamic values, the foundation implements programs that promote dignity, compassion, and self reliance. Our initiatives aim to empower individuals, strengthen families, and foster sustainable, positive change that benefits society as a whole while nurturing moral responsibility and long term community growth worldwide for all.",
+    "time": "17:02:11",
+    "comment": "together",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_category_side_section",
+  "pk": 1,
+  "fields": {
+    "image": "homepage_category_side_section/homepage_category_side_section/6J3A9573.webp",
+    "title": "Women & Family Support.",
+    "link_url": "We support women and families by improving welfare, dignity, and stability through targeted assistance programs.",
+    "date": "2026-01-27",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_category_side_section",
+  "pk": 2,
+  "fields": {
+    "image": "homepage_category_side_section/homepage_category_side_section/0R2A08350.webp",
+    "title": "Charity & Humanitarian Aid.",
+    "link_url": "We provide food, clothing, and essential support to families in need, especially during Ramadhan and Eid.",
+    "date": "2026-01-27",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_category_side_section",
+  "pk": 3,
+  "fields": {
+    "image": "homepage_category_side_section/IMG-20230908-WA0065.webp",
+    "title": "Islamic & Spiritual Development.",
+    "link_url": "We strengthen faith and moral values through Dawah activities, mosque projects, and community spiritual programs.",
+    "date": "2026-01-27",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_category_side_section",
+  "pk": 4,
+  "fields": {
+    "image": "homepage_category_side_section/homepage_category_side_section/0R2A0799.webp",
+    "title": "Waqf & Sustainable Development.",
+    "link_url": "We manage Islamic endowments to ensure long-term sustainability of community development initiatives.",
+    "date": "2025-09-10",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_category_side_section",
+  "pk": 5,
+  "fields": {
+    "image": "homepage_category_side_section/IMG-20221226-WA0064.webp",
+    "title": "Social Welfare & Community Support",
+    "link_url": "We assist orphans, widows, the elderly, and vulnerable families through social care and community support programs.",
+    "date": "2026-01-27",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_category_bottom_section",
+  "pk": 1,
+  "fields": {
+    "image1": "homepage_Posts/homepage_Posts/Screenshot_2026-02-02_055155.webp",
+    "title1": "Health",
+    "link_url": "Health and Social Services",
+    "description": "We focus on improving access to healthcare and essential social services within the community. Our long-term vision includes establishing health facilities that operate in accordance with Islamic principles and serve those most in need.",
+    "image2": "homepage_Posts/TANZEEL_LOGO-1_uVQxs4D.webp",
+    "title2": "TANZEEL FOUNDATION",
+    "time": "04:33:20",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_category_bottom_section",
+  "pk": 2,
+  "fields": {
+    "image1": "homepage_Posts/homepage_Posts/0R2A0708.webp",
+    "title1": "Events And Outreach",
+    "link_url": "Community Events & Outreach.",
+    "description": "We organize events that bring communities together, such as Eid Gala, Iftar Charity Dinners, and public awareness activities. These events promote unity, fundraising, education, and collaboration among stakeholders.",
+    "image2": "homepage_Posts/TANZEEL_LOGO-1_nrS4FzH.webp",
+    "title2": "TANZEEL FOUNDATION.",
+    "time": "04:36:22",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_category_bottom_section",
+  "pk": 3,
+  "fields": {
+    "image1": "homepage_Posts/homepage_Posts/IMG-20230908-WA0065.webp",
+    "title1": "Education",
+    "link_url": "Education Development",
+    "description": "We invest in education as a foundation for sustainable community growth. Through initiatives such as the Nisomeshe Charity Event and the Tanzeel Education Center, we support students from early childhood to higher education by providing school materials, guidance, and access to quality learning opportunities.",
+    "image2": "homepage_Posts/TANZEEL_LOGO-1_fLUzmJO.webp",
+    "title2": "TANZEEL FOUNDATION",
+    "time": "04:31:30",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_category_bottom_section",
+  "pk": 4,
+  "fields": {
+    "image1": "homepage_Posts/homepage_Posts/WhatsApp_Image_2023-12-31_at_20.40.33_bff64502.webp",
+    "title1": "Youth Empowerment",
+    "link_url": "Youth Empowerment",
+    "description": "We empower young people by guiding them toward education, skills development, and community responsibility. Our Back to Community program encourages youth to contribute positively to society and prepare for future academic and career success.",
+    "image2": "homepage_Posts/TANZEEL_LOGO-1_ZBsc9PQ.webp",
+    "title2": "TANZEEL FOUNDATION",
+    "time": "07:52:12",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_posts_main",
+  "pk": 1,
+  "fields": {
+    "image": "homepage_Posts_Main/homepage_Posts_Main/0R2A0743.webp",
+    "day": "05",
+    "month": "02",
+    "small_title": "TSDF",
+    "large_title": "Tanzeel Social Development Fund.",
+    "description": "Tanzeel Social Development Fund (TSDF) is a dedicated fund established by Tanzeel Foundation to support sustainable community development initiatives. The fund mobilizes resources from philanthropic individuals, partners, and organizations to address social, educational, health, and humanitarian needs. Guided by Islamic values of compassion, charity, and accountability, TSDF finances programs that empower vulnerable groups, promote self reliance, and strengthen community resilience. Through transparent management and collective support, the fund aims to create lasting positive impact and improve the quality of life for communities served by Tanzeel Foundation. Together we build hope always.!",
+    "hoster_name": "Suleiman Haidar",
+    "content": "Google",
+    "link_url": "hello",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_posts_side",
+  "pk": 1,
+  "fields": {
+    "image": "homepage_Posts_Side/homepage_Posts_Side/0R2A0719_KLFF8rS.webp",
+    "date": "2026-01-27",
+    "major_title": "Iftar Charity Dinner",
+    "descriptive_title": "The Iftar Charity Dinner brings together community members and stakeholders to break fast and support fundraising efforts for the Foundation’s ongoing development programs.",
+    "link_url": "Community Engagement",
+    "aprove": true,
+    "description": ""
+  }
+},
+{
+  "model": "pages.homepage_posts_side",
+  "pk": 2,
+  "fields": {
+    "image": "homepage_Posts_Side/homepage_Posts_Side/6J3A1438.webp",
+    "date": "2026-01-27",
+    "major_title": "Nisomeshe Charity Program",
+    "descriptive_title": "Providing school materials, uniforms, and stationery to underprivileged students, the program empowers children to pursue education with hope, confidence, and dignity.",
+    "link_url": "Education Support",
+    "aprove": true,
+    "description": ""
+  }
+},
+{
+  "model": "pages.homepage_posts_side",
+  "pk": 3,
+  "fields": {
+    "image": "homepage_Posts_Side/homepage_Posts_Side/Screenshot_2026-01-31_020511.webp",
+    "date": "2026-01-27",
+    "major_title": "Ramadhan Packge",
+    "descriptive_title": "During Ramadhan, the Foundation distributes essential food packages to families with orphans, widows, the elderly, and people with disabilities, promoting food security and compassion.",
+    "link_url": "Humanitarian Aid",
+    "aprove": true,
+    "description": ""
+  }
+},
+{
+  "model": "pages.homepage_posts_bottom_section",
+  "pk": 1,
+  "fields": {
+    "image": "homepage_Posts_Bottom_Section/homepage_Posts_Bottom_Section/Screenshot_2026-01-31_020557.webp",
+    "title": "Qurban Project -Eid-al-Adha",
+    "hoster_name": "Abdulhamid",
+    "descriptive_title": "",
+    "description": "The Qurban Project by Tanzeel Foundation provides nutritious meat to vulnerable families during the blessed days of Eid al Adha. The initiative supports orphans, widows, the elderly, and low income households while promoting compassion, unity, and shared responsibility. Guided by Islamic teachings of sacrifice and charity, the project strengthens community bonds, eases hardship, and ensures dignity, care, and joy for families during this important religious occasion. Serving humanity with faith.",
+    "link_url": "Humanitarian Aid",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_posts_bottom_section",
+  "pk": 2,
+  "fields": {
+    "image": "homepage_Posts_Bottom_Section/homepage_Posts_Bottom_Section/Screenshot_2026-01-31_020622.webp",
+    "title": "Mosque Construction",
+    "hoster_name": "Shukri Khatib",
+    "descriptive_title": "",
+    "description": "The Mosque Construction Project by Tanzeel Foundation provides a dedicated place of worship, Islamic education, and community engagement. Built through collective support and charitable contributions, the mosque serves as a spiritual hub for prayers, learning, and social gatherings. Guided by Islamic values, the initiative strengthens faith, unity, and moral development while fostering social cohesion, community responsibility, and long term spiritual growth for present and future generations.!!",
+    "link_url": "Community Development",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.homepage_posts_bottom_section",
+  "pk": 3,
+  "fields": {
+    "image": "homepage_Posts_Bottom_Section/homepage_Posts_Bottom_Section/Screenshot_2026-02-02_055923.webp",
+    "title": "Blood Donation",
+    "hoster_name": "Najim Burhan",
+    "descriptive_title": "",
+    "description": "Tanzeel Foundation organizes blood donation drives to support local hospitals and patients in urgent need of safe blood supplies. The initiative brings together volunteers, health professionals, and community members to save lives while promoting health awareness. Guided by Islamic values of compassion and service to humanity, the program encourages unity, social responsibility, and collective action to support the sick and strengthen community wellbeing for all people. It builds hope daily. Now",
+    "link_url": "Health & Humanitarian Aid",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.about_us_title",
+  "pk": 1,
+  "fields": {
+    "description": "Tanzeel Foundation is a non-governmental Islamic organization established in January 2021, dedicated to serving humanity through education, social welfare, healthcare support, and spiritual development. Guided by Islamic values of compassion, integrity, and community empowerment, the Foundation works to uplift vulnerable groups and build sustainable, resilient communities."
+  }
+},
+{
+  "model": "pages.about_us_top_section",
+  "pk": 1,
+  "fields": {
+    "image": "Top_section/Top_section/6J3A9645.webp",
+    "years_of_experience": "5",
+    "no_of_events": "20+",
+    "major_title": "Faith in Action",
+    "major_description": "Over the years, Tanzeel Foundation has positively impacted thousands of lives:  345 students supported through education programs  263 families assisted during Ramadhan  504 families supported through Qurban  1,000+ students reached through community init",
+    "minor_title1": "Community Outreach Programs",
+    "minor_description1": "We implement impactful outreach initiatives including education support, food distribution, clothing assistance, and youth guidance programs that directly address community needs.",
+    "minor_title2": "Sustainable Development",
+    "minor_description2": "Our programs are designed to create long-term impact through education centers, social services, waqf projects, and community infrastructure rooted in Islamic principles.",
+    "comment1": "Promoting education, self-reliance, and spiritual growth",
+    "comment2": "Supporting orphans, students, and vulnerable families with dignity"
+  }
+},
+{
+  "model": "pages.about_us_team_title",
+  "pk": 1,
+  "fields": {
+    "description": "The Tanzeel Foundation team is made up of dedicated professionals, volunteers, and community leaders who are committed to serving humanity with integrity and compassion. Guided by Islamic values, the team works collaboratively to plan, manage, and implement programs that create meaningful and lasting impact.\r\n\r\nThrough unity, transparency, and shared responsibility, our team ensures that every initiative is delivered with excellence, accountability, and respect for the communities we serve."
+  }
+},
+{
+  "model": "pages.about_us_team",
+  "pk": 1,
+  "fields": {
+    "image": "About_us_team/About_us_team/6J3A9576_xDPlEp9.webp",
+    "linkedin_link_url": "kdfvlkdfv",
+    "twitter_link_url": "d;ksd ;lsdc",
+    "instagram_link_url": ";ldcldscd",
+    "name": "Shukri Khatib",
+    "ocupation": "CEO and Founder",
+    "description": "Provides strategic leadership and vision, ensuring the foundation’s mission and values guide all programs and community initiatives.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.about_us_team",
+  "pk": 2,
+  "fields": {
+    "image": "About_us_team/About_us_team/6J3A9616.webp",
+    "linkedin_link_url": "eccs",
+    "twitter_link_url": "d;ksd ;lsdc",
+    "instagram_link_url": ";ldcldscd",
+    "name": "Omari Said",
+    "ocupation": "Accountant",
+    "description": "Manages financial records, budgeting, and reporting to ensure transparency, accountability, and responsible use of funds in line with the foundation’s mission.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.about_us_team",
+  "pk": 3,
+  "fields": {
+    "image": "About_us_team/About_us_team/6J3A9501.webp",
+    "linkedin_link_url": "kdfvlkdfv",
+    "twitter_link_url": "d;ksd ;lsdc",
+    "instagram_link_url": ";ldcldscd",
+    "name": "Najim Kishenyi",
+    "ocupation": "Human Resources (HR)",
+    "description": "Manages team coordination, volunteer engagement, and capacity building to support effective service delivery.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.about_us_team",
+  "pk": 4,
+  "fields": {
+    "image": "About_us_team/About_us_team/6J3A9598.webp",
+    "linkedin_link_url": "kdfvlkdfv",
+    "twitter_link_url": "d;ksd ;lsdc",
+    "instagram_link_url": ";ldcldscd",
+    "name": "Maheer issa",
+    "ocupation": "Operations Manager",
+    "description": "Coordinates daily operations and outreach activities, ensuring programs are delivered efficiently, on time, and in alignment with organizational goals.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.about_us_team",
+  "pk": 5,
+  "fields": {
+    "image": "About_us_team/About_us_team/6J3A9633.webp",
+    "linkedin_link_url": "kdfvlkdfv",
+    "twitter_link_url": "d;ksd ;lsdc",
+    "instagram_link_url": ";ldcldscd",
+    "name": "Salum Khaleed",
+    "ocupation": "Managing Director",
+    "description": "Oversees daily operations and program implementation, ensuring efficiency, accountability, and sustainable community impact.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.about_us_team",
+  "pk": 6,
+  "fields": {
+    "image": "About_us_team/About_us_team/6J3A9585.webp",
+    "linkedin_link_url": "kdfvlkdfv",
+    "twitter_link_url": "d;ksd ;lsdc",
+    "instagram_link_url": ";ldcldscd",
+    "name": "Ibrahim Masunu",
+    "ocupation": "Project Manager",
+    "description": "Operations Manager Coordinates daily operations and outreach activities, ensuring programs are delivered efficiently, on time, and in alignment with organizational goals.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.blog_top_image",
+  "pk": 1,
+  "fields": {
+    "image": "blog_top_image/blog_top_image/6J3A1478.webp",
+    "image_description_major": "“The most beloved people to Allah are those who are most beneficial to people.” (Hadith)",
+    "image_description_minor": "Exploring how artificial intelligence is transforming medical diagnosis, treatment planning, and patient outcomes in modern healthcare systems.",
+    "image_profile": "blog_top_image_profile/TANZEEL_LOGO-1.webp",
+    "profile_name": "TanzeelFoundation",
+    "profile_occupation": "Dar es salaam, Tanzania.",
+    "date_posted": "2026-02-02",
+    "time_posted": "04:04:25",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.article_tab",
+  "pk": 1,
+  "fields": {
+    "tab_one": "Overview",
+    "tab_two": "Stories of Hope",
+    "tab_three": "Outreach Programs",
+    "tab_four": "Beneficiaries",
+    "tab_five": "Challenges Ahead"
+  }
+},
+{
+  "model": "pages.tab_one",
+  "pk": 1,
+  "fields": {
+    "major_description": "Stories of hope highlight real-life experiences of individuals and families whose lives have been positively impacted by Tanzeel Foundation’s programs. These stories reflect transformation, resilience, and renewed opportunities—such as students continuing their education and orphans receiving care.",
+    "minor_description": "hey serve to show the real human impact of the foundation’s work and inspire confidence, compassion, and optimism within the community.",
+    "quote": "“The most beloved people to Allah are those who are most beneficial to people.”",
+    "quote_author": "(Hadith)"
+  }
+},
+{
+  "model": "pages.tab_three",
+  "pk": 1,
+  "fields": {
+    "title": "Outreach Programs",
+    "description": "Community outreach programs embody the Islamic value of Ukhuwwah (brotherhood) and Khidmah (service to humanity). Islam encourages believers to care for their neighbors and wider community, especially those in need"
+  }
+},
+{
+  "model": "pages.tab_three_post",
+  "pk": 4,
+  "fields": {
+    "image": "tab_three_images/tab_three_images/0R2A08350.webp",
+    "image_title": "Spiritual Growth",
+    "image_description": "We enhance the spiritual growth through different occasions and events.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.tab_three_post",
+  "pk": 5,
+  "fields": {
+    "image": "tab_three_images/tab_three_images/0R2A0727.webp",
+    "image_title": "Community Fundraise",
+    "image_description": "We enhance the  community growth through different events that fundraise.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.tab_three_post",
+  "pk": 6,
+  "fields": {
+    "image": "tab_three_images/tab_three_images/6J3A1436.webp",
+    "image_title": "Educational Growth",
+    "image_description": "We distributes school materials to orphans and less privileged children.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.tab_four",
+  "pk": 1,
+  "fields": {
+    "title": "Tanzeel Beneficiaries",
+    "description": "Beneficiaries are at the heart of Tanzeel Foundation’s mission, reflecting Islam’s strong emphasis on caring for orphans, the poor, and the vulnerable. The foundation ensures that beneficiaries are supported with dignity, respect, and compassion.",
+    "point_one": "Orphans and disadvantaged students",
+    "point_two": "Vulnerable families and widows",
+    "point_three": "Strengthening healthcare and social services.",
+    "point_four": "Monitoring and Follow-Up"
+  }
+},
+{
+  "model": "pages.tab_five",
+  "pk": 1,
+  "fields": {
+    "title": "Challenges Ahead"
+  }
+},
+{
+  "model": "pages.tab_five_post",
+  "pk": 1,
+  "fields": {
+    "title": "Community Awareness and Engagement",
+    "description": "Limited awareness among the wider community affects volunteer participation, partnerships, and fundraising efforts needed to expand programs and reach more beneficiaries.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.tab_five_post",
+  "pk": 2,
+  "fields": {
+    "title": "Sustainability of Long-Term Projects",
+    "description": "Projects like building schools, hospitals, mosques, and education centers require long-term planning, consistent funding, and strong management to sustain them over time.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.tab_five_post",
+  "pk": 3,
+  "fields": {
+    "title": "High Number of Needy Beneficiaries",
+    "description": "The foundation serves orphans, widows, elderly people, students, and low-income families, and the demand for support continues to increase beyond available resources.",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.tab_five_post",
+  "pk": 4,
+  "fields": {
+    "title": "Limited Financial Resources",
+    "description": "Many programs such as education support, healthcare services, and charity initiatives rely heavily on donations and fundraising, which are sometimes insufficient to meet the growing community needs",
+    "aprove": true
+  }
+},
+{
+  "model": "pages.appeal",
+  "pk": 1,
+  "fields": {
+    "title": "TSDF",
+    "slug": "tsdf",
+    "short_description": "Tanzeel social development fund",
+    "full_description": "qawsedryuhjipkoiljhgfxsd cfnhjilkjhegazxdvnmb   awgyu  awtsedrpj'o s weyup'ojk errtyuijkljb,n   asedrtfgyuhj se5dr7tv8byujmk ertvbyjnimk, ecrbuhnji ecrtvbgjmk, drtyumko drtyjnimk ertvbyujni k, rdtyuijk, rtyjnikml. ertuhjik er5tuhjiko r5tyuikol tfgyjiokl, ruhjikl, dftyujikmln",
+    "image": "appeals/0R2A0743.webp",
+    "category": "General",
+    "region": "Tanzania",
+    "goal_amount": "1000000.00",
+    "raised_amount": "66096.00",
+    "is_urgent": false,
+    "order": 0,
+    "aprove": true,
+    "created_at": "2026-06-03T06:28:20.765Z",
+    "updated_at": "2026-06-03T06:28:20.765Z"
+  }
+},
+{
+  "model": "pages.appeal",
+  "pk": 2,
+  "fields": {
+    "title": "NISOMESHE",
+    "slug": "nisomeshe",
+    "short_description": "Nisomeshe program",
+    "full_description": "Nisomeshe is an educational support program by Tanzeel Foundation dedicated to empowering students through access to quality learning opportunities. The program aims to reduce barriers to education by providing assistance such as school supplies, learning materials, educational sponsorships, mentorship, and academic guidance. Through Nisomeshe, Tanzeel Foundation seeks to inspire a culture of learning, promote equal access to education, and help young people develop the knowledge and skills needed to achieve their academic and personal goals. By investing in education today, the program contributes to building stronger communities and creating a brighter future for the next generation.",
+    "image": "appeals/0R2A08350.webp",
+    "category": "Education",
+    "region": "Tanzania",
+    "goal_amount": "6000000.00",
+    "raised_amount": "700000000.00",
+    "is_urgent": false,
+    "order": 3,
+    "aprove": true,
+    "created_at": "2026-06-03T14:22:20.955Z",
+    "updated_at": "2026-06-03T14:23:50.703Z"
+  }
+},
+{
+  "model": "pages.appealimpact",
+  "pk": 1,
+  "fields": {
+    "title": "TSdf",
+    "description": "awsedrctfvbgyjn xjn sebuhnjimk, xctgvyubjnimk,l xdctfvgyjnmk xctgvyujni xcfgvbhjn exctgvyjnik etv7bgyuhjnmk er7jnik xergy8uhjnik xertf7gyjiok er7t8jik xert7gyujiok dtfgyjik xer7tgyjiomk, e6rt7gyjiok e4r57tgy8uhjo er7tgy8uhjiok, r57tyjiomkl, dtf7gyjiok rtyuhjiko",
+    "image": "appeal_impacts/0R2A0743.webp",
+    "stat_number": "300students",
+    "stat_label": "",
+    "order": 0,
+    "aprove": true
+  }
+},
+{
+  "model": "pages.appealimpact",
+  "pk": 2,
+  "fields": {
+    "title": "Nisomeshe impacts",
+    "description": "The Nisomeshe Program has positively impacted the lives of students by increasing access to educational resources, improving school attendance, and enhancing academic performance. Through educational support, mentorship, and sponsorship opportunities, the program helps students overcome financial and social barriers that may hinder their learning journey. By empowering young people with knowledge, confidence, and essential life skills, Nisomeshe contributes to higher educational attainment, greater opportunities for future success, and the development of responsible community leaders. The program's long-term impact extends beyond individual beneficiaries, fostering stronger families, more educated communities, and sustainable social development.",
+    "image": "appeal_impacts/0R2A08350.webp",
+    "stat_number": "300students",
+    "stat_label": "students",
+    "order": 5,
+    "aprove": true
+  }
+}
+]

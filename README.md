@@ -11,7 +11,7 @@ python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 
-copy .env.example .env
+copy .env.example .envpython manage.py run
 # edit .env to set SECRET_KEY and other vars
 
 ```

@@ -22,9 +22,9 @@ class Donation(models.Model):
 
     COUNTRY_CHOICES = [
         ('Most in Need', 'Most in Need'),
-        ('Gaza', 'Gaza'),
-        ('Syria', 'Syria'),
-        ('Tanzania', 'Tanzania'),
+        ('Gaza', 'Zanzibar'),
+        ('Syria', 'Dar es salaam'),
+        ('Tanzania', 'Morogoro'),
     ]
 
     PROVIDE_CHOICES = [

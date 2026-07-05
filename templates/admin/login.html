@@ -1,0 +1,80 @@
+{% load i18n static %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" dir="{{ LANGUAGE_BIDI|yesno:"rtl,ltr" }}">
+<head>
+<title>{% translate 'Log in' %} | Tanzeel Portal</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'admin/css/custom.css' %}">
+</head>
+<body class="login-page">
+
+<div class="login-page-wrapper">
+    <!-- Left Pane - Branded Marketing/Context Banner -->
+    <div class="login-left-pane">
+        <div style="max-width: 480px; display: flex; flex-direction: column; gap: 24px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span style="font-family: var(--font-sans); font-weight: 800; font-size: 24px; color: #ffffff; letter-spacing: -0.5px;">Tanzeel Foundation</span>
+            </div>
+            <h2 style="font-size: 42px; font-weight: 800; line-height: 1.2; letter-spacing: -1px; margin-top: 20px;">
+                Empowering Communities Through Transparent Giving
+            </h2>
+            <p style="font-size: 16px; color: var(--text-muted); line-height: 1.6;">
+                Access the administrative dashboard to track donations, monitor real-time mobile checkout transactions, verify AzamPay webhooks, and coordinate support distribution.
+            </p>
+        </div>
+        
+        <!-- Subtle geometric glow in background -->
+        <div style="position: absolute; bottom: -100px; left: -100px; width: 300px; height: 300px; background-color: rgba(37, 99, 235, 0.15); filter: blur(80px); border-radius: 50%;"></div>
+    </div>
+
+    <!-- Right Pane - Login form container -->
+    <div class="login-right-pane">
+        <div class="login-container">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <h1 style="font-size: 28px; font-weight: 800; letter-spacing: -0.5px; color: var(--text-primary);">Portal Sign In</h1>
+                <p style="font-size: 14px; color: var(--text-secondary);">Enter your staff credentials to continue.</p>
+            </div>
+
+            {% if form.errors and not form.non_field_errors %}
+            <p class="errornote">
+            {% if form.errors.items|length == 1 %}{% translate "Please correct the error below." %}{% else %}{% translate "Please correct the errors below." %}{% endif %}
+            </p>
+            {% endif %}
+
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            <p class="errornote">
+                {{ error }}
+            </p>
+            {% endfor %}
+            {% endif %}
+
+            <form action="{{ app_path }}" method="post" id="login-form" class="login-form">
+                {% csrf_token %}
+
+                <div class="form-row">
+                    <label for="{{ form.username.id_for_label }}">{% translate 'Username' %}</label>
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </div>
+
+                <div class="form-row" style="margin-top: 8px;">
+                    <label for="{{ form.password.id_for_label }}">{% translate 'Password' %}</label>
+                    {{ form.password }}
+                    {{ form.password.errors }}
+                </div>
+
+                <input type="hidden" name="next" value="{{ next }}">
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 16px; padding: 14px; font-size: 14px;">
+                    {% translate 'Log in' %}
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+{% extends "admin/change_list.html" %}
+{% load static %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src="{% static 'admin/js/webhook-admin.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="webhook-toast-container" aria-live="polite"></div>
+<div class="webhook-admin-page">
+    <div class="webhook-admin-hero">
+        <div>
+            <div class="breadcrumb-pill">Payments / Webhooks / Events</div>
+            <h2>AzamPay webhook activity</h2>
+            <p>Monitor incoming events, verification results, and processing status in a clean, premium payments dashboard.</p>
+        </div>
+        <div class="webhook-admin-hero-actions">
+            <button type="button" class="btn btn-secondary webhooks-refresh-btn" data-toast="Dashboard refreshed">
+                <i data-lucide="refresh-cw"></i>
+                <span>Refresh</span>
+            </button>
+            <button type="button" class="btn btn-outline" data-filter-toggle>
+                <i data-lucide="sliders-horizontal"></i>
+                <span>Filters</span>
+            </button>
+            <button type="button" class="btn btn-primary webhook-export-btn" data-toast="Export started">
+                <i data-lucide="download"></i>
+                <span>Export</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="webhook-stats-grid">
+        <article class="webhook-stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-title">Total Webhooks</div>
+                    <div class="stat-value">{{ stats_total|default:0 }}</div>
+                </div>
+                <div class="stat-icon" style="background: linear-gradient(135deg, #2563eb, #3b82f6);"><i data-lucide="webhook"></i></div>
+            </div>
+            <div class="stat-footer"><span>Live event stream</span><span class="trend-pill">+12%</span></div>
+        </article>
+        <article class="webhook-stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-title">Successful Events</div>
+                    <div class="stat-value">{{ stats_success|default:0 }}</div>
+                </div>
+                <div class="stat-icon" style="background: linear-gradient(135deg, #22c55e, #16a34a);"><i data-lucide="check-circle-2"></i></div>
+            </div>
+            <div class="stat-footer"><span>Verified and processed</span><span class="trend-pill">Stable</span></div>
+        </article>
+        <article class="webhook-stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-title">Failed Events</div>
+                    <div class="stat-value">{{ stats_failed|default:0 }}</div>
+                </div>
+                <div class="stat-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);"><i data-lucide="alert-circle"></i></div>
+            </div>
+            <div class="stat-footer"><span>Needs review</span><span class="trend-pill">Alert</span></div>
+        </article>
+        <article class="webhook-stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-title">Pending Events</div>
+                    <div class="stat-value">{{ stats_pending|default:0 }}</div>
+                </div>
+                <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);"><i data-lucide="clock-3"></i></div>
+            </div>
+            <div class="stat-footer"><span>Awaiting action</span><span class="trend-pill">Watch</span></div>
+        </article>
+        <article class="webhook-stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-title">Today's Events</div>
+                    <div class="stat-value">{{ stats_today|default:0 }}</div>
+                </div>
+                <div class="stat-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);"><i data-lucide="calendar-days"></i></div>
+            </div>
+            <div class="stat-footer"><span>Incoming volume</span><span class="trend-pill">Live</span></div>
+        </article>
+        <article class="webhook-stat-card">
+            <div class="stat-header">
+                <div>
+                    <div class="stat-title">This Month</div>
+                    <div class="stat-value">{{ stats_this_month|default:0 }}</div>
+                </div>
+                <div class="stat-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);"><i data-lucide="bar-chart-3"></i></div>
+            </div>
+            <div class="stat-footer"><span>Monthly trend</span><span class="trend-pill">High</span></div>
+        </article>
+    </div>
+
+    <div class="webhook-toolbar">
+        <div class="webhook-search-wrapper">
+            <i data-lucide="search"></i>
+            <input type="search" id="webhook-live-search" placeholder="Search by hash, ID, reference, or note" aria-label="Search webhook events">
+            <button type="button" class="webhook-clear-search" id="webhook-clear-search" aria-label="Clear search">×</button>
+        </div>
+        <div class="webhook-toolbar-actions">
+            <button type="button" class="btn btn-secondary webhooks-refresh-btn" data-toast="Dashboard refreshed">
+                <i data-lucide="refresh-cw"></i>
+                <span>Refresh</span>
+            </button>
+            <button type="button" class="btn btn-outline" data-filter-toggle>
+                <i data-lucide="sliders-horizontal"></i>
+                <span>Filters</span>
+            </button>
+            <button type="button" class="btn btn-primary webhook-export-btn" data-toast="Export started">
+                <i data-lucide="download"></i>
+                <span>Export</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="webhook-filter-drawer" id="webhook-filter-drawer" role="dialog" aria-label="Webhook filters">
+        <strong>Quick filters</strong>
+        <div class="filter-chip-group">
+            <button type="button" class="webhook-filter-chip active">All events</button>
+            <button type="button" class="webhook-filter-chip">Verified</button>
+            <button type="button" class="webhook-filter-chip">Processed</button>
+            <button type="button" class="webhook-filter-chip">Pending</button>
+            <button type="button" class="webhook-filter-chip">Duplicates</button>
+        </div>
+    </div>
+
+    <div class="webhook-table-card">
+        {{ block.super }}
+    </div>
+</div>
+{% endblock %}

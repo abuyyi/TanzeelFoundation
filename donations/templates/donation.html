@@ -8,6 +8,7 @@
 {% block extra_js %} <script>
         function bindDonationAmountInput(input) {
             input.addEventListener('input', updateTotal);
+            input.addEventListener('change', updateTotal);
         }
 
         function getSelectedCurrencySymbol() {
@@ -18,26 +19,80 @@
             return currencySelect.value;
         }
 
+        function formatCurrencyAmount(amount, currencySymbol) {
+            const normalized = Number.isFinite(amount) ? amount : 0;
+            const rounded = normalized.toFixed(2);
+            return currencySymbol ? `${currencySymbol} ${rounded}` : rounded;
+        }
+
+        function getSelectedCurrencyValue() {
+            const currencySelects = document.querySelectorAll('#donation-section select[name="currency"]');
+            if (!currencySelects.length) {
+                return 'TSH';
+            }
+            return currencySelects[0].value || 'TSH';
+        }
+
+        function updateCurrencyHint() {
+            const note = document.querySelector('.minimum-amount-note');
+            if (!note) {
+                return;
+            }
+            const currencyValue = getSelectedCurrencyValue();
+            if (currencyValue === '$') {
+                note.textContent = 'Minimum $1';
+            } else if (currencyValue === '€') {
+                note.textContent = 'Minimum €1';
+            } else {
+                note.textContent = 'Minimum Tsh.2000';
+            }
+        }
+
+        function updateCurrencySelection(currencyValue) {
+            document.querySelectorAll('#donation-section select[name="currency"]').forEach(select => {
+                select.value = currencyValue;
+            });
+            updateCurrencyHint();
+        }
+
+        function bindCurrencySelect(select) {
+            select.addEventListener('change', () => {
+                updateCurrencySelection(select.value);
+                updateTotal();
+            });
+        }
+
         function updateTotal() {
             let total = 0;
             document.querySelectorAll('#donation-section .donation-amount').forEach(input => {
-                total += parseFloat(input.value) || 0;
+                const value = parseFloat(input.value);
+                if (Number.isFinite(value)) {
+                    total += value;
+                }
             });
 
             const currencySymbol = getSelectedCurrencySymbol();
-            const total AmountElement = document.getElementById('total-amount');
-            totalAmountElement.innerText = currencySymbol ? `${currencySymbol} ${total}` : `${total}`;
+            const totalAmountElement = document.getElementById('total-amount');
+            if (totalAmountElement) {
+                totalAmountElement.textContent = formatCurrencyAmount(total, currencySymbol);
+            }
+            updateCurrencyHint();
         }
 
         function addDonation() {
             const donationEntries = document.getElementById('donation-entries');
             const baseDonation = donationEntries.querySelector('.donation-entry');
             const newDonation = baseDonation.cloneNode(true);
+            const currencyValue = getSelectedCurrencyValue();
 
-            // Clear input values in the cloned donation entry
             newDonation.querySelectorAll('input, select').forEach(field => {
                 if (field.tagName === 'INPUT') {
                     field.value = '';
+                }
+
+                if (field.tagName === 'SELECT' && field.name === 'currency') {
+                    field.value = currencyValue;
+                    bindCurrencySelect(field);
                 }
 
                 if (field.classList.contains('donation-amount')) {
@@ -55,17 +110,17 @@
             });
             const providerGroup = document.getElementById('mobile-provider-group');
             const paymentMethodInputs = document.querySelectorAll('input[name="payment_method"]');
-            const currencySelect = document.querySelector('#donation-section select[name="currency"]');
+            const currencySelects = document.querySelectorAll('#donation-section select[name="currency"]');
             const updateProviderVisibility = () => {
                 const selectedMethod = document.querySelector('input[name="payment_method"]:checked');
-                providerGroup.hidden = !selectedMethod || selectedMethod.value !== 'mobile_money';
+                if (providerGroup) {
+                    providerGroup.hidden = !selectedMethod || selectedMethod.value !== 'mobile_money';
+                }
             };
             paymentMethodInputs.forEach(input => {
                 input.addEventListener('change', updateProviderVisibility);
             });
-            if (currencySelect) {
-                currencySelect.addEventListener('change', updateTotal);
-            }
+            currencySelects.forEach(bindCurrencySelect);
             updateProviderVisibility();
             updateTotal();
         });

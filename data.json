@@ -1,0 +1,1391 @@
+[
+  {
+    "model": "admin_interface.theme",
+    "pk": 1,
+    "fields": {
+      "name": "Django",
+      "active": true,
+      "title": "Django administration",
+      "title_color": "#F5DD5D",
+      "title_visible": true,
+      "logo": "",
+      "logo_color": "#FFFFFF",
+      "logo_max_width": 400,
+      "logo_max_height": 100,
+      "logo_visible": true,
+      "favicon": "",
+      "env_name": "",
+      "env_color": "#E74C3C",
+      "env_visible_in_header": true,
+      "env_visible_in_favicon": true,
+      "language_chooser_active": true,
+      "language_chooser_control": "default-select",
+      "language_chooser_display": "code",
+      "css_header_background_color": "#0C4B33",
+      "css_header_text_color": "#44B78B",
+      "css_header_link_color": "#FFFFFF",
+      "css_header_link_hover_color": "#C9F0DD",
+      "css_module_background_color": "#44B78B",
+      "css_module_background_selected_color": "#FFFFCC",
+      "css_module_text_color": "#FFFFFF",
+      "css_module_link_color": "#FFFFFF",
+      "css_module_link_selected_color": "#FFFFFF",
+      "css_module_link_hover_color": "#C9F0DD",
+      "css_module_rounded_corners": true,
+      "css_generic_link_color": "#0C3C26",
+      "css_generic_link_hover_color": "#156641",
+      "css_generic_link_active_color": "#29B864",
+      "css_save_button_background_color": "#0C4B33",
+      "css_save_button_background_hover_color": "#0C3C26",
+      "css_save_button_text_color": "#FFFFFF",
+      "css_delete_button_background_color": "#BA2121",
+      "css_delete_button_background_hover_color": "#A41515",
+      "css_delete_button_text_color": "#FFFFFF",
+      "related_modal_active": true,
+      "related_modal_background_color": "#000000",
+      "related_modal_background_opacity": "0.3",
+      "related_modal_rounded_corners": true,
+      "related_modal_close_button_visible": true,
+      "list_filter_highlight": true,
+      "list_filter_dropdown": true,
+      "list_filter_sticky": true,
+      "list_filter_removal_links": true,
+      "foldable_apps": true,
+      "show_fieldsets_as_tabs": false,
+      "show_inlines_as_tabs": false,
+      "collapsible_stacked_inlines": false,
+      "collapsible_stacked_inlines_collapsed": true,
+      "collapsible_tabular_inlines": false,
+      "collapsible_tabular_inlines_collapsed": true,
+      "recent_actions_visible": true,
+      "form_actions_sticky": true,
+      "form_submit_sticky": true,
+      "form_pagination_sticky": true
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "admins",
+      "permissions": [
+        1,
+        2,
+        3,
+        4,
+        129,
+        130,
+        131,
+        132,
+        9,
+        10,
+        11,
+        12,
+        5,
+        6,
+        7,
+        8,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        137,
+        138,
+        139,
+        140,
+        29,
+        30,
+        31,
+        32,
+        25,
+        26,
+        27,
+        28,
+        153,
+        154,
+        155,
+        156,
+        133,
+        134,
+        135,
+        136,
+        149,
+        150,
+        151,
+        152,
+        145,
+        146,
+        147,
+        148,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        73,
+        74,
+        75,
+        76,
+        89,
+        85,
+        90,
+        86,
+        91,
+        87,
+        92,
+        88,
+        97,
+        98,
+        99,
+        100,
+        93,
+        94,
+        95,
+        96,
+        141,
+        142,
+        143,
+        144,
+        57,
+        53,
+        58,
+        54,
+        59,
+        55,
+        60,
+        56,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        33,
+        41,
+        34,
+        42,
+        35,
+        43,
+        36,
+        44,
+        69,
+        70,
+        71,
+        72,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        37,
+        38,
+        39,
+        40,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        117,
+        118,
+        119,
+        120,
+        101,
+        102,
+        103,
+        104,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        105,
+        106,
+        107,
+        108,
+        21,
+        22,
+        23,
+        24
+      ]
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$vg6kRxFeeaRoYxsvQj1n8I$IoK8mfbhCuoGaBueBwwzYSTNFdaNrfS8wtAU0svVzwc=",
+      "last_login": "2026-07-04T13:20:40.970Z",
+      "is_superuser": true,
+      "username": "wangstar",
+      "first_name": "",
+      "last_name": "",
+      "email": "mahadwangstar@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2025-09-10T07:14:09.285Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$0lZ4knBuFSh8QbiExKy5Dn$u/wGebea2h6JO0p6A1ZqxZuNCq9fsw2XnKlNSxJPrq4=",
+      "last_login": "2026-07-04T13:31:27.591Z",
+      "is_superuser": true,
+      "username": "shukri",
+      "first_name": "",
+      "last_name": "",
+      "email": "shukri@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-01-26T17:54:30Z",
+      "groups": [],
+      "user_permissions": [
+        1,
+        2,
+        3,
+        4,
+        129,
+        130,
+        131,
+        132,
+        9,
+        10,
+        11,
+        12,
+        5,
+        6,
+        7,
+        8,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        137,
+        138,
+        139,
+        140,
+        29,
+        30,
+        31,
+        32,
+        25,
+        26,
+        27,
+        28,
+        153,
+        154,
+        155,
+        156,
+        133,
+        134,
+        135,
+        136,
+        149,
+        150,
+        151,
+        152,
+        145,
+        146,
+        147,
+        148,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        73,
+        74,
+        75,
+        76,
+        89,
+        85,
+        90,
+        86,
+        91,
+        87,
+        92,
+        88,
+        97,
+        98,
+        99,
+        100,
+        93,
+        94,
+        95,
+        96,
+        141,
+        142,
+        143,
+        144,
+        57,
+        53,
+        58,
+        54,
+        59,
+        55,
+        60,
+        56,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        33,
+        41,
+        34,
+        42,
+        35,
+        43,
+        36,
+        44,
+        69,
+        70,
+        71,
+        72,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        37,
+        38,
+        39,
+        40,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        117,
+        118,
+        119,
+        120,
+        101,
+        102,
+        103,
+        104,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        105,
+        106,
+        107,
+        108,
+        21,
+        22,
+        23,
+        24
+      ]
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$szZdp01JOxKLBcAbDYtVs9$PdZ/7g7b8ZUfIiNlZUtBr2/A1Yz3QiRKWLVhHakrkzo=",
+      "last_login": "2026-07-04T13:51:53.892Z",
+      "is_superuser": true,
+      "username": "cpanel",
+      "first_name": "",
+      "last_name": "",
+      "email": "abdulhamidhaji2023@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-02-06T16:58:57Z",
+      "groups": [
+        1
+      ],
+      "user_permissions": [
+        1,
+        2,
+        3,
+        4,
+        129,
+        130,
+        131,
+        132,
+        9,
+        10,
+        11,
+        12,
+        5,
+        6,
+        7,
+        8,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        137,
+        138,
+        139,
+        140,
+        29,
+        30,
+        31,
+        32,
+        25,
+        26,
+        27,
+        28,
+        153,
+        154,
+        155,
+        156,
+        133,
+        134,
+        135,
+        136,
+        149,
+        150,
+        151,
+        152,
+        145,
+        146,
+        147,
+        148,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        73,
+        74,
+        75,
+        76,
+        89,
+        85,
+        90,
+        86,
+        91,
+        87,
+        92,
+        88,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        97,
+        98,
+        99,
+        100,
+        93,
+        94,
+        95,
+        96,
+        141,
+        142,
+        143,
+        144,
+        57,
+        53,
+        58,
+        54,
+        59,
+        55,
+        60,
+        56,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        33,
+        41,
+        34,
+        42,
+        35,
+        43,
+        36,
+        44,
+        69,
+        70,
+        71,
+        72,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        37,
+        38,
+        39,
+        40,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        117,
+        118,
+        119,
+        120,
+        101,
+        102,
+        103,
+        104,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        105,
+        106,
+        107,
+        108,
+        21,
+        22,
+        23,
+        24
+      ]
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "5ao7oa28hv08t4tshrz8c9cih2k7kwsn",
+    "fields": {
+      "session_data": ".eJxVjMsOgjAUBf-la9NwaQvFpXu_obkvBDVtQmFl_HclYaHbMzPnZRJu65S2qkuaxZyNN6ffjZAfmncgd8y3YrnkdZnJ7oo9aLXXIvq8HO7fwYR1-tZhDIN3XSciBDJEBiQeEUhbJeg5iICii76J4IdeewHPY2hcbMExqXl_AAawOIs:1voPBT:EXCVwWs4XkvX9V9ZAakx5eXe6EXc8VYcFFJU6pjrm2E",
+      "expire_date": "2026-02-20T16:59:55.530Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "5g2ts7ov2v8mbn3u2m9ki7z01t0y6jt9",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hDaMjPUpXvPQGYApWogKe3KeHfbpAvd_vfefyvP65L92tLsp6jOitTpdxMOz1R2EB9c7lWHWpZ5Er0r-qBNX2tMr8vh_h1kbnmrB2JLJGxsIiTH1iGgAxMAoyTb0dgHCwNIJKLOuN6MeAPCzRJ0ZNTnC7SmNhw:1wg0Fx:jLyxufoY3ZyLiguCOxVagktizIz8GSqBRLzRlPyI9Sc",
+      "expire_date": "2026-07-18T13:18:05.843Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "5gnxstyet3dxo6pi6ul3osbym49idhgu",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hDaKVBcuvcMZKYzSNVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uz6tTpdyOcHlJ2wHcst6qnWtZlJr0r-qBNXyvL83K4fwcZW_7WxiJ7EwCs-IFGIAvecDeIc95YQN8ziKGQ-gBEBhM46zmI7cc0sEvq_QG93TdJ:1wg0IS:uEav6yDe3v_JM3glKnyI5Cdh_0MJg4M_Wd0W6iyRyDQ",
+      "expire_date": "2026-07-18T13:20:40.978Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "7amr0ajjlpopmdjelzjzp35v21wiltyd",
+    "fields": {
+      "session_data": ".eJxVjEEOgjAQRe_StWlaWpjBpXvPQGY6g6CmTSisjHdXEha6_e-9_zIDbes0bFWXYRZzNsGcfjem9NC8A7lTvhWbSl6Xme2u2INWey2iz8vh_h1MVKdv7RwBOBTyozhW7dlTDF1yMXgElMaxDxRkxB4ZW-hiJ6jge4UWmpjM-wPZzjdK:1vmjXY:HzzoZN89m3RJq_zzlabD0j6LvU9t23HFyg3mNc9Ryy8",
+      "expire_date": "2026-02-16T02:19:48.595Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "8ktiaj3dl5705urtj2g5xiwqbet9ymh1",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hDaKVBcuvcMZKYzSNVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uz6tTpdyOcHlJ2wHcst6qnWtZlJr0r-qBNXyvL83K4fwcZW_7WxiJ7EwCs-IFGIAvecDeIc95YQN8ziKGQ-gBEBhM46zmI7cc0sEvq_QG93TdJ:1vUpy9:lx37deB1RbCLiPEmk2jxKo-SOS2QnAd1ighNZiOrr6E",
+      "expire_date": "2025-12-28T17:33:17.734Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "9os4c77nzj1vhexp5cznjjqqlw8eoaza",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hDaKVBcuvcMZKYzSNVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uz6tTpdyOcHlJ2wHcst6qnWtZlJr0r-qBNXyvL83K4fwcZW_7WxiJ7EwCs-IFGIAvecDeIc95YQN8ziKGQ-gBEBhM46zmI7cc0sEvq_QG93TdJ:1vUpxS:ueLx7bUpi3kQ36BZc6DdS7Z8Y870QQyUENrpJuZvrk8",
+      "expire_date": "2025-12-28T17:32:34.032Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "asrtzrv2cl81e3lwqh6vq55ewod7r6tj",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyFLWVvx6L3fQHYXkKqhSWlPxn-XJj3obTLvzbyVp23Nfqtx8VNQV9Wp02_HJM9YdhAeVO6zlrmsy8R6V_RBqx7nEF-3w_07yFRzWxtBdtAh2kEIDUp0xpoUgKVFSNRHiAEuqbdJ7Dk45xgJGDk1fzDq8wXrujh_:1wUWly:UUomCOeKpWPsPYUN2RLmMa7zLuV6l0wU3W9JVC_QpCg",
+      "expire_date": "2026-06-16T21:35:42.635Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "cgyf6x65fonnlpomhte0674df5sb2dpx",
+    "fields": {
+      "session_data": ".eJxVjMEOwiAQRP-FsyFLWVvx6L3fQHYXkKqhSWlPxn-XJj3obTLvzbyVp23Nfqtx8VNQV9Wp02_HJM9YdhAeVO6zlrmsy8R6V_RBqx7nEF-3w_07yFRzWxtBdtAh2kEIDUp0xpoUgKVFSNRHiAEuqbdJ7Dk45xgJGDk1fzDq8wXrujh_:1wSw3l:Be7iKIsVNi8X-yJxDzcmkH4ZwnpyUms3fWXarxLPfNk",
+      "expire_date": "2026-06-12T12:11:29.130Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "fsqr5e1qipthdxu6ex4vxzgwdci1mjd0",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hCGgoBL9z0DGZhBqoYmpV0Z765NutDtf-_9l4i4rTVunZc4kbgIL06_W8L84LYDumO7zTLPbV2mJHdFHrTLcSZ-Xg_376Bir98aFLhsPSnLRJoIlR3KEEAnUJhKUmdHDMaA4wKscxiKN2wSBmMN5SLeH-pzOFM:1wg0Gc:BlLHT3UFWkTCh3NFrR6vR8SAbGjb5jQb3ShP-V31Kb0",
+      "expire_date": "2026-07-18T13:18:46.161Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "h1l8nurh33c2v28qgk25xnqhkgrat187",
+    "fields": {
+      "session_data": ".eJxVjMsOgjAUBf-la9NwaQvFpXu_obkvBDVtQmFl_HclYaHbMzPnZRJu65S2qkuaxZyNN6ffjZAfmncgd8y3YrnkdZnJ7oo9aLXXIvq8HO7fwYR1-tZhDIN3XSciBDJEBiQeEUhbJeg5iICii76J4IdeewHPY2hcbMExqXl_AAawOIs:1w5iud:cEpsgwdbw8QL-jN6DhEMdHdvCJkSyZtbXrxGJZBK8WY",
+      "expire_date": "2026-04-09T11:30:07.137Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "jcmsib7i6o8fpaie5ud8wrrihpm92wex",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hDaKVBcuvcMZKYzSNVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uz6tTpdyOcHlJ2wHcst6qnWtZlJr0r-qBNXyvL83K4fwcZW_7WxiJ7EwCs-IFGIAvecDeIc95YQN8ziKGQ-gBEBhM46zmI7cc0sEvq_QG93TdJ:1vaquG:N16ty6r0nEjTD_35-AJeCjk7JZWerCpjvrC2tBirLHk",
+      "expire_date": "2026-01-14T07:46:08.007Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "pdnjjh4ls15b73lf8aniih2wouneqcwf",
+    "fields": {
+      "session_data": ".eJxVjDsOwjAQBe_iGlnejT8bSvqcwVp_wAFkS3FSIe4OkVJA-2bmvYTnbS1-63nxcxJngeL0uwWOj1x3kO5cb03GVtdlDnJX5EG7nFrKz8vh_h0U7uVbOzcSkaYxW4SAeGWFbJiGqE1gwoTgIGblhpiMhUBWMTlESGy0siDeH7opNqg:1vkQoG:0JCJar1d4VWd2mWwgVa5pktrripHWrslLWbgjv7SCuQ",
+      "expire_date": "2026-02-09T17:55:32.358Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "qsh2cmigrlocr3dy3bh9vmq9m0ehr3ss",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAQRf-FtSGURwCX7v0GMsMwUjWQlHZl_Hdt0oVu7znnvkSCba1pG2VJM4mzsOL0uyHkR2k7oDu0W5e5t3WZUe6KPOiQ107leTncv4MKo35rVmgpY4yBlc9gAlg_sdVaMypim8EpZCrOGWIFIaAPUWnHeYpkEMX7AwVnOL8:1wg0mf:Bu9NbfA5-exnyfg_A9J_j1faFBkoP6o9G-HvodgJ9Mc",
+      "expire_date": "2026-07-18T13:51:53.902Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "qyrz5gefshtegytaoo2k2260h80ygf3f",
+    "fields": {
+      "session_data": ".eJxVjEsOAiEQRO_C2hAa5efSvWcgTdPIqIFkPivj3ZVkFrqseq_qJSJua43bwnOcsjgLEIffLiE9uA2Q79huXVJv6zwlORS500Vee-bnZXf_DioudawNcCZS2iUsOSl233jM2gMUxYxWMQCSsTbYRMUoddI2eG1scj5oLd4fFHE4Iw:1uwF5w:w_qSPOJjftwNRzhO5MUEiayju5Az-m6dzP1Lns2WqK4",
+      "expire_date": "2025-09-24T07:18:20.324Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "rrgnuxz742nkbzcrbj2vvgavkjcnriwf",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hDaKVBcuvcMZKYzSNVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uz6tTpdyOcHlJ2wHcst6qnWtZlJr0r-qBNXyvL83K4fwcZW_7WxiJ7EwCs-IFGIAvecDeIc95YQN8ziKGQ-gBEBhM46zmI7cc0sEvq_QG93TdJ:1vUqU3:ezCXt15fX4pk7iOloO2sxLo3UQ5FiuFJZmouJcgEOa4",
+      "expire_date": "2025-12-28T18:06:15.091Z"
+    }
+  },
+  {
+    "model": "core.sitesettings",
+    "pk": 1,
+    "fields": {
+      "foundation_name": "Tanzeel Foundation",
+      "contact_email": "info@tanzeelfoundation.co.tz",
+      "contact_phone": "0672330843",
+      "address": "dar es salaam,tanzania\r\ndar es salaam,tanzania",
+      "facebook_url": "https://www.facebook.com/tanzeelfoundation",
+      "twitter_url": "https://twitter.com/tanzeelfoundation",
+      "instagram_url": "https://www.instagram.com/tanzeelfoundation",
+      "linkedin_url": "https://www.linkedin.com/in/tanzeelfoundation",
+      "youtube_url": "",
+      "mission_statement": "A3564E57M6I7KNUJHn JM",
+      "vision_statement": "Q3VW4e5dyunfmk, mx",
+      "about_us": "",
+      "logo": "logos/TANZEEL_LOGO-1_w5x7gbE.webp",
+      "favicon": "favicons/TANZEEL_LOGO-1_swGkVan.webp"
+    }
+  },
+  {
+    "model": "core.sitesettings",
+    "pk": 3,
+    "fields": {
+      "foundation_name": "Tanzeel Foundation",
+      "contact_email": "info@tanzeelfoundation.co.tz",
+      "contact_phone": "",
+      "address": "",
+      "facebook_url": "",
+      "twitter_url": "",
+      "instagram_url": "",
+      "linkedin_url": "",
+      "youtube_url": "",
+      "mission_statement": "",
+      "vision_statement": "",
+      "about_us": "",
+      "logo": "",
+      "favicon": ""
+    }
+  },
+  {
+    "model": "pages.homepage_image",
+    "pk": 1,
+    "fields": {
+      "image": "homepage_images/0R2A0743.webp",
+      "small_title": "TSDF",
+      "large_title": "Support Tanzeel Foundation",
+      "link_url": "President of Tanzeel Foundation",
+      "event_date": "2026-02-02",
+      "event_location": "Dar es salaam",
+      "event_time": "02:23:03",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_image",
+    "pk": 2,
+    "fields": {
+      "image": "homepage_images/6J3A1393_CQi8Sr6.webp",
+      "small_title": "NISOMESHE",
+      "large_title": "Nisomeshe Season 5",
+      "link_url": "CEO",
+      "event_date": "2026-02-02",
+      "event_location": "Dar es salaam",
+      "event_time": "02:21:31",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_sliding_image",
+    "pk": 1,
+    "fields": {
+      "image1": "homepage_sliding_images/homepage_sliding_images/Screenshot_2026-01-31_020622.webp",
+      "category": "Waqfu",
+      "image2": "homepage_sliding_images/TANZEEL_LOGO-1_83ytnuw.webp",
+      "small_title": "TANZEEL FOUNDATION",
+      "date": "2026-03-26",
+      "link_url1": "Tanzeel Waqfu",
+      "description": "a special branch of tanzeel foundation dedicated to receiving, managing, and developing endowments for benefit of the islamic community.\r\nThe Mosque Construction at Chamanzi Magengeni is a landmark initiative by the Tanzeel Foundation, reflecting our dedication to supporting spiritual growth, education, and community cohesion. This project successfully established a modern and welcoming mosque that serves not only as a place of worship but also as a hub for Islamic education, religious guidance, and social gatherings for the local community.",
+      "time": "11:36:31",
+      "link_url2": "hello",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_sliding_image",
+    "pk": 2,
+    "fields": {
+      "image1": "homepage_sliding_images/homepage_sliding_images/Screenshot_2026-01-31_020557.webp",
+      "category": "TSDF",
+      "image2": "homepage_sliding_images/TANZEEL_LOGO-1_PyPLkwm.webp",
+      "small_title": "TANZEEL FOUNDATION",
+      "date": "2026-03-26",
+      "link_url1": "Tanzeel Social Development Fund(TSDF)",
+      "description": "a dedicated fund managed by Tanzeel Foundation  to support community  development programs. the fund is sustained by various philanthropic individuals and organisations dedicated to community welfare.",
+      "time": "11:47:24",
+      "link_url2": "hello",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_sliding_image",
+    "pk": 4,
+    "fields": {
+      "image1": "homepage_sliding_images/homepage_sliding_images/Screenshot_2026-02-03_082447.webp",
+      "category": "Social Service",
+      "image2": "homepage_sliding_images/TANZEEL_LOGO-1_9YR5qir.webp",
+      "small_title": "TANZEEL FOUNDATION",
+      "date": "2026-03-26",
+      "link_url1": "Tanzeel Social Service",
+      "description": "A special branch of Tanzeel Foundation focuses on providing social services, including healthcare, with plans to establish a modern hospital adhering to islamic principles.",
+      "time": "11:55:50",
+      "link_url2": "hello",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_sliding_image",
+    "pk": 5,
+    "fields": {
+      "image1": "homepage_sliding_images/homepage_sliding_images/6J3A1438.webp",
+      "category": "Education",
+      "image2": "homepage_sliding_images/TANZEEL_LOGO-1.webp",
+      "small_title": "TANZEEL FOUNDATION",
+      "date": "2026-03-26",
+      "link_url1": "Tanzeel Education Center",
+      "description": "The core branch of Tanzeel Foundation , aiming to establish educational institutions spanning from daycare and nursery schools to universities, ensuring high-quality education. \r\nas we take into action the  Nisomeshe Program which stands as a cornerstone initiative of the Tanzeel Foundation, dedicated to supporting orphans and students from less privileged backgrounds. Through this program, we provide essential school materials such as books, stationery, uniforms, and other learning resources, ensuring that every child has the tools they need to succeed academically. By reducing the barriers to education, the program empowers these students to pursue their studies with confidence, dignity, and hope for a brighter future.",
+      "time": "11:52:31",
+      "link_url2": "hello",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_category_section",
+    "pk": 1,
+    "fields": {
+      "image1": "homepage_category_sections/Screenshot_2026-02-06_195322.webp",
+      "image2": "homepage_category_sections/TANZEEL_LOGO-1_V7pFGzq.webp",
+      "title": "TanzeelFoundation",
+      "date": "2026-02-06",
+      "link_url1": "Community Development & Humanitarian Services.",
+      "description": "Tanzeel Foundation is dedicated to uplifting communities through education, social welfare, healthcare, spiritual development, and humanitarian support. Guided by strong Islamic values, the foundation implements programs that promote dignity, compassion, and self reliance. Our initiatives aim to empower individuals, strengthen families, and foster sustainable, positive change that benefits society as a whole while nurturing moral responsibility and long term community growth worldwide for all.",
+      "time": "17:02:11",
+      "comment": "together",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_category_side_section",
+    "pk": 1,
+    "fields": {
+      "image": "homepage_category_side_section/homepage_category_side_section/6J3A9573.webp",
+      "title": "Women & Family Support.",
+      "link_url": "We support women and families by improving welfare, dignity, and stability through targeted assistance programs.",
+      "date": "2026-01-27",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_category_side_section",
+    "pk": 2,
+    "fields": {
+      "image": "homepage_category_side_section/homepage_category_side_section/0R2A08350.webp",
+      "title": "Charity & Humanitarian Aid.",
+      "link_url": "We provide food, clothing, and essential support to families in need, especially during Ramadhan and Eid.",
+      "date": "2026-01-27",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_category_side_section",
+    "pk": 3,
+    "fields": {
+      "image": "homepage_category_side_section/IMG-20230908-WA0065.webp",
+      "title": "Islamic & Spiritual Development.",
+      "link_url": "We strengthen faith and moral values through Dawah activities, mosque projects, and community spiritual programs.",
+      "date": "2026-01-27",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_category_side_section",
+    "pk": 4,
+    "fields": {
+      "image": "homepage_category_side_section/homepage_category_side_section/0R2A0799.webp",
+      "title": "Waqf & Sustainable Development.",
+      "link_url": "We manage Islamic endowments to ensure long-term sustainability of community development initiatives.",
+      "date": "2025-09-10",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_category_side_section",
+    "pk": 5,
+    "fields": {
+      "image": "homepage_category_side_section/IMG-20221226-WA0064.webp",
+      "title": "Social Welfare & Community Support",
+      "link_url": "We assist orphans, widows, the elderly, and vulnerable families through social care and community support programs.",
+      "date": "2026-01-27",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_category_bottom_section",
+    "pk": 1,
+    "fields": {
+      "image1": "homepage_Posts/homepage_Posts/Screenshot_2026-02-02_055155.webp",
+      "title1": "Health",
+      "link_url": "Health and Social Services",
+      "description": "We focus on improving access to healthcare and essential social services within the community. Our long-term vision includes establishing health facilities that operate in accordance with Islamic principles and serve those most in need.",
+      "image2": "homepage_Posts/TANZEEL_LOGO-1_uVQxs4D.webp",
+      "title2": "TANZEEL FOUNDATION",
+      "time": "04:33:20",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_category_bottom_section",
+    "pk": 2,
+    "fields": {
+      "image1": "homepage_Posts/homepage_Posts/0R2A0708.webp",
+      "title1": "Events And Outreach",
+      "link_url": "Community Events & Outreach.",
+      "description": "We organize events that bring communities together, such as Eid Gala, Iftar Charity Dinners, and public awareness activities. These events promote unity, fundraising, education, and collaboration among stakeholders.",
+      "image2": "homepage_Posts/TANZEEL_LOGO-1_nrS4FzH.webp",
+      "title2": "TANZEEL FOUNDATION.",
+      "time": "04:36:22",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_category_bottom_section",
+    "pk": 3,
+    "fields": {
+      "image1": "homepage_Posts/homepage_Posts/IMG-20230908-WA0065.webp",
+      "title1": "Education",
+      "link_url": "Education Development",
+      "description": "We invest in education as a foundation for sustainable community growth. Through initiatives such as the Nisomeshe Charity Event and the Tanzeel Education Center, we support students from early childhood to higher education by providing school materials, guidance, and access to quality learning opportunities.",
+      "image2": "homepage_Posts/TANZEEL_LOGO-1_fLUzmJO.webp",
+      "title2": "TANZEEL FOUNDATION",
+      "time": "04:31:30",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_category_bottom_section",
+    "pk": 4,
+    "fields": {
+      "image1": "homepage_Posts/homepage_Posts/WhatsApp_Image_2023-12-31_at_20.40.33_bff64502.webp",
+      "title1": "Youth Empowerment",
+      "link_url": "Youth Empowerment",
+      "description": "We empower young people by guiding them toward education, skills development, and community responsibility. Our Back to Community program encourages youth to contribute positively to society and prepare for future academic and career success.",
+      "image2": "homepage_Posts/TANZEEL_LOGO-1_ZBsc9PQ.webp",
+      "title2": "TANZEEL FOUNDATION",
+      "time": "07:52:12",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_posts_main",
+    "pk": 1,
+    "fields": {
+      "image": "homepage_Posts_Main/homepage_Posts_Main/0R2A0743.webp",
+      "day": "05",
+      "month": "02",
+      "small_title": "TSDF",
+      "large_title": "Tanzeel Social Development Fund.",
+      "description": "Tanzeel Social Development Fund (TSDF) is a dedicated fund established by Tanzeel Foundation to support sustainable community development initiatives. The fund mobilizes resources from philanthropic individuals, partners, and organizations to address social, educational, health, and humanitarian needs. Guided by Islamic values of compassion, charity, and accountability, TSDF finances programs that empower vulnerable groups, promote self reliance, and strengthen community resilience. Through transparent management and collective support, the fund aims to create lasting positive impact and improve the quality of life for communities served by Tanzeel Foundation. Together we build hope always.!",
+      "hoster_name": "Suleiman Haidar",
+      "content": "Google",
+      "link_url": "hello",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_posts_side",
+    "pk": 1,
+    "fields": {
+      "image": "homepage_Posts_Side/homepage_Posts_Side/0R2A0719_KLFF8rS.webp",
+      "date": "2026-01-27",
+      "major_title": "Iftar Charity Dinner",
+      "descriptive_title": "The Iftar Charity Dinner brings together community members and stakeholders to break fast and support fundraising efforts for the Foundation’s ongoing development programs.",
+      "link_url": "Community Engagement",
+      "aprove": true,
+      "description": ""
+    }
+  },
+  {
+    "model": "pages.homepage_posts_side",
+    "pk": 2,
+    "fields": {
+      "image": "homepage_Posts_Side/homepage_Posts_Side/6J3A1438.webp",
+      "date": "2026-01-27",
+      "major_title": "Nisomeshe Charity Program",
+      "descriptive_title": "Providing school materials, uniforms, and stationery to underprivileged students, the program empowers children to pursue education with hope, confidence, and dignity.",
+      "link_url": "Education Support",
+      "aprove": true,
+      "description": ""
+    }
+  },
+  {
+    "model": "pages.homepage_posts_side",
+    "pk": 3,
+    "fields": {
+      "image": "homepage_Posts_Side/homepage_Posts_Side/Screenshot_2026-01-31_020511.webp",
+      "date": "2026-01-27",
+      "major_title": "Ramadhan Packge",
+      "descriptive_title": "During Ramadhan, the Foundation distributes essential food packages to families with orphans, widows, the elderly, and people with disabilities, promoting food security and compassion.",
+      "link_url": "Humanitarian Aid",
+      "aprove": true,
+      "description": ""
+    }
+  },
+  {
+    "model": "pages.homepage_posts_bottom_section",
+    "pk": 1,
+    "fields": {
+      "image": "homepage_Posts_Bottom_Section/homepage_Posts_Bottom_Section/Screenshot_2026-01-31_020557.webp",
+      "title": "Qurban Project -Eid-al-Adha",
+      "hoster_name": "Abdulhamid",
+      "descriptive_title": "",
+      "description": "The Qurban Project by Tanzeel Foundation provides nutritious meat to vulnerable families during the blessed days of Eid al Adha. The initiative supports orphans, widows, the elderly, and low income households while promoting compassion, unity, and shared responsibility. Guided by Islamic teachings of sacrifice and charity, the project strengthens community bonds, eases hardship, and ensures dignity, care, and joy for families during this important religious occasion. Serving humanity with faith.",
+      "link_url": "Humanitarian Aid",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_posts_bottom_section",
+    "pk": 2,
+    "fields": {
+      "image": "homepage_Posts_Bottom_Section/homepage_Posts_Bottom_Section/Screenshot_2026-01-31_020622.webp",
+      "title": "Mosque Construction",
+      "hoster_name": "Shukri Khatib",
+      "descriptive_title": "",
+      "description": "The Mosque Construction Project by Tanzeel Foundation provides a dedicated place of worship, Islamic education, and community engagement. Built through collective support and charitable contributions, the mosque serves as a spiritual hub for prayers, learning, and social gatherings. Guided by Islamic values, the initiative strengthens faith, unity, and moral development while fostering social cohesion, community responsibility, and long term spiritual growth for present and future generations.!!",
+      "link_url": "Community Development",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.homepage_posts_bottom_section",
+    "pk": 3,
+    "fields": {
+      "image": "homepage_Posts_Bottom_Section/homepage_Posts_Bottom_Section/Screenshot_2026-02-02_055923.webp",
+      "title": "Blood Donation",
+      "hoster_name": "Najim Burhan",
+      "descriptive_title": "",
+      "description": "Tanzeel Foundation organizes blood donation drives to support local hospitals and patients in urgent need of safe blood supplies. The initiative brings together volunteers, health professionals, and community members to save lives while promoting health awareness. Guided by Islamic values of compassion and service to humanity, the program encourages unity, social responsibility, and collective action to support the sick and strengthen community wellbeing for all people. It builds hope daily. Now",
+      "link_url": "Health & Humanitarian Aid",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.about_us_title",
+    "pk": 1,
+    "fields": {
+      "description": "Tanzeel Foundation is a non-governmental Islamic organization established in January 2021, dedicated to serving humanity through education, social welfare, healthcare support, and spiritual development. Guided by Islamic values of compassion, integrity, and community empowerment, the Foundation works to uplift vulnerable groups and build sustainable, resilient communities."
+    }
+  },
+  {
+    "model": "pages.about_us_top_section",
+    "pk": 1,
+    "fields": {
+      "image": "Top_section/Top_section/6J3A9645.webp",
+      "years_of_experience": "5",
+      "no_of_events": "20+",
+      "major_title": "Faith in Action",
+      "major_description": "Over the years, Tanzeel Foundation has positively impacted thousands of lives:  345 students supported through education programs  263 families assisted during Ramadhan  504 families supported through Qurban  1,000+ students reached through community init",
+      "minor_title1": "Community Outreach Programs",
+      "minor_description1": "We implement impactful outreach initiatives including education support, food distribution, clothing assistance, and youth guidance programs that directly address community needs.",
+      "minor_title2": "Sustainable Development",
+      "minor_description2": "Our programs are designed to create long-term impact through education centers, social services, waqf projects, and community infrastructure rooted in Islamic principles.",
+      "comment1": "Promoting education, self-reliance, and spiritual growth",
+      "comment2": "Supporting orphans, students, and vulnerable families with dignity"
+    }
+  },
+  {
+    "model": "pages.about_us_team_title",
+    "pk": 1,
+    "fields": {
+      "description": "The Tanzeel Foundation team is made up of dedicated professionals, volunteers, and community leaders who are committed to serving humanity with integrity and compassion. Guided by Islamic values, the team works collaboratively to plan, manage, and implement programs that create meaningful and lasting impact.\r\n\r\nThrough unity, transparency, and shared responsibility, our team ensures that every initiative is delivered with excellence, accountability, and respect for the communities we serve."
+    }
+  },
+  {
+    "model": "pages.about_us_team",
+    "pk": 1,
+    "fields": {
+      "image": "About_us_team/About_us_team/6J3A9576_xDPlEp9.webp",
+      "linkedin_link_url": "kdfvlkdfv",
+      "twitter_link_url": "d;ksd ;lsdc",
+      "instagram_link_url": ";ldcldscd",
+      "name": "Shukri Khatib",
+      "ocupation": "CEO and Founder",
+      "description": "Provides strategic leadership and vision, ensuring the foundation’s mission and values guide all programs and community initiatives.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.about_us_team",
+    "pk": 2,
+    "fields": {
+      "image": "About_us_team/About_us_team/6J3A9616.webp",
+      "linkedin_link_url": "eccs",
+      "twitter_link_url": "d;ksd ;lsdc",
+      "instagram_link_url": ";ldcldscd",
+      "name": "Omari Said",
+      "ocupation": "Accountant",
+      "description": "Manages financial records, budgeting, and reporting to ensure transparency, accountability, and responsible use of funds in line with the foundation’s mission.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.about_us_team",
+    "pk": 3,
+    "fields": {
+      "image": "About_us_team/About_us_team/6J3A9501.webp",
+      "linkedin_link_url": "kdfvlkdfv",
+      "twitter_link_url": "d;ksd ;lsdc",
+      "instagram_link_url": ";ldcldscd",
+      "name": "Najim Kishenyi",
+      "ocupation": "Human Resources (HR)",
+      "description": "Manages team coordination, volunteer engagement, and capacity building to support effective service delivery.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.about_us_team",
+    "pk": 4,
+    "fields": {
+      "image": "About_us_team/About_us_team/6J3A9598.webp",
+      "linkedin_link_url": "kdfvlkdfv",
+      "twitter_link_url": "d;ksd ;lsdc",
+      "instagram_link_url": ";ldcldscd",
+      "name": "Maheer issa",
+      "ocupation": "Operations Manager",
+      "description": "Coordinates daily operations and outreach activities, ensuring programs are delivered efficiently, on time, and in alignment with organizational goals.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.about_us_team",
+    "pk": 5,
+    "fields": {
+      "image": "About_us_team/About_us_team/6J3A9633.webp",
+      "linkedin_link_url": "kdfvlkdfv",
+      "twitter_link_url": "d;ksd ;lsdc",
+      "instagram_link_url": ";ldcldscd",
+      "name": "Salum Khaleed",
+      "ocupation": "Managing Director",
+      "description": "Oversees daily operations and program implementation, ensuring efficiency, accountability, and sustainable community impact.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.about_us_team",
+    "pk": 6,
+    "fields": {
+      "image": "About_us_team/About_us_team/6J3A9585.webp",
+      "linkedin_link_url": "kdfvlkdfv",
+      "twitter_link_url": "d;ksd ;lsdc",
+      "instagram_link_url": ";ldcldscd",
+      "name": "Ibrahim Masunu",
+      "ocupation": "Project Manager",
+      "description": "Operations Manager Coordinates daily operations and outreach activities, ensuring programs are delivered efficiently, on time, and in alignment with organizational goals.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.blog_top_image",
+    "pk": 1,
+    "fields": {
+      "image": "blog_top_image/blog_top_image/6J3A1478.webp",
+      "image_description_major": "“The most beloved people to Allah are those who are most beneficial to people.” (Hadith)",
+      "image_description_minor": "Exploring how artificial intelligence is transforming medical diagnosis, treatment planning, and patient outcomes in modern healthcare systems.",
+      "image_profile": "blog_top_image_profile/TANZEEL_LOGO-1.webp",
+      "profile_name": "TanzeelFoundation",
+      "profile_occupation": "Dar es salaam, Tanzania.",
+      "date_posted": "2026-02-02",
+      "time_posted": "04:04:25",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.article_tab",
+    "pk": 1,
+    "fields": {
+      "tab_one": "Overview",
+      "tab_two": "Stories of Hope",
+      "tab_three": "Outreach Programs",
+      "tab_four": "Beneficiaries",
+      "tab_five": "Challenges Ahead"
+    }
+  },
+  {
+    "model": "pages.tab_one",
+    "pk": 1,
+    "fields": {
+      "major_description": "Stories of hope highlight real-life experiences of individuals and families whose lives have been positively impacted by Tanzeel Foundation’s programs. These stories reflect transformation, resilience, and renewed opportunities—such as students continuing their education and orphans receiving care.",
+      "minor_description": "hey serve to show the real human impact of the foundation’s work and inspire confidence, compassion, and optimism within the community.",
+      "quote": "“The most beloved people to Allah are those who are most beneficial to people.”",
+      "quote_author": "(Hadith)"
+    }
+  },
+  {
+    "model": "pages.tab_three",
+    "pk": 1,
+    "fields": {
+      "title": "Outreach Programs",
+      "description": "Community outreach programs embody the Islamic value of Ukhuwwah (brotherhood) and Khidmah (service to humanity). Islam encourages believers to care for their neighbors and wider community, especially those in need"
+    }
+  },
+  {
+    "model": "pages.tab_three_post",
+    "pk": 4,
+    "fields": {
+      "image": "tab_three_images/tab_three_images/0R2A08350.webp",
+      "image_title": "Spiritual Growth",
+      "image_description": "We enhance the spiritual growth through different occasions and events.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.tab_three_post",
+    "pk": 5,
+    "fields": {
+      "image": "tab_three_images/tab_three_images/0R2A0727.webp",
+      "image_title": "Community Fundraise",
+      "image_description": "We enhance the  community growth through different events that fundraise.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.tab_three_post",
+    "pk": 6,
+    "fields": {
+      "image": "tab_three_images/tab_three_images/6J3A1436.webp",
+      "image_title": "Educational Growth",
+      "image_description": "We distributes school materials to orphans and less privileged children.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.tab_four",
+    "pk": 1,
+    "fields": {
+      "title": "Tanzeel Beneficiaries",
+      "description": "Beneficiaries are at the heart of Tanzeel Foundation’s mission, reflecting Islam’s strong emphasis on caring for orphans, the poor, and the vulnerable. The foundation ensures that beneficiaries are supported with dignity, respect, and compassion.",
+      "point_one": "Orphans and disadvantaged students",
+      "point_two": "Vulnerable families and widows",
+      "point_three": "Strengthening healthcare and social services.",
+      "point_four": "Monitoring and Follow-Up"
+    }
+  },
+  {
+    "model": "pages.tab_five",
+    "pk": 1,
+    "fields": {
+      "title": "Challenges Ahead"
+    }
+  },
+  {
+    "model": "pages.tab_five_post",
+    "pk": 1,
+    "fields": {
+      "title": "Community Awareness and Engagement",
+      "description": "Limited awareness among the wider community affects volunteer participation, partnerships, and fundraising efforts needed to expand programs and reach more beneficiaries.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.tab_five_post",
+    "pk": 2,
+    "fields": {
+      "title": "Sustainability of Long-Term Projects",
+      "description": "Projects like building schools, hospitals, mosques, and education centers require long-term planning, consistent funding, and strong management to sustain them over time.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.tab_five_post",
+    "pk": 3,
+    "fields": {
+      "title": "High Number of Needy Beneficiaries",
+      "description": "The foundation serves orphans, widows, elderly people, students, and low-income families, and the demand for support continues to increase beyond available resources.",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.tab_five_post",
+    "pk": 4,
+    "fields": {
+      "title": "Limited Financial Resources",
+      "description": "Many programs such as education support, healthcare services, and charity initiatives rely heavily on donations and fundraising, which are sometimes insufficient to meet the growing community needs",
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.appeal",
+    "pk": 1,
+    "fields": {
+      "title": "TSDF",
+      "slug": "tsdf",
+      "short_description": "Tanzeel social development fund",
+      "full_description": "qawsedryuhjipkoiljhgfxsd cfnhjilkjhegazxdvnmb   awgyu  awtsedrpj'o s weyup'ojk errtyuijkljb,n   asedrtfgyuhj se5dr7tv8byujmk ertvbyjnimk, ecrbuhnji ecrtvbgjmk, drtyumko drtyjnimk ertvbyujni k, rdtyuijk, rtyjnikml. ertuhjik er5tuhjiko r5tyuikol tfgyjiokl, ruhjikl, dftyujikmln",
+      "image": "appeals/0R2A0743.webp",
+      "category": "General",
+      "region": "Tanzania",
+      "goal_amount": "1000000.00",
+      "raised_amount": "66096.00",
+      "is_urgent": false,
+      "order": 0,
+      "aprove": true,
+      "created_at": "2026-06-03T06:28:20.765Z",
+      "updated_at": "2026-06-03T06:28:20.765Z"
+    }
+  },
+  {
+    "model": "pages.appeal",
+    "pk": 2,
+    "fields": {
+      "title": "NISOMESHE",
+      "slug": "nisomeshe",
+      "short_description": "Nisomeshe program",
+      "full_description": "Nisomeshe is an educational support program by Tanzeel Foundation dedicated to empowering students through access to quality learning opportunities. The program aims to reduce barriers to education by providing assistance such as school supplies, learning materials, educational sponsorships, mentorship, and academic guidance. Through Nisomeshe, Tanzeel Foundation seeks to inspire a culture of learning, promote equal access to education, and help young people develop the knowledge and skills needed to achieve their academic and personal goals. By investing in education today, the program contributes to building stronger communities and creating a brighter future for the next generation.",
+      "image": "appeals/0R2A08350.webp",
+      "category": "Education",
+      "region": "Tanzania",
+      "goal_amount": "6000000.00",
+      "raised_amount": "700000000.00",
+      "is_urgent": false,
+      "order": 3,
+      "aprove": true,
+      "created_at": "2026-06-03T14:22:20.955Z",
+      "updated_at": "2026-06-03T14:23:50.703Z"
+    }
+  },
+  {
+    "model": "pages.appealimpact",
+    "pk": 1,
+    "fields": {
+      "title": "TSdf",
+      "description": "awsedrctfvbgyjn xjn sebuhnjimk, xctgvyubjnimk,l xdctfvgyjnmk xctgvyujni xcfgvbhjn exctgvyjnik etv7bgyuhjnmk er7jnik xergy8uhjnik xertf7gyjiok er7t8jik xert7gyujiok dtfgyjik xer7tgyjiomk, e6rt7gyjiok e4r57tgy8uhjo er7tgy8uhjiok, r57tyjiomkl, dtf7gyjiok rtyuhjiko",
+      "image": "appeal_impacts/0R2A0743.webp",
+      "stat_number": "300students",
+      "stat_label": "",
+      "order": 0,
+      "aprove": true
+    }
+  },
+  {
+    "model": "pages.appealimpact",
+    "pk": 2,
+    "fields": {
+      "title": "Nisomeshe impacts",
+      "description": "The Nisomeshe Program has positively impacted the lives of students by increasing access to educational resources, improving school attendance, and enhancing academic performance. Through educational support, mentorship, and sponsorship opportunities, the program helps students overcome financial and social barriers that may hinder their learning journey. By empowering young people with knowledge, confidence, and essential life skills, Nisomeshe contributes to higher educational attainment, greater opportunities for future success, and the development of responsible community leaders. The program's long-term impact extends beyond individual beneficiaries, fostering stronger families, more educated communities, and sustainable social development.",
+      "image": "appeal_impacts/0R2A08350.webp",
+      "stat_number": "300students",
+      "stat_label": "students",
+      "order": 5,
+      "aprove": true
+    }
+  }
+]

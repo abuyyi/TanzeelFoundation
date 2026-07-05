@@ -5145,3 +5145,34 @@ section,
 #tab7 .image-wrapper > img:hover {
   transform: scale(1.02);
 }
+
+/* Custom Seamless Marquee (Left to Right) */
+.custom-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-wrapper {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  /* Left to right animation */
+  animation: marqueeLeftToRight linear infinite;
+}
+
+.custom-marquee:hover .marquee-wrapper {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  flex-shrink: 0;
+  height: auto;
+  /* Width and Margin are calculated dynamically by JS to perfectly match the original Swiper configuration without changing any layout or design. */
+}
+
+/* Left to right means it starts pushed left (-50%) and moves to the right (0%) */
+@keyframes marqueeLeftToRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
