@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+  <link href="{% static 'css/blog.css' %}" rel="stylesheet">
+{% endblock extra_css %}
+
 {% block content %}
 
 
@@ -56,7 +60,7 @@
               <span class="badge">Volunteer &amp; Support</span>
             </div>
             <h1>{{ blog_top_images.image_description_major }}</h1>
-            <p class="hero-excerpt">{{ blog_top_image.image_description_minor }}</p>
+            <p class="hero-excerpt">{{ blog_top_images.image_description_minor }}</p>
 
             <div class="author-meta">
               {% if blog_top_images.image %}
@@ -127,7 +131,7 @@
                       {% if Sliding_image.image1 %}
                         <img src="{{ Sliding_image.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
                       {% endif %}
-                        <p><div class="image-caption">{{ Sliding_image.image_description }}</div></p>
+                        <div class="image-caption">{{ Sliding_image.image_description }}</div>
                     </div>
 
                     <div class="text-content">
@@ -212,7 +216,7 @@
                       {% if HomePage_Category_Sections.image1 %}
                         <img src="{{ HomePage_Category_Sections.image1.url }}" alt="AI Diagnostic Tools" class="content-image" loading="lazy">
                       {% endif %}
-                        <p><div class="image-caption">{{ HomePage_Category_Sections.image_description }}</div></p>
+                        <div class="image-caption">{{ HomePage_Category_Sections.image_description }}</div>
                     </div>
 
                     <div class="text-content">
@@ -314,6 +318,7 @@
             </section>
 
             <section id="tab5" class="content-block" data-aos="fade-up">
+              <div class="post-card-grid">
               {% for post in HomePage_Category_Bottom_Sections %}
                 {% if forloop.counter <= 4 %}
                     <div id="article2-{{ post.link_url }}" class="image-description-container">
@@ -329,6 +334,7 @@
                     </div>
                 {% endif %}
               {% endfor %}
+              </div>
             </section>
             
 

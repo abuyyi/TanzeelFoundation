@@ -1,0 +1,212 @@
+/* ==========================================================================
+   Blog page refinements — scoped entirely under .blog-details
+   Loaded after main.css (via {% block extra_css %}), so equal-specificity
+   rules here win. Purely presentational; safe to remove to revert.
+   Goal: tighter vertical rhythm, consistent typography, and organized
+   card layouts instead of sparse floated blocks.
+   ========================================================================== */
+
+/* --- 1. Hero: trim excess height so the top of the page isn't so empty --- */
+.blog-details .article-hero {
+  height: auto;
+  min-height: 420px;
+  margin-bottom: 2.5rem;
+}
+.blog-details .article-hero .hero-content {
+  padding: 3.5rem 2rem;
+}
+.blog-details .article-hero .hero-content h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 992px) {
+  .blog-details .article-hero .hero-content h1 {
+    font-size: 3rem;
+  }
+}
+.blog-details .article-hero .hero-content .hero-excerpt {
+  margin-bottom: 1.5rem;
+}
+
+/* --- 2. Tighten the vertical rhythm between sections --- */
+.blog-details .article-body {
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.blog-details .article-body .main-content .content-block {
+  margin-bottom: 2.25rem;
+  padding-bottom: 1.5rem;
+}
+.blog-details .article-body .main-content .content-block h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.blog-details .article-body .main-content .content-block h2 i {
+  font-size: 1.15rem;
+}
+/* Keep body copy at a comfortable reading measure */
+.blog-details .article-body .main-content .content-block .intro-text p,
+.blog-details .article-body .main-content .content-block .text-content p {
+  max-width: 72ch;
+}
+
+/* --- 3. Normalize the anomalous typography (16px / 25px hard-codes) --- */
+.blog-details #tab4 h3 {
+  font-size: 1.15rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  text-align-last: left;
+}
+.blog-details #tab5 p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  text-align-last: left;
+}
+.blog-details #tab5 .image-wrapper h3 {
+  font-size: 1.15rem;
+  color: var(--heading-color);
+  text-align: left;
+  text-align-last: left;
+}
+
+/* Trim the oversized featured quote padding */
+.blog-details .article-body .main-content .content-block .featured-quote {
+  padding: 2rem 2.25rem;
+  margin: 2rem 0;
+}
+.blog-details .article-body .main-content .content-block .featured-quote blockquote p {
+  font-size: 1.2rem;
+}
+
+/* --- 4. Replace the fragile float layout with a robust media card --- */
+.blog-details .article-body .main-content .content-block .content-with-media {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) 1fr;
+  gap: 1.75rem;
+  align-items: center;
+  margin: 1.25rem 0;
+  padding: 1.25rem;
+  background: var(--surface-color);
+  border-radius: 14px;
+}
+.blog-details .article-body .main-content .content-block .content-with-media .media-element {
+  float: none;
+  margin: 0;
+  max-width: 100%;
+}
+.blog-details .article-body .main-content .content-block .content-with-media .media-element .content-image {
+  height: 220px;
+  object-fit: cover;
+}
+.blog-details .article-body .main-content .content-block .content-with-media .text-content p {
+  margin: 0 0 0.75rem;
+}
+.blog-details .article-body .main-content .content-block .content-with-media .text-content p:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 768px) {
+  .blog-details .article-body .main-content .content-block .content-with-media {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+/* Subheadings that sit above a media block */
+.blog-details .article-body .main-content [id^="article"] > h2,
+.blog-details .article-body .main-content [id^="article"] > h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+  color: var(--heading-color);
+}
+
+/* --- 5. Featured / division posts: organized responsive card grid --- */
+.blog-details .post-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.blog-details .post-card-grid .image-description-container {
+  gap: 0;
+  background: var(--surface-color);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+.blog-details .post-card-grid .image-description-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+}
+.blog-details .post-card-grid .image-wrapper {
+  margin: 0;
+}
+.blog-details .post-card-grid .image-wrapper img {
+  margin: 0;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 0;
+}
+.blog-details .post-card-grid .image-wrapper h3 {
+  padding: 1rem 1.25rem 0;
+  margin: 0;
+}
+.blog-details .post-card-grid .description-wrapper {
+  padding: 0.5rem 1.25rem 1.25rem;
+}
+.blog-details .post-card-grid .description-wrapper p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* A single featured post (tab4 main) reads as a wide horizontal card */
+@media (min-width: 769px) {
+  .blog-details #tab4 > .image-description-container {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 0;
+    background: var(--surface-color);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  }
+  .blog-details #tab4 > .image-description-container .image-wrapper {
+    order: 2;
+  }
+  .blog-details #tab4 > .image-description-container .image-wrapper img {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+  }
+  .blog-details #tab4 > .image-description-container .image-wrapper h3 {
+    padding: 1.5rem 1.5rem 0;
+  }
+  .blog-details #tab4 > .image-description-container .description-wrapper {
+    order: 1;
+    padding: 1.5rem;
+    align-self: center;
+  }
+}
+
+/* --- 6. Tighten grids that had generous margins --- */
+.blog-details .article-body .main-content .content-block .feature-cards,
+.blog-details .article-body .main-content .content-block .challenges-grid {
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.blog-details .article-body .main-content .content-block .feature-cards .feature-card,
+.blog-details .article-body .main-content .content-block .challenges-grid .challenge-card {
+  padding: 1.5rem;
+}
+
+/* Sidebar: slightly denser */
+.blog-details .article-body .sidebar-navigation .nav-sticky {
+  padding: 1.5rem;
+}

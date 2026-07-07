@@ -145,3 +145,6 @@ logs/
 
 # Additional project-specific ignores
 # Add any other files or directories specific to this project that should be ignored
+
+# Claude Code agent workspace
+.claude/

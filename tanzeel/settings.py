@@ -55,12 +55,34 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =  "django-insecure-7vv)ff_7*=@a@)=)ag^#-$6i=tx*26ebzq21obw!2(d8ap$9=h"
+# The fallback below is an INSECURE development-only key. Production MUST set
+# DJANGO_SECRET_KEY in the environment (see the guard near the end of this file).
+_DEV_INSECURE_SECRET_KEY = "django-insecure-7vv)ff_7*=@a@)=)ag^#-$6i=tx*26ebzq21obw!2(d8ap$9=h"
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", _DEV_INSECURE_SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =False
+DEBUG = _env_bool('DJANGO_DEBUG', False)
 
-ALLOWED_HOSTS = [ "tanzeelfoundation.co.tz", "www.tanzeelfoundation.co.tz"] 
+ALLOWED_HOSTS = [
+    h.strip()
+    for h in os.getenv(
+        'DJANGO_ALLOWED_HOSTS', 'tanzeelfoundation.co.tz,www.tanzeelfoundation.co.tz'
+    ).split(',')
+    if h.strip()
+]
+
+# Origins trusted for CSRF-protected POSTs (admin login, forms) over HTTPS.
+# Django 4+ requires scheme + host here. Defaults derive https:// origins from
+# any non-local ALLOWED_HOSTS entry; override with DJANGO_CSRF_TRUSTED_ORIGINS.
+_default_csrf_origins = ','.join(
+    f'https://{h}' for h in ALLOWED_HOSTS
+    if h not in ('127.0.0.1', 'localhost', '127.0.0.2') and not h.startswith('[')
+)
+CSRF_TRUSTED_ORIGINS = [
+    o.strip()
+    for o in os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS', _default_csrf_origins).split(',')
+    if o.strip()
+]
 
 
 # Application definition
@@ -81,6 +103,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    # WhiteNoise serves static files in production; must sit right after SecurityMiddleware.
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -182,6 +206,18 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# WhiteNoise: compress static files and serve them from STATIC_ROOT in production.
+# CompressedStaticFilesStorage (no hashed manifest) is tolerant of templates that
+# reference missing static files, avoiding collectstatic failures on deploy.
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
+
 # Media files (User uploaded files)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -242,8 +278,10 @@ AZAMPAY = {
 
 
 if not DEBUG:
-    if SECRET_KEY == 'django-insecure-)ai9*ue$3c6=(tnicrhe5ckzterv+)sf9#w9ufoj!f*!9c!z4q':
-        raise RuntimeError('DJANGO_SECRET_KEY must be set in production.')
+    if SECRET_KEY == _DEV_INSECURE_SECRET_KEY or SECRET_KEY.startswith('django-insecure-'):
+        raise RuntimeError(
+            'DJANGO_SECRET_KEY must be set to a secure, non-default value in production.'
+        )
     SECURE_SSL_REDIRECT = _env_bool('DJANGO_SECURE_SSL_REDIRECT', True)
     SESSION_COOKIE_SECURE = _env_bool('DJANGO_SESSION_COOKIE_SECURE', True)
     CSRF_COOKIE_SECURE = _env_bool('DJANGO_CSRF_COOKIE_SECURE', True)
@@ -316,12 +354,5 @@ LOGGING = {
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SILENCED_SYSTEM_CHECKS = ["security.W019"]
 
-
-#Pcx@mzota0205&
-
-#token  92b5cfc5-821e-470b-b0eb-aa954fe01833
-# client id 3759f49c-868d-4468-972d-71f47221c053
-#client secret EwEx5q8z+Gtf75lB32Ke58wOBaG/WPE89pDqeJnikr9/5o+TK8GF+mLr2G66sxfauZatVrhp9pHADXPb6OQcF0WcRpY7Ol4beLTjwOfGu8IBzCdcCi1e4hlvlBhzOMaAH2+98/ShIKaAtHTvAJo8+kEyGloTxyFveLqYnrmtowVuWGszhjHSiOiJtoQXZl90lHjHhAZ4dWBV53ZphAMkr/7/3noovM+FjvdVrfnLw0LHd/2xs+kBpKJmQmn2OZIxTRCjKiK7o9ksVnjFZkaP13upfxzTlYnN6OE4MnccKqS6YhMJ+1ncX/z1YQchcGZAvxK9kKXN0VxPfV3EUu2I9qhNNRIFDunvgAK5gEBPKs/kpnGgAg5lwjEKK8BrMN6EmiTb5fs/sQ5ommcOKMDAbzsnDSpQMwJlXMS6j6nYob0M0Oq1Ku+PJEshqhxgUTghedEA0t+ykxpcu8B6O1rI/vQlPWAglJo29VGnNRrb/2qixA8+IZKaVX0gkRhmirvjM3FRGhrHVLITv4GXHhkpCCfUmC4380oH9JN0dgCds4eMcNdE4RQt+CqnW9NEXR4k5KUkGuRL1AqHkzDSLhl9RZT3ULUivUW61+B1OAJIfK1WEIF3CWoqOD6r35zRHt+ye8zLTRP442U/fq4SC4giOsrPFX6RNyQ5aQKy+4qTx8U=
-# saumuissa27@gmail.com-si@031102
 LOGOUT_REDIRECT_URL = '/admin/login/'
 
