@@ -776,14 +776,13 @@ h6 {
 }
 
 .page-title p {
-  font-size: 20px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.2;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
   margin-bottom: 25px;                                                   /* #hapo patamu*/
   flex: 1;
   text-align: justify;
   text-align-last: left;
-  padding: 20px;
 }
 
 .page-title  .mb-0 {
@@ -792,7 +791,6 @@ h6 {
   color: #4b5563;
   text-align: justify;
   text-align-last: left;
-  padding: 20px;
 }
 
 .page-title nav {
@@ -880,7 +878,6 @@ section,
   margin-bottom: 0;
   position: relative;
   z-index: 2;
-  padding: 20px;
 }
 
 @media (max-width: 575px) {
@@ -1054,7 +1051,7 @@ section,
 
 
 #poa p {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.4;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin-bottom: 25px;                                                    /*#hapo patamu*/
@@ -1066,15 +1063,15 @@ section,
 
 #poa .image-caption p {
   font-family: var(--default-font);
-  line-height: 1.4;
+  line-height: 1.2;
   color: #4b5563;
   text-align: justify;
   text-align-last: left;
 }
 
 #tab2 p {
-  font-size: 20px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.2;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin-bottom: 25px;                                                    /*hapo patamu*/
   flex: 1;
@@ -1084,7 +1081,7 @@ section,
 
 #tab2 .image-captio p {
   font-family: var(--default-font);
-  line-height: 1.4;
+  line-height: 1.2;
   color: #4b5563;
   text-align: justify;
   text-align-last: left;
@@ -1092,8 +1089,8 @@ section,
 
 
 #tab3 p {
-  font-size: 18px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.2;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin-bottom: 25px;                                                    /*hapo patamu*/
   flex: 1;
@@ -1103,15 +1100,15 @@ section,
 
 #tab3 .image-caption p {
   font-family: var(--default-font);
-  line-height: 1.4;
+  line-height: 1.2;
   color: #4b5563;
   text-align: justify;
   text-align-last: left;
 }
 
 #tab3 h2 {
-  font-size: 25px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.2;
   color: color-mix(in srgb, var(--default-color), transparent 0%);
   margin-bottom: 25px;                                                    
   flex: 1;
@@ -1121,8 +1118,8 @@ section,
 
 
 #tab2 h2 {
-  font-size: 25px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.2;
   color: color-mix(in srgb, var(--default-color), transparent 0%);
   margin-bottom: 25px;                                                    
   flex: 1;
@@ -1131,8 +1128,8 @@ section,
 }
 
 #tab4 p {
-  font-size: 19px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.2;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   margin-bottom: 25px;                                                    /*hapo patamu*/
   flex: 1;
@@ -1142,7 +1139,7 @@ section,
 
 #tab3 .description-wrapper p {
   font-family: var(--default-font);
-  line-height: 1.4;
+  line-height: 1.2;
   color: #4b5563;
   text-align: justify;
   text-align-last: left;
@@ -1161,8 +1158,8 @@ section,
 
 
 #tab4 h3 {
-  font-size: 25px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.2;
   color: color-mix(in srgb, var(--default-color), transparent 0%);
   margin-bottom: 25px;                                                    
   flex: 1;
@@ -1998,6 +1995,26 @@ section,
   color: var(--accent-color);
 }
 
+/* About page: make lead paragraphs match the page-title description font size and family */
+.about p.lead {
+  font-family: var(--default-font);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.about .check-list li {
+  font-size: 1rem; /* same as .lead */
+  font-weight: 200;
+  line-height: 1.1;
+  color: var(--default-color);
+}
+
+.about .check-list li i {
+  margin-right: 10px;
+  color: var(--accent-color);
+}
+
+
 .latest-posts .compact-post:hover .thumb img {
   transform: scale(1.03);
 }
@@ -2519,7 +2536,7 @@ section,
   font-size: 1.5rem;
 }
 
-.blog-details .article-body .main-content .content-block .intro-text .lead-paragraph {
+.blog-details .article-body .main-content .content-block .intro-textparagraph {
   font-size: 1.3rem;
   line-height: 1.7;
   color: var(--heading-color);
@@ -4311,13 +4328,22 @@ section,
 
 
 .team .member-info p {
-  font-size: 17px;
-  line-height: 1.4;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 25px;                                                    /*#hapo patamu*/
-  flex: 1;
+  font-size: 15px;
+  font-family: var(--default-font);
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+  color: color-mix(in srgb, var(--default-color), transparent 10%);
+  margin-top: 12px;
+  margin-bottom: 0;
   text-align: justify;
+  text-justify: inter-word;
   text-align-last: left;
+  word-spacing: 0.05em;
+  font-weight: 400;
+}
+
+.team .member-info p:not(:last-child) {
+  margin-bottom: 12px;
 }
 
 
@@ -4340,6 +4366,10 @@ section,
 
   .team .team-member .member-info p {
     font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    text-align: justify;
+    text-align-last: left;
   }
 }
 
@@ -5082,11 +5112,6 @@ section,
   }
 }
 
-#tab7 {
-  
-  
-}
-
 #tab7 .image-description-container {
   display: flex;
   flex-direction: column;
@@ -5119,4 +5144,35 @@ section,
 
 #tab7 .image-wrapper > img:hover {
   transform: scale(1.02);
+}
+
+/* Custom Seamless Marquee (Left to Right) */
+.custom-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-wrapper {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  /* Left to right animation */
+  animation: marqueeLeftToRight linear infinite;
+}
+
+.custom-marquee:hover .marquee-wrapper {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  flex-shrink: 0;
+  height: auto;
+  /* Width and Margin are calculated dynamically by JS to perfectly match the original Swiper configuration without changing any layout or design. */
+}
+
+/* Left to right means it starts pushed left (-50%) and moves to the right (0%) */
+@keyframes marqueeLeftToRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }

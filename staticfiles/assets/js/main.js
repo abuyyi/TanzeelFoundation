@@ -129,3 +129,93 @@
   new PureCounter();
 
 })();
+
+/**
+ * Seamless Infinite Marquee Logic (Left to Right)
+ * Preserves exact original layout, classes, and breakpoints.
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  const sliders = document.querySelectorAll('.custom-marquee');
+  
+  sliders.forEach(slider => {
+    const wrapper = slider.querySelector('.marquee-wrapper');
+    if (!wrapper) return;
+    
+    // Store original items without any previous clones
+    const originalSlides = Array.from(wrapper.children).filter(child => !child.classList.contains('marquee-clone'));
+
+    const setupMarquee = () => {
+      // 1. Clean up old clones (important for resizing)
+      Array.from(wrapper.children).forEach(child => {
+        if (child.classList.contains('marquee-clone')) {
+          wrapper.removeChild(child);
+        }
+      });
+
+      const containerWidth = slider.offsetWidth;
+      if (containerWidth === 0) return;
+
+      // 2. Exact Swiper breakpoints logic to maintain original appearance perfectly
+      let slidesPerView = 1;
+      let spaceBetween = 40;
+      const winWidth = window.innerWidth;
+      
+      if (winWidth >= 1200) {
+        slidesPerView = 2.2;
+        spaceBetween = 40;
+      } else if (winWidth >= 768) {
+        slidesPerView = 1.5;
+        spaceBetween = 30;
+      }
+
+      // Calculate width for each slide exactly as Swiper did
+      const slideWidth = (containerWidth - (spaceBetween * (slidesPerView - 1))) / slidesPerView;
+
+      let originalWidth = 0;
+      originalSlides.forEach(slide => {
+        slide.style.width = `${slideWidth}px`;
+        slide.style.marginRight = `${spaceBetween}px`;
+        slide.style.flexShrink = '0';
+        originalWidth += slideWidth + spaceBetween;
+      });
+
+      if (originalWidth === 0) return;
+
+      // 3. Fill screen width to avoid gaps if there are very few items
+      let currentSetWidth = originalWidth;
+      while (currentSetWidth < containerWidth && currentSetWidth > 0) {
+        originalSlides.forEach(slide => {
+          const clone = slide.cloneNode(true);
+          clone.classList.add('marquee-clone');
+          clone.setAttribute('aria-hidden', 'true');
+          wrapper.appendChild(clone);
+        });
+        currentSetWidth += originalWidth;
+      }
+
+      // 4. Mirror track for seamless -50% CSS transition
+      const firstHalfSlides = Array.from(wrapper.children);
+      firstHalfSlides.forEach(slide => {
+        const clone = slide.cloneNode(true);
+        clone.classList.add('marquee-clone');
+        clone.setAttribute('aria-hidden', 'true');
+        wrapper.appendChild(clone);
+      });
+      
+      // 5. Animation Speed 
+      // Current set width determines duration to keep speed constant
+      const speedPixelsPerSecond = 50; 
+      const duration = currentSetWidth / speedPixelsPerSecond;
+      wrapper.style.animationDuration = `${duration}s`;
+    };
+
+    // Use setTimeout to ensure container has rendered its width
+    setTimeout(setupMarquee, 100);
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(setupMarquee, 250);
+    });
+  });
+});

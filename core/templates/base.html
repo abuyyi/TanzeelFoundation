@@ -5,14 +5,20 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Tanzeel Foundation</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Tanzeel Foundation | Official Website</title>
+
+<meta name="description" content="Tanzeel Foundation provides quality Quranic education and community support in Tanzania.">
+<meta name="keywords" content="Tanzeel, Tanzeel Foundation, TanzeelFoundation Tanzania, tanzeel">
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  {% if site_settings.favicon %}
+    <link href="{{ site_settings.favicon.url }}" rel="icon">
+  {% else %}
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  {% endif %}
   <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
+  
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
